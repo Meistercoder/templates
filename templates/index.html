@@ -1,0 +1,12 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block inhalt %}
+
+{{ craft.entries.section('homepage').one().body }}}}
+
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
+
+{% endblock %}
