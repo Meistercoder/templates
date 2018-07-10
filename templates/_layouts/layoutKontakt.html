@@ -12,15 +12,38 @@
 
 
 <body>
+<div class="sticky-top">
+  <img src="{{ craft.assets.filename('chanceLogo.png').one().getUrl('bookOverview') }}" alt="Logo" width="160" height="80" >
+</div>
+
+  <nav class="navbar navbar-expand-md fixed-top navbar navbar-light bg-light">
+   <!-- Brand -->
+   <a class="navbar-brand" href="http://craft.dev">
+  </a>
+
+   <!-- Toggler/collapsibe Button -->
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+     <span class="navbar-toggler-icon" style="color:black;"></span>
+   </button>
+
+   <!-- Navbar links -->
+   <div class="collapse navbar-collapse" id="collapsibleNavbar">
+     <ul class="navbar-nav">
+       <li class="nav-item">
+         <a class="nav-link" href="http://craft.dev/uber-uns/arbeitsweise" style="color:black; font-weight: bold;"> Arbeitsweise </a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="http://craft.dev/contact" style="color:black; font-weight: bold;"> Kontakt </a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="#">Link</a>
+       </li>
+     </ul>
+   </div>
+ </nav>
 
 
-"{% block block1 %} {% endblock %}
-
-
-	<div class="container">
-		<img src="{{ image.getUrl() }}" width="{{ image.getWidth() }}" 				height="{{ image.getHeight	() }}">
-	</div>
-
+  {% block block1 %} {% endblock %}
 
 
 

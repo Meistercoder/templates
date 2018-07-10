@@ -5,7 +5,11 @@
 
 {% block inhalt %}
 
-{{ craft.entries.section('homepage').one().body }}}}
+<div class="container-fluid" style="background: grey;">
+
+{{ craft.entries.section('homepage').one().body }}
+
+</div>
 
 {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
 
