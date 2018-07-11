@@ -32,3 +32,24 @@
  font-family: sourceSansProSemiboldItalic;
  src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
 }
+ #logo {
+   left: 5%;
+ }
+
+
+ @media all and (min-width: 700)  {
+   #logo { left: 8%;
+     }
+   }
+
+
+ @media all and (min-width: 1000px)  {
+   #logo { left: 10%;
+     }
+   }
+
+
+@media all and (min-width: 1300px)  {
+  #logo { left: 20%;
+    }
+  }

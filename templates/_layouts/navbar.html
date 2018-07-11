@@ -1,33 +1,25 @@
-<div class="container-fluid">
+<!-- navbar-light links the colors with the background image -->
+  <nav class="navbar navbar-expand-md fixed-top navbar-light" data-toggle="affix" style="background-color: #f8f5f2; padding-top: 0px; margin-top: -10px;">
 
-    <div class="row">
+    <!-- d-sm-flex: creates a flexbox for small screens;
+         flex-sm-nowrap: steht dafür, das auf kleinen Bildschirmen
+                die Items nicht in den Container gepackt werden sollen, sondern durchgängig angezeigt werden
+          mx-auto: Additionally, Bootstrap also includes an .mx-auto class for horizontally centering
+                   fixed-width block level content—that is, content that has display: block and a width
+                   set—by setting the horizontal margins to auto.
+          d-block: Use .d-block to simply set an element's display property to block-->
 
-  <!-- navbar-light links the colors with the background image -->
-  <nav class="navbar navbar-expand-md fixed-top navbar-light" data-toggle="affix" style="padding-top: 0px; margin-top: -10px;">
+    <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+   <!-- Chance Logo -->
 
-     <!-- d-sm-flex: creates a flexbox for small screens;
-          flex-sm-nowrap: steht dafür, das auf kleinen Bildschirmen
-                 die Items nicht in den Container gepackt werden sollen, sondern durchgängig angezeigt werden
-           mx-auto: Additionally, Bootstrap also includes an .mx-auto class for horizontally centering
-                    fixed-width block level content—that is, content that has display: block and a width
-                    set—by setting the horizontal margins to auto.
-           d-block: Use .d-block to simply set an element's display property to block-->
 
-    <!-- Chance Logo -->
-    <div class="col-3">
-    <a class="navbar-brand" href="http://craft.dev" style="float: right;">
-      <img src="{{ craft.assets.filename('chanceLogo.png').one().getUrl() }}" alt="Logo" width="160" height="160" >
-   </a>
-  </div>
-
-  <div class="col-9">
-
+   <!-- Toggler/collapsibe Button -->
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
      <span class="navbar-toggler-icon" style="color:black;"></span>
    </button>
 
    <!-- Navbar links -->
-   <div class="collapse navbar-collapse" id="collapsibleNavbar" style="font-family: nerisBlack; margin-left: 20px;" >
+   <div class="collapse navbar-collapse" id="collapsibleNavbar" style="font-family: nerisBlack; padding-left: 200px; padding-top: 40px;" >
      <ul class="navbar-nav">
        <li class="nav-item">
          <a class="nav-link" href="http://craft.dev/uber-uns/arbeitsweise" style="color:black; font-weight: bold;"> HOME </a>
@@ -52,11 +44,14 @@
       </li>
 
      </ul>
- </div>
-
+   </div>
+   </div>
  </nav>
-</div>
-</div>
+
+
+ <a href="http://craft.dev" style="position:fixed; top:0; z-index:9999;" id="logo">
+   <img src="{{ craft.assets.filename('chanceLogo.png').one().getUrl() }}" width="160" height="160" >
+</a>
 
  <div class="container-fluid" style="padding-bottom: 80px;">
    <img class="img-fluid" src="{{ craft.assets.filename('Hintergrund.png').one().getUrl() }}" height="400">
