@@ -1,0 +1,34 @@
+@font-face {
+ font-family: nerisBlack;
+ src: url('http://localhost/craft/public/fonts/neris-black.otf');
+}
+
+@font-face {
+ font-family: belotaBoldItalic;
+ src: url('http://localhost/craft/public/fonts/bellota-bold-italic.otf');
+}
+
+@font-face {
+ font-family: nerisLight;
+ src: url('http://localhost/craft/public/fonts/neris-light.otf');
+}
+
+@font-face {
+ font-family: sourceSansProLight;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf');
+}
+
+@font-face {
+ font-family: sourceSansProLightItalic;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light-italic.ttf');
+}
+
+@font-face {
+ font-family: sourceSansProSemibold;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold.ttf');
+}
+
+@font-face {
+ font-family: sourceSansProSemiboldItalic;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
+}
