@@ -20,20 +20,22 @@
 
   {% include "_layouts/navbar" %}
 
-  <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 80px;">
+  <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 200px;">
+
 
     <div class="row">
-      <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" height="500" >
 
-    <div class="col-2"> </div>
+    <div class="col-md-2 col-lg-3">
+    </div>
 
-   <div class="col-8">
+   <div class="col-md-8 col-lg-6">
 
 
-
-    <p id="text1"> <h1> Für Mensch und Schöpfung </h1> Chance e.V. ist eine christliche, soziale und ökologische Initiative für
+     <div id="text1">
+      <h1 style="padding-bottom: 40px"> Für Mensch und Schöpfung </h1>   <p> Chance e.V. ist eine christliche, soziale und ökologische Initiative für
       nachhaltige Entwicklung im peruanischen Amazonasgebiet und bei den
       Maasai in Kenia. </p>
+    </div>
 </div>
 </div>
  </div>
@@ -41,6 +43,7 @@
  <div class="container-fluid">
    <img class="img-fluid" src="{{ craft.assets.filename('hintergrund_home.jpg').one().getUrl() }}" >
 </div>
+
 
   {% block block1 %} {% endblock %}
 

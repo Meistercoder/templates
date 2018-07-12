@@ -50,12 +50,16 @@ body {
   background-color: #f8f5f2;
 }
 
-
-
-#text1 {
-  margin-top: -80%;
+p {
+  font-size: 24px;
 }
 
+.container-fluid {
+  background-image:  url(" http://localhost/craft/bilder/welle.png ");
+  background-size: 40%;
+  background-repeat: no-repeat;
+
+}
 
 .rectangle {
   height: 80px;
