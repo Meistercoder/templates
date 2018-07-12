@@ -1,7 +1,9 @@
 @font-face {
- font-family: nerisBlack;
- src: url('http://localhost/craft/public/fonts/neris-black.otf');
+ font-family: 'ueberschrift1';
+ src: url('http://localhost/craft/public/fonts/nerisBlack.otf');
 }
+
+
 
 @font-face {
  font-family: belotaBoldItalic;
@@ -19,11 +21,9 @@
 }
 
 @font-face {
- font-family: Anleser;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf');
- font-size: 24px;
+ font-family: 'Anleser';
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf') format('ttf');
 }
-
 
 @font-face {
  font-family: sourceSansProLightItalic;
@@ -40,17 +40,22 @@
  src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
 }
 
+
+
 h1 {
   color: #ed6e2c;
-  font-family: nerisBlack;
-  font-size: 52px;
-  font-weight: bold;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, 0%);
 }
+
+body {
+  background-color: #f8f5f2;
+}
+
+
+
+#text1 {
+  margin-top: -80%;
+}
+
 
 .rectangle {
   height: 80px;
