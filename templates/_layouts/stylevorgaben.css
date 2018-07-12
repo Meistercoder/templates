@@ -19,6 +19,13 @@
 }
 
 @font-face {
+ font-family: Anleser;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf');
+ font-size: 24px;
+}
+
+
+@font-face {
  font-family: sourceSansProLightItalic;
  src: url('http://localhost/craft/public/fonts/source-sans-pro-light-italic.ttf');
 }
@@ -32,24 +39,19 @@
  font-family: sourceSansProSemiboldItalic;
  src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
 }
- #logo {
-   left: 5%;
- }
 
+h1 {
+  color: #ed6e2c;
+  font-family: nerisBlack;
+  font-size: 52px;
+  font-weight: bold;
 
- @media all and (min-width: 700)  {
-   #logo { left: 8%;
-     }
-   }
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%);
+}
 
-
- @media all and (min-width: 1000px)  {
-   #logo { left: 10%;
-     }
-   }
-
-
-@media all and (min-width: 1300px)  {
-  #logo { left: 20%;
-    }
-  }
+.rectangle {
+  height: 80px;
+  background-color: #f8f5f2;
