@@ -54,19 +54,22 @@ p {
   font-size: 24px;
 }
 
-
+/* Der graue Balken für die Navbar wird damit gestylt */
 .rectangle {
   height: 80px;
   background-color: #f8f5f2; }
 
+/*Das geforderte Padding der Navbar*/
 .dropdown-menu {
   padding-top: 30px;
   padding-bottom: 30px;
+  border-radius: 0 0 0 0;
+  border: none;
 }
 
   .dropdown-menu>li {
-    margin-top: -1px;
-    margin-bottom: -1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
   }
 
@@ -79,28 +82,15 @@ p {
       left: 100%;
       margin-top: -100px;
       margin-left: -1px;
-      -webkit-border-radius: 0 6px 6px 6px;
-      -moz-border-radius: 0 6px 6px;
-      border-radius: 0 6px 6px 6px;
+      border-radius: 0 0 0 0;
+      background-color: #e3d7cb;
   }
 
   .dropdown-submenu:hover>.dropdown-menu {
       display: block;
   }
 
-  .dropdown-submenu>a:after {
-      display: block;
-      content: " ";
-      float: right;
-      width: 0;
-      height: 0;
-      border-color: transparent;
-      border-style: solid;
-      border-width: 5px 0 5px 5px;
-      border-left-color: #ccc;
-      margin-top: 15px;
-      margin-right: -10px;
-  }
+
 
   .dropdown-submenu:hover>a:after {
       border-left-color: #fff;
@@ -108,12 +98,4 @@ p {
 
   .dropdown-submenu.pull-left {
       float: none;
-  }
-
-  .dropdown-submenu.pull-left>.dropdown-menu {
-      left: -100%;
-      margin-left: 10px;
-      -webkit-border-radius: 6px 0 6px 6px;
-      -moz-border-radius: 6px 0 6px 6px;
-      border-radius: 6px 0 6px 6px;
   }
