@@ -20,10 +20,13 @@
 
   {% include "_layouts/navbar" %}
 
-  <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 200px;">
+  <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 200px; position: relative;">
+
 
 
     <div class="row">
+
+      <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
     <div class="col-md-2 col-lg-3">
     </div>
@@ -41,10 +44,9 @@
  </div>
 
  <div class="container-fluid">
-   <img class="img-fluid" src="{{ craft.assets.filename('hintergrund_home.jpg').one().getUrl() }}" >
+   <img class="img-fluid" src="{{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }}" >
 </div>
 
-<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="margin-top: 5%; position: absolute; float:left; width: 40%; top: 0; z-index: -999;">
 
 
   {% block block1 %} {% endblock %}
