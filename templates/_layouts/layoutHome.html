@@ -18,7 +18,7 @@
 
 
 <body>
-
+  
   {% include "_layouts/navbar" %}
 
   <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 200px; position: relative;">
@@ -29,28 +29,28 @@
 
       <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
-    <div class="col-sm-2 col-md-3 col-lg-4">
+      <div class="col-sm-2 col-md-3 col-lg-4">
+      </div>
+
+      <div class="col-sm-8 col-md-6 col-lg-4">
+
+
+        <div id="text1" style="padding-bottom:80px; ">
+          <h1> Für Mensch und Schöpfung </h1>   <p> Chance e.V. ist eine christliche, soziale und ökologische Initiative für
+            nachhaltige Entwicklung im peruanischen Amazonasgebiet und bei den
+            Maasai in Kenia. </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-   <div class="col-sm-8 col-md-6 col-lg-4">
-
-
-     <div id="text1" style="padding-bottom:80px; ">
-      <h1> Für Mensch und Schöpfung </h1>   <p> Chance e.V. ist eine christliche, soziale und ökologische Initiative für
-      nachhaltige Entwicklung im peruanischen Amazonasgebiet und bei den
-      Maasai in Kenia. </p>
+    <div class="container-fluid">
+      <img class="img-fluid" src="{{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }}" >
     </div>
-</div>
-</div>
- </div>
-
- <div class="container-fluid">
-   <img class="img-fluid" src="{{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }}" >
-</div>
 
 
 
-  {% block block1 %} {% endblock %}
+    {% block block1 %} {% endblock %}
 
-</body>
-</html>
+  </body>
+  </html>
