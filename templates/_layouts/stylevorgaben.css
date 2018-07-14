@@ -67,6 +67,15 @@ p {
   border: none;
 }
 
+.dropdown-item a {
+  color: #333333;
+}
+
+.dropdown-item:hover {
+  background-color: #e3d7cb;
+  color: #0062ae;
+}
+
 /* Der Abstand zwischen den einzelnen Links wird verkleinert von der Hauptleiste */
   .dropdown-menu>li {
     margin-top: 0px;
@@ -82,7 +91,6 @@ p {
       height: 100%;
       margin-left: -1px;
       margin-top: -1px;
-
       border-radius: 0 0 0 0;
       background-color: #e3d7cb;
   }
@@ -92,11 +100,6 @@ p {
       display: block;
   }
 
-
-
-  .dropdown-submenu:hover>a:after {
-      border-left-color: #fff;
-  }
 
   .dropdown-submenu.pull-left {
       float: none;
