@@ -40,9 +40,15 @@
  src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
 }
 
+/* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
   padding-left: 0;
   padding-right: 0;
+}
+
+/* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+.Achter-Spaltenlayout {
+  max-width: 760px;">
 }
 
 h1 {
