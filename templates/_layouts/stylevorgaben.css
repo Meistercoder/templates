@@ -40,7 +40,10 @@
  src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
 }
 
-
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 h1 {
   color: #ed6e2c;
@@ -57,7 +60,8 @@ p {
 /* Der graue Balken für die Navbar wird damit gestylt */
 .rectangle {
   height: 80px;
-  background-color: #f8f5f2; }
+  background-color: #f8f5f2;
+  }
 
 /*Das geforderte Padding der Navbar*/
 .dropdown-menu {
