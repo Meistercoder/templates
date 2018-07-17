@@ -1,0 +1,22 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block block1 %}
+
+
+<div class="container" style="max-width: 1160px;">
+  <div class="card-deck">
+
+    {% for entry in craft.entries.section('uberUns') %}
+    <div class="col-md-6 col-lg-4">
+    <div class="card" style="  width: 360px; height: 436px; margin-bottom: 40px;">
+      <img class="card-img-top" src="{{ entry.bild.one().url }}" alt="Card image" height="240px">
+      <div class="card-body" style="padding-top: 0px;">
+        <p class="card-text">  <h3> {{  entry.title }} </h3>  {{ entry.body }}  </p>
+      </div>
+  </div>
+</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

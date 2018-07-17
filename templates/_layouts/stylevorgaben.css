@@ -22,7 +22,7 @@
 
 @font-face {
  font-family: 'Anleser';
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf') format('ttf');
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf') format('truetype');
 }
 
 @font-face {
@@ -32,7 +32,7 @@
 
 @font-face {
  font-family: sourceSansProSemibold;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold.ttf');
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold.ttf') format('truetype');
 }
 
 @font-face {
@@ -51,16 +51,29 @@
   max-width: 760px;">
 }
 
+h3 {
+  font-size: 24px;
+  color: #ed6e2c;
+  padding-bottom: 7px;
+}
+
+/*Die im Layout vereinbare copy-Schriftgröße */
+.card {
+  font-size: 18px;
+}
+
+@media (max-width: 992px) {
+   .card-deck {
+     data-toggle: collapse;
+   }
+}
+
 h1 {
   color: #ed6e2c;
 }
 
 body {
   background-color: #f8f5f2;
-}
-
-p {
-  font-size: 24px;
 }
 
 
