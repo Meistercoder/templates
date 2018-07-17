@@ -62,11 +62,12 @@ h3 {
   font-size: 18px;
 }
 
-@media (max-width: 992px) {
-   .card-deck {
-     data-toggle: collapse;
-   }
+.copy {
+  font-size: 18px;
+  line-height: 28px;
 }
+
+
 
 h1 {
   color: #ed6e2c;
@@ -82,6 +83,7 @@ body {
   height: 70px;
   background-color: #f8f5f2;
   }
+
 
   #collapsibleNavbar {
     margin-top: -40px;
