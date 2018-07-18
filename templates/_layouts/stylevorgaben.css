@@ -113,6 +113,14 @@ body {
 
   }
 
+/* Alle dropdownMenus, die ein nav-item als Vater haben, sollen beim hovern schon angezeigt werden */
+.nav-item:hover>.dropdown-menu {
+    display: block;
+    margin-top: -5px;
+    margin-left: -40%;
+    }
+
+
 /* Alle dropdown-menüs auswählen, die ein submenu als Vater haben
  (Im Code wird ein Untermenu zuvor mit einem Submenu bekanntgemacht)
  Also alles Untermenus werden ausgewählt. */
@@ -129,9 +137,4 @@ body {
 /* Block-Boxen nehmen die gesamte Breite des Elternelementes ein */
   .dropdown-submenu:hover>.dropdown-menu {
       display: block;
-  }
-
-
-  .dropdown-submenu.pull-left {
-      float: none;
   }
