@@ -1,44 +1,13 @@
-@font-face {
- font-family: 'ueberschrift1';
- src: url('http://localhost/craft/public/fonts/nerisBlack.otf');
-}
-
-
 
 @font-face {
- font-family: belotaBoldItalic;
- src: url('http://localhost/craft/public/fonts/bellota-bold-italic.otf');
+    font-family: 'source_sans_proSBdIt';
+    src: url('source-sans-pro-semibold-italic.woff2') format('woff2'),
+         url('source-sans-pro-semibold-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-@font-face {
- font-family: nerisLight;
- src: url('http://localhost/craft/public/fonts/neris-light.otf');
-}
-
-@font-face {
- font-family: sourceSansProLight;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf');
-}
-
-@font-face {
- font-family: 'Anleser';
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf') format('truetype');
-}
-
-@font-face {
- font-family: sourceSansProLightItalic;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light-italic.ttf');
-}
-
-@font-face {
- font-family: sourceSansProSemibold;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold.ttf') format('truetype');
-}
-
-@font-face {
- font-family: sourceSansProSemiboldItalic;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
-}
 
 /* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
@@ -61,7 +30,6 @@ h3 {
   font-size: 24px;
   color: #ed6e2c;
   padding-bottom: 7px;
-  font-family: sourceSansProSemibold;
 }
 
 /*Die im Layout vereinbare copy-Schriftgröße */
@@ -78,6 +46,7 @@ h3 {
 
 h1 {
   color: #ed6e2c;
+  font-family: sourceSansProSemibold;
 }
 
 body {
