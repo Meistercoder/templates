@@ -51,10 +51,17 @@
   max-width: 760px;">
 }
 
+/* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+.Zwoelfer-Spaltenlayout {
+  max-width: 1160px;
+  padding-bottom: 50px;
+}
+
 h3 {
   font-size: 24px;
   color: #ed6e2c;
   padding-bottom: 7px;
+  font-family: sourceSansProSemibold;
 }
 
 /*Die im Layout vereinbare copy-Schriftgröße */

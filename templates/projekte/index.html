@@ -5,7 +5,7 @@
 {% block headerbildPosition1 %}
 
 <div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }} ">
+  <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }} ">
 </div>
 
 
@@ -13,7 +13,10 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 150px; position: relative;">
 
 
   <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
@@ -21,9 +24,11 @@
 
   <div class="container Achter-Spaltenlayout">
     <div id="text1" style="padding-bottom:80px; ">
-      <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
-      <p> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
-        Motiviert von der Liebe Gottes für Mensch und Natur.
+      <h1 style="padding-bottom: 30px;"> Unsere Projekte haben die Verbesserung der ganzheitlichen Lebensqualität der Menschen zum Ziel  </h1>
+      <p> Sie fördern die kulturelle, wirtschaftliche und ökologische Nachhaltigkeit, bekämpfen die Armut und stärken die Selbstbestimmung. In sozialen und
+        ökologischen Krisengebieten richten unsere Projekte sich in erster Linie an indigene
+        Gemeinschaften, Frauen, Kinder, Jugendliche und Randgruppen, die so für ihre Zukunft selbst aktiv werden können.
+
       </p>
       </div>
     </div>
@@ -45,4 +50,6 @@
     {% endfor %}
   </div>
 </div>
+
+
 {% endblock %}
