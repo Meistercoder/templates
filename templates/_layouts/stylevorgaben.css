@@ -1,8 +1,27 @@
 
 @font-face {
     font-family: 'source_sans_proSBdIt';
-    src: url('source-sans-pro-semibold-italic.woff2') format('woff2'),
-         url('source-sans-pro-semibold-italic.woff') format('woff');
+    src: url('fonts/source-sans-pro-semibold-italic.woff2') format('woff2'),
+         url('fonts/source-sans-pro-semibold-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nerisblack';
+    src: url('fonts/nerisblack-webfont.woff2') format('woff2'),
+         url('fonts/nerisblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'source_sans_prolight';
+    src: url('fonts/source-sans-pro-light-webfont.woff2') format('woff2'),
+         url('fonts/source-sans-pro-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -26,11 +45,26 @@
   padding-bottom: 50px;
 }
 
+
+h1 {
+  font-size: 52px;
+  font-weight: bold;
+  color: #ed6e2c;
+  font-family: 'nerisblack';
+}
+
 h3 {
   font-size: 24px;
   color: #ed6e2c;
   padding-bottom: 7px;
 }
+
+#Anleser {
+  font-size: 24px;
+  font-family: 'source_sans_prolight';
+  color: #333333;
+}
+
 
 /*Die im Layout vereinbare copy-Schriftgröße */
 .card {
@@ -44,10 +78,6 @@ h3 {
 
 
 
-h1 {
-  color: #ed6e2c;
-  font-family: sourceSansProSemibold;
-}
 
 body {
   background-color: #f8f5f2;
