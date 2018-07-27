@@ -23,7 +23,8 @@
     "vlucas/phpdotenv": "^2.4.0",
     "craftcms/ckeditor": "1.0.0-beta.2",
     "mikestecker/craft-videoembedder": "1.0.9",
-    "benjamminf/craft-embedded-assets": "1.0.2"
+    "benjamminf/craft-embedded-assets": "1.0.2",
+    "superbig/craft3-mobiledetect": "1.0.1"
   },
   "autoload": {
     "psr-4": {

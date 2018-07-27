@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7340a7a69d7a3ab4f85dc4fda627f8d1",
+    "content-hash": "8ee75fcd323568f51317374b9645f4e0",
     "packages": [
         {
             "name": "benjamminf/craft-embedded-assets",
@@ -1379,6 +1379,49 @@
             "time": "2018-04-12T19:07:27+00:00"
         },
         {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.8.32",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/ec69a0c381b5fe44547680d3c7db6ced08e5abb3",
+                "reference": "ec69a0c381b5fe44547680d3c7db6ced08e5abb3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Mobile_Detect.php"
+                ],
+                "psr-0": {
+                    "Detection": "namespaced/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "time": "2018-06-03T13:13:04+00:00"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v2.0.12",
             "dist": {
@@ -1686,6 +1729,60 @@
                 "phra"
             ],
             "time": "2015-10-13T18:44:15+00:00"
+        },
+        {
+            "name": "superbig/craft3-mobiledetect",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sjelfull/craft3-mobiledetect/zipball/f6eba7f9ecb34363ab5c0fbede538e3268896c8c",
+                "reference": "f6eba7f9ecb34363ab5c0fbede538e3268896c8c",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "~3.0.0-beta.23",
+                "mobiledetect/mobiledetectlib": "^2.8"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "MobileDetect",
+                "handle": "mobile-detect",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/sjelfull/craft3-mobiledetect/master/CHANGELOG.md",
+                "components": {
+                    "mobileDetectService": "superbig\\mobiledetect\\services\\MobileDetectService"
+                },
+                "class": "superbig\\mobiledetect\\MobileDetect"
+            },
+            "autoload": {
+                "psr-4": {
+                    "superbig\\mobiledetect\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Superbig",
+                    "homepage": "https://superbig.co"
+                }
+            ],
+            "description": "Use Mobile_Detect for detecting mobile devices (including tablets)",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "mobiledetect"
+            ],
+            "support": {
+                "docs": "https://github.com/sjelfull/craft3-mobiledetect/blob/master/README.md",
+                "issues": "https://github.com/sjelfull/craft3-mobiledetect/issues"
+            },
+            "time": "2017-11-06T12:28:19+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -15,18 +15,21 @@
 
   <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
     <!-- Chance Logo -->
-
-    <a class="navbar-brand"  href="http://localhost/craft/web/">
+    <a class="navbar-brand" id="logo"  href="http://localhost/craft/web/">
       <img src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" alt="Logo" width="160" height="120">
     </a>
 
+
+
     <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <button class="navbar-toggler" id="button" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
       <span class="navbar-toggler-icon" style="color:black;"></span>
     </button>
 
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar"  >
+
+
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/craft/web/" style="color:black; font-weight: bold;"> HOME </a>
@@ -36,7 +39,7 @@
             <a class="nav-link" data-toggle="dropdown disabled"
             href="http://localhost/craft/web/ueberUns" style="color:black; font-weight: bold;"> ÜBER UNS </a>
 
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <ul class="dropdown-menu multi-level " role="menu" aria-labelledby="dropdownMenu">
               <li class="dropdown-item"> <a href="#"> Arbeitsweise</a> </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"> <a href="#"> Konzept</a> </li>
