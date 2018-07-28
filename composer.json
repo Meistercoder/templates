@@ -24,7 +24,9 @@
     "craftcms/ckeditor": "1.0.0-beta.2",
     "mikestecker/craft-videoembedder": "1.0.9",
     "benjamminf/craft-embedded-assets": "1.0.2",
-    "superbig/craft3-mobiledetect": "1.0.1"
+    "superbig/craft3-mobiledetect": "1.0.1",
+    "pdaleramirez/category-tree": "v1.0.5",
+    "olivestudio/craft-olivemenus": "1.0.0"
   },
   "autoload": {
     "psr-4": {

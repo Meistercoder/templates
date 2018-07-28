@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ee75fcd323568f51317374b9645f4e0",
+    "content-hash": "5ad6909e28badf367fbd648fac9022e0",
     "packages": [
         {
             "name": "benjamminf/craft-embedded-assets",
@@ -1422,6 +1422,58 @@
             "time": "2018-06-03T13:13:04+00:00"
         },
         {
+            "name": "olivestudio/craft-olivemenus",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OliveStudio/olivemenus/zipball/d6346eac389e6ca99f89ed94ddd2af7fa55e368a",
+                "reference": "d6346eac389e6ca99f89ed94ddd2af7fa55e368a",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Olivemenus",
+                "handle": "olivemenus",
+                "hasCpSettings": false,
+                "hasCpSection": true,
+                "changelogUrl": "https://raw.githubusercontent.com/OliveStudio/olivemenus/master/CHANGELOG.md",
+                "components": {
+                    "olivemenusService": "olivestudio\\olivemenus\\services\\OlivemenusService"
+                },
+                "class": "olivestudio\\olivemenus\\Olivemenus"
+            },
+            "autoload": {
+                "psr-4": {
+                    "olivestudio\\olivemenus\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olive Studio",
+                    "homepage": "https://www.olivestudio.net/"
+                }
+            ],
+            "description": "A powerful menus plugin for Craft 3 built for the need of simplicity and flexibility",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "olivemenus"
+            ],
+            "support": {
+                "docs": "https://github.com/OliveStudio/olivemenus/blob/master/README.md",
+                "issues": "https://github.com/OliveStudio/olivemenus/issues"
+            },
+            "time": "2018-07-26T12:40:02+00:00"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v2.0.12",
             "dist": {
@@ -1463,6 +1515,54 @@
                 "random"
             ],
             "time": "2018-04-04T21:24:14+00:00"
+        },
+        {
+            "name": "pdaleramirez/category-tree",
+            "version": "1.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pdaleramirez/category-tree/zipball/fb61a9bb2c85eb8caf5f4b297d134f5bafe0e89b",
+                "reference": "fb61a9bb2c85eb8caf5f4b297d134f5bafe0e89b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Category Tree",
+                "handle": "category-tree",
+                "schemaVersion": "1",
+                "changelogUrl": "https://raw.githubusercontent.com/pdaleramirez/category-tree/master/CHANGELOG.md",
+                "class": "pdaleramirez\\categoryTree\\CategoryTree"
+            },
+            "autoload": {
+                "psr-4": {
+                    "pdaleramirez\\categoryTree\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Precious Dale Ramirez",
+                    "homepage": "https://github.com/pdaleramirez"
+                }
+            ],
+            "description": "Builds a category tree structure for your menu and links.",
+            "keywords": [
+                "category tree",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/pdaleramirez/category-tree/blob/master/README.md",
+                "issues": "https://github.com/pdaleramirez/category-tree/issues"
+            },
+            "time": "2018-04-04T04:03:33+00:00"
         },
         {
             "name": "pixelandtonic/imagine",
