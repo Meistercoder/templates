@@ -2,14 +2,6 @@
 {% extends "_layouts/layoutHome.html" %}
 
 
-{% block headerbildPosition1 %}
-
-<div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }} ">
-</div>
-
-
-{% endblock %}
 
 {% block block1 %}
 
@@ -22,7 +14,7 @@
     <div class="card" style="width: 360px; height: 436px; margin-bottom: 40px;">
       <img class="card-img-top" src="{{ entry.bild.one().url }}" alt="Card image" height="240px">
       <div class="card-body" style="padding-top: 0px;">
-        <p class="card-text">  <h3> {{  entry.title }} </h3>  {{ entry.body }}  </p>
+        <p class="card-text">  <h3> sdf {{  entry.title }} </h3>  {{ entry.body }}  </p>
       </div>
   </div>
 </div>
