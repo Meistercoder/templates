@@ -16,7 +16,7 @@
 
 <div class="container" style="max-width: 1160px;">
   <div class="card-deck">
-
+    <div class="row">
     {% for entry in craft.entries.section('ueberUns').all() %}
     <div class="col-md-6 col-lg-4">
     <div class="card" style="width: 360px; height: 436px; margin-bottom: 40px;">
@@ -27,6 +27,7 @@
   </div>
 </div>
     {% endfor %}
+  </div>
   </div>
 </div>
 {% endblock %}

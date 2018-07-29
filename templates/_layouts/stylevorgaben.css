@@ -10,9 +10,9 @@
 
 @font-face {
     font-family: 'nerisblack';
-    src: url('fonts/nerisblack-webfont.woff2') format('woff2'),
-         url('fonts/nerisblack-webfont.woff') format('woff');
-    font-weight: normal;
+    src: url('http://localhost/craft/bilder/fonts/nerisblack-webfont.woff2') format('woff2'),
+         url('http://localhost/craft/bilder/fonts/nerisblack-webfont.woff2/nerisblack-webfont.woff') format('woff');
+    font-weight: bold;
     font-style: normal;
 
 }
@@ -26,7 +26,6 @@
     font-style: normal;
 
 }
-
 
 /* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
@@ -48,7 +47,14 @@
 
 h1 {
   font-size: 52px;
-  font-weight: bold;
+  line-height: 60px;
+  color: #ed6e2c;
+  font-family: "nerisblack";
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 46px;
   color: #ed6e2c;
   font-family: 'nerisblack';
 }
@@ -65,6 +71,9 @@ h3 {
   color: #333333;
 }
 
+@media all and (max-width: 700px)  {
+  h1 { font-size: 60%;   }
+  }
 
 /*Die im Layout vereinbare copy-Schriftgröße */
 .card {

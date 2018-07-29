@@ -11,9 +11,8 @@
 
 <div class="container Achter-Spaltenlayout">
   <div style="padding-bottom:80px; ">
-    <h1 style="padding-bottom: 30px;"> Unsere Zielsetzung: Ganzheitliche, nachhaltige
-      und von den Menschen selbst bestimmte Entwicklung  </h1>
-    <p id="Anleser"> Vier Begriffe machen deutlich, wie wir dieses Ziel erreichen. </p>
+    <h1 style="padding-bottom: 30px;"> Die Arbeit von Chance e.V. ist christlich, sozial und ökologisch </h1>
+    <p id="Anleser"> Sie beruht auf drei Prinzipien, die den Rahmen und die Natur unseres Engagements in allen seinen Aspekten bestimmen. </p>
     </div>
   </div>
 </div>
@@ -23,7 +22,7 @@
 
   <div class="row">
 
-  {% set entries = craft.entries.section('ueberUns').slug('arbeitsweise').one().children().all() %}
+  {% set entries = craft.entries.section('ueberUns').slug('konzept').one().children().all() %}
 
   {# If there are any entries, loop through them #}
   {% if entries | length %}
@@ -49,7 +48,7 @@
 </div>
 
 <div class="container-fluid no-padding">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-arbeitsweise_farm.jpg').one().getUrl() }} ">
+  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-konzept-familie.jpg').one().getUrl() }} ">
 </div>
 
 {% endblock %}
