@@ -1,0 +1,38 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+{% block headerbildPosition1 %}
+
+<div class="container-fluid no-padding" style="padding-top: 70px;">
+  <img class="img-fluid" src=" {{ craft.assets.filename('chance-spenden-header.jpg').one().getUrl() }} ">
+</div>
+
+
+{% endblock %}
+
+{% block block1 %}
+
+
+
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 80px; position: relative;">
+
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+
+  <div class="container Achter-Spaltenlayout">
+    <div id="text1" style="padding-bottom:80px; ">
+      <h1 style="padding-bottom: 30px;"> Mit Ihrer Spende geben Sie Chancen – direkt, einfach und effektiv.   </h1>
+      <p id="anleser"> Verändern Sie das Leben einzelner Kinder und Familien sowie ganzer Dorfgemeinschaften, bekämpfen Sie Armut und bewahren Sie die Schöpfung.
+        Unterstützen Sie Chance e.V. mit einer Spende und werden Sie als Chancen-
+        Geber Teil unseres internationalen Teams für positive Veränderung und nachhaltige Entwicklung.
+
+      </p>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

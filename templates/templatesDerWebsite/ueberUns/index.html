@@ -1,0 +1,48 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+{% block headerbildPosition1 %}
+
+<div class="container-fluid no-padding" style="padding-top: 70px;">
+  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }} ">
+</div>
+
+
+{% endblock %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 50px; position: relative;">
+
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+
+  <div class="container Achter-Spaltenlayout">
+    <div id="text1" style="padding-bottom:80px; ">
+      <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
+      <p id="anleser"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
+        Motiviert von der Liebe Gottes für Mensch und Natur.
+      </p>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container" style="max-width: 1160px;">
+  <div class="card-deck">
+
+    {% for entry in craft.entries.section('uberUns') %}
+    <div class="col-md-6 col-lg-4">
+    <div class="card" style="  width: 360px; height: 436px; margin-bottom: 40px;">
+      <img class="card-img-top" src="{{ entry.bild.one().url }}" alt="Card image" height="240px">
+      <div class="card-body" style="padding-top: 0px;">
+        <p class="card-text">  <h3> {{  entry.title }} </h3>  {{ entry.body }}  </p>
+      </div>
+  </div>
+</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

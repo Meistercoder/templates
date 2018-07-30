@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+       
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Titel</th>
+        <th>Beschreibung</th>
+        <th>ISBN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ craft.entries.section('books').one().title }}</td>
+        <td>{{ craft.entries.section('books').one().beschreibung }}</td>
+        <td>{{ craft.entries.section('books').one().isbn }}</td>
+      </tr>
+      <tr>
+        <td>{% block content2 %}       {% endblock %}</td>
+        <td>{% block content %}       {% endblock %}</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>{{ craft.entries.section('books').inReverse().one().title }}</td>
+        <td>{{ craft.entries.section('books').inReverse().one().beschreibung }}</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{{ craft.assets.filename(Butter1) }}
+    </body>
+</html>

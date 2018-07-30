@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ad6909e28badf367fbd648fac9022e0",
+    "content-hash": "bdd280b5ac9552871e95fc39a3654867",
     "packages": [
         {
             "name": "benjamminf/craft-embedded-assets",
@@ -563,6 +563,56 @@
             "time": "2017-07-25T13:26:24+00:00"
         },
         {
+            "name": "craftcms/redactor",
+            "version": "2.1.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/192c91015d6881c5cc2f6f80e76f057959257e6a",
+                "reference": "192c91015d6881c5cc2f6f80e76f057959257e6a",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC15"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Redactor",
+                "handle": "redactor",
+                "changelogUrl": "https://raw.githubusercontent.com/craftcms/redactor/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/craftcms/redactor/archive/master.zip"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\redactor\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pixel & Tonic",
+                    "homepage": "https://pixelandtonic.com/"
+                }
+            ],
+            "description": "Edit rich text content in Craft CMS using Redactor by Imperavi.",
+            "keywords": [
+                "cms",
+                "craftcms",
+                "html",
+                "redactor",
+                "yii2"
+            ],
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/redactor/issues?state=open",
+                "source": "https://github.com/craftcms/redactor",
+                "docs": "https://github.com/craftcms/redactor",
+                "rss": "https://github.com/craftcms/redactor/commits/master.atom"
+            },
+            "time": "2018-07-27T22:08:10+00:00"
+        },
+        {
             "name": "craftcms/server-check",
             "version": "1.1.1",
             "dist": {
@@ -725,6 +775,60 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
+        },
+        {
+            "name": "dolphiq/iconpicker",
+            "version": "1.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dolphiq/craft3-iconpicker/zipball/efadc1359ad4ae4fc90e2bbaeda28f58b28f10d6",
+                "reference": "efadc1359ad4ae4fc90e2bbaeda28f58b28f10d6",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC2",
+                "phenx/php-font-lib": "^0.5.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "dolphiq-iconpicker",
+                "name": "Iconpicker",
+                "description": "Craft Iconpicker field type that offers end-users an easy way to pick an icon/symbol from a .woff or .ttf font file.",
+                "schemaVersion": "1.0.0",
+                "developer": "Dolphiq",
+                "developerUrl": "https://dolphiq.nl/",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "documentationUrl": "https://github.com/Dolphiq/craft3-iconpicker/blob/master/README.md",
+                "changelogUrl": "https://raw.githubusercontent.com/Dolphiq/craft3-iconpicker/master/CHANGELOG.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "plugins\\dolphiq\\iconpicker\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dolphiq",
+                    "email": "info@dolphiq.nl",
+                    "homepage": "https://dolphiq.nl/"
+                }
+            ],
+            "description": "Craft Iconpicker field type that offers end-users an easy way to pick an icon/symbol from a .woff or .ttf font file.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craft3",
+                "craftcms",
+                "icon",
+                "iconpicker",
+                "symbol"
+            ],
+            "time": "2017-12-14T16:14:03+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -1565,6 +1669,34 @@
             "time": "2018-04-04T04:03:33+00:00"
         },
         {
+            "name": "phenx/php-font-lib",
+            "version": "0.5.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/760148820110a1ae0936e5cc35851e25a938bc97",
+                "reference": "760148820110a1ae0936e5cc35851e25a938bc97",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FontLib\\": "src/FontLib"
+                }
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2017-09-13T16:14:37+00:00"
+        },
+        {
             "name": "pixelandtonic/imagine",
             "version": "v0.7.1.3",
             "dist": {
@@ -1883,6 +2015,60 @@
                 "issues": "https://github.com/sjelfull/craft3-mobiledetect/issues"
             },
             "time": "2017-11-06T12:28:19+00:00"
+        },
+        {
+            "name": "svenjungnickel/redactor-font-awesome",
+            "version": "2.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/svenjungnickel/craft-redactor-font-awesome/zipball/40e6d4839766bbaaabf5d24010a457b811f0ce70",
+                "reference": "40e6d4839766bbaaabf5d24010a457b811f0ce70",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "~3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Redactor Font Awesome",
+                "handle": "redactor-font-awesome",
+                "developer": "Sven Jungnickel",
+                "developerUrl": "https://github.com/svenjungnickel/",
+                "schemaVersion": "2.0",
+                "description": "Craft redactor font awesome plugin for Craft 3",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "documentationUrl": "https://github.com/svenjungnickel/craft-redactor-font-awesome/blob/master/README.md",
+                "changelogUrl": "https://github.com/svenjungnickel/craft-redactor-font-awesome/blob/master/CHANGELOG.md",
+                "class": "svenjungnickel\\redactorfontawesome\\RedactorFontAwesome"
+            },
+            "autoload": {
+                "psr-4": {
+                    "svenjungnickel\\redactorfontawesome\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sven Jungnickel",
+                    "homepage": "https://github.com/svenjungnickel"
+                }
+            ],
+            "description": "Craft redactor font awesome plugin for Craft 3",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "redactorfontawesome"
+            ],
+            "support": {
+                "docs": "https://github.com/svenjungnickel/craft-redactor-font-awesome/blob/master/README.md",
+                "issues": "https://github.com/svenjungnickel/craft-redactor-font-awesome/issues"
+            },
+            "time": "2017-12-06T13:05:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

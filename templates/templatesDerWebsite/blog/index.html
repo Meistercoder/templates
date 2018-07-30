@@ -1,0 +1,69 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block headerbildPosition2 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+<div class="container Achter-Spaltenlayout">
+  <div id="text1" style="padding-bottom:80px; ">
+    <h1 style="padding-bottom: 30px;"> Für Mensch und Schöpfung  </h1>
+    <p> Chance e.V. ist eine christliche, soziale und ökologische Initiative für nachhaltige Entwicklung
+      im peruanischen Amazonasgebiet und bei den Maasai in Kenia.
+    </p>
+    </div>
+  </div>
+</div>
+
+
+      <div class="container-fluid no-padding">
+        <img class="img-fluid" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} ">
+      </div>
+
+
+{% endblock %}
+
+
+{% block block1 %}
+
+
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
+
+<div class="container Achter-Spaltenlayout">
+
+    <p style="padding-bottom: 50px; padding-top: 50px;"> Wir geben Mensch und Schöpfung eine Chance, indem wir Kinder, Jugendliche
+und ganze Dorfgemeinschaften stark machen und dabei begleiten, ihre
+Lebensqualität selbstbestimmt zu verbessern.
+    </p>
+  </div>
+
+<div class="container Zwoelfer-Spaltenlayout">
+  <div class="card-deck">
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <p class="card-text">Sie entkommen der Armut.</p>
+      </div>
+    </div>
+    <div class="card bg-warning">
+      <div class="card-body text-center">
+        <p class="card-text">Sie stärken ihre Selbstachtung.</p>
+      </div>
+    </div>
+    <div class="card bg-success">
+      <div class="card-body text-center">
+        <p class="card-text">Sie verbessern ihre Selbstbestimmung.
+</p>
+      </div>
+    </div>
+    <div class="card bg-danger">
+      <div class="card-body text-center">
+        <p class="card-text">Sie bewahren die Schöpfung nachhaltig.
+</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

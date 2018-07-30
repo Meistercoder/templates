@@ -26,7 +26,10 @@
     "benjamminf/craft-embedded-assets": "1.0.2",
     "superbig/craft3-mobiledetect": "1.0.1",
     "pdaleramirez/category-tree": "v1.0.5",
-    "olivestudio/craft-olivemenus": "1.0.0"
+    "olivestudio/craft-olivemenus": "1.0.0",
+    "dolphiq/iconpicker": "1.0.4",
+    "craftcms/redactor": "2.1.4",
+    "svenjungnickel/redactor-font-awesome": "2.0.4"
   },
   "autoload": {
     "psr-4": {
