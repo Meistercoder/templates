@@ -1,0 +1,52 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+<div class="container Achter-Spaltenlayout">
+  <div style="padding-bottom:80px; ">
+    <h1 style="padding-bottom: 30px;"> Erfahren Sie, was Partner und Freunde über unsere Arbeit sagen
+    </h1>
+    <p id="anleser"> Chance e.V. wird von ganz unterschiedlichen Kirchen und anderen Einrichtungen in ganz Deutschland begleitet, unterstützt und empfohlen. Hier
+      erzählen einige unserer Partner, was sie über unsere Arbeit denken.
+    </p>
+    </div>
+  </div>
+</div>
+
+<div class="container zwoelferspaltenlayout" >
+
+<div class="card-columns">
+
+  {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
+
+  {# If there are any entries, loop through them #}
+  {% if entries | length %}
+
+      {# For each entry we find, do this #}
+      {% for entry in entries %}
+
+      <div class="card bg-white">
+        <div class="card-body">
+          <p class="card-text">
+            <h3> {{ entry.title }} </h3>
+            <h4> {{ entry.anleser }} </h4>
+            <div id="copy"> {{ entry.text }} </div>
+          </p>
+        </div>
+      </div>
+
+      {% endfor %}
+
+  {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

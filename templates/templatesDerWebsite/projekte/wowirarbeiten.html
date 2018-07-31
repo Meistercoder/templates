@@ -1,0 +1,91 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+<div class="container achterspaltenlayout">
+  <div style="padding-bottom:80px; ">
+    <h1 style="padding-bottom: 30px;"> Chance e.V. ist in Peru und Kenia aktiv   </h1>
+    <p id="anleser"> In den Regenwäldern Amazoniens und den Savannen am Rande der Maasai Mara.  </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid no-padding  text-center" style="background-color: #ffffff;">
+
+<div class="container achterspaltenlayout">
+  {% set entry = craft.entries.section('projekte').slug('peru').one() %}
+  <h2> {{ entry.title }} </h2>
+  <div id="anleser"> {{ entry.anleser }} </div>
+
+</div>
+
+<div class="container achterspaltenlayout">
+
+
+  {% set entries = craft.entries.section('projekte').slug('peru').one().children().all() %}
+
+  {# If there are any entries, loop through them #}
+  {% if entries | length %}
+
+      {% set counter = 0 %}
+
+      {# For each entry we find, do this #}
+      {% for entry in entries %}      {% set counter = counter + 1 %}
+
+
+        <h4>{{ entry.title }}</h4>
+        <div id="copy"> {{ entry.text }} </div>
+
+      {% if counter == 3 %}      {% endif %}
+
+      {% endfor %}
+
+  {% endif %}
+
+</div>
+
+<div class="container achterspaltenlayout">
+  {% set entry = craft.entries.section('projekte').slug('kenia').one() %}
+  <h2> {{ entry.title }} </h2>
+  <div id="anleser"> {{ entry.anleser }} </div>
+
+</div>
+
+<div class="container achterspaltenlayout">
+
+
+  {% set entries = craft.entries.section('projekte').slug('kenia').one().children().all() %}
+
+  {# If there are any entries, loop through them #}
+  {% if entries | length %}
+
+      {% set counter = 0 %}
+
+      {# For each entry we find, do this #}
+      {% for entry in entries %}      {% set counter = counter + 1 %}
+
+
+        <h4>{{ entry.title }}</h4>
+        <div id="copy"> {{ entry.text }} </div>
+
+      {% if counter == 3 %}      {% endif %}
+
+      {% endfor %}
+
+  {% endif %}
+
+</div>
+
+
+</div>
+
+
+{% endblock %}
