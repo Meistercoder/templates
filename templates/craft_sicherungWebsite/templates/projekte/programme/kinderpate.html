@@ -1,0 +1,120 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+  <div class="container achterspaltenlayout" style="padding-top: 0px;">
+
+    {% set entry = craft.entries.section('projekte').slug('kinderpaten').one() %}
+
+    <h1 style="padding-bottom: 30px;"> {{ entry.anleser }}  </h1>
+    <div id="anleser"> {{ entry.text }}</div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid no-padding">
+    <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-kinderpate.jpg').one().getUrl() }} ">
+  </div>
+
+
+  <div class="container achterspaltenlayout">
+    {% set entry = craft.entries.section('projekte').slug('säulen').one() %}
+    <h2> {{ entry.title }} </h2>
+    <div id="anleser"> {{ entry.anleser }} </div>
+
+    {% set entries = craft.entries.section('projekte').slug('säulen').one().children().all() %}
+
+    <div id="accordion">
+
+      {# If there are any entries, loop through them #}
+      {% if entries | length %}        {% set counter = 0 %}
+
+      {# For each entry we find, do this #}
+      {% for entry in entries %} {% set counter = counter + 1 %}
+
+
+      <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 2px; margin-bottom: 20px;">
+        <div class="card-header bg-white">
+          <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
+          <h4> {{ entry.title }}   </h4>       </a>
+        </div>
+        <div id="{{counter}}" class="collapse" data-parent="#accordion">
+          <div class="card-body" id="copy">
+            {{ entry.text }}
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+      {% endif %}
+    </div>
+    {% set entry = craft.entries.section('projekte').slug('klausel').one() %}
+    <div id="copy"> {{ entry.text }}  </div>
+
+  </div>
+
+  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+    <div class="container achterspaltenlayout text-center">
+      {% set entry = craft.entries.section('projekte').slug('starke-kinder').one() %}
+        <h2 > {{ entry.title }} </h2>
+        <div id="anleser"> {{ entry.anleser }}    </div>
+
+        Das bild kommt genau hierhin
+    </div>
+
+    <div class="container zwoelferspaltenlayout">
+
+      <div class="row">
+      {% set entries = craft.entries.section('projekte').slug('starke-kinder').one().children().all() %}
+
+      {% if entries | length %}
+
+      {% for entry in entries %}
+      <div class="col-sm-4">
+      <div id="copy"> {{ entry.text }} </div>
+      </div>
+
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="background-color: orange;">
+  <div class="container zwoelferspaltenlayout">
+    {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
+    <div class="row">
+      <div class="col-sm-4">
+        Bild kommt da rein
+      </div>
+
+      <div class="col-sm-8">
+      <h3 style="color: #ffffff;"> {{ entry.title }} </h3>
+      <div id="copy" style="color: #ffffff;"> {{ entry.text }}    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container zwoelferspaltenlayout text-center">
+  {% set entry = craft.entries.section('projekte').slug('ganzheitliche-begleitung').one() %}
+    <h2> {{ entry.title }} </h2>
+      bild kommt hierhin
+</div>
+
+<div class="container-fluid no-padding" style="background-color: white;">
+  <div class="container achterspaltenlayout text-center">
+    {% set entry = craft.entries.section('projekte').slug('warum-ganzheitlich').one() %}
+
+      <h2> {{ entry.title }} </h2>
+      <div id="anleser"> {{ entry.anleser }}    </div>
+  </div>
+</div>
+
+
+  {% endblock %}

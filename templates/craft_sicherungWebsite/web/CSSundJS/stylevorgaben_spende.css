@@ -1,0 +1,138 @@
+@font-face {
+ font-family: 'ueberschrift1';
+ src: url('http://localhost/craft/public/fonts/nerisBlack.otf');
+}
+
+
+
+@font-face {
+ font-family: belotaBoldItalic;
+ src: url('http://localhost/craft/public/fonts/bellota-bold-italic.otf');
+}
+
+@font-face {
+ font-family: nerisLight;
+ src: url('http://localhost/craft/public/fonts/neris-light.otf');
+}
+
+@font-face {
+ font-family: sourceSansProLight;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf');
+}
+
+@font-face {
+ font-family: 'Anleser';
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: sourceSansProLightItalic;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-light-italic.ttf');
+}
+
+@font-face {
+ font-family: sourceSansProSemibold;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold.ttf') format('truetype');
+}
+
+@font-face {
+ font-family: sourceSansProSemiboldItalic;
+ src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
+}
+
+/* Entfernt das standardmäßige Padding der container-fluid klassen */
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+.Achter-Spaltenlayout {
+  max-width: 760px;">
+}
+
+/* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+.Zwoelfer-Spaltenlayout {
+  max-width: 1160px;
+  padding-bottom: 50px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #ed6e2c;
+  padding-bottom: 7px;
+}
+
+/*Die im Layout vereinbare copy-Schriftgröße */
+.card {
+  font-size: 18px;
+}
+
+.copy {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+
+h1 {
+  color: #ed6e2c;
+}
+
+body {
+  background-color: #f8f5f2;
+}
+
+
+  #collapsibleNavbar {
+    margin-top: -40px;
+  }
+
+/*Das geforderte Padding der dropdown-Navbar, also nicht der immer sichtbaren Leiste.*/
+.dropdown-menu {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  border-radius: 0 0 0 0;
+  border: none;
+}
+
+.dropdown-item a {
+  color: #333333;
+}
+
+.dropdown-item:hover {
+  background-color: #e3d7cb;
+  color: #0062ae;
+}
+
+/* Der Abstand zwischen den einzelnen Links wird verkleinert von der Hauptleiste */
+  .dropdown-menu>li {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+  }
+
+/* Alle dropdownMenus, die ein nav-item als Vater haben, sollen beim hovern schon angezeigt werden */
+.nav-item:hover>.dropdown-menu {
+    display: block;
+    margin-top: -5px;
+    margin-left: -40%;
+    }
+
+
+/* Alle dropdown-menüs auswählen, die ein submenu als Vater haben
+ (Im Code wird ein Untermenu zuvor mit einem Submenu bekanntgemacht)
+ Also alles Untermenus werden ausgewählt. */
+  .dropdown-submenu>.dropdown-menu {
+      top: 0;
+      left: 100%;
+      height: 100%;
+      margin-left: -1px;
+      margin-top: -1px;
+      border-radius: 0 0 0 0;
+      background-color: #e3d7cb;
+  }
+
+/* Block-Boxen nehmen die gesamte Breite des Elternelementes ein */
+  .dropdown-submenu:hover>.dropdown-menu {
+      display: block;
+  }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chance International</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link href="https://aufbau-website.de/craft/web/CSSundJS/stylevorgaben.css" rel="stylesheet" />
+  {% if  craft.mobileDetect.isMobile %}   <link href="https://aufbau-website.de/craft/web/CSSundJS/navbarCSS_mobile.css" rel="stylesheet" />   {% endif %}
+  {% if  craft.mobileDetect.isMobile == false %}   <link href="https://aufbau-website.de/craft/web/CSSundJS/navbarCSS.css" rel="stylesheet" />   {% endif %}
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://aufbau-website.de/craft/web/CSSundJS/javascript.js"> </script>
+
+
+
+</head>
+
+
+
+<body>
+
+  {% block headerbildPosition1 %} {% endblock %}
+
+
+  {% if  craft.mobileDetect.isMobile %}   {% include "_layouts/navbar-mobile" %}  {% endif %}
+
+  {% if  craft.mobileDetect.isMobile == false %}   {% include "_layouts/navbar" %} {% endif %}
+
+
+
+{% block headerbildPosition2 %} {% endblock %}
+
+
+
+
+{% block block1 %} {% endblock %}
+
+
+
+{% include "_layouts/footer" %}
+
+
+  </body>
+  </html>

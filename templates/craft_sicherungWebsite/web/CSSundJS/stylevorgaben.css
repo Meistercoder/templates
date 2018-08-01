@@ -1,0 +1,144 @@
+
+
+@font-face {
+    font-family: 'source_sans_prosemibold';
+    src: url('fonts/source-sans-pro-semibold-webfont.woff2') format('woff2'),
+         url('fonts/source-sans-pro-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'nerisblack';
+    src: url('fonts/nerisblack-webfont.woff2') format('woff2'),
+         url('fonts/nerisblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'source_sans_prolight';
+    src: url('fonts/source-sans-pro-light-webfont.woff2') format('woff2'),
+         url('fonts/source-sans-pro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* Entfernt das standardmäßige Padding der container-fluid klassen */
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+.achterspaltenlayout {
+  padding-top: 50px;
+  max-width: 760px;">
+}
+
+/* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+.zwoelferspaltenlayout {
+  max-width: 1160px;
+	padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+h1 {
+  font-size: 52px;
+  line-height: 60px;
+  color: #ed6e2c;
+  font-family: 'nerisblack';
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 46px;
+  color: #ed6e2c;
+  font-family: 'nerisblack';
+	padding-bottom: 30px;
+}
+
+h3 {
+  font-size: 24px;
+	line-height: 28px;
+  color: #ed6e2c;
+  padding-bottom: 7px;
+	font-family: 'nerisblack';
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 28px;
+	color: #000000;
+	font-family: 'source_sans_prosemibold';
+}
+
+#anleser {
+  font-size: 24px;
+	line-height: 34px;
+  font-family: 'source_sans_prolight';
+  color: #333333;
+	padding-bottom: 30px;
+}
+
+#copy {
+	font-size: 18px;
+	line-height: 28px;
+	font-family: 'source_sans_prolight';
+	color: #000000;
+	padding-bottom: 30px;
+}
+
+#autor {
+  font-size: 16px;
+  line-height: 18px;
+  color: #ed6e2c;
+  font-family: 'source_sans_prosemibold';
+}
+
+@media all and (max-width: 700px)  {
+  h1 {
+    font-size: 31px;
+    line-height: 36px; }
+  }
+
+  @media all and (max-width: 1100px) and (min-width: 700px) {
+    h1 {
+      font-size: 41px;
+      line-height: 48px; }
+    }
+
+/* Bei den Empfehlungs-boxen wird so die Umrandung entfernt */
+.bg-white {
+        border: 0;
+    }
+
+/* Die umgebenden Boxen für das 11-Spaltenlayout  von über uns und so */
+.col-sm-4 {
+      margin-bottom: 40px;
+    }
+
+.col-11 {
+  padding-top: 20px;
+  background-color: #ffffff;
+}
+
+.card-link:after {
+  content: '\003C'; /* Unicode character for "plus" sign (+) */
+   font-size: 30px;
+   color: #0062ae;
+   float: right;
+   margin-top: -45px;
+   transform: rotate(-90deg);
+}
+
+
+body {
+  background-color: #f8f5f2;
+}
