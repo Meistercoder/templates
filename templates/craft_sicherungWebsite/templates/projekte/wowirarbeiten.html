@@ -9,7 +9,7 @@
 
 <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout" style="padding-top: 0px;">
   <div style="padding-bottom:80px; ">
     <h1 style="padding-bottom: 30px;"> Chance e.V. ist in Peru und Kenia aktiv   </h1>
     <p id="anleser"> In den Regenwäldern Amazoniens und den Savannen am Rande der Maasai Mara.  </p>
@@ -18,9 +18,9 @@
 </div>
 
 
-<div class="container-fluid no-padding  text-center" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout text-center">
   {% set entry = craft.entries.section('projekte').slug('peru').one() %}
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
@@ -52,7 +52,7 @@
 
 </div>
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout text-center">
   {% set entry = craft.entries.section('projekte').slug('kenia').one() %}
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
