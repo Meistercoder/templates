@@ -2,16 +2,6 @@
 {% extends "_layouts/layoutHome.html" %}
 
 
-{% block headerbildPosition1 %}
-
-<div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }} ">
-</div>
-
-
-{% endblock %}
-
-
 {% block block1 %}
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
@@ -21,10 +11,10 @@
 
 
   <div class="container achterspaltenlayout" style="padding-top:0px;">
-    {% set entry = craft.entries.section('fuerSie').slug('chance-kommt').one() %}
+    {% set entry = craft.entries.section('projekte').slug('geschichten').one() %}
 
     <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.text }}  </h1>
+      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.zusatzfeld1 }}</div>
       </div>
     </div>
@@ -34,14 +24,13 @@
 
       <div class="row">
 
-  {% set entries = craft.entries.section('fuerSie').level(1).all() %}
+  {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
 
     {# If there are any entries, loop through them #}
-    {% set counter = 0 %}
+    {% if entries | length %}
 
         {# For each entry we find, do this #}
-        {% for entry in entries %}  {% set counter = counter + 1 %}
-          {% if counter == 7 %} <div class="col-sm-4">  </div>   {% endif %}
+        {% for entry in entries %}
 
         <div class="col-sm-4">
           <div class="row">
@@ -56,6 +45,7 @@
 
         {% endfor %}
 
+    {% endif %}
       </div>
     </div>
 

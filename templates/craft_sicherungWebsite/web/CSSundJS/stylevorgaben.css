@@ -29,16 +29,18 @@
 }
 
 
+
 /* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
   padding-left: 0;
   padding-right: 0;
+  padding-top: 30px;
 }
 
 /* Die Stylevorgabe, die für Text in der Website verwendet wird. */
 .achterspaltenlayout {
-  padding-top: 50px;
   max-width: 760px;
+  padding-bottom: 30px;
 }
 
 /* Die Stylevorgabe, die für Text in der Website verwendet wird. */
