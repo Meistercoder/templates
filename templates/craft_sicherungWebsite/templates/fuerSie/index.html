@@ -2,15 +2,6 @@
 {% extends "_layouts/layoutHome.html" %}
 
 
-{% block headerbildPosition1 %}
-
-<div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }} ">
-</div>
-
-
-{% endblock %}
-
 
 {% block block1 %}
 
@@ -42,6 +33,7 @@
         {# For each entry we find, do this #}
         {% for entry in entries %}  {% set counter = counter + 1 %}
           {% if counter == 7 %} <div class="col-sm-4">  </div>   {% endif %}
+          {% if entry.title != 'Werden Sie Teil von Chance e.V.' %}
 
         <div class="col-sm-4">
           <div class="row">
@@ -53,11 +45,55 @@
             </div>
           </div>
       </div>
-
+          {% endif %}
         {% endfor %}
 
       </div>
     </div>
+
+    {% set entry = craft.entries.section('fuerSie').slug('freundesbrief').one() %}
+    <div class="container-fluid no-padding" style="background-color: #ffffff;">
+      <div class="container zwoelferspaltenlayout">
+        <div class="row">
+          <div class="col-sm-6">
+            <h3> {{ entry.title }} </h3>
+            <div id="anleser"> {{ entry.anleser }}    </div>
+          </div>
+          <div class="col-sm-6">
+            <form class="form-inline" action="/action_page.php" style="padding-bottom: 20px;">
+             <input type="email" class="form-control" placeholder=" Ihre E-Mail-Adresse" style="margin-right: 30px; padding-right: 60px;">
+             <button type="submit" class="btn btn-primary">Anmelden</button>
+           </form>
+           <div id="copy"> {{ entry.text }} </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- Weißer Hintergrundcontainer -->
+
+    {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
+
+    <div class="container zwoelferspaltenlayout text-center">
+      <h2> {{ entry.title }} </h2>
+      <div id="anleser"> {{ entry.anleser }}  </div>
+    </div>
+
+    <div class="container zwoelferspaltenlayout">
+      {% set entries = entry.children().all() %}
+      <div class="row">
+
+      {% for entry in entries %}
+      <div class="col-sm-4">
+        <h4> {{ entry.title }} </h4>
+        <div id="copy"> {{ entry.anleser }}   </div>
+    </div>
+
+      {% endfor %}
+    </div>
+  </div>  <!-- Ende Container -->
+
+  <div class="container achterspaltenlayout text-center">
+    <div id="anleser"> {{ entry.text }}  </div>
+  </div>
 
   <div class="container-fluid no-padding">
     <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme.jpg').one().getUrl() }} ">
