@@ -1,69 +1,66 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
-{% block headerbildPosition2 %}
+{% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
 
-<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
-<div class="container achterspaltenlayout" style="padding-top: 0px;">
-  <div style="padding-bottom:80px;">
-    <h1 style="padding-bottom: 30px;"> Für Mensch und Schöpfung  </h1>
-    <p id="anleser"> Chance e.V. ist eine christliche, soziale und ökologische Initiative für nachhaltige Entwicklung
-      im peruanischen Amazonasgebiet und bei den Maasai in Kenia.
-    </p>
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+
+  <div class="container achterspaltenlayout" style="padding-top:0px;">
+    {% set entry = craft.entries.section('home').slug('mensch-schoepfung').one() %}
+
+    <div style="padding-bottom:50px; ">
+      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+      <div id="anleser"> {{ entry.anleser }}</div>
+      </div>
     </div>
+  </div>
+
+<div class="container-fluid no-padding">
+        <img class="img-fluid" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} ">
+</div>
+
+  <div class="container achterspaltenlayout text-center" style="padding-top: 30px;">
+    <div id="anleser"> {{ entry.text }}</div>
+  </div>
+
+  <div class="container zwoelferspaltenlayout text-center" style="padding-bottom: 30px;">
+    {% set entry = craft.entries.section('home').slug('armut-entkommen').one() %}
+
+    <div class="row">
+      <div class="col-sm-3">
+        <div id="anleser"> {{ entry.title }} </div>
+      </div>
+      <div class="col-sm-3">
+        <div id="anleser"> {{ entry.anleser }} </div>
+      </div>
+      <div class="col-sm-3">
+        <div id="anleser"> {{ entry.text }} </div>
+      </div>
+      <div class="col-sm-3">
+        <div id="anleser"> {{ entry.zusatzfeld1 }} </div>
+      </div>
+    </div>
+
+     <a href="https://aufbau-website.de/craft/web/ueberUns" class="btn btn-primary" role="button">Erfahren Sie mehr über uns</a>
+
+  </div>
+
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
+
+  <div class="container achterspaltenlayout text-center">
+    Hier kommt ein zufälliges Zitat rein
   </div>
 </div>
 
 
-      <div class="container-fluid no-padding">
-        <img class="img-fluid" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} ">
-      </div>
-
-
-{% endblock %}
-
-
-{% block block1 %}
 
 
 {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
 
-<div class="container Achter-Spaltenlayout">
 
-    <p style="padding-bottom: 50px; padding-top: 50px;"> Wir geben Mensch und Schöpfung eine Chance, indem wir Kinder, Jugendliche
-und ganze Dorfgemeinschaften stark machen und dabei begleiten, ihre
-Lebensqualität selbstbestimmt zu verbessern.
-    </p>
-  </div>
-
-<div class="container Zwoelfer-Spaltenlayout">
-  <div class="card-deck">
-    <div class="card bg-primary">
-      <div class="card-body text-center">
-        <p class="card-text">Sie entkommen der Armut.</p>
-      </div>
-    </div>
-    <div class="card bg-warning">
-      <div class="card-body text-center">
-        <p class="card-text">Sie stärken ihre Selbstachtung.</p>
-      </div>
-    </div>
-    <div class="card bg-success">
-      <div class="card-body text-center">
-        <p class="card-text">Sie verbessern ihre Selbstbestimmung.
-</p>
-      </div>
-    </div>
-    <div class="card bg-danger">
-      <div class="card-body text-center">
-        <p class="card-text">Sie bewahren die Schöpfung nachhaltig.
-</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 {% endblock %}

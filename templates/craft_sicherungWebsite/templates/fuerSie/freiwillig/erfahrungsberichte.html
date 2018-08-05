@@ -2,7 +2,6 @@
 {% extends "_layouts/layoutHome.html" %}
 
 
-
 {% block block1 %}
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
@@ -12,41 +11,43 @@
 
 
   <div class="container achterspaltenlayout" style="padding-top:0px;">
-    {% set entry = craft.entries.section('fuerSie').slug('freiwillig-helfen').one() %}
+    {% set entry = craft.entries.section('fuerSie').slug('erfahrungsberichte').one() %}
 
     <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
-      <div id="anleser"> {{ entry.anleser }}</div>
+      <h1 style="padding-bottom: 30px;"> {{ entry.zusatzfeld1 }}  </h1>
       </div>
     </div>
   </div>
 
   <div class="container zwoelferspaltenlayout">
 
-      <div class="row">
+    <div class="card-columns">
 
-  {% set entries = entry.children().all() %}
+  {% set entries = craft.entries.section('fuerSie').slug('erfahrungsberichte').one().children().all() %}
 
     {# If there are any entries, loop through them #}
-    {% set counter = 0 %}
+    {% if entries | length %}
 
         {# For each entry we find, do this #}
-        {% for entry in entries %}  {% set counter = counter + 1 %}
-          {% if counter == 4 %} <div class="col-sm-4">  </div>   {% endif %}
+        {% for entry in entries %}
 
-        <div class="col-sm-4">
-          <div class="row" style="height: 100%;">
-            <div class="col-1"> </div>
-              <div class="col-10" style="background-color: #ffffff;">
-              <h3>{{ entry.title }}</h3>
+        <div class="card bg-white">
+          <div class="card-body">
+            <p class="card-text">
+              <h3> {{ entry.title }} </h3>
               <div id="copy"> {{ entry.anleser }} </div>
-            </div>
+            </p>
           </div>
-      </div>
+        </div>
+
         {% endfor %}
 
+    {% endif %}
       </div>
     </div>
 
+  <div class="container-fluid no-padding">
+    <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme.jpg').one().getUrl() }} ">
+  </div>
 
 {% endblock %}

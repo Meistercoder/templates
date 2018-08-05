@@ -1,0 +1,33 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+<div class="container achterspaltenlayout">
+  {% set entry = craft.entries.section('fuerSie').slug('besuchen-vor-ort').one() %}
+
+  <div style="padding-bottom:30px; ">
+    <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+    <div id="anleser"> {{ entry.anleser }}  </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container achterspaltenlayout">
+  <div class="text-center">  <div id="anleser"> {{ entry.zusatzfeld1 }}</div>   </div>
+  <div id="copy"> {{ entry.text }} </div>
+</div>
+
+  <div class="container achterspaltenlayout">
+    {{ entry.zusatzfeld2 }}
+  </div>
+</div>
+
+{% endblock %}
