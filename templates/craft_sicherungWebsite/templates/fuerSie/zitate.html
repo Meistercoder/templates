@@ -1,0 +1,37 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block block1 %}
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+  <div class="container achterspaltenlayout" style="padding-top:0px;">
+    {% set entry = craft.entries.section('fuerSie').slug('zitate').one() %}
+
+    <div style="padding-bottom:50px; ">
+      <h1 style="padding-bottom: 30px;"> {{ entry.zusatzfeld1 }}  </h1>
+      <div id="anleser"> {{ entry.text }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+    <div class="container achterspaltenlayout text-center">
+      {% set entries = entry.children().all() %}
+
+    {% for entry in entries %}
+     <div id="copy"> {{ entry.title }} </div>
+     <h3> {{ entry.anleser }} </h3>
+     {% endfor %}
+
+    </div>
+  </div> <!-- weißer Hintergrundcontainer -->
+
+
+
+
+{% endblock %}

@@ -58,9 +58,17 @@
     <h2> {{ entry.zusatzfeld1 }} </h2>
     <div id="anleser"> {{ entry.text }}  </div>
   </div>
-  <div id="copy"> {{ entry.zusatzfeld3 }}</div>
 
-</div>
+  {% set entries = entry.children().all() %}
+  <div class="row">
+  {% for entry in entries %}
+    <div class="col-sm-6 col-md-3">
+      <div id="copy"> {{ entry.anleser }}  </div>
+    </div>
+  {% endfor %}
+  </div>
+
+</div> <!-- zwoelferspaltenlayout container -->
 
 
 {% endblock %}

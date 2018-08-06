@@ -1,0 +1,56 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block block1 %}
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+
+  <div class="container achterspaltenlayout" style="padding-top:0px;">
+    {% set entry = craft.entries.section('fuerSie').slug('kurzfristig').one() %}
+
+    <div style="padding-bottom:50px; ">
+      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+      <div id="anleser"> {{ entry.anleser }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+    <div class="container achterspaltenlayout">
+     <div id="copy"> {{ entry.text }} </div>
+    </div>
+
+    <div class="container achterspaltenlayout">
+      <h4> {{ entry.zusatzfeld2 }} </h4>
+      <div id="copy"> {{ entry.zusatzfeld3 }}</div>
+    </div>
+
+    {% set entry = craft.entries.section('fuerSie').slug('lohn').one() %}
+
+    <div class="container achterspaltenlayout">
+      <h4> {{ entry.title }} </h4>
+      <div id="copy"> {{ entry.anleser }} </div>
+    </div>
+
+    <div class="container achterspaltenlayout">
+      <h4> {{ entry.zusatzfeld1 }} </h4>
+      <div id="copy"> {{ entry.text }} </div>
+    </div>
+
+    <div class="container achterspaltenlayout">
+      <h3> {{ entry.zusatzfeld2 }} </h3>
+      <div id="copy"> {{ entry.zusatzfeld3 }} </div>
+    </div>
+
+  </div> <!-- weißer Hintergrundcontainer -->
+
+
+
+
+{% endblock %}
