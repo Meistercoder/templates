@@ -15,52 +15,133 @@
     <div style="padding-bottom:50px; ">
       <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
-      </div>
     </div>
   </div>
-
-<div class="container-fluid no-padding">
-        <img class="img-fluid" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} ">
 </div>
 
-  <div class="container achterspaltenlayout text-center" style="padding-top: 30px;">
-    <div id="anleser"> {{ entry.text }}</div>
-  </div>
+<div class="container-fluid no-padding">
+  <img class="img-fluid" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} ">
+</div>
 
-  <div class="container zwoelferspaltenlayout text-center" style="padding-bottom: 30px;">
-    {% set entry = craft.entries.section('home').slug('armut-entkommen').one() %}
+<div class="container achterspaltenlayout text-center" style="padding-top: 30px;">
+  <div id="anleser"> {{ entry.text }}</div>
+</div>
 
-    <div class="row">
-      <div class="col-sm-3">
-        <div id="anleser"> {{ entry.title }} </div>
-      </div>
-      <div class="col-sm-3">
-        <div id="anleser"> {{ entry.anleser }} </div>
-      </div>
-      <div class="col-sm-3">
-        <div id="anleser"> {{ entry.text }} </div>
-      </div>
-      <div class="col-sm-3">
-        <div id="anleser"> {{ entry.zusatzfeld1 }} </div>
-      </div>
+<div class="container zwoelferspaltenlayout text-center" style="padding-bottom: 30px; padding-top: 0px;">
+  {% set entry = craft.entries.section('home').slug('armut-entkommen').one() %}
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div id="anleser"> {{ entry.title }} </div>
     </div>
-
-     <a href="https://aufbau-website.de/craft/web/ueberUns" class="btn btn-primary" role="button">Erfahren Sie mehr über uns</a>
-
+    <div class="col-sm-3">
+      <div id="anleser"> {{ entry.anleser }} </div>
+    </div>
+    <div class="col-sm-3">
+      <div id="anleser"> {{ entry.text }} </div>
+    </div>
+    <div class="col-sm-3">
+      <div id="anleser"> {{ entry.zusatzfeld1 }} </div>
+    </div>
   </div>
+
+  <a href="https://aufbau-website.de/craft/web/ueberUns" class="btn btn-primary" role="button">Erfahren Sie mehr über uns</a>
+
+</div>
 
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
 
   <div class="container achterspaltenlayout text-center">
-    Hier kommt ein zufälliges Zitat rein
+    {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
+    {% set entry = random(entries) %}
+
+    <hr style="background-color: #ed6e2c; height: 1px;">
+    <div id="zitat"> {{ entry.text }}  </div>
+    <div id="autor"> {{ entry.title }}  </div>
+    <hr style="background-color: #ed6e2c; height: 1px;">
+
+  </div>
+</div> <!-- Zufälliges Zitat -->
+
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 30px;">
+  {% set entry = craft.entries.section('home').slug('neuigkeiten').one() %}
+
+  <div class="text-center">
+    <h2> {{ entry.title }} </h2>
+  </div>
+
+  <div class="row">
+
+    {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
+    {% set entry = random(entries) %}
+    <div class="col-sm-4">
+      <div class="row" style="height: 100%;">
+        <div class="col-1"> </div>
+        <div class="col-10" style="background-color: #ffffff;  padding-top: 15px;">
+          <h3>{{ entry.title }}</h3>
+          <div id="copy"> {{ entry.anleser }} </div>
+        </div>
+      </div>
+    </div>
+
+    {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
+    {% set entry = random(entries) %}
+    <div class="col-sm-4">
+      <div class="row" style="height: 100%;">
+        <div class="col-1"> </div>
+        <div class="col-10" style="background-color: #ffffff;  padding-top: 15px;">
+          <h3>{{ entry.title }}</h3>
+          <div id="copy"> {{ entry.anleser }} </div>
+        </div>
+      </div>
+    </div>
+
+    {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
+    {% set entry = random(entries) %}
+    <div class="col-sm-4">
+      <div class="row" style="height: 100%;">
+        <div class="col-1"> </div>
+        <div class="col-10" style="background-color: #ffffff;  padding-top: 15px;">
+          <h3>{{ entry.title }}</h3>
+          <div id="copy"> {{ entry.anleser }} </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- Zufällige Blogeinträge oder Projektberichte - row-Ende -->
+
+  <div class="text-center">
+  <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">mehr laden</a>
   </div>
 </div>
 
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
 
+  <div class="container achterspaltenlayout text-center">
+    {% set entry = craft.entries.section('home').slug('neuigkeiten').one() %}
 
+    <h2> {{ entry.anleser }} </h2>
+    <div id="copy"> {{ entry.text }}</div>
+    <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">Erfahren sie mehr über unsere Projekte</a>
+  </div>
+</div> <!-- Zufälliges Zitat -->
 
-{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
-
-
+{% set entry = craft.entries.section('fuerSie').slug('freundesbrief').one() %}
+  <div class="container zwoelferspaltenlayout">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3> {{ entry.title }} </h3>
+        <div id="anleser"> {{ entry.anleser }}    </div>
+      </div>
+      <div class="col-sm-6">
+        <form class="form-inline" action="/action_page.php" style="padding-bottom: 20px;">
+         <input type="email" class="form-control" placeholder=" Ihre E-Mail-Adresse" style="margin-right: 30px; padding-right: 60px;">
+         <button type="submit" class="btn btn-primary">Anmelden</button>
+       </form>
+       <div id="copy"> {{ entry.zusatzfeld2 }} </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

@@ -29,6 +29,13 @@
 }
 
 
+@font-face {
+    font-family: 'bellotabold_italic';
+    src: url('fonts/bellota-bold-italic-webfont.woff2') format('woff2'),
+         url('fonts/bellota-bold-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
@@ -95,6 +102,15 @@ h4 {
 	color: #000000;
 }
 
+
+#zitat {
+  font-size: 20px;
+  line-height: 28px;
+  color: #0062ae;
+  font-family: 'bellotabold_italic';
+  padding-bottom: 20px;
+  }
+
 #autor {
   font-size: 16px;
   line-height: 18px;
@@ -120,9 +136,8 @@ h4 {
 
   #anleser {
     font-size: 21px;
-    line-height: 31px;
+    line-height: 31px;  }
   }
-    }
 
 /* Bei den Empfehlungs-boxen wird so die Umrandung entfernt */
 .bg-white {

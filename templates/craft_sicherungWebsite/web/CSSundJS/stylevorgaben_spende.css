@@ -1,86 +1,181 @@
-@font-face {
- font-family: 'ueberschrift1';
- src: url('http://localhost/craft/public/fonts/nerisBlack.otf');
-}
-
 
 
 @font-face {
- font-family: belotaBoldItalic;
- src: url('http://localhost/craft/public/fonts/bellota-bold-italic.otf');
-}
+    font-family: 'source_sans_prosemibold';
+    src: url('fonts/source-sans-pro-semibold-webfont.woff2') format('woff2'),
+         url('fonts/source-sans-pro-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-@font-face {
- font-family: nerisLight;
- src: url('http://localhost/craft/public/fonts/neris-light.otf');
 }
 
 @font-face {
- font-family: sourceSansProLight;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf');
+    font-family: 'nerisblack';
+    src: url('fonts/nerisblack-webfont.woff2') format('woff2'),
+         url('fonts/nerisblack-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-@font-face {
- font-family: 'Anleser';
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light.ttf') format('truetype');
-}
 
 @font-face {
- font-family: sourceSansProLightItalic;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-light-italic.ttf');
+    font-family: 'source_sans_prolight';
+    src: url('fonts/source-sans-pro-light-webfont.woff2') format('woff2'),
+         url('fonts/source-sans-pro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-@font-face {
- font-family: sourceSansProSemibold;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold.ttf') format('truetype');
-}
 
 @font-face {
- font-family: sourceSansProSemiboldItalic;
- src: url('http://localhost/craft/public/fonts/source-sans-pro-semibold-italic.ttf');
+    font-family: 'bellotabold_italic';
+    src: url('fonts/bellota-bold-italic-webfont.woff2') format('woff2'),
+         url('fonts/bellota-bold-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
   padding-left: 0;
   padding-right: 0;
+  padding-top: 30px;
 }
 
 /* Die Stylevorgabe, die für Text in der Website verwendet wird. */
-.Achter-Spaltenlayout {
-  max-width: 760px;">
+.achterspaltenlayout {
+  max-width: 760px;
+  padding-bottom: 30px;
 }
 
 /* Die Stylevorgabe, die für Text in der Website verwendet wird. */
-.Zwoelfer-Spaltenlayout {
+.zwoelferspaltenlayout {
   max-width: 1160px;
-  padding-bottom: 50px;
-}
-
-h3 {
-  font-size: 24px;
-  color: #ed6e2c;
-  padding-bottom: 7px;
-}
-
-/*Die im Layout vereinbare copy-Schriftgröße */
-.card {
-  font-size: 18px;
-}
-
-.copy {
-  font-size: 18px;
-  line-height: 28px;
+	padding-top: 50px;
 }
 
 
 h1 {
+  font-size: 52px;
+  line-height: 60px;
   color: #ed6e2c;
+  font-family: 'nerisblack';
 }
+
+h2 {
+  font-size: 40px;
+  line-height: 46px;
+  color: #ed6e2c;
+  font-family: 'nerisblack';
+	padding-bottom: 30px;
+}
+
+h3 {
+  font-size: 24px;
+	line-height: 28px;
+  color: #ed6e2c;
+  padding-bottom: 7px;
+	font-family: 'nerisblack';
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 28px;
+	color: #000000;
+	font-family: 'source_sans_prosemibold';
+}
+
+#anleser {
+  font-size: 24px;
+	line-height: 34px;
+  font-family: 'source_sans_prolight';
+  color: #333333;
+	padding-bottom: 30px;
+}
+
+#copy {
+	font-size: 18px;
+	line-height: 28px;
+	font-family: 'source_sans_prolight';
+	color: #000000;
+}
+
+
+#zitat {
+  font-size: 20px;
+  line-height: 28px;
+  color: #0062ae;
+  font-family: 'bellotabold_italic';
+  padding-bottom: 20px;
+  }
+
+#autor {
+  font-size: 16px;
+  line-height: 18px;
+  color: #ed6e2c;
+  font-family: 'source_sans_prosemibold';
+}
+
+@media all and (max-width: 700px)  {
+  h1 {
+    font-size: 31px;
+    line-height: 36px; }
+
+    #anleser {
+      font-size: 19px;
+      line-height: 27px;
+    }
+  }
+
+  @media all and (max-width: 1100px) and (min-width: 700px) {
+    h1 {
+      font-size: 41px;
+      line-height: 48px; }
+
+  #anleser {
+    font-size: 21px;
+    line-height: 31px;  }
+  }
+
+/* Bei den Empfehlungs-boxen wird so die Umrandung entfernt */
+.bg-white {
+        border: 0;
+    }
+
+
+.card-link:after {
+  content: '\003C'; /* Unicode character for "plus" sign (+) */
+   font-size: 30px;
+   color: #0062ae;
+   float: right;
+   margin-top: -45px;
+   transform: rotate(-90deg);
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%6c757d' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    margin-left: -100%;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%6c757d' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    margin-right: -100%;
+}
+
+
 
 body {
   background-color: #f8f5f2;
 }
+
+
+/* Der graue Balken für die Navbar wird damit gestylt */
+.rectangle {
+  height: 70px;
+  background-color: #ee6e2d;
+  }
 
 
   #collapsibleNavbar {
@@ -115,7 +210,8 @@ body {
 .nav-item:hover>.dropdown-menu {
     display: block;
     margin-top: -5px;
-    margin-left: -40%;
+    left: 50%;
+    transform: translateX(-50%);
     }
 
 

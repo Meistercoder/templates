@@ -13,39 +13,6 @@
 
 {% block block1 %}
 
-
-<div class="container" style="max-width: 1160px;">
-  <div class="card-deck">
-    <div class="row">
-    {% for entry in craft.entries.section('ueberUns').all() %}
-    <div class="col-md-6 col-lg-4">
-    <div class="card" style="width: 360px; height: 436px; margin-bottom: 40px;">
-      <img class="card-img-top" src="{{ entry.bild.one().url }}" alt="Card image" height="240px">
-      <div class="card-body" style="padding-top: 0px;">
-        <p class="card-text">  <h3> {{  entry.title }} </h3>  {{ entry.body }}  </p>
-      </div>
-  </div>
-</div>
-    {% endfor %}
-  </div>
-  </div>
-</div>
-
-
-{% extends "_layouts/layoutHome.html" %}
-
-
-{% block headerbildPosition1 %}
-
-<div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }} ">
-</div>
-
-
-{% endblock %}
-
-{% block block1 %}
-
 <div class="container-fluid text-center" style="padding-top: 50px; position: relative;">
 
 
@@ -53,39 +20,35 @@
 
 
   <div class="container achterspaltenlayout">
-    <div style="padding-bottom:80px; ">
       <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
       <p id="anleser"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
         Motiviert von der Liebe Gottes für Mensch und Natur.
       </p>
-      </div>
     </div>
   </div>
 
   <div class="container zwoelferspaltenlayout">
-
-    <div class="card-deck" style="padding-bottom: 20px;">
+    <div class="card-deck">
+      <div class="row">
 
   {% set entries = craft.entries.section('ueberUns').level(1).all() %}
     {% set counter = 0 %}
 
         {% for entry in entries %}  {% set counter = counter + 1 %}
-        <div class="card">
+        <div class="card border-light">
           <div class="card-body">
               <h3>{{ entry.title }}</h3>
               <div id="copy"> {{ entry.text }} </div>
           </div>
         </div>
-    {% if counter is divisible by (3) %} </div> <div class="card-deck"  style="padding-bottom: 20px;">  {% endif %}
+    {% if counter is divisible by (3) %} </div> <div class="card-deck">  {% endif %}
 
       {% if counter == 6 %}  <div class="col-4"> </div> {% endif %}
       {% if counter == 7 %}  <div class="col-4"> </div> {% endif %}
 
         {% endfor %}
-
+        </div>
       </div>
     </div>
-
-{% endblock %}
 
 {% endblock %}
