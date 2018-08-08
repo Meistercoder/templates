@@ -15,7 +15,7 @@ $(window).scroll ( function() {
  The HTMLElement.offsetParent returns a reference to the object which is the closest (nearest in the containment hierarchy) positioned containing element.
  */
 
-
+/**
 $( document ).ready( function () {
     $( '.dropdown-menu a.dropdown-toggle' ).on( 'click', function ( e ) {
         var $el = $( this );
@@ -39,3 +39,9 @@ $( document ).ready( function () {
         return false;
     } );
 } );
+*/
+$(document).ready(function() {
+  $(".navbar-toggler").click(function() {
+    $(".navbar-brand").hide();
+  });
+});

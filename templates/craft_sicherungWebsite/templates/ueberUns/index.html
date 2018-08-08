@@ -35,7 +35,7 @@
     {% set counter = 0 %}
 
         {% for entry in entries %}  {% set counter = counter + 1 %}
-        <div class="col-md-4 col-sm-6" style="padding-bottom: 30px;">
+        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 30px;">
 
         <div class="card border-light h-100">
           <div class="card-body">
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      {% if counter == 6 %}  <div class="col-4"> </div> {% endif %}
+      {% if counter == 6 %}  <div class="col-lg-4 col-md-3 col-sm-3"> </div> {% endif %}
 
         {% endfor %}
         </div>
