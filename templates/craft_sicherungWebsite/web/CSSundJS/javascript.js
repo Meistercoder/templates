@@ -2,7 +2,9 @@ $(window).scroll ( function() {
     if ($(document).scrollTop() > 50) {
         document.getElementById('rechteck').style.height = '50px';
         document.getElementById('collapsibleNavbar').style.marginTop = '-55px'; //For eg
-
+/* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen
+davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so
+verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
     }
 }
 
@@ -11,19 +13,28 @@ $(window).scroll ( function() {
 /* Funktion, um Links klickbar zu machen auf großen Bildschirm, jedoch nicht auf kleinen */
 
 $( document ).ready(function() {
-if ($(window).width() < 992) {
-  $(".nav-link").attr("data-toggle", "dropdown");
-}
-else {
-  // Get all nav-links inside the navbar
-  var navlinks = document.getElementsByClassName("nav-link");
-
-  // Loop through the navbars
-  for (var i = 0; i < navlinks.length ; i++) {
-    console.log("data toogle geändert");
-    navlinks[i].outerHTML = navlinks[i].outerHTML.replace("data-toggle=\"dropdown\"","data-toggle=\"dropdown disabled\"");
-  }
-  $(".nav-link").attr("data-toggle", "dropdown disabled");
-  console.log("data toogle geändert");
-}
+    navlinksAnpassen();
 });
+
+$(window).resize(function(){
+  navlinksAnpassen();
+});
+
+function navlinksAnpassen () {
+  if ($(window).width() < 992) {
+    $(".nav-link").attr("data-toggle", "dropdown");
+    $("#home").attr("data-toggle", "dropdown-disabled");
+    $("#blog").attr("data-toggle", "dropdown-disabled");
+    $("#kontakt").attr("data-toggle", "dropdown-disabled");
+
+    $("#logo").attr("width", "90");     $("#logo").attr("height", "70");
+
+    $(".navbar").css("background-color", "#f8f5f2"); /* Setting background-color of navbar to grey */
+  }
+  else {
+        $(".nav-link").attr("data-toggle", "dropdown-disabled");
+        $(".navbar").css("background-color", "");
+        $("#logo").attr("width", "160");     $("#logo").attr("height", "120");
+
+  }
+}
