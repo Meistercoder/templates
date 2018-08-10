@@ -11,9 +11,6 @@
   margin-top: -30px;
   }
 
-#hamburger {
-  margin-top: -60px;
-}
 
   #collapsibleNavbar {
     margin-top: -40px;
@@ -44,10 +41,13 @@
   }
 
 /* Alle dropdownMenus, die ein nav-item als Vater haben, sollen beim hovern schon angezeigt werden */
-.nav-item>.dropdown-menu {
-    margin-top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
+.nav-item:hover>.dropdown-menu {
+
+
+    display: inital;
+    left: inital;
+    transform: translateX(0%);
+    margin-top: 0px;
     }
 
 
@@ -70,11 +70,11 @@
       display: block;
   }
 
-  @media all and (max-width: 992px)  {
+  @media all and (min-width: 993px)  {
     .nav-item:hover>.dropdown-menu {
-      left: inital;
-      transform: translateX(0%);
-      margin-top: 0px;
-
+      display: block;
+      margin-top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
         }
     }
