@@ -1,0 +1,143 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+
+  <div class="container achterspaltenlayout" style="padding-top:0px;">
+    {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
+
+    <div style="padding-bottom:50px; ">
+      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid no-padding" style="background-color: #ed6e2c; padding-bottom: 30px;">
+  <div class="container zwoelferspaltenlayout" style="background-color: #ffffff;">
+
+    <h2> {{ entry.anleser }} </h2>
+    <div id="copy"> {{ entry.text }}</div>
+
+    <div class="row">
+      <div class="col-1">
+        <div class="form-check">
+          <label class="form-check-label" style="padding:0;">
+            <input type="checkbox" class="form-check-input" value="" style="height: 1.25rem; width: 1.25rem;">
+          </label>
+        </div>
+      </div>
+      <div class="col-11" style="padding-top: 0px;">
+        <div id="copy"> {{ entry.zusatzfeld1 }}</div>
+      </div>
+    </div>
+
+    <div id="copy" style="padding-top: 5%;"> <p> Intervall </p>
+      <div class="form-check-inline" style="padding-right: 5%;">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="">monatlich
+        </label>
+      </div>
+      <div class="form-check-inline" style="padding-right: 5%;">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="">quartalsweise
+        </label>
+      </div>
+      <div class="form-check-inline" style="padding-right: 5%;">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="">halbjährlich
+        </label>
+      </div>
+      <div class="form-check-inline" style="padding-right: 5%;">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="">jährlich
+        </label>
+      </div>
+
+      <div class="row" style="padding-top: 5%;">
+        <div class="col-6">
+          <div class="form-group" >
+            <label for="sel1">Verwendungszweck</label>
+            <select class="form-control" id="sel1">
+              <option>Spende Allgemein</option>
+              <option>Spende Programmbezogen</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" id="copy">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="usr">Name der Bank</label>
+          <input type="text" class="form-control" id="bank">
+        </div>
+        <div class="form-group">
+          <label for="usr">Betrag in Euro</label>
+          <input type="text" class="form-control" id="euro">
+        </div>
+        <div class="form-group">
+          <label for="usr">IBAN</label>
+          <input type="text" class="form-control" id="iban">
+        </div>
+        <div class="form-group">
+          <label for="usr">BIC</label>
+          <input type="text" class="form-control" id="bic">
+        </div>
+
+      </div>
+
+      <div class="col-sm-6">
+
+        <div class="form-group">
+          <label for="usr">Kontoinhaber (Vorname, Name)</label>
+          <input type="text" class="form-control" id="inhaber">
+        </div>
+        <div class="form-group">
+          <label for="usr">Straße, Hausnummer</label>
+          <input type="text" class="form-control" id="strasse">
+        </div>
+        <div class="form-group">
+          <label for="usr">PLZ, Ort</label>
+          <input type="text" class="form-control" id="ort">
+        </div>
+        <div class="form-group">
+          <label for="usr">E-Mail-Adresse (freiwillig)</label>
+          <input type="text" class="form-control" id="email">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-check" id="copy" style="padding-top: 3%;">
+      <label class="form-check-label" for="check2">
+        <input type="checkbox" style="height: 1rem; width: 1rem;" class="form-check-input" id="check2" name="option2" value="something">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert (Infos zum Datenschutz)
+        und diese nicht an Dritte weiter gibt.
+      </label>
+    </div>
+
+    <div class="form-check" id="copy">
+      <label class="form-check-label" for="check2">
+        <input type="checkbox" style="height: 1rem; width: 1rem;" class="form-check-input" id="check2" name="option2" value="something">Ich bin damit einverstanden, dass Chance e.V. mich einmal im Monat per E-Mail und zwei- bis dreimal im Jahr per Post über die Projekte und die Menschen
+        vor Ort informiert. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org
+      </label>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

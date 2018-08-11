@@ -37,15 +37,66 @@
 
       <h3 style="color: white"> {{ entry.text }} </h3>
       <div id="copy" style="color: white"> {{ entry.zusatzfeld2 }}  </div>
+
+      <div class="row text-center">
+        <div class="col-lg-1"> </div>
+      <div class="col-lg-4" style="margin-right: -3%; ">
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">Regelmäßig Spenden</a>
+      </div>          <div class="col-lg-2"> <br> </div>
+      <div class="col-lg-4">
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">Einmalig Spenden</a>
+      </div>         <div class="col-lg-1"> </div>
+    </div> <br>
+
     </div>
 
     <div class="card" style="background-color: #ee6e2d;">
       <h3 style="color: white"> {{ entry.zusatzfeld1 }} </h3>
-      <div id="copy" style="color: white"> {{ entry.zusatzfeld3 }}  </div>
+      <div id="copy" style="color: white"> {{ entry.zusatzfeld3 }}  </div> <br>
+
+      <div class="row text-center">
+        <div class="col-lg-1"> </div>
+      <div class="col-lg-4" style="margin-right: -3%; ">
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">Regelmäßig Spenden</a>
+      </div>          <div class="col-lg-2"> <br> </div>
+      <div class="col-lg-4">
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">Einmalig Spenden</a>
+      </div>         <div class="col-lg-1"> </div>
+    </div> <br>
+
     </div>
   </div>
 
+</div> <!-- zwoelferspaltenlayout-container -->
+
+<div class="container achterspaltenlayout">
+  {% set entry = craft.entries.section('spenden').slug('spendenmultiplikator').one() %}
+  <div class="text-center">
+    <h2> {{ entry.title }} </h2>
+    <div id="copy"> {{ entry.anleser }}  </div>
+  </div>
+    <div class="card-deck">
+    <div class="card" style="background-color: #ffffff; padding: 2%;">
+      <h3> {{ entry.text }} </h3>
+      <div id="copy"> {{ entry.zusatzfeld1 }}  </div>
+      <br>
+    </div>
+
+    <div class="card" style="background-color: #ffffff; padding: 2%;">
+      <h3> {{ entry.zusatzfeld2 }} </h3>
+      <div id="copy"> {{ entry.zusatzfeld3 }}  </div>
+      <br>
+    </div>
+  </div>
 </div>
 
+<div class="container achterspaltenlayout">
+  <div class="text-center">
+    {% set entry = craft.entries.section('spenden').slug('eine-spende').one() %}
+    <h2> {{ entry.title }} </h2>
+    <div id="copy"> {{ entry.anleser }}</div>
 
+  </div>
+
+</div>
 {% endblock %}
