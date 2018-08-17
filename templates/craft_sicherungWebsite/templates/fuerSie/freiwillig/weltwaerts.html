@@ -21,17 +21,19 @@
     </div>
   </div>
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 4rem;">
   <div class="container achterspaltenlayout">
     <div class="row">
       <div class="col-sm-6">
         {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-peru').one() %}
-        <h2> {{ entry.title }} </h2>
+        <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
         <div id="copy"> {{ entry.anleser }}</div>
       </div>
       <div class="col-sm-6">
         {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-kenia').one() %}
-        <h2> {{ entry.title }} </h2>
+        <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
         <div id="copy"> {{ entry.anleser }}</div>
       </div>
     </div>
@@ -41,10 +43,26 @@
     <h2> {{ entry.text }} </h2>
     <div id="anleser"> {{ entry.zusatzfeld1 }}    </div>
     </div>
-
     <div id="copy"> {{ entry.zusatzfeld2 }}    </div>
-
   </div>
+
+  <div class="container zwoelferspaltenlayout text-center">
+    {% set entry = craft.entries.section('fuerSie').slug('weitere-einsatzmöglichkeiten-in-peru').one() %}
+    <div id="copy"> {{ entry.zusatzfeld1 }} </div>
+  </div>
+
+<div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+<div class="row">
+  <div class="col-4">
+    <img class="img-fluid"  src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+  </div>
+  <div class="col-8" style="padding-top: 2rem;">
+    <h3> {{ entry.title }} </h3>
+    <div id="copy"> {{ entry.anleser }}</div>
+  </div>
+</div>
+</div>
+
 </div> <!-- Weißer Hintergrund-Div -->
 
 {% endblock %}

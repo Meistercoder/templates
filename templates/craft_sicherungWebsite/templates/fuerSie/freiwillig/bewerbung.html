@@ -26,11 +26,21 @@
   <div class="container achterspaltenlayout">
     <div class="text-center"> <h2> {{ entry.zusatzfeld1 }} </h2> </div>
     <div id="copy"> {{ entry.text}}</div>
-  </div>
+  </div> <!-- Dein Profil -->
 
   <div class="container achterspaltenlayout">
       <div id="copy"> {{ entry.zusatzfeld2 }} </div>
   </div>
+
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }})">
+  <div class="container achterspaltenlayout text-center">
+    {% set entries = entry.children().all() %}
+    {% set entry = random(entries) %}
+    <div id="zitat"  style="padding-bottom: 0px;"> {{ entry.text }}  </div>
+    <div id="autor"> {{ entry.title }}  </div>
+  </div>
+</div> <!-- Das Wolkenbild mit den Zitaten drin -->
+</div> <!-- Weißer Hintergrund-Div -->
 
   <div class="container achterspaltenlayout">
     {% set entry = craft.entries.section('fuerSie').slug('bewerbung').one() %}
@@ -41,7 +51,6 @@
   <div class="container achterspaltenlayout">
       <div id="copy"> {{ entry.text }} </div>
   </div>
-
-</div> <!-- Weißer Hintergrund-Div -->
+  <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
 
 {% endblock %}

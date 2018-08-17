@@ -26,8 +26,9 @@ function navlinksAnpassen () {
     $("#home").attr("data-toggle", "dropdown-disabled");
     $("#blog").attr("data-toggle", "dropdown-disabled");
     $("#kontakt").attr("data-toggle", "dropdown-disabled");
-
     $("#logo").attr("width", "90");     $("#logo").attr("height", "70");
+
+    $("#verschwinde").attr("class", " ");
 
     $(".navbar").css("background-color", "#f8f5f2"); /* Setting background-color of navbar to grey */
   }
@@ -35,6 +36,8 @@ function navlinksAnpassen () {
         $(".nav-link").attr("data-toggle", "dropdown-disabled");
         $(".navbar").css("background-color", "");
         $("#logo").attr("width", "160");     $("#logo").attr("height", "120");
+
+        $("#verschwinde").attr("class", "col-lg-4 ");
 
   }
 }

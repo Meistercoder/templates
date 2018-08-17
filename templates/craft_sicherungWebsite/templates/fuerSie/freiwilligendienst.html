@@ -21,32 +21,30 @@
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout">
-
-      <div class="row">
-
   {% set entries = entry.children().all() %}
 
-    {# If there are any entries, loop through them #}
-    {% set counter = 0 %}
+    <div class="container zwoelferspaltenlayout">
+      <div class="card-deck">
+        <div class="row">
 
-        {# For each entry we find, do this #}
-        {% for entry in entries %}  {% set counter = counter + 1 %}
-          {% if counter == 4 %} <div class="col-sm-4">  </div>   {% endif %}
+          {% set counter = 0 %}
+          {% for entry in entries %}
+          {% set counter = counter + 1 %}
+          <div class="col-lg-4 col-md-6" style="padding-bottom: 50px;">
 
-        <div class="col-sm-4">
-          <div class="row" style="height: 100%;">
-            <div class="col-1"> </div>
-              <div class="col-10" style="background-color: #ffffff;">
-              <h3>{{ entry.title }}</h3>
-              <div id="copy"> {{ entry.anleser }} </div>
+          <div class="card border-light h-100">
+            <img class="card-img-top"
+            src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+            <div class="card-body">
+                <h3>{{ entry.title }}</h3>
+                <div id="copy"> {{ entry.anleser }} </div>
             </div>
           </div>
+        </div>
+        {% if counter == 3 %}  <div class="col-lg-4" id="verschwinde"> </div> {% endif %}
+          {% endfor %}
+          </div>
+        </div>
       </div>
-        {% endfor %}
-
-      </div>
-    </div>
-
 
 {% endblock %}

@@ -33,16 +33,16 @@
         <div id="copy"> {{ entry.zusatzfeld2 }}</div>
       </div>
     </div>
-
-  </div>
+  </div> <!-- Zweispaltiges Layout mit allgemeinen Infos -->
 
   <div class="container achterspaltenlayout">
         {% set entry = craft.entries.section('fuerSie').slug('das-team').one() %}
         <div class="text-center">
         <h2> {{ entry.title }} </h2>
+        <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
         </div>
         <div id="copy"> {{ entry.anleser }}    </div>
-  </div>
+  </div> <!-- Das Team kurz erklärt -->
 
   <div class="container achterspaltenlayout">
     {% set entry = craft.entries.section('fuerSie').slug('arbeit-freiwilligen').one() %}
@@ -53,6 +53,7 @@
   <div class="container achterspaltenlayout">
     {% set entry = craft.entries.section('fuerSie').slug('projektzentrum').one() %}
     <div class="text-center"> <h2> {{ entry.title }} </h2> </div>
+    <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
     <div id="copy"> {{ entry.anleser}}</div>
   </div>
 
@@ -62,7 +63,10 @@
     <div id="copy"> {{ entry.anleser}}</div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+  <!-- Hintergrundbild des gesamten Teams -->
+
+  <div class="container achterspaltenlayout" style="padding-top: 3rem;">
     <div class="text-center"> <h2> {{ entry.zusatzfeld1 }} </h2> </div>
     <div id="copy"> {{ entry.text}}</div>
   </div>

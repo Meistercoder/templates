@@ -56,6 +56,9 @@
 	padding-top: 50px;
 }
 
+.img-fluid {
+  padding-bottom: 3rem;
+}
 
 h1 {
   font-size: 52px;

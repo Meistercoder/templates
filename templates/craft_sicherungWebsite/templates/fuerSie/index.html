@@ -22,32 +22,29 @@
   </div>
 
   <div class="container zwoelferspaltenlayout">
-
+    <div class="card-deck">
       <div class="row">
 
-  {% set entries = craft.entries.section('fuerSie').level(1).all() %}
-
-    {# If there are any entries, loop through them #}
+        {% set entries = craft.entries.section('fuerSie').level(1).all() %}
     {% set counter = 0 %}
 
-        {# For each entry we find, do this #}
-        {% for entry in entries %}  {% set counter = counter + 1 %}
-          {% if counter == 7 %} <div class="col-sm-4">  </div>   {% endif %}
-          {% if entry.title != 'Werden Sie Teil von Chance e.V.' %}
+        {% for entry in entries %}  {% if entry.slug != 'fuelleintrag' %}
+        {% set counter = counter + 1 %}
+        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
 
-        <div class="col-sm-4">
-          <div class="row" style="height: 100%">
-            <div class="col-1"> </div>
-
-              <div class="col-10" style="background-color: #ffffff; padding-top: 15px;">
+        <div class="card border-light h-100">
+          <img class="card-img-top"
+          src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+          <div class="card-body">
               <h3>{{ entry.title }}</h3>
               <div id="copy"> {{ entry.anleser }} </div>
-            </div>
           </div>
+        </div>
       </div>
-          {% endif %}
+      {% if counter == 6 %}  <div class="col-lg-4 col-md-3 col-sm-3"> </div> {% endif %}
+      {% endif %}
         {% endfor %}
-
+        </div>
       </div>
     </div>
 
@@ -79,15 +76,17 @@
 
     <div class="container zwoelferspaltenlayout">
       {% set entries = entry.children().all() %}
-      <div class="row">
+
+    <div class="row">
 
       {% for entry in entries %}
       <div class="col-sm-4">
-        <h4> {{ entry.title }} </h4>
+        <img class="img-fluid rounded-circle" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="width: 40%;">
+        <h4 style="padding-top: 1.5rem;"> {{ entry.title }} </h4>
         <div id="copy"> {{ entry.anleser }}   </div>
     </div>
-
       {% endfor %}
+
     </div>
   </div>  <!-- Ende Container -->
 
@@ -95,8 +94,18 @@
     <div id="anleser"> {{ entry.text }}  </div>
   </div>
 
-  <div class="container-fluid no-padding">
-    <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme.jpg').one().getUrl() }} ">
+  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+    <div class="row">
+      <div class="col-1">  </div>
+      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 150px;"> </div>
+      <div class="col-1">  </div>
+      <div class="col-7">
+        <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
+        <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+      </div>
+
+    </div>
   </div>
 
 {% endblock %}
