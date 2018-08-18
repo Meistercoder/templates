@@ -27,6 +27,8 @@ function navlinksAnpassen () {
     $("#home").attr("data-toggle", "dropdown-disabled");
     $("#blog").attr("data-toggle", "dropdown-disabled");
     $("#kontakt").attr("data-toggle", "dropdown-disabled");
+    $(".tab").attr("data-toggle", "pill");
+
     $("#logo").attr("width", "90");     $("#logo").attr("height", "70");
 
     $("#verschwinde").attr("class", " ");
@@ -37,6 +39,8 @@ function navlinksAnpassen () {
   }
   else {
         $(".nav-link").attr("data-toggle", "dropdown-disabled");
+        $(".tab").attr("data-toggle", "pill");
+
         $(".navbar").css("background-color", "");
         $("#logo").attr("width", "160");     $("#logo").attr("height", "120");
 

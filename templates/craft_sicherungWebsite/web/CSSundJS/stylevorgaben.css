@@ -160,7 +160,17 @@ und enger aneinander geklebt */
   margin-bottom: 0px;
 }
 
+/* Wenn bei den Tabs einer angeklickt wird, wird der aktive blau hinterlegt */
+.nav-link.active.tab {
+  background-color: #f8f5f2;
+  color: #0062ae;
+}
 
+.nav-link.tab {
+  color: #0062ae;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
 
 .card-link:after {
   content: '\003C'; /* Unicode character for "plus" sign (+) */

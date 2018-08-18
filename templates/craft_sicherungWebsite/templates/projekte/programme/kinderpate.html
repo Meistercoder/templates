@@ -64,8 +64,7 @@
       {% set entry = craft.entries.section('projekte').slug('starke-kinder').one() %}
         <h2 > {{ entry.title }} </h2>
         <div id="anleser"> {{ entry.anleser }}    </div>
-
-        Das bild kommt genau hierhin
+        <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="padding-bottom: 0;">
     </div>
 
     <div class="container zwoelferspaltenlayout">
@@ -85,21 +84,19 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-color: #ED6E2C;">
-  <div class="container zwoelferspaltenlayout">
-    {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
-    <div class="row">
-      <div class="col-sm-4">
-        Bild kommt da rein
-      </div>
+{% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
 
-      <div class="col-sm-8">
-      <h3 style="color: #ffffff;"> {{ entry.title }} </h3>
-      <div id="copy" style="color: #ffffff;"> {{ entry.text }}    </div>
-    </div>
+<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+  <div class="row">
+    <div class="col-4" style="position: relative">   <img style="position: absolute; bottom: 0; padding-bottom: 0;" class="img-fluid" src="{{ entry.bild.inReverse().one().url }}"> </div>
+    <div class="col-1"></div>
+    <div class="col-7">
+      <h4 style="color: white;"> {{ entry.title }} </h4>
+      <div id="copy" style="color: white;"> {{ entry.text }}</div>
+      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
     </div>
   </div>
-</div>
+</div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
 <div class="container zwoelferspaltenlayout text-center">
   {% set entry = craft.entries.section('projekte').slug('ganzheitliche-begleitung').one() %}
