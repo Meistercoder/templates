@@ -18,13 +18,14 @@
 </div>
 
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
-
-<div class="container achterspaltenlayout text-center">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
   {% set entry = craft.entries.section('projekte').slug('peru').one() %}
+<div class="container achterspaltenlayout text-center">
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
-
+  <div class="container zwoelferspaltenlayout">
+    <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+  </div>
 </div>
 
 <div class="container achterspaltenlayout">
@@ -40,23 +41,44 @@
       {# For each entry we find, do this #}
       {% for entry in entries %}      {% set counter = counter + 1 %}
 
-
         <h4>{{ entry.title }}</h4>
         <div id="copy"> {{ entry.text }} </div>
 
-      {% if counter == 3 %}      {% endif %}
+      {% if counter == 1 %}   </div>
+      <div class="container-fluid no-padding" style="background-color: #f8f5f2; padding-top: 0;">
+        <div class="row">
+          <div class="col-1"> </div>
+          <div class="col-5"> </div>
+          <div class="col-6">
+          <img class="img-fluid" style="padding-bottom: 0;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        </div>
+        </div>
+      </div> <!-- Nach dem ersten Durchlauf der for-schleife wird die Peru-Karte eingefuegt -->
+    <div class="container achterspaltenlayout">
+    {% endif %}
 
       {% endfor %}
-
   {% endif %}
 
 </div>
+
+{% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }})">
+  <div class="container achterspaltenlayout text-center">
+    {% set entries = entry.children().all() %}
+    {% set entry = random(entries) %}
+    <div id="zitat"  style="padding-bottom: 0px;"> {{ entry.text }}  </div>
+    <div id="autor"> {{ entry.title }}  </div>
+  </div>
+</div> <!-- Das Wolkenbild mit den Zitaten drin -->
 
 <div class="container achterspaltenlayout text-center">
   {% set entry = craft.entries.section('projekte').slug('kenia').one() %}
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
-
+  <div class="container zwoelferspaltenlayout">
+    <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+  </div> <!-- Projekte aus Kenia mit Bild -->
 </div>
 
 <div class="container achterspaltenlayout">
@@ -66,26 +88,72 @@
 
   {# If there are any entries, loop through them #}
   {% if entries | length %}
-
       {% set counter = 0 %}
-
-      {# For each entry we find, do this #}
       {% for entry in entries %}      {% set counter = counter + 1 %}
-
 
         <h4>{{ entry.title }}</h4>
         <div id="copy"> {{ entry.text }} </div>
 
-      {% if counter == 3 %}      {% endif %}
-
+        {% if counter == 2 %}   </div>
+        <div class="container-fluid no-padding" style="background-color: #f8f5f2; padding-top: 0; margin-bottom: 3rem;">
+          <div class="row">
+            <div class="col-6">
+            <img class="img-fluid" style="padding-bottom: 0;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+          </div>
+          <div class="col-5"> </div>
+          <div class="col-1"> </div>
+          </div>
+        </div> <!-- Nach dem zweiten Durchlauf der for-schleife wird die Kenia-Karte eingefuegt -->
+      <div class="container achterspaltenlayout">
+      {% endif %}
       {% endfor %}
 
   {% endif %}
-
 </div>
 
+  <div class="container achterspaltenlayout text-center">
+    {% set entries = craft.entries.section('projekte').slug('erfahren-sie-mehr').one().children().all() %}
+    {% set entry = random(entries) %}
 
-</div>
+    <hr style="background-color: #ed6e2c; height: 1px;">
+    <div id="zitat"> {{ entry.text }}  </div>
+    <div id="autor" > {{ entry.zusatzfeld1 }}  </div>
+    <hr style="background-color: #ed6e2c; height: 1px;">
+
+  </div> <!-- Zufälliges Zitat -->
+
+  {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
+  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+    <div class="row">
+      <div class="col-1">  </div>
+      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.inReverse().one().url }}" style="max-height: 200px;"> </div>
+      <div class="col-1">  </div>
+      <div class="col-7">
+        <h4 style="color: white;"> Länderpate werden </h4>
+        <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Länderpate werden</a>
+      </div>
+    </div>
+  </div> <!-- Der orange Berg mit dem Spendenaufruf -->
+
+  <div class="container zwoelferspaltenlayout text-center">
+    {% set entry = craft.entries.section('projekte').slug('programme').one() %}
+    <div id="anleser"> Erfahren sie mehr über unser Engagement vor Ort </div>
+  </div>
+
+  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    </div>
+    <div class="col-md-8" style="padding-top: 2rem;">
+      <h3> {{ entry.title }} </h3>
+      <div id="copy"> {{ entry.text }}</div>
+    </div>
+  </div>
+  </div> <!-- Weitere Informationen zum Freiwilligendienst -->
+
+</div> <!-- Weißer Hintergrundcontainer -->
 
 
 {% endblock %}

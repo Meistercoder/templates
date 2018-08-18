@@ -23,6 +23,7 @@
 
   <div class="container-fluid no-padding" style="background-color: #ffffff;">
     <div class="container achterspaltenlayout">
+      <img class="img-fluid"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
      <div id="copy"> {{ entry.text }} </div>
     </div>
 
@@ -50,6 +51,40 @@
 
   </div> <!-- weißer Hintergrundcontainer -->
 
+  <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
+    <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+    <hr> <br> <p id="anleser" class="text-center"> Was sie daheim tun können </p>
+    </div>
+
+    {% set entry = craft.entries.section('fuerSie').slug('kaffee-unsere-tägliche-chance').one() %}
+
+    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+      </div>
+      <div class="col-md-8" style="padding-top: 2rem;">
+        <h3> {{ entry.title }} </h3>
+        <div id="copy"> {{ entry.anleser }}</div>
+      </div>
+    </div>
+  </div> <!-- Weitere Informationen zum Kaffee -->
+
+    {% set entry = craft.entries.section('fuerSie').slug('consumer-missions').one() %}
+
+    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-top: 3rem;">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+      </div>
+      <div class="col-md-8" style="padding-top: 2rem;">
+        <h3> {{ entry.title }} </h3>
+        <div id="copy"> {{ entry.anleser }}</div>
+      </div>
+    </div>
+  </div> <!-- Consumer Missions -->
+
+  </div> <!-- Weißer Hintergrundcontainer -->
 
 
 

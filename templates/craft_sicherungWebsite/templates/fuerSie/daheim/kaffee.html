@@ -21,7 +21,17 @@
     </div>
   </div>
 
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+  <div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
+  <div class="container achterspaltenlayout">
+    <div id="copy">
+      Abbildung 4: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=134763
+    </div>
+  </div>
+  </div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
+
   <div class="container-fluid no-padding" style="background-color: #ffffff;">
+
     <div class="container achterspaltenlayout">
      <div id="copy"> {{ entry.text }} </div>
     </div>
@@ -31,12 +41,26 @@
       <div id="anleser"> {{ entry.zusatzfeld3 }}</div>
     </div>
 
+    <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+    <img class="img-fluid" style="padding-bottom: 0px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+    <div class="container achterspaltenlayout">
+      <div id="copy">
+        Abbildung 1:By Bamse - self-made using data at w:List of countries by coffee consumption per capita, CC BY-SA 3.0,
+        https://commons.wikimedia.org/w/index.php?curid=2044673      </div>
+    </div>
+  </div> <!-- Kaffeekonsum weltweit - Bild -->
+
     {% set entry = craft.entries.section('fuerSie').slug('menschen').one() %}
 
     <div class="container achterspaltenlayout">
       <h3> {{ entry.title }} </h3>
       <div id="copy"> {{ entry.anleser }} </div>
-    das bild kommt da rein <br>  <br>
+
+      <img class="img-fluid" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        <div id="copy" style="padding-bottom: 1.5rem;">
+        Justo und Angélica starben als Kaffeebauern an den Folgen ihrer Armut.
+      </div> <!-- Justo und Angélica starben als Kaffeebauern an den Folgen ihrer Armut. -->
+
       <div id="copy"> {{ entry.text }} </div>
     </div>
 
@@ -44,6 +68,16 @@
       <h3> {{ entry.zusatzfeld2 }} </h3>
       <div id="copy"> {{ entry.zusatzfeld3 }} </div>
     </div>
+
+    <div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
+      <img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+    <div class="container achterspaltenlayout">
+      <div id="copy">
+        Abbildung 3: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=117185
+      </div>
+    </div>
+    </div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
+
 
     {% set entry = craft.entries.section('fuerSie').slug('klimawandel').one() %}
     <div class="container achterspaltenlayout">

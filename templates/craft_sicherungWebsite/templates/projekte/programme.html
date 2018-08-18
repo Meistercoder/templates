@@ -31,34 +31,40 @@
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout">
 
-      <div class="row">
+    <div class="container zwoelferspaltenlayout">
+      <div class="card-deck">
+        <div class="row">
 
-        {% set entries = craft.entries.section('projekte').slug('programme').one().children().all() %}
+          {% set entries = craft.entries.section('projekte').slug('programme').one().children().all() %}
+          {% set counter = 0 %}
 
-    {# If there are any entries, loop through them #}
-    {% if entries | length %}
+          {% for entry in entries %}
+          {% set counter = counter + 1 %}
+          <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
 
-        {% set counter = 0 %}
-
-        {# For each entry we find, do this #}
-        {% for entry in entries %}      {% set counter = counter + 1 %}
-
-        <div class="col-sm-4">
-          <div class="row">
-                 <div class="col-11">
-              <h3>{{ entry.anleser }}</h3>
-              <div id="copy"> {{ entry.text }} </div>
+          <div class="card border-light h-100">
+            <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+            <div class="card-body">
+                <h3>{{ entry.title }}</h3>
+                <div id="copy"> {{ entry.text }} </div>
             </div>
           </div>
+        </div>
+        {% if counter == 2 %}  <div class="col-3" id="verschwinde-gros"> </div> {% endif %}
+          {% endfor %}
+          </div>
+        </div>
       </div>
 
-        {% endfor %}
-
-    {% endif %}
+    {% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
+    <div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }})">
+      <div class="container achterspaltenlayout text-center">
+        {% set entries = entry.children().all() %}
+        {% set entry = random(entries) %}
+        <div id="zitat"  style="padding-bottom: 0px;"> {{ entry.text }}  </div>
+        <div id="autor"> {{ entry.title }}  </div>
       </div>
-    </div>
-
+    </div> <!-- Das Wolkenbild mit den Zitaten drin -->
 
 {% endblock %}

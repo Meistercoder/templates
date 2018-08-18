@@ -21,6 +21,7 @@
 
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
 <div class="container achterspaltenlayout">
+  <img class="img-fluid" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
   <div class="text-center">  <div id="anleser"> {{ entry.zusatzfeld1 }}</div>   </div>
   <div id="copy"> {{ entry.text }} </div>
 </div>

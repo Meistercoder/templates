@@ -32,7 +32,11 @@
         {% for entry in entries %}
 
         <div class="card bg-white">
-          <div class="card-body">
+          <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
+          <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
+          src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+        </div>
+          <div class="card-body" style="padding-top: 3rem;">
             <p class="card-text">
               <h3> {{ entry.title }} </h3>
               <div id="copy"> {{ entry.anleser }} </div>
@@ -45,9 +49,5 @@
     {% endif %}
       </div>
     </div>
-
-  <div class="container-fluid no-padding">
-    <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme.jpg').one().getUrl() }} ">
-  </div>
 
 {% endblock %}

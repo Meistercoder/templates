@@ -147,15 +147,20 @@ h4 {
         border: 0;
     }
 
-/* Die umgebenden Boxen für das 11-Spaltenlayout  von über uns und so */
-.col-sm-4 {
-      margin-bottom: 40px;
-    }
-
-.col-11 {
-  padding-top: 20px;
-  background-color: #ffffff;
+/* Auf der Projekt-Uebersicht werden die horizontalruler weis gefaerbt
+und enger aneinander geklebt */
+#horizontalrulerweis hr {
+  background-color: white;
+  color: #ed6e2c;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
+
+#horizontalrulerweis p {
+  margin-bottom: 0px;
+}
+
+
 
 .card-link:after {
   content: '\003C'; /* Unicode character for "plus" sign (+) */

@@ -33,8 +33,7 @@
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
 
         <div class="card border-light h-100">
-          <img class="card-img-top"
-          src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+          <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
           <div class="card-body">
               <h3>{{ entry.title }}</h3>
               <div id="copy"> {{ entry.anleser }} </div>
@@ -97,15 +96,14 @@
   <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
     <div class="row">
       <div class="col-1">  </div>
-      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 150px;"> </div>
+      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
       <div class="col-1">  </div>
       <div class="col-7">
         <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
         <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
         <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
       </div>
-
     </div>
-  </div>
+  </div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
 {% endblock %}

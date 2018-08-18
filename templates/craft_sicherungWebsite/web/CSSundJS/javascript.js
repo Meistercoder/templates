@@ -21,7 +21,8 @@ $(window).resize(function(){
 });
 
 function navlinksAnpassen () {
-  if ($(window).width() < 992) {
+
+  if ($(window).innerWidth() < 976) {
     $(".nav-link").attr("data-toggle", "dropdown");
     $("#home").attr("data-toggle", "dropdown-disabled");
     $("#blog").attr("data-toggle", "dropdown-disabled");
@@ -29,6 +30,8 @@ function navlinksAnpassen () {
     $("#logo").attr("width", "90");     $("#logo").attr("height", "70");
 
     $("#verschwinde").attr("class", " ");
+    $("#verschwinde-lg-2").attr("class", " ");
+    $("#verschwinde-gros").attr("class", "col-3");
 
     $(".navbar").css("background-color", "#f8f5f2"); /* Setting background-color of navbar to grey */
   }
@@ -38,6 +41,9 @@ function navlinksAnpassen () {
         $("#logo").attr("width", "160");     $("#logo").attr("height", "120");
 
         $("#verschwinde").attr("class", "col-lg-4 ");
+        $("#verschwinde-lg-2").attr("class", "col-lg-2");
+        $("#verschwinde-gros").attr("class", " ");
+
 
   }
 }
