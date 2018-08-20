@@ -21,36 +21,46 @@
   </div>
 
   <div class="container zwoelferspaltenlayout">
-
+    <div class="card-deck">
       <div class="row">
 
-  {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
-
-    {# If there are any entries, loop through them #}
-    {% if entries | length %}
-
-        {# For each entry we find, do this #}
+        {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
         {% for entry in entries %}
-
-        <div class="col-sm-4">
-          <div class="row">
-            <div class="col-1"> </div>
-
-              <div class="col-10" style="background-color: #ffffff;">
+        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
+        <div class="card border-light h-100">
+          <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+          <div class="card-body">
               <h3>{{ entry.title }}</h3>
               <div id="copy"> {{ entry.anleser }} </div>
-            </div>
           </div>
+        </div>
       </div>
-
-        {% endfor %}
-
-    {% endif %}
+      {% endfor %}
+        </div>
       </div>
     </div>
 
-  <div class="container-fluid no-padding">
-    <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme.jpg').one().getUrl() }} ">
-  </div>
+    <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
+
+      <div class="container zwoelferspaltenlayout text-center">
+        {% set entry = craft.entries.section('projekte').slug('projektberichte').one() %}
+       <div id="anleser" style="padding-bottom: 3rem;"> Das könnte Sie auch interessieren </div>
+      </div>
+
+      <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+        </div>
+        <div class="col-md-8" style="padding-top: 2rem;">
+          <h3> {{ entry.title }} </h3>
+          <div id="copy"> {{ entry.text }}</div>
+        </div>
+      </div>
+      </div> <!-- Weitere Informationen zum Freiwilligendienst -->
+
+    </div> <!-- Weißer Hintergrundcontainer -->
+
+
 
 {% endblock %}
