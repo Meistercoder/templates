@@ -24,13 +24,8 @@
     <div class="card-columns">
 
   {% set entries = craft.entries.section('fuerSie').slug('erfahrungsberichte').one().children().all() %}
-
-    {# If there are any entries, loop through them #}
     {% if entries | length %}
-
-        {# For each entry we find, do this #}
         {% for entry in entries %}
-
         <div class="card bg-white">
           <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
           <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
@@ -43,9 +38,7 @@
             </p>
           </div>
         </div>
-
         {% endfor %}
-
     {% endif %}
       </div>
     </div>

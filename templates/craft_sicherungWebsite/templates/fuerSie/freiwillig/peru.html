@@ -63,7 +63,7 @@
     <div id="copy"> {{ entry.anleser}}</div>
   </div>
 
-  <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+  <img class="img-fluid w-100"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
   <!-- Hintergrundbild des gesamten Teams -->
 
   <div class="container achterspaltenlayout" style="padding-top: 3rem;">

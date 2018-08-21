@@ -26,12 +26,10 @@
       <div class="row">
 
         {% set entries = craft.entries.section('fuerSie').level(1).all() %}
-    {% set counter = 0 %}
-
+        {% set counter = 0 %}
         {% for entry in entries %}  {% if entry.slug != 'fuelleintrag' %}
         {% set counter = counter + 1 %}
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
-
         <div class="card border-light h-100">
           <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
           <div class="card-body">
@@ -80,7 +78,7 @@
 
       {% for entry in entries %}
       <div class="col-sm-4">
-        <img class="img-fluid rounded-circle" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="width: 40%;">
+        <img class="img-fluid rounded-circle" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="width: 40%; padding-bottom: 0;">
         <h4 style="padding-top: 1.5rem;"> {{ entry.title }} </h4>
         <div id="copy"> {{ entry.anleser }}   </div>
     </div>

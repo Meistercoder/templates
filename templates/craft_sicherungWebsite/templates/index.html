@@ -8,7 +8,6 @@
 
   <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
-
   <div class="container achterspaltenlayout" style="padding-top:0px;">
     {% set entry = craft.entries.section('home').slug('mensch-schoepfung').one() %}
 
@@ -19,29 +18,35 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding">
   <img class="img-fluid" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} ">
-</div>
 
 <div class="container achterspaltenlayout text-center" style="padding-top: 30px;">
   <div id="anleser"> {{ entry.text }}</div>
 </div>
 
-<div class="container zwoelferspaltenlayout text-center" style="padding-bottom: 30px; padding-top: 0px;">
+<div class="container zwoelferspaltenlayout text-center" style="padding-bottom: 4rem; padding-top: 0px;">
   {% set entry = craft.entries.section('home').slug('armut-entkommen').one() %}
 
   <div class="row">
     <div class="col-sm-3">
-      <div id="anleser"> {{ entry.title }} </div>
+      <img class="card-img-top rounded-circle" style=" max-height: 140px; max-width: 140px;"
+      src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+      <div id="anleser" style="padding-top: 2rem;"> {{ entry.title }} </div>
     </div>
     <div class="col-sm-3">
-      <div id="anleser"> {{ entry.anleser }} </div>
+      <img class="card-img-top rounded-circle" style=" max-height: 140px; max-width: 140px;"
+      src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+      <div id="anleser" style="padding-top: 2rem;"> {{ entry.anleser }} </div>
     </div>
     <div class="col-sm-3">
-      <div id="anleser"> {{ entry.text }} </div>
+      <img class="card-img-top rounded-circle" style=" max-height: 140px; max-width: 140px;"
+      src="{% if entry.bild3.one() is not null %}  {{ entry.bild3.one().getUrl() }}  {% endif %}">
+      <div id="anleser" style="padding-top: 2rem;"> {{ entry.text }} </div>
     </div>
     <div class="col-sm-3">
-      <div id="anleser"> {{ entry.zusatzfeld1 }} </div>
+      <img class="card-img-top rounded-circle" style=" max-height: 140px; max-width: 140px;"
+      src="{% if entry.bild4.one() is not null %}  {{ entry.bild4.one().getUrl() }}  {% endif %}">
+      <div id="anleser" style="padding-top: 2rem;"> {{ entry.zusatzfeld1 }} </div>
     </div>
   </div>
 
@@ -74,39 +79,40 @@
 
     {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
     {% set entry = random(entries) %}
-    <div class="col-sm-4">
-      <div class="row" style="height: 100%;">
-        <div class="col-1"> </div>
-        <div class="col-10" style="background-color: #ffffff;  padding-top: 15px;">
+    <div class="col-md-4" style="padding-bottom: 50px;">
+    <div class="card border-light h-100">
+      <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+      <div class="card-body">
           <h3>{{ entry.title }}</h3>
           <div id="copy"> {{ entry.anleser }} </div>
-        </div>
       </div>
     </div>
+  </div>
 
     {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
     {% set entry = random(entries) %}
-    <div class="col-sm-4">
-      <div class="row" style="height: 100%;">
-        <div class="col-1"> </div>
-        <div class="col-10" style="background-color: #ffffff;  padding-top: 15px;">
+    {% set entry = craft.entries.section('projekte').slug('der-chance-kinderwald').one() %}
+    <div class="col-md-4" style="padding-bottom: 50px;">
+    <div class="card border-light h-100">
+      <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+      <div class="card-body">
           <h3>{{ entry.title }}</h3>
           <div id="copy"> {{ entry.anleser }} </div>
-        </div>
       </div>
     </div>
+  </div>
 
     {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
     {% set entry = random(entries) %}
-    <div class="col-sm-4">
-      <div class="row" style="height: 100%;">
-        <div class="col-1"> </div>
-        <div class="col-10" style="background-color: #ffffff;  padding-top: 15px;">
+    <div class="col-md-4" style="padding-bottom: 50px;">
+    <div class="card border-light h-100">
+      <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+      <div class="card-body">
           <h3>{{ entry.title }}</h3>
           <div id="copy"> {{ entry.anleser }} </div>
-        </div>
       </div>
     </div>
+  </div>
 
   </div> <!-- Zufällige Blogeinträge oder Projektberichte - row-Ende -->
 
@@ -142,6 +148,20 @@
       </div>
     </div>
   </div>
+
+  {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
+
+  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+    <div class="row">
+      <div class="col-2">  </div>
+      <div class="col-3" style="position: relative">   <img id="kind" style="position: absolute; bottom: 0; padding-bottom: 0;" class="img-fluid" src="{{ entry.bild.inReverse().one().url }}"> </div>
+      <div class="col-7">
+        <h4 style="color: white;"> {{ entry.title }} </h4>
+        <div id="copy" style="color: white;"> {{ entry.text }}</div>
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+      </div>
+    </div>
+  </div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
 {% endblock %}
 {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

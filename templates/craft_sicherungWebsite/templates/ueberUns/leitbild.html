@@ -21,37 +21,65 @@
 <div class="container-fluid no-padding style" style="background-color: #ffffff;">
 
 <div class="container zwoelferspaltenlayout">
-
   <div class="row">
-
-  {% set entries = craft.entries.section('ueberUns').slug('leitbild').one().children().all() %}
-
-  {# If there are any entries, loop through them #}
-  {% if entries | length %}
-
-      {# For each entry we find, do this #}
-      {% for entry in entries %}
-
-
+  {% set entry = craft.entries.section('ueberUns').slug('gemeinschaften').one() %}
       <div class="col-8">
         <h3>{{ entry.title }}</h3> </br>
         <div id="copy"> {{ entry.text }} </div>
       </div>
 
-      <div class="col-3">Da gehört die Empfehlung hin</div>
-
+      <div style="border-left:2px solid #ed6e2c; height: 40%;" class="col-3">
+        {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
+        {% set entry = random(entries) %}
+        <div id="zitat"> {{ entry.text }}  </div>
+        <div id="autor" > {{ entry.title }}  </div>
       <div class="col-1"></div>
-
-      {% endfor %}
-
-  {% endif %}
 
   </div>
 </div>
 </div>
 
-<div class="container-fluid no-padding">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-leitbild-kind.jpg').one().getUrl() }} ">
+{% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }})">
+  <div class="container achterspaltenlayout text-center">
+    {% set entries = entry.children().all() %}
+    {% set entry = random(entries) %}
+    <div id="zitat"  style="padding-bottom: 0px;"> {{ entry.text }}  </div>
+    <div id="autor"> {{ entry.title }}  </div>
+  </div>
+</div> <!-- Das Wolkenbild mit den Zitaten drin -->
+</div> <!-- Weißer Hintergrundcontainer -->
+
+<div class="container achterspaltenlayout" style="padding-top: 3rem;">
+  {% set entry = craft.entries.section('ueberUns').slug('folgende-grafik').one() %}
+  <h3> {{ entry.title }} </h3>
 </div>
+
+<div class="container zwoelferspaltenlayout">
+  <img class="img-fluid" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="padding-bottom: 0;">
+</div>
+
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-ueber-uns-leitbild-kind.jpg').one().getUrl() }} ">
+
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+  <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
+  </div>
+
+  {% set entry = craft.entries.section('ueberUns').slug('motivation').one() %}
+
+  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    </div>
+    <div class="col-md-8" style="padding-top: 2rem;">
+      <h3> {{ entry.title }} </h3>
+      <div id="copy"> {{ entry.text }}</div>
+    </div>
+  </div>
+  </div> <!-- Weitere Informationen zum Konzept -->
+
+  </div>
 
 {% endblock %}

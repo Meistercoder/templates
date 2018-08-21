@@ -132,7 +132,6 @@
 
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 2rem;">
   <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist" style="background-color: white;">
   <li class="nav-item">
     <a class="nav-link active tab" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Peru</a>
@@ -141,6 +140,8 @@
     <a class="nav-link tab" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Kenia</a>
   </li>
 </ul>
+<div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 2rem;">
+
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="padding-bottom: 0;">

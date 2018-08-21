@@ -168,7 +168,7 @@ und enger aneinander geklebt */
   margin-bottom: 0px;
 }
 
-/* Wenn bei den Tabs einer angeklickt wird, wird der aktive blau hinterlegt */
+/* Wenn bei den Tabs einer angeklickt wird, wird der aktive grau hinterlegt */
 .nav-link.active.tab {
   background-color: #f8f5f2;
   color: #0062ae;
@@ -199,6 +199,18 @@ und enger aneinander geklebt */
     margin-right: -100%;
 }
 
+/* Die Bilder von Empfehlungen grau werden lassen und farbig beim hovern */
+.grayscale {
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+/* Disable grayscale on hover */
+.grayscale:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
 
 
 body {

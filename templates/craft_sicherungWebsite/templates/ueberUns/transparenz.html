@@ -20,32 +20,57 @@
 </div>
 
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout" style="padding-bottom: 0;">
 
   <div class="row">
 
   {% set entries = craft.entries.section('ueberUns').slug('transparenz').one().children().all() %}
-
-  {# If there are any entries, loop through them #}
-  {% if entries | length %}
-
-      {# For each entry we find, do this #}
+    {% if entries | length %}
       {% for entry in entries %}
-
         <h2>{{ entry.title }}</h2>
         <div id="copy"> {{ entry.text }} </div>
-
       {% endfor %}
-
   {% endif %}
       </div>
     </div>
+
+  {% set entry = craft.entries.section('ueberUns').slug('verwaltungskosten').one() %}
+  <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+
+  {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
+  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+    <div class="row">
+      <div class="col-1">  </div>
+      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
+      <div class="col-1">  </div>
+      <div class="col-7">
+        <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
+        <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
+        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+      </div>
+    </div>
+  </div> <!-- Der orange Berg mit dem Spendenaufruf -->
+
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+  <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
   </div>
 
-<div class="container-fluid no-padding">
-  <img class="img-fluid" src=" {{ craft.assets.filename('chance-ueber-uns-arbeitsweise_farm.jpg').one().getUrl() }} ">
-</div>
+  {% set entry = craft.entries.section('ueberUns').slug('empfehlungen').one() %}
+
+  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    </div>
+    <div class="col-md-8" style="padding-top: 2rem;">
+      <h3> {{ entry.title }} </h3>
+      <div id="copy"> {{ entry.text }}</div>
+    </div>
+  </div>
+</div> <!-- Weitere Informationen zum Konzept -->
+
+</div> <!-- Weißer Hintergrundcontainer -->
 
 {% endblock %}

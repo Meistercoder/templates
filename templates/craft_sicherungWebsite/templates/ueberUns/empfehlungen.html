@@ -20,33 +20,53 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" >
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 3rem;">
 
-<div class="card-columns">
-
+  <div class="card-columns">
   {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
-
   {# If there are any entries, loop through them #}
   {% if entries | length %}
-
-      {# For each entry we find, do this #}
       {% for entry in entries %}
-
       <div class="card bg-white">
-        <div class="card-body">
+        <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
+        <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
+        src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+      </div>
+        <div class="card-body" style="padding-top: 3rem;">
           <p class="card-text">
             <h3> {{ entry.title }} </h3>
             <h4> {{ entry.anleser }} </h4>
             <div id="copy"> {{ entry.text }} </div>
           </p>
+          </p>
         </div>
       </div>
-
       {% endfor %}
-
   {% endif %}
+    </div>
+  </div>
 
+
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
+
+<div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+<p id="anleser" class="text-center"> Erfahren Sie mehr über unser Engagement vor Ort </p>
+</div>
+
+{% set entry = craft.entries.section('projekte').slug('projekte').one() %}
+
+<div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+<div class="row">
+  <div class="col-md-4">
+    <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+  </div>
+  <div class="col-md-8" style="padding-top: 2rem;">
+    <h3> {{ entry.title }} </h3>
+    <div id="copy"> {{ entry.anleser }}</div>
   </div>
 </div>
+</div> <!-- Weitere Informationen zum Konzept -->
+
+</div> <!-- Weißer Hintergrundcontainer -->
 
 {% endblock %}
