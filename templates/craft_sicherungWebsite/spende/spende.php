@@ -53,18 +53,35 @@ Sie das SEPA-Lastschriftmandat herunterladen und eigenständig ausfüllen oder a
       <label class="custom-control-label" for="customCheck3">Hiermit ermächtige(n) ich/wir Chance e.V. Zahlungen von meinem/unserem Konto mittels Lastschrift einzuziehen. Zugleich
 weise(n) ich/wir mein/unser Kreditinstitut an, die von Chance e.V. auf mein/unser Konto gezogenen Lastschriften einzulösen.
 Hier können Sie die Termine der Einzüge unserer SEPA-Lastschriften einsehen.</label>
-<span class="error"> <?php echo $einziehenErr;?></span>
 </div> <br>
 
-  Intervall: <br>
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="monatlich">monatlich
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="quartalsweise">quartalsweise
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="halbjährlich">halbjährlich
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="jährlich">jährlich
-  <span class="error">* <?php echo $genderErr;?></span>
-  <br><br>
+  <p> Intervall: </p>
 
-    <div class="form-group" >
+  <!-- Default inline 1-->
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" value="monatlich" class="custom-control-input" id="defaultInline1" name="intervall">
+  <label class="custom-control-label" for="defaultInline1">monatlich</label>
+</div>
+
+<!-- Default inline 2-->
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" value="quartalsweise" class="custom-control-input" id="defaultInline2" name="intervall">
+  <label class="custom-control-label" for="defaultInline2">quartalsweise</label>
+</div>
+
+<!-- Default inline 3-->
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" value="halbjährlich" class="custom-control-input" id="defaultInline3" name="intervall">
+  <label class="custom-control-label" for="defaultInline3">halbjährlich</label>
+</div>
+
+<!-- Default inline 4-->
+<div class="custom-control custom-radio custom-control-inline">
+  <input type="radio" value="jährlich" class="custom-control-input" id="defaultInline4" name="intervall">
+  <label class="custom-control-label" for="defaultInline4">jährlich</label>
+</div>
+
+    <div class="form-group" style="padding-top: 3rem;">
       <label for="sel1">Verwendungszweck</label>
       <select class="form-control" id="sel1" name="zweck">
         <option>Spende Allgemein</option>
@@ -80,22 +97,18 @@ Hier können Sie die Termine der Einzüge unserer SEPA-Lastschriften einsehen.</
       <div class="form-group">
           <label for="usr">Name der Bank</label>
           <input type="text" name="bank" class="form-control" value="<?php echo $bank;?>" required>
-          <span class="error"> <?php echo $bankErr;?></span>
       </div>
       <div class="form-group">
         <label for="usr">Betrag in Euro</label>
         <input type="number" name="betrag" class="form-control" value="<?php echo $betrag;?>" required>
-        <span class="error"> <?php echo $betragErr;?></span>
       </div>
       <div class="form-group">
         <label for="usr">IBAN</label>
         <input type="text" name="iban" class="form-control" value="<?php echo $iban;?>" required>
-        <span class="error"> <?php echo $ibanErr;?></span>
       </div>
       <div class="form-group">
         <label for="usr">BIC</label>
         <input type="text" name="bic" class="form-control" value="<?php echo $bic;?>" required>
-        <span class="error"> <?php echo $bicErr;?></span>
       </div>
 
     </div>
@@ -105,22 +118,18 @@ Hier können Sie die Termine der Einzüge unserer SEPA-Lastschriften einsehen.</
       <div class="form-group">
         <label for="usr">Kontoinhaber (Vorname, Name)</label>
         <input type="text" name="inhaber" class="form-control" value="<?php echo $inhaber;?>" required>
-        <span class="error"> <?php echo $inhaberErr;?></span>
       </div>
       <div class="form-group">
         <label for="usr">Straße, Hausnummer</label>
         <input type="text" name="adresse" class="form-control" value="<?php echo $adresse;?>" required>
-        <span class="error"> <?php echo $adresseErr;?></span>
       </div>
       <div class="form-group">
         <label for="usr">PLZ, Ort</label>
         <input type="text" name="plz" class="form-control" value="<?php echo $plz;?>" required>
-        <span class="error"> <?php echo $plzErr;?></span>
       </div>
       <div class="form-group">
         <label for="usr">E-Mail-Adresse (freiwillig)</label>
         <input type="email" name="email" class="form-control" value="<?php echo $email;?>">
-        <span class="error"> <?php echo $emailErr;?></span>
       </div>
     </div>
   </div>
@@ -129,8 +138,8 @@ Hier können Sie die Termine der Einzüge unserer SEPA-Lastschriften einsehen.</
       <input type="checkbox" class="custom-control-input" id="customCheck1" name="datenschutz" required>
       <label class="custom-control-label" for="customCheck1">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert (Infos zum Datenschutz)
       und diese nicht an Dritte weiter gibt.</label>
-      <span class="error"> <?php echo $datenschutzErr;?></span>
     </div>
+
 
     <div class="custom-control custom-checkbox" style="padding-bottom: 2rem;">
         <input type="checkbox" class="custom-control-input" id="customCheck2" name="newsletter">

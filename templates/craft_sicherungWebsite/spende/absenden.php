@@ -81,14 +81,27 @@ wir mein/unser Kreditinstitut an, die von Chance e.V. auf mein/unser Konto gezog
     <div class="col-3" id="copy"> BIC  </div>
     <div class="col-9" id="anleser">     <?php echo $_SESSION["bic"]; ?>  </div>
   </div>
+  <div class="row">
+    <div class="col-3" id="copy"> Intervall  </div>
+    <div class="col-9" id="anleser">     <?php echo $_SESSION["intervall"]; echo " Newsletter: ". (isset( $_POST['newsletter']));  ?>  </div>
+  </div>
 
   <button onclick="goBack()" class="btn btn-primary">Bearbeiten</button>
   <script> function goBack() {  window.history.back(); } </script>
 
 
-  <input type="submit" class="btn btn-primary float-right" name="submit" value="Austrag ausdrucken und verschicken">
+  <a href="https://aufbau-website.de/spende/tfpdf/lastschriftmandat" onclick="myFunction()" target="_blank" class="btn btn-primary" role="button">Auftrag in neuem Fenster öffnen</a>
 
-  <a href="https://aufbau-website.de/spende/abgeschickt" class="btn btn-primary" role="button">Auftrag online absenden</a>
+
+  <script>
+  function myFunction() {
+      location.replace("https://aufbau-website.de/craft/web/")
+  }
+  </script>
+
+  <a href="https://aufbau-website.de/spende/tfpdf/lastschriftmandat" onclick="myFunction()" download class="btn btn-primary" role="button">Auftrag downloaden</a>
+
+  <a href="https://aufbau-website.de/spende/abgeschickt" class="btn btn-primary float-right" role="button">Auftrag online absenden</a>
 
     </div>
   </div>
