@@ -1,0 +1,31 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; padding-bottom: 3rem;">
+
+  <div class="container achterspaltenlayout" style="padding-top:0px; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
+    {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
+    <div>
+      <h1 style="padding-bottom: 3rem;"> Geben Sie Menschen eine Chance!  </h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat;">
+  <div class="container zwoelferspaltenlayout" style="background-color: white; padding-left: 0; padding-right: 0;">
+
+    {% set entry = craft.entries.section('spenden').slug('einkaufen-und-spenden').one() %}
+    <div id="copy" style="padding: 3rem;"> {{ entry.anleser }}</div>
+
+
+    <div id="copy" style="padding: 3rem;"> {{ entry.zusatzfeld1 }} </div>
+
+    <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken2">
+</div>
+</div>
+
+
+{% endblock %}
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
