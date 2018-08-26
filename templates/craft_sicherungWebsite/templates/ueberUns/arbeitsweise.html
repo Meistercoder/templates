@@ -26,12 +26,12 @@
   {# If there are any entries, loop through them #}
   {% if entries | length %}
       {% for entry in entries %}
-      <div class="col-1"></div>
-      <div class="col-2">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2">
         <img class="img-fluid rounded-circle" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="padding-bottom: 0;">
       </div>
-      <div class="col-1"></div>
-      <div class="col-8">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
         <h2>{{ entry.title }}</h2>
         <div id="anleser"> {{ entry.anleser}} </div>
         <div id="copy"> {{ entry.text }} </div>
