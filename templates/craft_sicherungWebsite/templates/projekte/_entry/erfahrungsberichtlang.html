@@ -1,0 +1,60 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+<div class="container achterspaltenlayout">
+    <div id="anleser"> {{ entry.anleser }}</div>
+  </div>
+</div>
+
+<div class="container achterspaltenlayout">
+  <div id="copy">{{ entry.text }}
+  </div>
+</div>
+
+<div class="container zwoelferspaltenlayout" >
+  <hr>
+  {% set slugUrsprung = entry.slug |replace({'-lang': ''}) %}
+
+
+<div class="card-columns">
+
+  {% set entries = craft.entries.section('projekte').slug('erfahren-sie-mehr').one().children().all() %}
+
+  {# If there are any entries, loop through them #}
+
+      {# For each entry we find, do this #}
+      {% for entry in entries %}
+      {% if entry.slug !=  slugUrsprung  %}
+
+      <div class="card">
+            <div class="row">
+              <div class="col-4" style="text-align: center; white-space: nowrap;">
+                 <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                  <img class="rounded-circle" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+                </div>
+                <div class="col-8">
+                  <div class="card-body" style="padding: 0;">
+                    <p class="card-text">
+                      <h4 style="margin: 0;"> {{ entry.title }} </h4>
+                      <div id="copy"> {{ entry.zusatzfeld2 }} </div>
+                    </p>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+        {% endif %}
+      {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}
