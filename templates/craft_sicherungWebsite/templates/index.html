@@ -77,7 +77,7 @@
 
   <div class="row">
 
-    {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
+    {% set entries = craft.entries.section('projektberichte').all() %}
     {% set entry = random(entries) %}
     <div class="col-md-4" style="padding-bottom: 50px;">
     <div class="card border-light h-100">
@@ -89,9 +89,8 @@
     </div>
   </div>
 
-    {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
+
     {% set entry = random(entries) %}
-    {% set entry = craft.entries.section('projekte').slug('der-chance-kinderwald').one() %}
     <div class="col-md-4" style="padding-bottom: 50px;">
     <div class="card border-light h-100">
       <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
@@ -102,7 +101,6 @@
     </div>
   </div>
 
-    {% set entries = craft.entries.section('projekte').slug('geschichten').one().children().all() %}
     {% set entry = random(entries) %}
     <div class="col-md-4" style="padding-bottom: 50px;">
     <div class="card border-light h-100">

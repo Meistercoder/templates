@@ -28,7 +28,7 @@
         <div id="copy"> {{ entry.text }} </div>
       </div>
 
-      <div style="border-left:2px solid #ed6e2c; height: 40%;" class="col-3">
+      <div class="col-3" style="border-left:2px solid #ed6e2c; height: 40%;">
         {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
         {% set entry = random(entries) %}
         <div id="zitat"> {{ entry.text }}  </div>
