@@ -19,12 +19,12 @@
       </div>
     </div>
   </div>
+  {% set entries = craft.entries.section('projektberichte').all() %}
 
-  <div class="container zwoelferspaltenlayout">
+  <<div class="container zwoelferspaltenlayout">
     <div class="card-deck">
       <div class="row">
 
-        {% set entries = craft.entries.section('projektberichte').slug('projektberichte-kurzfassung').one().children().all() %}
         {% for entry in entries %}
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
         <div class="card border-light h-100">

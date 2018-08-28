@@ -17,10 +17,10 @@
 </div>
 
 
+
 <div class="container zwoelferspaltenlayout">
   <div class="card-columns">
-  {% set entry = craft.entries.section('projekte').slug('erfahren-sie-mehr').one() %}
-  {% set entries = entry.children().all() %}
+  {% set entries = craft.entries.section('erfahrungsberichte').all() %}
   {% if entries | length %}
       {% for entry in entries %}
       <div class="card bg-white">
@@ -31,8 +31,10 @@
         <div class="card-body" style="padding-top: 3rem;">
           <p class="card-text">
             <h3> {{ entry.title }} </h3>
-            <div id="copy"> <strong> {{ entry.anleser }} </strong> </div>
-            <div id="copy"> {{ entry.text }}</div>
+            <div id="copy"> <strong> {{ entry.beruf }} </strong> </div>
+            <div id="copy"> {{ entry.anleser }}
+              <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}"> Weiterlesen</a>
+            </div>
           </p>
         </div>
       </div>
