@@ -15,106 +15,214 @@
   </div>
 
 
+<div class="container-fluid no-padding" style="background-color: white">
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout" id="copy" style="padding-top: 2rem;">
 
-  <!--Section: Contact v.2-->
-<section class="section">
+  {% macro errorList(errors) %}
+    {% if errors %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
 
-    <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-5">Contact us</h2>
-    <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        matter of hours to help you.</p>
+{% from _self import errorList %}
+
+
+<form method="post" action="" accept-charset="UTF-8">
+    {{ csrfInput() }}
+    <input type="hidden" name="action" value="contact-form/send">
+    {{ redirectInput('kontakt/danke') }}
 
     <div class="row">
 
-        <!--Grid column-->
-        <div class="col-md-9 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+  <div class="col-sm-6"  style="padding-bottom: .5rem;">
+    <label style="margin-bottom: 0;" for="from-vorname">Vorname*</label>
+    <input id="from-vorname" required class="form-control" type="text" name="message[Vorname]" value="">
+  </div>
 
-                <!--Grid row-->
-                <div class="row">
+  <div class="col-sm-6" style="padding-bottom: .5rem;">
+    <label style="margin-bottom: 0;" for="from-name">Name*</label>
+    <input id="from-name" required class="form-control" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+    {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+  </div>
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class="">Your name</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
+  <div class="col-sm-6"  style="padding-bottom: .5rem;">
+    <label style="margin-bottom: 0;" for="adresse">Straße, Hausnr*</label>
+    <input id="adresse" required class="form-control" type="text" name="message[Adresse]" value="">
+  </div>
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="">Your email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
+  <div class="col-sm-6"  style="padding-bottom: .5rem;">
+    <label style="margin-bottom: 0;" for="plz">PLZ*</label>
+    <input id="plz" required class="form-control" type="text" name="message[PLZ]" value="">
+  </div>
 
-                </div>
-                <!--Grid row-->
+  <div class="col-sm-6"  style="padding-bottom: .5rem;">
+    <label style="margin-bottom: 0;" for="wohnort" >Wohnort*</label>
+    <input id="wohnort" required class="form-control" type="text" name="message[Wohnort]" value="">
+  </div>
 
-                <!--Grid row-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
-                            <label for="subject" class="">Subject</label>
-                        </div>
-                    </div>
-                </div>
-                <!--Grid row-->
+  <div class="col-sm-6"> </div>
+</div> <!-- row-container -->
 
-                <!--Grid row-->
-                <div class="row">
+<div class="row">
 
-                    <!--Grid column-->
-                    <div class="col-md-12">
+  <div class="col-sm-12"><hr style="margin-top: 2rem; margin-bottom: 2rem;"></div>
 
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
-                        </div>
+  <div class="col-sm-6"  style="padding-bottom: 1.5rem;">
+    <label style="margin-bottom: 0;" for="from-email">E-Mail*</label>
+    <input id="from-email" required class="form-control" type="email" name="fromEmail" placeholder="name@example.com" value="{{ message.fromEmail ?? '' }}">
+    {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+  </div>
 
-                    </div>
-                </div>
-                <!--Grid row-->
+  <div class="col-sm-6"  style="padding-bottom: 1.5rem;">
+    <label style="margin-bottom: 0;" for="telefon" >Telefon</label>
+    <input id="telefon" class="form-control" type="text" name="message[Telefon]" value="">
+  </div>
 
-            </form>
+<div class="col-12" style="padding-bottom: 1rem;"> *Pflichtfelder  </div>
 
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-            </div>
-            <div class="status"></div>
-        </div>
-        <!--Grid column-->
+<div class="col-sm-12"><hr style="margin-bottom: 2rem;"></div>
 
-        <!--Grid column-->
-        <div class="col-md-3 text-center">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fa fa-map-marker fa-2x"></i>
-                    <p>San Francisco, CA 94126, USA</p>
-                </li>
+<div class="col-12" style="padding-bottom: 1rem">  <h4>Ich habe Interesse an</h4> </div>
 
-                <li><i class="fa fa-phone mt-4 fa-2x"></i>
-                    <p>+ 01 234 567 89</p>
-                </li>
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck1" name="message[Interesse an][]" value="Infomaterial">
+    <label class="custom-control-label" for="customCheck1">allgemeinem Informaterial</label>
+  </div>
+</div>
 
-                <li><i class="fa fa-envelope mt-4 fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
-                </li>
-            </ul>
-        </div>
-        <!--Grid column-->
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck2" name="message[Interesse an][]" value="Rundmails">
+    <label class="custom-control-label" for="customCheck2">Rundmails</label>
+  </div>
+</div>
 
-    </div>
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck3" name="message[Interesse an][]" value="Freiwilligendienst/Praktikum">
+    <label class="custom-control-label" for="customCheck3">Freiwilligendienst/Praktikum</label>
+  </div>
+</div>
 
-</section>
-<!--Section: Contact v.2-->
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck4" name="message[Interesse an][]" value="Rundbriefe">
+    <label class="custom-control-label" for="customCheck4">Rundbriefe</label>
+  </div>
+</div>
 
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck5" name="message[Interesse an][]" value="Projektbesuch">
+    <label class="custom-control-label" for="customCheck5">Projektbesuch</label>
+  </div>
+</div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck6" name="message[Interesse an][]" value="Spendenmöglichkeiten">
+    <label class="custom-control-label" for="customCheck6">Verschiedenen Spendenmöglichkeiten</label>
+  </div>
+</div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck7" name="message[Interesse an][]" value="Gastreferenten">
+    <label class="custom-control-label" for="customCheck7">Gastreferenten</label>
+  </div>
+</div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck8" name="message[Interesse an][]" value="Patenschaften">
+    <label class="custom-control-label" for="customCheck8">Patenschaften</label>
+  </div>
+</div>
+
+<div class="col-sm-12"><hr style="margin-top: 1rem; margin-bottom: 2rem;"></div>
+
+</div> <!-- row-container -->
+
+<div class="row">
+
+<div class="col-12" style="padding-bottom: 1rem">  <h4>Ich möchte Chance e.V. unterstützen</h4> </div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck9" name="message[Unterstützung durch][]" value="Gebet">
+    <label class="custom-control-label" for="customCheck9">durch Gebet</label>
+  </div>
+</div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck10" name="message[Unterstützung durch][]" value="praktische Mitarbeit">
+    <label class="custom-control-label" for="customCheck10">durch praktische Mitarbeit</label>
+  </div>
+</div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck11" name="message[Unterstützung durch][]" value="Spenden">
+    <label class="custom-control-label" for="customCheck11">durch Spenden</label>
+  </div>
+</div>
+
+<div class="col-sm-6"  style="padding-bottom: 1rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck12" name="message[Unterstützung durch][]" value="Einladung zu einer Infoveranstaltung">
+    <label class="custom-control-label" for="customCheck12">durch Einladung zu einer Infoveranstaltung</label>
+  </div>
+</div>
+
+<div class="col-sm-12"><hr style="margin-top: 1rem; margin-bottom: 2rem;"></div>
+
+<div class="col-sm-12" style="padding-bottom: 1rem;">
+  <label style="margin-bottom: 0;" for="message"> Kommentar </label>
+  <textarea rows="5" cols="30" class="form-control" id="message" name="message[Kommentar]"> </textarea>
+</div>
+
+<div class="col-sm-12">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" required class="custom-control-input" id="customCheck13" name="message[Unterstützung durch][]" value="Einladung zu einer Infoveranstaltung">
+    <label class="custom-control-label" for="customCheck13"> {{ entry.text }}</label>
+  </div>
+</div>
+
+<div class="col-sm-12"  style="padding-bottom: 2rem;">
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck14" name="message[Newsletter][]" value="Ja">
+    <label class="custom-control-label" for="customCheck14"> {{ entry.zusatzfeld1 }}</label>
+  </div>
+</div>
+
+  <div class="col-sm-2"> <!-- Buttons im Spaltenlayout -->
+  <button onclick="myFunction()" class="btn btn-secondary"> Löschen </button>
+  <script>
+  function myFunction() {
+    $(".form-control").val("");
+    $(".custom-control-input").prop("checked", false);
+  }
+  </script>
+  </div>
+
+  <div class="col-sm-8">  </div>
+
+  <div class="col-sm-2">
+    <input type="submit" value="Senden" class="btn btn-primary float-right">
+  </div>
+
+  </div> <!-- row-container -->
+
+</form>
+
+</div>
 </div>
 
 
