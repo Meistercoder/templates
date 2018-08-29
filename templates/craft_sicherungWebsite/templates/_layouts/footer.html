@@ -1,106 +1,145 @@
-<div class="container-fluid no-padding" style="background-color: #333333; padding-top: 80px;">
-  <div class="container">
+<div class="container-fluid no-padding" style="background-color: #333333; padding-top: 0; color: #d7d7d7;" id="copy">
 
   <div class="row">
-    <div class="col-7">
-
-<h4 style="color: #d7d7d7;"> Freundesbrief abbonnieren <h4>
-  <p class="copy" style="color: #d7d7d7;"> Lassen Sie sich ungefähr einmal monatlich durch unseren konstenfreien
-      Freundesbrief „Chance-Aktuell“ informieren. </p>
-
-      <form class="form-inline" action="/action_page.php" style="padding-bottom: 40px;">
-       <input type="email" class="form-control" placeholder=" Ihre E-Mail-Adresse" style="opacity: 0.1; margin-right: 30px; padding-right: 60px;">
-       <button type="submit" class="btn btn-light">Anmelden</button>
-     </form>
-
-     <p class="copy" style="color: #d7d7d7; padding-bottom: 40px;"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
-       <br> Diesen können Sie hier bestellen  </p>
-
-      </div>
-
-
-      <div class="col-5" style="padding-left: 50px;">
-
-  <h4 style="color: #d7d7d7;"> Spendenkonto <h4>
-    <p class="copy" style="color: #d7d7d7;"> Chance e.V. <br> Bank für Kirche und Diakonie <br>
-      IBAN: DE92 3506 0190 1014 4450 10 <br> BIC: GENO DE D1 DKD </p>
-
-       <p class="copy" style="color: #d7d7d7; padding-bottom: 40px; padding-top: 20px;">
-         Alle Spendenmöglichkeiten ansehen  </p>
-        </div>
+    <div class="col-sm-7">  </div>
+    <div class="col-sm-5">
+      <a href="www.mein-regenwald.de" class="btn btn-success">Der Chance-Regenwald <br> www.mein-regenwald.de</a>
     </div>
-
-
-    <!-- Trennlinie für den Footer -->
-    <div class="rectangle" style="opacity: 0.1; height: 2px; background-color: #d7d7d7; margin-bottom: 40px;"></div>
-
-
-    <!-- Der zweite Teil des Footers mit den Links -->
-    <div class="row" style="padding-bottom: 40px;">
-      <div class="col-3">
-
-        <h4 style="color: #d7d7d7;"> Über uns <h4>
-
-        <p class="copy" style="color: #d7d7d7;"> ~ Wie wir arbeiten <br> ~ Konzept <br> ~ Leitidee <br> ~ Motivation <br> ~ Der Verein
-            <br> ~ Transparenz  <br> ~ Empfehlungen
-
-        </div>
-
-
-        <div class="col-3">
-
-          <h4 style="color: #d7d7d7;"> Projekte <h4>
-            <p class="copy" style="color: #d7d7d7;">  ~ Wo wir arbeiten <br> ~ Programme <br> ~ Themen <br> ~ Erfahrungsberichte
-              <br> ~ Projektberichte <p>
-
-        </div>
-
-        <div class="col-3">
-
-          <h4 style="color: #d7d7d7;"> Spenden <h4>
-            <p class="copy" style="color: #d7d7d7;">  ~ Allgemein Spenden <br> ~ Projektbezogen Spenden <br>
-              ~ Einkaufen & Spenden <br> ~ Schenken & Spenden   <p>
-
-        </div>
-
-        <div class="col-3">
-
-          <h4 style="color: #d7d7d7;"> Für Sie <h4>
-            <p class="copy" style="color: #d7d7d7;">  ~ Chance kommt zu Ihnen <br> ~ Freiwilligendienst <br> ~ Für Sie daheim <br>
-              ~ Presse & Downloads  <br> ~ Literaturtipps <br> ~ Zitate <p>
-        </div>
-      </div>
-
-      <!-- Trennlinie für den Footer -->
-      <div class="rectangle" style="opacity: 0.1; height: 2px; background-color: #d7d7d7;"></div>
-
-
-<!-- Der letzte Teil des Footers -->
-      <div class="row" style="padding-bottom: 40px; padding-top: 20px; color: #d7d7d7; font-size: 14px;">
-
-        <div class="col-7">
-          © Chance e.V.
-          </div>
-
-          <div class="col-1">
-            Datenschutz
-          </div>
-
-
-          <div class="col-1">
-            Impressum
-          </div>
-
-          <div class="col-1">
-            Sitemap
-          </div>
-
-
-          <div class="col-2">
-            Facebook_logo
-          </div>
-
-      </div>
-
   </div>
-</div>
+
+  <style>
+  input[type="email"]::-webkit-input-placeholder {
+    color: white !important;
+  }
+
+  input[type="email"]:-moz-placeholder { /* Firefox 18- */
+    color: white !important;
+  }
+
+  input[type="email"]::-moz-placeholder {  /* Firefox 19+ */
+    color: white !important;
+  }
+
+  input[type="email"]:-ms-input-placeholder {
+    color: white !important;
+  }
+
+</style>
+
+<div class="container" id="footerDesktop" style="padding-top: 80px;">
+
+  <div class="row">
+    <div class="col-sm-7">
+
+      <h4 style="color: #d7d7d7;"> Freundesbrief abbonnieren <h4>
+        <p style="padding-bottom: .5rem; color: #d7d7d7;" id="copy"> Lassen Sie sich ungefähr einmal monatlich durch unseren konstenfreien
+          Freundesbrief „Chance-Aktuell“ informieren. </p>
+
+          {% macro errorList(errors) %}
+          {% if errors %}
+          <ul class="errors">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endmacro %}
+
+          {% from _self import errorList %}
+
+          <form class="form-inline" method="post" action="" accept-charset="UTF-8">
+            {{ csrfInput() }}
+            <input type="hidden" name="action" value="contact-form/send">
+            {{ redirectInput('contact/thanks') }}
+
+            <input id="from-email" required class="form-control" type="email" style="background-color: #333333; margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
+            {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            <input type="submit" value="Anmelden" class="btn btn-light">
+
+            <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Die oben genannte E-Mail-Adresse würde sich gerne für den Newsletter anmelden.</textarea>
+            {{ message is defined and message ? errorList(message.getErrors('message')) }}
+
+          </form>
+
+          <p style="padding-bottom: 40px; padding-top: 2rem; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
+            <br> Diesen können Sie hier bestellen  </p>
+
+          </div>
+
+
+          <div class="col-sm-5" style="padding-left: 50px;">
+
+            <h4 style="color: #d7d7d7;"> Spendenkonto <h4>
+              <p style="color: #d7d7d7;" id="copy"> Chance e.V. <br> Bank für Kirche und Diakonie <br>
+                IBAN: DE92 3506 0190 1014 4450 10 <br> BIC: GENO DE D1 DKD </p>
+
+                <p style="padding-top: 20px; color: #d7d7d7;">
+                  Alle Spendenmöglichkeiten ansehen  </p>
+                </div>
+              </div>
+
+
+              <!-- Trennlinie für den Footer -->
+              <hr style="height: 2px; color: #f8f5f2;">
+
+
+              <!-- Der zweite Teil des Footers mit den Links -->
+              {% set entries = craft.entries.section('spendenfelderUndSo').slug('footer').one().children().all() %}
+              <div class="row" id="navlinksFooter">
+
+                {% for entry in entries %}
+                <div class="col-sm-3" id="copy">
+                  {{ entry.text }}
+                </div>
+                {% endfor %}
+
+              </div>
+
+              <!-- Trennlinie für den Footer -->
+              <hr style="height: 2px; color: #f8f5f2;">
+
+
+              <!-- Der letzte Teil des Footers -->
+              <div class="row" id="info" style="padding-bottom: 40px; padding-top: 20px; font-size: 14px;">
+
+                <div class="col-sm-7">  © Chance e.V </div>
+
+                <div class="col-sm-1"> Datenschutz </div>
+
+                <div class="col-sm-1"> Impressum  </div>
+
+                <div class="col-sm-1">    Sitemap  </div>
+
+                <div class="col-sm-2">   Facebook_logo    </div>
+
+              </div>
+
+            </div> <!-- Normaler Container -->
+
+            <div class="container" id="footerHandy">
+              <span >
+              {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer-mobile').one() %}
+              {{ entry.text }}
+              <hr>
+              {{ entry.textfeld }}
+              </span>
+
+              <hr>
+
+              <div class="row" id="info" style="padding-bottom: 40px; padding-top: 20px; font-size: 14px;">
+
+                <div class="col-sm-3">  © Chance e.V </div>
+
+                <div class="col-sm-3"> Datenschutz </div>
+
+                <div class="col-sm-3"> Impressum  </div>
+
+                <div class="col-sm-3">    Sitemap  </div>
+
+                <div class="col-sm-12 float-right">   Facebook_logo    </div>
+
+              </div>
+            </div> <!-- Footer für Mobilgeräte -->
+
+
+          </div> <!-- Hintergrund-Container -->

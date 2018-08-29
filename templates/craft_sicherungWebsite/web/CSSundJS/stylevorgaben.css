@@ -105,6 +105,17 @@ h4 {
 	color: #000000;
 }
 
+#info-head {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'source_sans_prosemibold';
+}
+
+#info {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'source_sans_prolight';
+}
 
 #zitat {
   font-size: 20px;
@@ -124,6 +135,24 @@ h4 {
 #kind {
   max-height: 280px;
 }
+
+#navlinksFooter a { /* Die Links im Footer weiß einfärben */
+    color: #d7d7d7;
+}
+#navlinksFooter h4 {
+  color: #d7d7d7;
+}
+
+#footerHandy a { /* Die Links im Footer weiß einfärben */
+    color: #d7d7d7;
+}
+#footerHandy h4 {
+  color: #d7d7d7;
+}
+#footerHandy p {
+  margin-bottom: 0;
+}
+
 
 @media all and (max-width: 700px)  {
   h1 {
@@ -172,6 +201,7 @@ und enger aneinander geklebt */
 .nav-link.active.tab {
   background-color: #f8f5f2;
   color: #0062ae;
+  font-weight: bold;
 }
 
 .nav-link.tab {
@@ -212,6 +242,22 @@ und enger aneinander geklebt */
   filter: none;
 }
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: pink;
+}
+
+.form-control {
+  background-color: #f8f5f2;
+} /* Hintergrund der Formulare auf der Kontaktseite */
 
 body {
   background-color: #f8f5f2;

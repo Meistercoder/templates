@@ -32,10 +32,14 @@ function navlinksAnpassen () {
     $("#logo").attr("width", "90");     $("#logo").attr("height", "70");
 
     $("#verschwinde").attr("class", " ");
-    $("#verschwinde-lg-2").attr("class", " ");
+    $("#verschwinde-lg-2").attr("class", " "); /*Anpassen der Boxen, das sie ab einer gewissen Größe verschwinden */
     $("#verschwinde-gros").attr("class", "col-3");
 
     $(".navbar").css("background-color", "#f8f5f2"); /* Setting background-color of navbar to grey */
+
+    $("#footerHandy").css("display", "block")
+    $("#footerDesktop").css("display", "none") /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
+
   }
   else {
         $(".nav-link").attr("data-toggle", "dropdown-disabled");
@@ -47,6 +51,9 @@ function navlinksAnpassen () {
         $("#verschwinde").attr("class", "col-lg-4 ");
         $("#verschwinde-lg-2").attr("class", "col-lg-2");
         $("#verschwinde-gros").attr("class", " ");
+
+        $("#footerHandy").css("display", "none")
+        $("#footerDesktop").css("display", "block") /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
 
 
   }
