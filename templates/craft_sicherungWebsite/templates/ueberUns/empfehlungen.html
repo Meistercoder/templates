@@ -10,7 +10,7 @@
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 <div class="container Achter-Spaltenlayout">
-  <div style="padding-bottom:80px; ">
+  <div style="padding-bottom:5rem; ">
     <h1 style="padding-bottom: 30px;"> Erfahren Sie, was Partner und Freunde über unsere Arbeit sagen
     </h1>
     <p id="anleser"> Chance e.V. wird von ganz unterschiedlichen Kirchen und anderen Einrichtungen in ganz Deutschland begleitet, unterstützt und empfohlen. Hier
@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-bottom: 3rem;">
+<div class="container zwoelferspaltenlayout" id="empfehlungenDesktop" style="padding-bottom: 3rem;">
 
   <div class="card-columns">
   {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
@@ -46,12 +46,42 @@
       {% endfor %}
   {% endif %}
     </div>
+</div>
+
+<div class="container zwoelferspaltenlayout" id="empfehlungenMobil" style="padding-top: 0;">
+
+<div class="card-columns">
+
+  {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
+
+      {% for entry in entries %}
+      <div class="card">
+            <div class="row">
+              <div class="col-4" style="text-align: center; white-space: nowrap;">
+                 <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                  <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+                </div>
+                <div class="col-8">
+                  <div class="card-body" style="padding: 0; padding-right: 1rem;">
+                    <p class="card-text">
+                      <h4 style="margin: 0;"> {{ entry.title }} </h4>
+                      <div id="copy">
+                        <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}"> Mehr erfahren</a>
+                      </div>
+                    </p>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
   </div>
+</div>
 
 
 <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+<div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
 <p id="anleser" class="text-center"> Erfahren Sie mehr über unser Engagement vor Ort </p>
 </div>
 

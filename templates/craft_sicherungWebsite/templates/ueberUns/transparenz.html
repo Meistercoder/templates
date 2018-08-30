@@ -22,30 +22,27 @@
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
 
-<div class="container achterspaltenlayout" style="padding-bottom: 0;">
-
-  <div class="row">
+<div class="container achterspaltenlayout" style="padding-bottom: 0; padding-top: 2rem;">
 
   {% set entries = craft.entries.section('ueberUns').slug('transparenz').one().children().all() %}
     {% if entries | length %}
       {% for entry in entries %}
-        <h2>{{ entry.title }}</h2>
-        <div id="copy"> {{ entry.text }} </div>
+        <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
+        <div id="copy" style="padding-bottom: 2rem;"> {{ entry.text }} </div>
       {% endfor %}
   {% endif %}
-      </div>
     </div>
 
   {% set entry = craft.entries.section('ueberUns').slug('verwaltungskosten').one() %}
   <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
 
   {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+  <div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
     <div class="row">
-      <div class="col-1">  </div>
-      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
-      <div class="col-1">  </div>
-      <div class="col-7">
+      <div class="col-sm-1">  </div>
+      <div class="col-sm-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 200px; padding-bottom: 0;"> </div>
+      <div class="col-sm-1">  </div>
+      <div class="col-sm-7" style="padding-left: 30px;">
         <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
         <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
         <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
@@ -53,7 +50,7 @@
     </div>
   </div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
-  <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 3rem;">
   <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
   </div>
 
