@@ -7,12 +7,12 @@
 
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
-<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 <div class="container achterspaltenlayout" style="padding-top: 0px;">
     {% set entry = craft.entries.section('ueberUns').slug('der-verein').one() %}
     <h1 style="padding-bottom: 30px;"> {{ entry.zusatzfeld1 }}  </h1>
-    <div id="anleser">  {{ entry.zusatzfeld2 }} </div>
+    <div id="anleser">  {{ entry.langerText }} </div>
   </div>
 </div>
 
@@ -98,12 +98,12 @@
 
 
 {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="padding-top: 1rem; background-image: url({{ entry.bild.one().url }});">
   <div class="row">
-    <div class="col-1">  </div>
-    <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
-    <div class="col-1">  </div>
-    <div class="col-7">
+    <div class="col-sm-1">  </div>
+    <div class="col-sm-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 200px; padding-bottom: 0;"> </div>
+    <div class="col-sm-1">  </div>
+    <div class="col-sm-7" style="padding-left: 30px;">
       <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
       <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
       <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
@@ -131,6 +131,7 @@
     </a>
     </div>
       {% endfor %}
+      {# Durch divisible by 6 wird das Feld immer ausgefüllt bis 6 Spalten #}
     {% if counter is not divisible by(6) %}
         {% for i in 0..10000 if counter is not divisible by(6) %}
           <div class="col-sm-2" style="padding: 0;">
@@ -142,7 +143,7 @@
       </div>
     </div>
     <div class="container zwoelferspaltenlayout">
-    <hr style="height: 2px;"> <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
+    <hr style="height: 2px; padding-top: 1rem;"> <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
     </div>
 
     {% set entry = craft.entries.section('ueberUns').slug('transparenz').one() %}

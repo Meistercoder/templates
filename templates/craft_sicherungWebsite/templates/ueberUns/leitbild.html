@@ -7,7 +7,7 @@
 
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
-<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 <div class="container Achter-Spaltenlayout">
   <div style="padding-bottom:80px; ">
@@ -20,15 +20,15 @@
 
 <div class="container-fluid no-padding style" style="background-color: #ffffff;">
 
-<div class="container zwoelferspaltenlayout">
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 1rem;">
   <div class="row">
   {% set entry = craft.entries.section('ueberUns').slug('gemeinschaften').one() %}
-      <div class="col-8">
+      <div class="col-sm-8">
         <h3>{{ entry.title }}</h3> </br>
         <div id="copy"> {{ entry.text }} </div>
       </div>
 
-      <div class="col-3" style="border-left:2px solid #ed6e2c; height: 40%;">
+      <div class="col-sm-3" style="border-left:2px solid #ed6e2c; height: 40%;">
         {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
         {% set entry = random(entries) %}
         <div id="zitat"> {{ entry.text }}  </div>

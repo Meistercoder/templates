@@ -7,7 +7,7 @@
 
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
-<img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 <div class="container Achter-Spaltenlayout">
   <div style="padding-bottom:80px;">
@@ -23,11 +23,11 @@
 <div class="container zwoelferspaltenlayout">
   <div class="row">
     {% set entry = craft.entries.section('ueberUns').slug('entstehung').one() %}
-      <div class="col-8">
+      <div class="col-md-9">
         <h3>{{ entry.title }}</h3> </br>
         <div id="copy"> {{ entry.text }} </div>
       </div>
-      <div class="col-3">
+      <div class="col-md-3">
         {% set entry = craft.entries.section('fuerSie').slug('freiwilligendienst').one() %}
 
       <div class="card border-light">
@@ -47,7 +47,7 @@
 
 <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
 
-  <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
   <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
   </div>
 

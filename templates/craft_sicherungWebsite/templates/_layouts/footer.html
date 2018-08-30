@@ -1,11 +1,13 @@
 <div class="container-fluid no-padding" style="background-color: #333333; padding-top: 0; color: #d7d7d7;" id="copy">
 
+<div class="container">
   <div class="row">
-    <div class="col-sm-7">  </div>
-    <div class="col-sm-5">
+    <div class="col-lg-8 col-md-0">  </div>
+    <div class="col-lg-4 col-md-11">
       <a href="www.mein-regenwald.de" class="btn btn-success">Der Chance-Regenwald <br> www.mein-regenwald.de</a>
     </div>
   </div>
+</div>
 
   <style>
   input[type="email"]::-webkit-input-placeholder {
@@ -24,15 +26,32 @@
     color: white !important;
   }
 
+  #footerDesktop a { /* Die Links im Footer weiß einfärben */
+      color: #d7d7d7;
+  }
+  #footerDesktop h4 {
+    color: #d7d7d7;
+  }
+
+  #footerHandy a { /* Die Links im Footer weiß einfärben */
+      color: #d7d7d7;
+  }
+  #footerHandy h4 {
+    color: #d7d7d7;
+  }
+  #footerHandy p {
+    margin-bottom: 0;
+  }
+
 </style>
 
-<div class="container" id="footerDesktop" style="padding-top: 80px;">
+<div class="container" id="footerDesktop" style="padding-top: 30px;">
 
   <div class="row">
     <div class="col-sm-7">
 
       <h4 style="color: #d7d7d7;"> Freundesbrief abbonnieren <h4>
-        <p style="padding-bottom: .5rem; color: #d7d7d7;" id="copy"> Lassen Sie sich ungefähr einmal monatlich durch unseren konstenfreien
+        <p style="padding-bottom: .5rem; color: #d7d7d7;" id="copy"> Lassen Sie sich ungefähr einmal monatlich durch unseren kostenfreien
           Freundesbrief „Chance-Aktuell“ informieren. </p>
 
           {% macro errorList(errors) %}
@@ -61,20 +80,17 @@
 
           </form>
 
-          <p style="padding-bottom: 40px; padding-top: 2rem; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
-            <br> Diesen können Sie hier bestellen  </p>
+          <p style="padding-top: 1rem; margin-bottom: 0; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
+          <br> <a href="https://aufbau-website.de/craft/web/kontakt">Diesen können Sie hier bestellen</a>
 
           </div>
 
+          <div class="col-sm-1">  </div>
 
-          <div class="col-sm-5" style="padding-left: 50px;">
-
-            <h4 style="color: #d7d7d7;"> Spendenkonto <h4>
-              <p style="color: #d7d7d7;" id="copy"> Chance e.V. <br> Bank für Kirche und Diakonie <br>
-                IBAN: DE92 3506 0190 1014 4450 10 <br> BIC: GENO DE D1 DKD </p>
-
-                <p style="padding-top: 20px; color: #d7d7d7;">
-                  Alle Spendenmöglichkeiten ansehen  </p>
+          <div class="col-sm-4">
+            <h4 style="margin-bottom: 0;"> Spendenkonto </h4>
+            {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer-mobile').one() %}
+            {{ entry.textfeld }}
                 </div>
               </div>
 
@@ -96,48 +112,33 @@
               </div>
 
               <!-- Trennlinie für den Footer -->
-              <hr style="height: 2px; color: #f8f5f2;">
+              <hr style="height: 2px; color: #f8f5f2; margin-top: 0;">
 
 
               <!-- Der letzte Teil des Footers -->
-              <div class="row" id="info" style="padding-bottom: 40px; padding-top: 20px; font-size: 14px;">
-
-                <div class="col-sm-7">  © Chance e.V </div>
-
-                <div class="col-sm-1"> Datenschutz </div>
-
-                <div class="col-sm-1"> Impressum  </div>
-
-                <div class="col-sm-1">    Sitemap  </div>
-
-                <div class="col-sm-2">   Facebook_logo    </div>
-
+              <div class="row" id="info" style="padding-bottom: 20px;">
+                {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer').one() %}
+                        {{ entry.text}}
               </div>
 
             </div> <!-- Normaler Container -->
 
-            <div class="container" id="footerHandy">
+
+
+            <div class="container" id="footerHandy" style="padding-top: 1rem;"> <!-- Beginn Handy-footer -->
               <span >
               {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer-mobile').one() %}
               {{ entry.text }}
               <hr>
+              <h4 style="margin-bottom: 0;"> Spendenkonto </h4>
               {{ entry.textfeld }}
               </span>
 
               <hr>
 
-              <div class="row" id="info" style="padding-bottom: 40px; padding-top: 20px; font-size: 14px;">
+              <div class="row" id="info" style="padding-bottom: 20px;">
 
-                <div class="col-sm-3">  © Chance e.V </div>
-
-                <div class="col-sm-3"> Datenschutz </div>
-
-                <div class="col-sm-3"> Impressum  </div>
-
-                <div class="col-sm-3">    Sitemap  </div>
-
-                <div class="col-sm-12 float-right">   Facebook_logo    </div>
-
+                        {{ entry.zusatzfeld1}}
               </div>
             </div> <!-- Footer für Mobilgeräte -->
 
