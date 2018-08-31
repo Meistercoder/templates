@@ -100,14 +100,14 @@
 
   {% set entry = craft.entries.section('projekte').slug('waldpate-werden').one() %}
 
-  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+  <div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
     <div class="row">
-      <div class="col-1"> </div>
-      <div class="col-4 align-self-center">   <img class="img-fluid" src="{% if entry.bild.inReverse().one() is not null %}  {{ entry.bild.inReverse().one().getUrl() }}  {% endif %}"> </div>
-      <div class="col-7">
+      <div class="col-md-1">  </div>
+      <div class="col-md-3">   <img  style="position: relative; top: 50%; transform: translateY(-50%);" class="img-fluid mx-auto d-block" src="{% if entry.bild.inReverse().one() is not null %}  {{ entry.bild.inReverse().one().getUrl() }}  {% endif %}"> </div>
+      <div class="col-md-7" style="padding-left: 30px;">
         <h4 style="color: white;"> {{ entry.title }} </h4>
         <div id="copy" style="color: white;"> {{ entry.text }}</div>
-        <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+        <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Waldpate werden</a>
       </div>
     </div>
   </div> <!-- Der orange Berg mit dem Spendenaufruf -->

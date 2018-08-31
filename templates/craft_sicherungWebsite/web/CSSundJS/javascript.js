@@ -14,10 +14,12 @@ verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
 
 $( document ).ready(function() {
     navlinksAnpassen();
+    WelleAnpassen();
 });
 
 $(window).resize(function(){
   navlinksAnpassen();
+  WelleAnpassen();
 });
 
 function navlinksAnpassen () {
@@ -54,7 +56,24 @@ function navlinksAnpassen () {
 
         $("#footerHandy").css("display", "none")
         $("#footerDesktop").css("display", "block") /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
+  }
+}
 
+function WelleAnpassen () {
 
+  if ($(window).innerWidth() < 800 ) {
+
+    $("#welle").css("width", "100%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+    $("#welle").css("margin-left", "-50%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+
+    $("#empfehlungenMobil").css("display", "block")
+    $("#empfehlungenDesktop").css("display", "none") /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
+  }
+  else {
+      $("#welle").css("width", "40%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+      $("#welle").css("margin-left", "0"); /*Die Welle größer machen auf kleinen Bildschirmen */
+
+      $("#empfehlungenDesktop").css("display", "block")
+      $("#empfehlungenMobil").css("display", "none") /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
   }
 }

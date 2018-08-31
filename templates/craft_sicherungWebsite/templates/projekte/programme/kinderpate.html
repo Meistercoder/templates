@@ -84,13 +84,39 @@
   </div>
 </div>
 
+<script>
+$(document).ready(function(){
+    kindAnpassen();
+});
+
+$(window).resize(function(){
+  kindAnpassen();
+});
+
+function kindAnpassen () {
+
+  if ($(window).innerWidth() <= 752 ) {
+    $("#kind").css("position", "relative"); /*Position des Kindes absolut setzen */
+    $("#kind").css("max-height", "200px"); /*Position des Kindes absolut setzen */
+    $("#kind").css("padding-bottom", "15px"); /*Position des Kindes absolut setzen */
+
+  }
+  else {
+    $("#kind").css("position", "absolute");
+    $("#kind").css("max-height", "100%"); /*Position des Kindes absolut setzen */
+    $("#kind").css("padding-bottom", "0"); /*Position des Kindes absolut setzen */
+}
+}
+
+</script>
+
 {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
 
 <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
   <div class="row">
-    <div class="col-2">  </div>
-    <div class="col-4" style="position: relative">   <img id="kind" style="position: absolute; bottom: 0; padding-bottom: 0;" class="img-fluid" src="{{ entry.bild.inReverse().one().url }}"> </div>
-    <div class="col-3">
+    <div class="col-lg-1 col-md-0">  </div>
+    <div class="col-lg-4 col-md-5" style="position: relative; min-height: 150px;">   <img class="mx-auto d-block" id="kind" style="max-width: 100%; bottom: 0; left: 0; " src="{{ entry.bild.inReverse().one().url }}"> </div>
+    <div class="col-lg-7 col-md-7" style="padding-left: 2rem; padding-right: 2rem;">
       <h4 style="color: white;"> {{ entry.title }} </h4>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
       <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
@@ -105,16 +131,16 @@
 </div> <!-- ganzheitliche Begleitung -->
 
 <div class="container-fluid no-padding" style="background-color: white;">
-  <div class="container achterspaltenlayout text-center">
+  <div class="container achterspaltenlayout text-center" style="padding-bottom: 0;">
     {% set entry = craft.entries.section('projekte').slug('warum-ganzheitlich').one() %}
 
       <h2> {{ entry.title }} </h2>
-      <div id="anleser"> {{ entry.anleser }}    </div>
+      <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}    </div>
   </div>
 
-<div class="container zwoelferspaltenlayout text-center">
+<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
   {% set entry = craft.entries.section('projekte').slug('dorfentwicklung-chancen-für-dörfer').one() %}
-   <hr style="height: 1px;"> <div id="anleser"> Lernen Sie unsere weiteren Progamme kennen </div>
+   <hr style="height: 1px; margin-top: 2rem; margin-bottom: 2rem;"> <div id="anleser"> Lernen Sie unsere weiteren Progamme kennen </div>
 </div>
 
 <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 3rem;">

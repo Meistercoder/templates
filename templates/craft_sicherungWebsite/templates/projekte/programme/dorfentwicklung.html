@@ -5,18 +5,18 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center" style="padding-top: 9rem; position: relative;">
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
   <div class="container achterspaltenlayout" style="padding-top: 0px;">
     <h1 style="padding-bottom: 30px;"> Dorfentwicklung <br> Chancen für Dörfer  </h1>
-    <p id="anleser"> Wir befähigen Dorfgemeinschaften, ihr Schicksal selbst in die Hand zu nehmen. Im Zentrum unseres Ansatzes stehen nicht die Probleme der Gemeinschaft,
+    <p id="anleser" style="padding-bottom: 0;"> Wir befähigen Dorfgemeinschaften, ihr Schicksal selbst in die Hand zu nehmen. Im Zentrum unseres Ansatzes stehen nicht die Probleme der Gemeinschaft,
       sondern das Potential der Dorfbewohner, das wir konsequent fördern. </p>
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 3rem;">
     <div class="row">
       <div class="col-sm-4">
         {% set entry = craft.entries.section('projekte').slug('motor').one() %}
@@ -38,10 +38,7 @@
     </div>
   </div>
 
-  <div class="container-fluid no-padding">
     <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-dorfentwicklung.jpg').one().getUrl() }} ">
-  </div>
-
 
   <div class="container achterspaltenlayout">
     {% set entry = craft.entries.section('projekte').slug('der-fünf-stufen-plan').one() %}
@@ -77,7 +74,7 @@
 
     </div>
 
-  </div>
+  </div> <!-- Accordion - Div -->
 
   <div class="container-fluid no-padding" style="background-color: #9EAC50">
     <div class="container achterspaltenlayout text-center">
@@ -94,13 +91,18 @@
       {% if entries | length %}
 
       {% for entry in entries %}
-      <div class="col-sm-4">
+      <div class="col-sm-4" style="padding-right: 20px; padding-left: 20px;">
       <div id="copy" style="color: #ffffff;"> {{ entry.text }} </div>
       </div>
 
       {% endfor %}
-
       {% endif %}
+
+<style> /* Einfärben der horizontal ruler in weiß */
+  hr {
+    border-color: white;
+  }
+</style>
 
     </div>
   </div>
@@ -108,26 +110,26 @@
 </div> <!-- Weißer Hintergrundcontainer -->
 
 {% set entry = craft.entries.section('projekte').slug('dorfpate-werden').one() %}
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
   <div class="row">
-    <div class="col-1">  </div>
-    <div class="col-2 align-self-center">   <img class="img-fluid" src="{{ entry.bild.inReverse().one().url }}" style="max-height: 200px;"> </div>
-    <div class="col-1">  </div>
-    <div class="col-7">
+    <div class="col-md-1">  </div>
+    <div class="col-md-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild.inReverse().one().url }}" style="max-height: 150px; padding-bottom: 10px;"> </div>
+    <div class="col-md-1">  </div>
+    <div class="col-md-7" style="padding-left: 30px;">
       <h4 style="color: white;"> {{ entry.title }} </h4>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
-      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Dorfpate werden</a>
+      <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate werden </strong></a>
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
 
 <div class="container-fluid no-padding" style="background-color: white;">
-  <div class="container achterspaltenlayout text-center">
+  <div class="container achterspaltenlayout text-center" style="padding-bottom: 0;">
     {% set entry = craft.entries.section('projekte').slug('gelingendes-leben').one() %}
 
       <h2> {{ entry.title }} </h2>
-      <div id="anleser"> {{ entry.text }}    </div>
+      <div id="anleser" style="padding-bottom: 3rem;"> {{ entry.text }}    </div>
   </div>
 
 </div>
@@ -171,16 +173,25 @@
       <div id="anleser"> {{ entry.anleser }}    </div>
     </div>
 
-    <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+    <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
       <div class="row">
-        <div class="col-sm-9">  <div id="copy">{{ entry.text }}  </div>  </div>
-        <div class="col-sm-3"> Hier kommt der Erfahrungsbericht hin  </div>
+        <div class="col-md-8">  <div id="copy">{{ entry.text }}  </div>  </div>
+        <div class="col-md-4" style="border-left:2px solid #ed6e2c; height: 40%; margin-top: 15px;">
+              {% set entries = craft.entries.section('projekte').slug('erfahren-sie-mehr-1').one().children().all() %}
+              {% set eintrag = random(entries) %}
+              <img style="max-height: 100px;" class="rounded-circle" src="{% if eintrag.bild.one() is not null %} {{ eintrag.bild.one().url }}{% endif %}" alt="">
+              <p style="padding-top: 2rem;" id="copy"> Erfahrungsbericht </p>
+              <div id="zitat"> {{ eintrag.text }}  </div>
+              <div id="autor" > {{ eintrag.zusatzfeld1 }}  </div>
+        </div>
     </div>
-  </div>
+  </div> <!-- Warum indigene Gemeinschaften -->
 
   <div class="container zwoelferspaltenlayout text-center">
     {% set entry = craft.entries.section('projekte').slug('patenschaft').one() %}
-     <hr style="height: 1px;"> <div id="anleser"> Lernen Sie unsere weiteren Progamme kennen </div>
+    <hr style="border:none; height:2px; background-color:grey; margin-bottom: 2rem; margin-top: 1rem;">
+
+     <div id="anleser"> Lernen Sie unsere weiteren Progamme kennen </div>
   </div>
 
   <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 3rem;">

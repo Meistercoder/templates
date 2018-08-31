@@ -5,7 +5,7 @@
 {% block headerbildPosition1 %}
 
 <div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid w-100" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }} ">
+  <img class="img-fluid w-100" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }}" style="padding-bottom: 0;">
 </div>
 
 
@@ -15,16 +15,16 @@
 
 
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 80px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 4rem; position: relative;">
 
 
   <img class="img-fluid " id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 
-  <div class="container achterspaltenlayout" style="padding-top: 0px;">
-    <div style="padding-bottom:50px; ">
+  <div class="container achterspaltenlayout" style="padding-top: 0px; padding-bottom: 0;">
+    <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 30px;"> Mit drei nachhaltigen Programmen zum Ziel  </h1>
-      <p id="anleser"> Durch die strategische Verknüpfung drei nachhaltiger Entwicklungsprogramme bekämpfen wir Armut, geben Hoffnung und erreichen unser Ziel: starke Dörfer,
+      <p id="anleser" style="padding-bottom: 2rem;"> Durch die strategische Verknüpfung drei nachhaltiger Entwicklungsprogramme bekämpfen wir Armut, geben Hoffnung und erreichen unser Ziel: starke Dörfer,
         gesunde Kinder und Familien, würdevolle Lebensperspektiven sowie ein verantwortlicher Umgang mit der Schöpfung.
       </p>
       </div>
@@ -46,7 +46,7 @@
           <div class="card border-light h-100">
             <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
             <div class="card-body">
-                <h3>{{ entry.title }}</h3>
+                <h3>{{ entry.anleser }}</h3>
                 <div id="copy"> {{ entry.text }} </div>
             </div>
           </div>
