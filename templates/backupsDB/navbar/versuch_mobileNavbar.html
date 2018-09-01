@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chance International</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="javascript.js"> </script>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<style>
+.nav-item {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+</style>
+
+<!-- navbar-light links the colors with the background image -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light" data-toggle="affix" style="padding-top: 0px; margin-top: -10px;">
+
+  <div class="container zwoelferspaltenlayout">
+
+    <!-- Chance Logo -->
+    <a class="navbar-brand"  href="https://aufbau-website.de/craft/web/">
+      <img src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logo" alt="Logo" width="160" height="120">
+    </a>
+
+<!-- Das Bild zur Ebene zurückgehen -->
+    <img src="close.png" id="versteckt" style="display: none;" onclick="schrittZuruck()">
+
+    <!-- Toggler/collapsibe Button -->
+    <img src="hamburger-menu-icon.jpg" style="max-height: 40px;" class="navbar-toggler" id="hamburger" type="button" onclick="logoVerschwinde()" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    </img>
+
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" id="home" href="https://aufbau-Website.de/craft/web/" style="color:black; font-weight: bold;"> HOME </a>
+        </li>
+        <div class="dropdown">
+
+          <li class="nav-item dropdown">
+
+ 	    <a class="nav-link" data-toggle="dropdown-disabled"
+            href="https://aufbau-Website.de/craft/web/ueberUns" style="color:black; font-weight: bold; display: inline-block; padding-top: 25px;"> ÜBER UNS
+        </a>
+
+            <a class="nav-link" data-toggle="dropdown" href="https://aufbau-Website.de/craft/web/ueberUns"
+             style="display: inline-block; float: right;">
+              <img src="rechtspfeil.png" class="pfeil" style="max-width: 50px;" onclick="aktivMachen()"> </img>
+            </a>
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/arbeitsweise.html"> Arbeitsweise</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/konzept.html"> Konzept</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/leitbild.html"> Leitbild</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/motivation.html"> Motivation</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/verein.html"> Der Verein</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/transparenz.html"> Transparenz</a> </li>
+              <li class="dropdown-divider"></li>
+
+              <li class="dropdown-submenu">
+                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/ueberUns/empfehlungen.html">Empfehlungen</a>
+              </li>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown-disabled" aria-haspopup="true"
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/projekte" style="color:black; font-weight: bold; display: inline-block; padding-top: 25px;"> PROJEKTE </a>
+
+  		<a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/projekte" style="color:black; font-weight: bold; display: inline-block; float: right;">
+            <img src="rechtspfeil.png" class="pfeil" style="max-width: 50px;" onclick="aktivMachen()"> </img>
+      </a>
+
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/projekte/wowirarbeiten.html"> Wo wir arbeiten</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-submenu">
+                <a class="dropdown-item" style="display: inline-block; width: 50%;" href="https://aufbau-Website.de/craft/web/projekte/programme.html">Programme</a>
+                <a class="dropdown-item" style="display: inline-block; width: 49%;" href="#">
+                      <img src="rechtspfeil.png" class="pfeil2teEbene" style="max-width: 50px; " onclick="aktivMachen()"> </img>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a tabindex="-1" href="https://aufbau-Website.de/craft/web/projekte/programme/dorfentwicklung.html">Dorfentwicklung</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/projekte/programme/kinderpate.html">Kinderpaten</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/projekte/programme/naturschutz.html">Umwelt- und Naturschutz</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/projekte/themen.html"> Themen</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-submenu">
+                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/projekte/erfahrungsberichte.html">Erfahrungsberichte</a>
+              </li>
+
+              <li class="dropdown-submenu">
+                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/projekte/projektberichte.html">Projektberichte</a>
+              </li>
+            </ul>
+            </li>
+        </div>
+
+
+        <div class="dropdown">
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown-disabled" aria-haspopup="true"
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/spenden" style="color:black; font-weight: bold; display: inline;"> SPENDEN </a>
+
+ 	    <a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/spenden" style="color:black; font-weight: bold; display: inline;">
+            <img src="rechtspfeil.png" class="pfeil" style="max-width: 50px;" onclick="aktivMachen()"> </img>
+          </a>
+
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <li class="dropdown-submenu">
+                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/spenden/einmalig.html">Allgemein Spenden</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a tabindex="-1" href="https://aufbau-Website.de/craft/web/spenden/allgemein/einmaligallgemein.html">Einmalig</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/spenden/allgemein/regelmaesigallgemein.html">Regelmäßig</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-submenu" style="height: 100px;">
+               <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/partnerlandeinmal">Projektbezogen Spenden</a>
+               <ul class="dropdown-menu">
+                 <li class="dropdown-submenu">
+                   <a class="dropdown-item" href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/partnerlandeinmal">Einmalig</a>
+                   <ul class="dropdown-menu">
+                     <li class="dropdown-item"><a href="#">Länderpate</a></li>
+                     <li class="dropdown-item"><a href="#">Dorfpate</a></li>
+                     <li class="dropdown-item"><a href="#">Waldpate</a></li>
+                   </ul>
+                   <a class="dropdown-item" href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Regelmäßig</a>
+                   <ul class="dropdown-menu">
+                     <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Länderpate</a></li>
+                     <li class="dropdown-item"><a href="#">Dorfpate</a></li>
+                     <li class="dropdown-item"><a href="#">Kinderpate plus</a></li>
+                     <li class="dropdown-item"><a href="#">Waldpate</a></li>
+                   </ul>
+                 </li>
+                 <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/schenkenundspenden">Schenken und Spenden</a></li>
+                 <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/einkaufenundspenden">Einkaufen und Spenden</a></li>
+                 <li class="dropdown-item"><a href="#">Lastschrifttermine</a></li>
+
+               </ul>
+             </li>
+           </li>
+
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="dropdown">
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown-disabled" aria-haspopup="true"
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/fuerSie" style="color:black; font-weight: bold; display: inline;"> FÜR SIE </a>
+
+ 	    <a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/fuerSie" style="color:black; font-weight: bold; display: inline;">
+            <img src="rechtspfeil.png" class="pfeil" style="max-width: 50px;" onclick="aktivMachen()"> </img>
+          </a>
+
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/fuerSie/chancekommt.html"> Chance e.V. kommt zu Ihnen</a> </li>
+              <li class="dropdown-divider"></li>
+
+              <li class="dropdown-submenu">
+                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/fuerSie/freiwilligendienst.html">Freiwilligendienst</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a tabindex="-1" href="https://aufbau-Website.de/craft/web/fuerSie/freiwillig/weltwaerts.html">Mit "weltwärts" nach Peru oder Kenia</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/fuerSie/freiwillig/peru.html">Weitere Einsatzmöglichkeiten in Peru</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/fuerSie/freiwillig/bewerbung.html">Deine Bewerbung</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/fuerSie/freiwillig/erfahrungsberichte.html">Erfahrungsberichte</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/fuerSie/projektbesuch.html">Projektbesuch</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-submenu">
+                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/fuerSie/daheim.html">Für Sie daheim</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><a tabindex="-1" href="https://aufbau-Website.de/craft/web/fuerSie/daheim/consumermission.html">"Consumer Missions"</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/fuerSie/daheim/kaffee.html">Kaffee - unsere tägliche Chance</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="dropdown-item"><a href="https://aufbau-Website.de/craft/web/fuerSie/daheim/blumen.html">Bäume für Kenia statt Blumen für Euro</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown-item"> <a href="#">Presse und Downloads</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/fuerSie/literaturtipps.html">Literaturtipps</a> </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/fuerSie/zitate.html">Zitate</a> </li>
+
+            </li>
+          </ul>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" id="blog" href="https://aufbau-Website.de/craft/web/blog" style="color:black; font-weight: bold;"> BLOG </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="kontakt" href="https://aufbau-Website.de/craft/web/kontakt" style="color:black; font-weight: bold;"> KONTAKT </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<div class="container-fluid no-padding" style="position:fixed; top:-2px; z-index: 900;">
+  <div class="rectangle" id="rechteck"></div>
+</div>
+
+
+
+  </body>
+  </html>
