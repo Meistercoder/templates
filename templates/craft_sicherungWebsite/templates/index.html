@@ -57,13 +57,38 @@
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
 
   <div class="container achterspaltenlayout text-center">
-    {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
+    {% set entries = craft.entries.section('home').slug('zitate-home').one().children().all() %}
     {% set entry = random(entries) %}
 
     <hr style="background-color: #ed6e2c; height: 1px;">
-    <div id="zitat"> {{ entry.text }}  </div>
+    <div id="zitat"> {{ entry.anleser }}  </div>
     <div id="autor" > {{ entry.title }}  </div>
     <hr style="background-color: #ed6e2c; height: 1px;">
+
+    {% set entry = random(entries) %}
+    <script> /*Zufälliges Zitat nach 3 Sekunden ändern */
+    $(document).ready(function(){
+      setInterval(function(){ $("#zitat").replaceWith("<div id=\"zitat\"> {{ entry.anleser }} </div>") }, 16000);
+      setInterval(function(){ $("#autor").replaceWith("<div id=\"autor\"> {{ entry.title }} </div>") }, 16000);
+    });
+
+    $(document).ready(function(){
+      setInterval(function(){ $("#zitat").replaceWith("<div id=\"zitat\"> {{ entry.anleser }} </div>") }, 4000);
+      setInterval(function(){ $("#autor").replaceWith("<div id=\"autor\"> {{ entry.title }} </div>") }, 4000);
+    });
+
+    {% set entry = random(entries) %}
+    $(document).ready(function(){
+      setInterval(function(){ $("#zitat").replaceWith("<div id=\"zitat\"> {{ entry.anleser }} </div>") }, 8000);
+      setInterval(function(){ $("#autor").replaceWith("<div id=\"autor\"> {{ entry.title }} </div>") }, 8000);
+    });
+
+    {% set entry = random(entries) %}
+    $(document).ready(function(){
+      setInterval(function(){ $("#zitat").replaceWith("<div id=\"zitat\"> {{ entry.anleser }} </div>") }, 12000);
+      setInterval(function(){ $("#autor").replaceWith("<div id=\"autor\"> {{ entry.title }} </div>") }, 12000);
+    });
+    </script>
 
   </div>
 </div> <!-- Zufälliges Zitat -->

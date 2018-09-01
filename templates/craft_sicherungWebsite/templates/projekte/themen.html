@@ -32,11 +32,12 @@
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
-<div class="container zwoelferspaltenlayout text-center">
+
+<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
 
   {% set entry = craft.entries.section('projekte').slug('17-000-kinder').one() %}
 
-  <div id="carouselContent" class="carousel slide" data-ride="carousel">
+  <div id="carouselContent" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active text-center">
         <div class="row">
@@ -46,11 +47,16 @@
           {% for entry in entries %} {% set counter = counter + 1 %}
           {# Nach jedem dritten Eintrag wird das Karussel-item geschlossen und drei neue geladen #}
 
-          <div class="col-md-4">
-            bild
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="{{ 'karussel' ~ counter }}">
+            <img class="img-fluid mx-auto d-block" style="max-height: 150px; padding-bottom: 0;" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
             <h4> {{ entry.title }} </h4>
             <div id="copy"> {{ entry.anleser }} </h3>  </div>
           </div>
+
+          {% if craft.mobileDetect.isMobile and counter is not divisible by(3) %} {# Für mobile Geräte wird nach jedem Eintrag das Element geschlossen #}
+        </div>
+        </div>  <div class="carousel-item text-center"> <div class="row">
+          {% endif %}
 
           {% if counter is divisible by(3) %}
         </div>
@@ -87,9 +93,10 @@
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
-<div class="container zwoelferspaltenlayout text-center">
+<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
 
-  <div id="carousel2" class="carousel slide" data-ride="carousel">
+  <div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="false">
+
     <div class="carousel-inner">
       <div class="carousel-item active text-center">
         <div class="row">
@@ -99,11 +106,16 @@
           {% for entry in entries %} {% set counter = counter + 1 %}
           {# Nach jedem dritten Eintrag wird das Karussel-item geschlossen und drei neue geladen #}
 
-          <div class="col-md-4">
-            bild
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="{{ 'karussel' ~ counter }}">
+            <img class="img-fluid mx-auto d-block" style="max-height: 150px; padding-bottom: 0;" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
             <h4> {{ entry.title }} </h4>
             <div id="copy"> {{ entry.anleser }} </h3>  </div>
           </div>
+
+          {% if craft.mobileDetect.isMobile and counter is not divisible by(3) %} {# Für mobile Geräte wird nach jedem Eintrag das Element geschlossen #}
+        </div>
+        </div>  <div class="carousel-item text-center"> <div class="row">
+          {% endif %}
 
           {% if counter is divisible by(3) %}
         </div>
@@ -143,7 +155,7 @@
 
 <div class="container zwoelferspaltenlayout text-center">
 
-  <div id="carousel3" class="carousel slide" data-ride="carousel">
+  <div id="carousel3" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active text-center">
         <div class="row">
@@ -153,11 +165,16 @@
           {% for entry in entries %} {% set counter = counter + 1 %}
           {# Nach jedem dritten Eintrag wird das Karussel-item geschlossen und drei neue geladen #}
 
-          <div class="col-md-4">
-            bild
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="{{ 'karussel' ~ counter }}">
+            <img class="img-fluid mx-auto d-block" style="max-height: 150px; padding-bottom: 0;" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
             <h4> {{ entry.title }} </h4>
             <div id="copy"> {{ entry.anleser }} </h3>  </div>
           </div>
+
+          {% if craft.mobileDetect.isMobile and counter is not divisible by(3) %} {# Für mobile Geräte wird nach jedem Eintrag das Element geschlossen #}
+        </div>
+        </div>  <div class="carousel-item text-center"> <div class="row">
+          {% endif %}
 
           {% if counter is divisible by(3) %}
         </div>
@@ -198,7 +215,7 @@
 
 <div class="container zwoelferspaltenlayout text-center">
 
-  <div id="carousel4" class="carousel slide" data-ride="carousel">
+  <div id="carousel4" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active text-center">
         <div class="row">
@@ -206,13 +223,19 @@
           {% set counter = 0 %}
           {% set entries = craft.entries.section('projekte').slug('soziales').one().children().all() %}
           {% for entry in entries %} {% set counter = counter + 1 %}
-          {# Nach jedem dritten Eintrag wird das Karussel-item geschlossen und drei neue geladen #}
 
-          <div class="col-md-4">
-            bild
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="{{ 'karussel' ~ counter }}">
+            <img class="img-fluid mx-auto d-block" style="max-height: 150px; padding-bottom: 0;" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
             <h4> {{ entry.title }} </h4>
             <div id="copy"> {{ entry.anleser }} </h3>  </div>
           </div>
+
+          {% if craft.mobileDetect.isMobile and counter is not divisible by(3) %} {# Für mobile Geräte wird nach jedem Eintrag das Element geschlossen #}
+        </div>
+        </div>  <div class="carousel-item text-center"> <div class="row">
+          {% endif %}
+
+
 
           {% if counter is divisible by(3) %}
         </div>
@@ -252,7 +275,7 @@
 
 <div class="container zwoelferspaltenlayout text-center">
 
-  <div id="carousel5" class="carousel slide" data-ride="carousel">
+  <div id="carousel5" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
       <div class="carousel-item active text-center">
         <div class="row">
@@ -260,13 +283,19 @@
           {% set counter = 0 %}
           {% set entries = craft.entries.section('projekte').slug('umwelt-und-naturschutz-1').one().children().all() %}
           {% for entry in entries %} {% set counter = counter + 1 %}
-          {# Nach jedem dritten Eintrag wird das Karussel-item geschlossen und drei neue geladen #}
 
-          <div class="col-md-4">
-            bild
+
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12" id="{{ 'karussel' ~ counter }}">
+              <img class="img-fluid mx-auto d-block" style="max-height: 150px; padding-bottom: 0;" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
             <h4> {{ entry.title }} </h4>
             <div id="copy"> {{ entry.anleser }} </h3>  </div>
           </div>
+
+          {% if craft.mobileDetect.isMobile and counter is not divisible by(3) %} {# Für mobile Geräte wird nach jedem Eintrag das Element geschlossen #}
+        </div>
+        </div>  <div class="carousel-item text-center"> <div class="row">
+          {% endif %}
+
 
           {% if counter is divisible by(3) %}
         </div>
@@ -291,18 +320,19 @@
 </div> <!-- Container für Carousel -->
 
 {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
   <div class="row">
-    <div class="col-1">  </div>
-    <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
-    <div class="col-1">  </div>
-    <div class="col-7">
+    <div class="col-md-1">  </div>
+    <div class="col-md-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding-bottom: 10px;"> </div>
+    <div class="col-md-1">  </div>
+    <div class="col-md-7" style="padding-left: 30px;">
       <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
       <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+      <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button">Jetzt Spenden</a>
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->
+
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
 

@@ -16,9 +16,33 @@
   </div>
 </div>
 
+<script>
+$( document ).ready(function() {
+    erfahrungenAnpassen();
+});
+
+$(window).resize(function(){
+  erfahrungenAnpassen();
+});
+
+function erfahrungenAnpassen () {
+
+  if ($(window).innerWidth() < 900 ) {
+
+    $("#erfahrungenMobil").css("display", "block");
+    $("#erfahrungenDesktop").css("display", "none"); /*Erfahrungsberichte werden angezeigt oder nicht, je nach bildschirmgröße */
+  }
+  else {
+
+      $("#erfahrungenDesktop").css("display", "block");
+      $("#erfahrungenMobil").css("display", "none");
+    }
+  }
+
+</script>
 
 
-<div class="container zwoelferspaltenlayout">
+<div class="container zwoelferspaltenlayout" id="erfahrungenDesktop" >
   <div class="card-columns">
   {% set entries = craft.entries.section('erfahrungsberichte').all() %}
   {% if entries | length %}
@@ -43,16 +67,44 @@
     </div>
   </div>
 
+  <div class="container zwoelferspaltenlayout" id="erfahrungenMobil" style="padding-top: 0;">
+
+  <div class="card-columns">
+
+        {% for entry in entries %}
+        <div class="card">
+              <div class="row">
+                <div class="col-4" style="text-align: center; white-space: nowrap;">
+                   <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                    <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+                  </div>
+                  <div class="col-8">
+                    <div class="card-body" style="padding: 0; padding-right: 1rem;">
+                      <p class="card-text">
+                        <h4 style="margin: 0;"> {{ entry.title }} </h4>
+                        <div id="copy">
+                          <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}"> {{ entry.beruf }}</a>
+                        </div>
+                      </p>
+                    </div>
+              </div>
+            </div>
+          </div>
+
+        {% endfor %}
+    </div>
+  </div>
+
 {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
   <div class="row">
-    <div class="col-1">  </div>
-    <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
-    <div class="col-1">  </div>
-    <div class="col-7">
+    <div class="col-md-1">  </div>
+    <div class="col-md-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding-bottom: 10px;"> </div>
+    <div class="col-md-1">  </div>
+    <div class="col-md-7" style="padding-left: 30px;">
       <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
       <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+      <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button">Jetzt Spenden</a>
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->

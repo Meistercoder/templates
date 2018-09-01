@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" >
+<div class="container zwoelferspaltenlayout" style="padding-top: 0;">
   <hr> <div id="copy" class="text-center" style="padding-bottom: 3rem; padding-top: 1rem;"> Weitere Erfahrungsberichte  </div>
 
 <div class="card-columns">
@@ -43,7 +43,9 @@
                   <div class="card-body" style="padding: 0; padding-right: 1rem;">
                     <p class="card-text">
                       <h4 style="margin: 0;"> {{ entry.title }} </h4>
-                      <div id="copy"> {{ entry.berufMitLink }} </div>
+                      <span id="copy">
+                        <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}"> {{ entry.beruf }}</a>
+                      </span>
                     </p>
                   </div>
             </div>
@@ -56,12 +58,12 @@
 
 {% set entry = craft.entries.section('spendenfelderUndSo').slug('paten-dringend-gesucht').one() %}
 
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="padding-top: 30px; padding-bottom: 30px; background-image: url({{ entry.bild.one().url }});">
   <div class="row">
     <div class="col-sm-2">  </div>
-    <div class="col-lg-2 col-md-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding:0;"> </div>
+    <div class="col-lg-2 col-md-3 col-sm-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding:0;"> </div>
     <div class="col-sm-1">  </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="padding-left: 2rem; padding-right: 2rem;">
       <h4 style="color: white;"> {{ entry.title }} </h4>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
     </div>

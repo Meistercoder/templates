@@ -5,12 +5,23 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<style>
+hr {
+  margin-top: -1rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  padding-bottom: .5rem;
+}
+</style>
+
+<div class="container-fluid text-center" style="padding-top: 10rem; position: relative;">
 
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 <div class="container Achter-Spaltenlayout">
-  <div style="padding-bottom:80px;">
+  <div style="padding-bottom:5rem;">
     {% set entry = craft.entries.section('fuerSie').slug('informationen').one() %}
     <h1 style="padding-bottom: 30px;"> {{ entry.title }}   </h1>
     <div id="anleser"> {{ entry.anleser }} </div>
@@ -20,7 +31,7 @@
 
 <div class="container-fluid no-padding style" style="background-color: white; padding-bottom: 4rem;">
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="copy">
     <div class="row">
       <div class="col-md-6">
         {{ entry.zusatzfeld1 }}
@@ -31,24 +42,24 @@
     </div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="copy">
     {{ entry.zusatzfeld2 }}
   </div>
 
 <div class="container achterspaltenlayout">
   {% set entry = craft.entries.section('fuerSie').slug('gemeinden').one() %}
-  <div id="anleser" style="padding-bottom: 0; padding-top: 2rem;"> {{ entry.anleser }}</div>
+  <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}</div>
   <div id="copy"> {{ entry.zusatzfeld1 }}  </div>
 </div>
 
 <div class="container achterspaltenlayout">
-  <div id="anleser" style="padding-bottom: 0; padding-top: 2rem;"> {{ entry.text }}</div>
+  <div id="anleser" style="padding-bottom: 0;"> {{ entry.text }}</div>
   <div id="copy"> {{ entry.zusatzfeld2 }}  </div>
 </div>
 
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
-    <hr style="height: 2px;"> <br>
+    <hr style="height: 2px; margin-top: 1.5rem;"> <br>
   <p id="anleser" class="text-center"> Erfahre, wie du vor Ort helfen kannst  </p>
   </div>
 

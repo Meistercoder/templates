@@ -1,9 +1,14 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
-
-
 {% block block1 %}
+
+<style>
+  hr {
+    margin-top: -.5rem;
+    margin-bottom: .5rem;
+  }
+</style>
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
 
@@ -21,7 +26,7 @@
     </div>
   </div>
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
     <div class="container achterspaltenlayout">
      <div id="copy"> {{ entry.text }} </div>
     </div>
@@ -41,8 +46,8 @@
 </div>
 
 <div class="container achterspaltenlayout">
-  <div id="copy"> {{ entry.anleser }}  </div>
-</div>
+  <div id="info"> {{ entry.anleser }}  </div>
+</div> <!-- Würde Jesus -> durcklickbare Fragen -->
 
 <div class="cotainer-fluid no-padding" style="background-color: #ffffff;">
   {% set entry = craft.entries.section('fuerSie').slug('jesus-vorbild').one() %}
@@ -53,7 +58,7 @@
 </div>
 </div> <!-- weißer Hintergrundcontainer -->
 
-<div class="container zwoelferspaltenlayout">
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 2rem;">
   <div class="text-center">
     <h2> {{ entry.zusatzfeld1 }} </h2>
     <div id="anleser"> {{ entry.text }}  </div>
@@ -66,7 +71,7 @@
       <div id="copy"> {{ entry.anleser }}  </div>
     </div>
   {% endfor %}
-  </div>
+</div> <!-- Die Spalten mit den verschiedenen Links, durch hr getrennt -->
 
 </div> <!-- zwoelferspaltenlayout container -->
 

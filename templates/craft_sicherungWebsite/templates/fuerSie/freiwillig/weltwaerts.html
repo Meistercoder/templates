@@ -5,6 +5,13 @@
 
 {% block block1 %}
 
+<style>
+ hr {
+   margin-top: -1rem;
+   margin-bottom: 0;
+ }
+</style>
+
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
 
 
@@ -26,13 +33,13 @@
     <div class="row">
       <div class="col-sm-6">
         {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-peru').one() %}
-        <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        <img class="img-fluid" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
         <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
         <div id="copy"> {{ entry.anleser }}</div>
       </div>
       <div class="col-sm-6">
         {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-kenia').one() %}
-        <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        <img class="img-fluid" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
         <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
         <div id="copy"> {{ entry.anleser }}</div>
       </div>
@@ -48,7 +55,7 @@
 
   <div class="container zwoelferspaltenlayout text-center">
     {% set entry = craft.entries.section('fuerSie').slug('weitere-einsatzmöglichkeiten-in-peru').one() %}
-    <div id="copy"> {{ entry.zusatzfeld1 }} </div>
+    <div id="copy" style="padding-bottom: 2rem;"> <hr style="margin-bottom: 1rem;"> Weitere Einsatzmöglichkeiten in Peru </div>
   </div>
 
 <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">

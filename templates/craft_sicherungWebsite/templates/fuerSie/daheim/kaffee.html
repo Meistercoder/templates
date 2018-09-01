@@ -7,48 +7,44 @@
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
 
-
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
-
 
   <div class="container achterspaltenlayout" style="padding-top:0px;">
     {% set entry = craft.entries.section('fuerSie').slug('kaffeegenuss').one() %}
-
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
-      <div id="anleser"> {{ entry.anleser }}</div>
-      </div>
-    </div>
+    <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
+    <div id="anleser"> {{ entry.anleser }}</div>
   </div>
+</div>
 
-  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-  <div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
+<img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+
+<div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
   <div class="container achterspaltenlayout">
-    <div id="copy">
+    <div id="info">
       Abbildung 4: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=134763
     </div>
   </div>
-  </div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
+</div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
 
-    <div class="container achterspaltenlayout">
-     <div id="copy"> {{ entry.text }} </div>
-    </div>
+  <div class="container achterspaltenlayout">
+    <div id="copy"> {{ entry.text }} </div>
+  </div>
 
-    <div class="container achterspaltenlayout text-center">
-      <h2> {{ entry.zusatzfeld2 }} </h2>
-      <div id="anleser"> {{ entry.zusatzfeld3 }}</div>
-    </div>
+  <div class="container achterspaltenlayout text-center" style="padding-bottom: 0;">
+    <h2 style="padding-bottom: 0;"> {{ entry.zusatzfeld2 }} </h2>
+    <div id="anleser"> {{ entry.zusatzfeld3 }}</div>
+  </div>
 
-    <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
     <img class="img-fluid" style="padding-bottom: 0px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
     <div class="container achterspaltenlayout">
-      <div id="copy">
+      <div id="info">
         Abbildung 1:By Bamse - self-made using data at w:List of countries by coffee consumption per capita, CC BY-SA 3.0,
         https://commons.wikimedia.org/w/index.php?curid=2044673      </div>
-    </div>
-  </div> <!-- Kaffeekonsum weltweit - Bild -->
+      </div>
+    </div> <!-- Kaffeekonsum weltweit - Bild -->
 
     {% set entry = craft.entries.section('fuerSie').slug('menschen').one() %}
 
@@ -57,7 +53,7 @@
       <div id="copy"> {{ entry.anleser }} </div>
 
       <img class="img-fluid" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-        <div id="copy" style="padding-bottom: 1.5rem;">
+      <div id="info" style="padding-bottom: 1.5rem;">
         Justo und Angélica starben als Kaffeebauern an den Folgen ihrer Armut.
       </div> <!-- Justo und Angélica starben als Kaffeebauern an den Folgen ihrer Armut. -->
 
@@ -71,11 +67,11 @@
 
     <div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
       <img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
-    <div class="container achterspaltenlayout">
-      <div id="copy">
-        Abbildung 3: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=117185
+      <div class="container achterspaltenlayout">
+        <div id="info">
+          Abbildung 3: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=117185
+        </div>
       </div>
-    </div>
     </div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
 
 
@@ -103,16 +99,48 @@
 
   </div> <!-- weißer Hintergrundcontainer -->
 
-  <div class="container achterspaltenlayout text-center">
+  <div class="container achterspaltenlayout text-center" style="padding-top:3rem; padding-bottom: 1rem;">
     <h2> {{ entry.zusatzfeld1 }} </h2>
     <div id="anleser"> {{ entry.text }}  </div>
   </div>
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff">
+  <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: .5rem;">
     <div class="container achterspaltenlayout">
-      <div id="copy"> {{ entry.zusatzfeld2 }}  </div>
+      <div id="info"> {{ entry.zusatzfeld2 }}  </div>
     </div>
+
+    <div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
+      <hr>
+      <div id="copy" style="padding-bottom: 3rem;"> Was Sie daheim tun können</div>
+    </div>
+
+    {% set entry = craft.entries.section('fuerSie').slug('consumer-missions').one() %}
+    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 4rem;">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+        </div>
+        <div class="col-md-8" style="padding-top: 2rem;">
+          <h3> {{ entry.title }} </h3>
+          <div id="copy"> {{ entry.anleser }}</div>
+        </div>
+      </div>
+    </div> <!-- Weitere Informationen für sie daheim -->
+
+    {% set entry = craft.entries.section('fuerSie').slug('baeume-fuer-kenia').one() %}
+    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 4rem;">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+        </div>
+        <div class="col-md-8" style="padding-top: 2rem;">
+          <h3> {{ entry.title }} </h3>
+          <div id="copy"> {{ entry.anleser }}</div>
+        </div>
+      </div>
+    </div> <!-- Weitere Informationen für sie daheim -->
+
   </div>
 
 
-{% endblock %}
+  {% endblock %}

@@ -45,4 +45,26 @@
       </div>
     </div>
 
+<div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
+
+    <div class="container zwoelferspaltenlayout text-center" style="margin-top: 0;">
+     <div id="anleser" style="padding-bottom: 3rem;"> Weitere Informationen zum Freiwilligendienst </div>
+    </div>
+
+    {% set entry = craft.entries.section('fuerSie').slug('deine-bewerbung').one() %}
+    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 4rem;">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+      </div>
+      <div class="col-md-8" style="padding-top: 2rem;">
+        <h3> {{ entry.title }} </h3>
+        <div id="copy"> {{ entry.anleser }}</div>
+      </div>
+    </div>
+    </div> <!-- Weitere Informationen zum Freiwilligendienst -->
+
+  </div>
+
+
 {% endblock %}
