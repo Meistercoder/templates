@@ -38,14 +38,16 @@
         {% for entry in entries %}  {% set counter = counter + 1 %}
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 30px;">
 
+      <a href="{{ entry.reinertext }}">
         <div class="card border-light h-100">
-          <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+          <img class="card-img-top" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
           <div class="card-body">
               <h3>{{ entry.title }}</h3>
               <div id="copy"> {{ entry.text }} </div>
           </div>
         </div>
       </div>
+    </a>
 
       {% if counter == 6 %}  <div class="col-lg-4 col-md-3 col-sm-3"> </div> {% endif %}
 
