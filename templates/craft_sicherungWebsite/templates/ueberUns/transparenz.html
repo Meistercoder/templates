@@ -5,12 +5,11 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center no-padding" style="padding-top: 150px; position: relative;">
 
-<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
-<div class="container Achter-Spaltenlayout">
-  <div style="padding-bottom:80px; ">
+<div class="container achterspaltenlayout" style="position: relative;">  <div style="padding-bottom:80px; ">
     <h1 style="padding-bottom: 30px;"> Ihre Spenden kommen an </h1>
     <p id="anleser"> Mit Ihrer Spende verbessern Sie das Leben von Menschen und Gemeinschaften zielgerichtet und effizient. Ihre Hilfe kommt bei den Menschen vor Ort
       an und setzt dort positive Prozesse in Gang, die die Selbstbestimmung, Armutsbekämpfung und nachhaltige Entwicklung fördern. Erfahren Sie mehr

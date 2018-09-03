@@ -7,9 +7,11 @@
   <link href="https://aufbau-website.de/craft/web/CSSundJS/bootstrapcustom.min.css" rel="stylesheet" crossorigin="anonymous"/>
   <link href="https://www.aufbau-website.de/craft/web/CSSundJS/bootstrapcustom.min.css" rel="stylesheet" crossorigin="anonymous"/>
 
+  <link href="https://aufbau-website.de/craft/web/CSSundJS/navbarCSS.css" rel="stylesheet" crossorigin="anonymous"/>
+  <link href="https://www.aufbau-website.de/craft/web/CSSundJS/navbarCSS.css" rel="stylesheet" crossorigin="anonymous"/>
 
-  <link href="https://www.aufbau-website.de/craft/web/CSSundJS/stylevorgaben.css" rel="stylesheet" />
-  <link href="https://aufbau-website.de/craft/web/CSSundJS/stylevorgaben.css" rel="stylesheet" />
+  <link href="https://www.aufbau-website.de/craft/web/CSSundJS/stylevorgaben2.css" rel="stylesheet" />
+  <link href="https://aufbau-website.de/craft/web/CSSundJS/stylevorgaben2.css" rel="stylesheet" />
 
   <link href="https://aufbau-website.de/craft/web/CSSundJS/navbarCSS.css" rel="stylesheet" />
 
@@ -18,28 +20,27 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
   <script src="https://aufbau-website.de/craft/web/CSSundJS/javascript.js"> </script>
 
-
-
 </head>
-
 
 
 <body>
 
+  {% include "_layouts/navbar" %}
+  {% include "_layouts/navbar-mobile" %}
+
   <div class="bootstrapiso">
+  <div class="stylevorgaben2">
 
   {% block headerbildPosition1 %} {% endblock %}
 
 </div>
-
-
-{% include "_layouts/navbar" %}
+</div>
 
 <div class="bootstrapiso">
+  <div class="stylevorgaben2">
+
 
 {% block headerbildPosition2 %} {% endblock %}
-
-
 
 
 {% block block1 %} {% endblock %}
@@ -48,6 +49,7 @@
 
 {% include "_layouts/footer" %}
 
+</div>
 </div>
 
   </body>

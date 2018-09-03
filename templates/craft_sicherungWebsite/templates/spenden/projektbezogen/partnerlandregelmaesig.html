@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;">
   <div class="container" style="max-width: 1280px;">
     <div class="row">
       <div class="col-sm-2">
@@ -48,7 +48,7 @@
                     <a style="margin: 4%; margin-left: 0;" href="https://aufbau-Website.de/spende/spende.php" class="btn btn-primary" role="button">Jetzt Spenden</a>
                     <div id="copy" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
                   </div>
-                  <img class="img-fluid" style="max-height: 960px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+                  <img class="img-fluid" style="max-height: 720px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
                 </div>
             </div>
             <div class="tab-pane fade" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab">

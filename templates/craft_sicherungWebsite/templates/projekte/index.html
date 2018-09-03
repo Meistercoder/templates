@@ -5,7 +5,7 @@
 {% block headerbildPosition1 %}
 
 <div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid w-100" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }} ">
+  <img class="img-fluid w-100" src=" {{ craft.assets.filename('chance-projekte-header.jpg').one().getUrl() }} " style="padding-bottom: 0;">
 </div>
 
 
@@ -15,22 +15,18 @@
 
 
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 80px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 4rem; position: relative;">
 
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-
-  <div class="container achterspaltenlayout" style="padding-top: 0px;">
-    <div style="padding-bottom:50px; ">
+  <div class="container achterspaltenlayout" style="padding-top: 0px; position: relative;">
       <h1 style="padding-bottom: 30px;"> Unsere Projekte haben die Verbesserung der ganzheitlichen Lebensqualität der Menschen zum Ziel  </h1>
       <p id="anleser"> Sie fördern die kulturelle, wirtschaftliche und ökologische Nachhaltigkeit, bekämpfen die Armut und stärken die Selbstbestimmung. In sozialen und
         ökologischen Krisengebieten richten unsere Projekte sich in erster Linie an indigene
         Gemeinschaften, Frauen, Kinder, Jugendliche und Randgruppen, die so für ihre Zukunft selbst aktiv werden können.
-
       </p>
       </div>
-    </div>
   </div>
 
 
@@ -65,13 +61,13 @@
     <div class="container zwoelferspaltenlayout" id="horizontalrulerweis">
       <h3 class="text-center" style="color: white;"> {{ entry.title }} </h3> <br>
       <div class="row" id="copy" style="color: white;">
-        <div class="col-4">
+        <div class="col-sm-4">
           {{ entry.text }}
         </div>
-        <div class="col-4">
+        <div class="col-sm-4">
           {{ entry.zusatzfeld1 }}
         </div>
-        <div class="col-4">
+        <div class="col-sm-4">
           {{ entry.zusatzfeld2 }}
         </div>
       </div>
@@ -80,12 +76,12 @@
   </div>
 
   {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+  <div class="container-fluid no-padding"  style="padding-top: 1rem; background-image: url({{ entry.bild.one().url }});">
     <div class="row">
-      <div class="col-1">  </div>
-      <div class="col-2">   <img class="img-fluid" src="{{ entry.bild2.one().url }}" style="max-height: 200px;"> </div>
-      <div class="col-1">  </div>
-      <div class="col-7">
+      <div class="col-sm-1">  </div>
+      <div class="col-sm-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 200px; padding-bottom: 0;"> </div>
+      <div class="col-sm-1">  </div>
+      <div class="col-sm-7" style="padding-left: 30px;">
         <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
         <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
         <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>

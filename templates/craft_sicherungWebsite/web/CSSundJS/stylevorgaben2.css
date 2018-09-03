@@ -1,0 +1,226 @@
+.stylevorgaben2 {
+  /* Entfernt das standardmäßige Padding der container-fluid klassen */
+  /* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+  /* Die Stylevorgabe, die für Text in der Website verwendet wird. */
+  /* Bei den Empfehlungs-boxen wird so die Umrandung entfernt */
+  /* Auf der Projekt-Uebersicht werden die horizontalruler weis gefaerbt
+    und enger aneinander geklebt */
+  /* Wenn bei den Tabs einer angeklickt wird, wird der aktive grau hinterlegt */
+  /* Die Bilder von Empfehlungen grau werden lassen und farbig beim hovern */
+  /* Disable grayscale on hover */
+  /* Hintergrund der Formulare auf der Kontaktseite */
+}
+@font-face {
+  font-family: 'source_sans_prosemibold';
+  src: url('fonts/source-sans-pro-semibold-webfont.woff2') format('woff2'), url('fonts/source-sans-pro-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'nerisblack';
+  src: url('fonts/nerisblack-webfont.woff2') format('woff2'), url('fonts/nerisblack-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'source_sans_prolight';
+  src: url('fonts/source-sans-pro-light-webfont.woff2') format('woff2'), url('fonts/source-sans-pro-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'bellotabold_italic';
+  src: url('fonts/bellota-bold-italic-webfont.woff2') format('woff2'), url('fonts/bellota-bold-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.stylevorgaben2 .no-padding {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 2rem;
+}
+.stylevorgaben2 .achterspaltenlayout {
+  max-width: 760px;
+  padding-bottom: 2rem;
+}
+.stylevorgaben2 .zwoelferspaltenlayout {
+  max-width: 1160px;
+  padding-top: 3rem;
+}
+.stylevorgaben2 .img-fluid {
+  padding-bottom: 3rem;
+}
+.stylevorgaben2 h1 {
+  font-size: 52px;
+  line-height: 60px;
+  color: #ed6e2c;
+  font-family: 'nerisblack';
+}
+.stylevorgaben2 h2 {
+  font-size: 40px;
+  line-height: 46px;
+  color: #ed6e2c;
+  font-family: 'nerisblack';
+  padding-bottom: 2rem;
+}
+.stylevorgaben2 h3 {
+  font-size: 24px;
+  line-height: 28px;
+  color: #ed6e2c;
+  padding-bottom: 0.5rem;
+  font-family: 'nerisblack';
+}
+.stylevorgaben2 h4 {
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  font-family: 'source_sans_prosemibold';
+}
+.stylevorgaben2 #anleser {
+  font-size: 24px;
+  line-height: 34px;
+  font-family: 'source_sans_prolight';
+  color: #333333;
+  padding-bottom: 2rem;
+}
+.stylevorgaben2 #copy {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'source_sans_prolight';
+  color: #000000;
+}
+.stylevorgaben2 #info-head {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'source_sans_prosemibold';
+}
+.stylevorgaben2 #info {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'source_sans_prolight';
+}
+.stylevorgaben2 #zitat {
+  font-size: 20px;
+  line-height: 28px;
+  color: #0062ae;
+  font-family: 'bellotabold_italic';
+  padding-bottom: 20px;
+}
+.stylevorgaben2 #autor {
+  font-size: 16px;
+  line-height: 18px;
+  color: #ed6e2c;
+  font-family: 'source_sans_prosemibold';
+}
+@media all and (max-width: 1100px) and (min-width: 700px) {
+  .stylevorgaben2 h1 {
+    font-size: 41px;
+    line-height: 48px;
+  }
+  .stylevorgaben2 h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .stylevorgaben2 #anleser {
+    font-size: 21px;
+    line-height: 31px;
+  }
+  .stylevorgaben2 #copy {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+@media all and (max-width: 700px) {
+  .stylevorgaben2 {
+    font-size: 10px;
+  }
+  .stylevorgaben2 h1 {
+    font-size: 31px;
+    line-height: 36px;
+  }
+  .stylevorgaben2 h2 {
+    font-size: 24px;
+    line-height: 27px;
+  }
+  .stylevorgaben2 #anleser {
+    font-size: 19px;
+    line-height: 27px;
+  }
+  .stylevorgaben2 #copy {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.stylevorgaben2 .bg-white {
+  border: 0;
+}
+.stylevorgaben2 #horizontalrulerweis hr {
+  background-color: white;
+  color: #ed6e2c;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.stylevorgaben2 #horizontalrulerweis p {
+  margin-bottom: 0px;
+}
+.stylevorgaben2 .nav-link.active.tab {
+  background-color: #f8f5f2;
+  color: #0062ae;
+  font-weight: bold;
+}
+.stylevorgaben2 .nav-link.tab {
+  color: #0062ae;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.stylevorgaben2 .card-link:after {
+  content: '\003C';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 30px;
+  color: #0062ae;
+  float: right;
+  margin-top: -45px;
+  transform: rotate(-90deg);
+}
+.stylevorgaben2 .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%6c757d' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  margin-left: -100%;
+}
+.stylevorgaben2 .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%6c757d' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  margin-right: -100%;
+}
+.stylevorgaben2 .grayscale {
+  filter: gray;
+  /* IE6-9 */
+  -webkit-filter: grayscale(1);
+  /* Google Chrome, Safari 6+ & Opera 15+ */
+  filter: grayscale(1);
+  /* Microsoft Edge and Firefox 35+ */
+}
+.stylevorgaben2 .grayscale:hover {
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
+.stylevorgaben2 ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: pink;
+}
+.stylevorgaben2 ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: pink;
+}
+.stylevorgaben2 :-ms-input-placeholder {
+  /* IE 10+ */
+  color: pink;
+}
+.stylevorgaben2 :-moz-placeholder {
+  /* Firefox 18- */
+  color: pink;
+}
+.stylevorgaben2 .form-control {
+  background-color: #f8f5f2;
+}
+.stylevorgaben2 {
+  background-color: #f8f5f2;
+}

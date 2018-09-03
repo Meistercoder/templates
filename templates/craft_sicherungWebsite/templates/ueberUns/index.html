@@ -12,15 +12,15 @@
 {% endblock %}
 
 {% block block1 %}
+{% set link = craft.assets.filename('welle.png').one().getUrl() %}
 
-<div class="container-fluid text-center" style="padding-top: 50px; position: relative;">
+<div class="container-fluid no-padding text-center" style="padding-top: 50px; position: relative;">
 
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%; z-index: -999;">
-
-
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" style="position: relative;">
       <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
+      <div id="spacer" style="width: height: 100px;">  </div>
       <p id="anleser"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
         Motiviert von der Liebe Gottes für Mensch und Natur.
       </p>
