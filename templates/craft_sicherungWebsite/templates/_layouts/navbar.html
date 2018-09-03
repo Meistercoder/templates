@@ -206,12 +206,13 @@
 
     $("#nav-icon").click(function() { //Nav-icon anklicken -> Logo ausblenden
       if (counterMenu % 2 != 0) {
-        $("#nav-icon").text("&#9776;");
-        $("#logo").show();
-
+        $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/hamburger.svg") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
+        $("#logoMobile").show();
+        $("#homeBox").css("margin-top", "0rem");
       } else {
-        $("#logo").hide();
-        $("#nav-icon").text("schließen");
+        $("#homeBox").css("margin-top", "2.5rem"); //Mehr Platz von oben einfügen beim Öffnen der Navigationsleiste
+        $("#logoMobile").hide();
+        $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/x-symbol.jpg") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
       }
       counterMenu++;
     });
@@ -224,6 +225,7 @@
         $("#dritteBox").show();
         $("#vierteBox").show();
         $("#blogBox").show();         $("#kontaktBox").show();
+        $("#pfeil1").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-right.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil1").css("float", "right");     $("#pfeil1").css("pading-left", "10%");
         $("#linkUeberUns").show();
         $("#ueberUnsSchrift").hide();
@@ -234,6 +236,7 @@
         $("#dritteBox").hide();
         $("#vierteBox").hide();
         $("#blogBox").hide();         $("#kontaktBox").hide();
+        $("#pfeil1").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-left.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil1").css("float", "left");    $("#pfeil1").css("padding-left", "0");
         $("#linkUeberUns").hide();
         $("#ueberUnsSchrift").show();
@@ -248,6 +251,7 @@
         $("#dritteBox").show();
         $("#vierteBox").show();
         $("#blogBox").show();         $("#kontaktBox").show();
+        $("#pfeil2").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-right.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil2").css("float", "right");     $("#pfeil2").css("pading-left", "10%");
         $("#linkProjekte").show();
         $("#projekteSchrift").hide();
@@ -257,6 +261,7 @@
         $("#dritteBox").hide();
         $("#vierteBox").hide();
         $("#blogBox").hide();         $("#kontaktBox").hide();
+        $("#pfeil2").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-left.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil2").css("float", "left");    $("#pfeil2").css("padding-left", "0");
         $("#linkProjekte").hide();
         $("#projekteSchrift").show();
@@ -286,6 +291,7 @@
         $("#zweiteBox").show();
         $("#vierteBox").show();
         $("#blogBox").show();         $("#kontaktBox").show();
+        $("#pfeil3").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-right.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil3").css("float", "right");     $("#pfeil3").css("pading-left", "10%");
         $("#linkSpenden").show();
         $("#spendenSchrift").hide();
@@ -296,6 +302,7 @@
         $("#zweiteBox").hide();
         $("#vierteBox").hide();
         $("#blogBox").hide();         $("#kontaktBox").hide();
+        $("#pfeil3").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-left.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil3").css("float", "left");    $("#pfeil3").css("padding-left", "0");
         $("#linkSpenden").hide();
         $("#spendenSchrift").show();
@@ -350,6 +357,7 @@
         $("#zweiteBox").show();
         $("#dritteBox").show();
         $("#blogBox").show();         $("#kontaktBox").show();
+        $("#pfeil4").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-right.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil4").css("float", "right");     $("#pfeil4").css("pading-left", "10%");
         $("#linkFuerSie").show();
         $("#fuerSieSchrift").hide();
@@ -360,6 +368,7 @@
         $("#zweiteBox").hide();
         $("#dritteBox").hide();
         $("#blogBox").hide();         $("#kontaktBox").hide();
+        $("#pfeil4").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-left.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#pfeil4").css("float", "left");    $("#pfeil4").css("padding-left", "0");
         $("#linkFuerSie").hide();
         $("#fuerSieSchrift").show();
@@ -391,6 +400,7 @@
 </script>
 
 <style>
+
 /*Global*/
 html, body {
     width: 100%;
@@ -411,12 +421,11 @@ html, body {
 /*Arrow*/
 
 .arrow {
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
     float: left;
     z-index: 0;
-    margin: 17px 1em 0 2em;
 }
 .item input + .arrow {
     transform: rotate(-90deg);
@@ -426,8 +435,6 @@ html, body {
     transform: rotate(0deg);
     transition: 0.1s;
 }
-
-
 
 /*Styles*/
 
@@ -447,13 +454,13 @@ label {
 
 #nav-icon {
     font-size: 28px;
-    line-height: 50px;
+    line-height: 30px;
     padding-left: 1em;
     color: grey;
 }
 
 .nav ul, .nav li, label {
-    line-height: 50px;
+    line-height: 30px;
     margin: 0;
     padding: 0 2em;
     list-style: none;
@@ -466,7 +473,7 @@ label {
     padding: 0 0.25em;
 }
 .nav li a {
-    line-height: 50px;
+    line-height: 30px;
     margin: 0;
     padding: 0 4em;
     padding-left: 0;
@@ -479,26 +486,27 @@ label {
 </style>
 
 <div class="nav">
-  {% set entry = craft.entries.section('spendenfelderUndSo').slug('navbar') %}
+  {% set entry = craft.entries.section('spendenfelderUndSo').slug('navbar').one() %}
 
   <a href="https://aufbau-website.de/craft/web/">
-    <img style="display: inline;" src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logo" alt="Logo" width="80" height="60">
+    <img style="display: inline; padding-left: 10%;" src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logoMobile" alt="Logo" width="80" height="60">
   </a>
 
   <input type="checkbox" id="menu"/> <!-- Hamburger Menu, das nach unten klappt -->
-  <label for="menu" id="nav-icon" style="width: auto; display: inline; float: right;">&#9776;</label>
+  <label for="menu" id="nav-icon" style="width: auto; display: inline; float: right;"> <img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; padding-top: 1rem;" src=" {{ entry.bild3.one().url }} "> </label>
 
 
   <div class="multi-level">
 
-    <div style="padding-top: 40px; padding-left: 2em;" id="homeBox">
-      <a href="#" style="padding-right: 20%; padding-top: 10%;">Home</a>
+    <div class="item" style="padding-top: 40px; padding-left: 2em;" id="homeBox">
+      <a href="https://aufbau-website.de/craft/web/" style="padding-right: 20%; padding-top: 10%;">Home</a>
+      <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
     <div class="item" id="ersteBox" style="padding-left: 2em;">
       <a href="https://aufbau-website.de/craft/web/ueberUns" style="display: inline; padding-right: 20%;" id="linkUeberUns" >Über Uns</a>
       <input type="checkbox" id="A"/>
-      <label for="A" style="display: inline;">   <img src=" {{ entry.bild }} " id="pfeil1" class="arrow" style="float: right; padding-left: 10%;">  </label>
+      <label for="A" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " id="pfeil1" class="arrow" style="float: right; padding-left: 10%;">  </label>
       <ul>
         <li id="ueberUnsSchrift"> Über Uns</li>
         <li > <a href="https://aufbau-Website.de/craft/web/ueberUns/arbeitsweise.html"> Arbeitsweise</a> </li> <hr>
@@ -513,13 +521,14 @@ label {
 
         <li > <a href="https://aufbau-Website.de/craft/web/ueberUns/transparenz.html"> Transparenz</a> </li> <hr>
       </ul>
+      <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
     <div class="item" id="zweiteBox" style="padding-left: 2em;">
 
       <a href="https://aufbau-Website.de/craft/web/projekte" id="linkProjekte" style="display: inline; padding-right: 20%;">Projekte</a>
       <input type="checkbox" id="B"/>
-      <label for="B" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" id="pfeil2" style="float: right; padding-left: 10%;">  </label>
+      <label for="B" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil2" style="float: right; padding-left: 10%;">  </label>
 
       <ul> <!-- Dropdown beginnt -->
         <li id="projekteSchrift"> Projekte</li>
@@ -530,19 +539,19 @@ label {
           <div class="sub-item" id="subItemProjekte"> <!-- Zweite Dropdown-Ebene beginnt, also Programme -> Dorfentwicklung und so -->
             <a href="https://aufbau-Website.de/craft/web/projekte/programme.html" style="display: inline; padding-right: 20%;">Programme</a>
             <input type="checkbox" id="B-A"/>
-            <label for="B-A" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" id="pfeil11" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+            <label for="B-A" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil11" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
           </div>
         </li>
         <li> <a href="https://aufbau-Website.de/craft/web/projekte/themen.html"> Themen</a> </li>
         <li> <a href="https://aufbau-Website.de/craft/web/projekte/erfahrungsberichte.html">Erfahrungsberichte</a>  </li>
         <li> <a href="https://aufbau-Website.de/craft/web/projekte/projektberichte.html">Projektberichte</a>  </li>
-
       </ul>
+      <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
-    <div id="projekteProgramme" style="padding-left: 2em; display: none;">
+    <div id="projekteProgramme" style="display: none;">
       <input type="checkbox" id="B-A1"/>
-      <label for="B-A1" style="display: inline;">   <img src=" {{ entry.bild }} " id="pfeil12" class="arrow">  </label>
+      <label for="B-A1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " style="padding-left: 2em;" id="pfeil12" class="arrow">  </label>
 
       <ul>
         <li id="projekteProgramme"> Programme</li>
@@ -555,7 +564,7 @@ label {
     <div class="item" id="dritteBox" style="padding-left: 2em;">
       <a href="https://aufbau-Website.de/craft/web/spenden" id="linkSpenden" style="display: inline; padding-right: 20%;">Spenden</a>
       <input type="checkbox" id="C"/>
-      <label for="C" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" id="pfeil3" style="float: right; padding-left: 10%;">  </label>
+      <label for="C" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil3" style="float: right; padding-left: 10%;">  </label>
 
       <ul> <!-- Dropdown beginnt -->
         <li id="spendenSchrift"> Spenden</li>
@@ -563,22 +572,23 @@ label {
           <div class="sub-item"> <!-- Zweite Dropdown-Ebene beginnt, also Spenden-Allgemein -> Einmalig oder Regelmäßig -->
             <a href="https://aufbau-Website.de/craft/web/spenden/einmalig.html" style="display: inline; padding-right: 20%;">Allgemein Spenden</a>
             <input type="checkbox" id="C-A"/>
-            <label for="C-A" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+            <label for="C-A" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
           </div>
         </li>
         <li> <!-- Das List-Element zeigt an, dass auch das Dropdown-Menu auch nur ein List-Element in dem Obermenu ist -->
           <div class="sub-item"> <!-- Zweite Dropdown-Ebene beginnt, also Spenden spezifisch -> Einmalig oder Regelmäßig -->
             <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandeinmal" style="display: inline; padding-right: 20%;">Projektbezogen Spenden</a>
             <input type="checkbox" id="C-B"/>
-            <label for="C-B" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+            <label for="C-B" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
           </div>
           </li>
         </ul>
+        <hr> <!-- Horizontal Ruler für Abstände -->
     </div> <!-- Dritte Box (Spenden) - Ende -->
 
-    <div id="spendenAllgemin" style="padding-left: 2em; display: none;">
+    <div id="spendenAllgemin" style="display: none;">
       <input type="checkbox" id="C-A1"/>
-      <label for="C-A1" style="display: inline;">   <img src=" {{ entry.bild }} " id="pfeil12" class="arrow">  </label>
+      <label for="C-A1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " id="pfeil12" class="arrow">  </label>
       <ul>
         <li> Allgemein Spenden</li>
         <li> <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/einmaligallgemein.html">Einmalig</a></li>
@@ -586,20 +596,20 @@ label {
       </ul>
     </div>
 
-    <div id="spendenProjektbezogen" style="padding-left: 2em; display: none;"> <!-- Die Box mit den verschiedenen Spendenangeboten (Projektbezogen -> Regelmäßig/Einmalig/ schenken und spenden...)-->
+    <div id="spendenProjektbezogen" style="display: none;"> <!-- Die Box mit den verschiedenen Spendenangeboten (Projektbezogen -> Regelmäßig/Einmalig/ schenken und spenden...)-->
       <input type="checkbox" id="C-B1"/>
-      <label for="C-B1" style="display: inline;">   <img src=" {{ entry.bild }} " id="pfeil12" class="arrow">  </label>
+      <label for="C-B1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " id="pfeil12" class="arrow">  </label>
       <ul>
         <li> Projektbezogen Spenden</li>
 
         <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandeinmal" style="display: inline; padding-right: 20%;">Einmalig</a>
           <input type="checkbox" id="C-C"/>
-          <label for="C-C" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+          <label for="C-C" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
         </li>
 
         <li> <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/regelmaesigallgemein.html" style="display: inline; padding-right: 20%;">Regelmäßig</a>
           <input type="checkbox" id="C-D"/>
-          <label for="C-D" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+          <label for="C-D" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
         </li>
 
         <li><a href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/schenkenundspenden">Schenken und Spenden</a></li>
@@ -611,7 +621,7 @@ label {
 
     <div id="spendenProjektbezogenEinmalig" style="padding-left: 2em; display: none;">
       <input type="checkbox" id="C-C1"/>
-      <label for="C-C1" style="display: inline;">   <img src=" {{ entry.bild }} " id="pfeil12" class="arrow">  </label>
+      <label for="C-C1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " id="pfeil12" class="arrow">  </label>
       <ul>
         <li> Einmalig Projektbezogen Spenden </li>
         <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Länderpate</a></li>
@@ -624,7 +634,7 @@ label {
 
     <div id="spendenProjektbezogenRegelmaesig" style="padding-left: 2em; display: none;">
       <input type="checkbox" id="C-D1"/>
-      <label for="C-D1" style="display: inline;">   <img src=" {{ entry.bild }} " id="pfeil12" class="arrow">  </label>
+      <label for="C-D1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " id="pfeil12" class="arrow">  </label>
       <ul>
         <li> Regelmäßig Projektbezogen Spenden </li>
         <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Länderpate</a></li>
@@ -638,7 +648,7 @@ label {
 
       <a href="https://aufbau-website.de/craft/web/fuerSie" id="linkFuerSie" style="display: inline; padding-right: 20%;">Für Sie</a>
       <input type="checkbox" id="D"/>
-      <label for="D" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" id="pfeil4" style="float: right; padding-left: 10%;">  </label>
+      <label for="D" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil4" style="float: right; padding-left: 10%;">  </label>
 
       <ul> <!-- Dropdown beginnt -->
         <li id="fuerSieSchrift"> Für Sie</li>
@@ -647,7 +657,7 @@ label {
           <div class="sub-item" id="subItemFreiwilligendienst"> <!-- Zweite Dropdown-Ebene beginnt, also Programme -> Dorfentwicklung und so -->
             <a href="https://aufbau-website.de/craft/web/fuerSie/freiwilligendienst.html" style="display: inline; padding-right: 20%;">Freiwilligendienst</a>
             <input type="checkbox" id="D-A"/>
-            <label for="D-A" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" id="pfeil11" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+            <label for="D-A" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil11" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
           </div>
         </li>
         <li> <a href="https://aufbau-Website.de/craft/web/fuerSie/projektbesuch.html">Projektbesuch</a> </li>
@@ -655,18 +665,20 @@ label {
           <div class="sub-item" id="subItemDaheim"> <!-- Zweite Dropdown-Ebene beginnt, also Programme -> Dorfentwicklung und so -->
             <a href="https://aufbau-website.de/craft/web/fuerSie/daheim.html" style="display: inline; padding-right: 20%;">Für Sie daheim</a>
             <input type="checkbox" id="D-B"/>
-            <label for="D-B" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow" id="pfeil11" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
+            <label for="D-B" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil11" style="float: right; padding-right: 10%; margin: 0; margin-top: 17px;">  </label>
           </div>
         </li>
         <li> <a href="#">Presse und Downloads</a> </li>
         <li> <a href="https://aufbau-Website.de/craft/web/fuerSie/literaturtipps.html">Literaturtipps</a> </li>
         <li> <a href="https://aufbau-Website.de/craft/web/fuerSie/zitate.html">Zitate</a> </li>
       </ul>
+      <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
-    <div id="fuerSieFreiwilligendienst" style="padding-left: 2em; display: none;">
+
+    <div id="fuerSieFreiwilligendienst" style="display: none;">
       <input type="checkbox" id="D-A1"/>
-      <label for="D-A1" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow">  </label>
+      <label for="D-A1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " class="arrow">  </label>
       <ul>
         <li> Freiwilligendienst </li>
         <li><a tabindex="-1" href="https://aufbau-Website.de/craft/web/fuerSie/freiwillig/weltwaerts.html">Mit "weltwärts" nach Peru oder Kenia</a></li>
@@ -676,9 +688,9 @@ label {
       </ul>
     </div>
 
-    <div id="fuerSieDaheim" style="padding-left: 2em; display: none;">
+    <div id="fuerSieDaheim" style="display: none;">
       <input type="checkbox" id="D-B1"/>
-      <label for="D-B1" style="display: inline;">   <img src=" {{ entry.bild }} " class="arrow">  </label>
+      <label for="D-B1" style="display: inline;">   <img style="padding-left: 2em;" src=" {{ entry.bild2.one().url }} " class="arrow">  </label>
       <ul>
         <li> Für Sie daheim </li>
         <li><a tabindex="-1" href="https://aufbau-Website.de/craft/web/fuerSie/daheim/consumermission.html">"Consumer Missions"</a></li>
@@ -689,10 +701,12 @@ label {
 
     <div style="padding-top: 5px; padding-left: 2em;" id="blogBox">
       <a href="https://aufbau-website.de/craft/web/blog">Blog</a>
+      <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
     <div style="padding-top: 20px; padding-left: 2em;" id="kontaktBox">
       <a href="https://aufbau-website.de/craft/web/kontakt">Kontakt</a>
+      <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
   </div>
