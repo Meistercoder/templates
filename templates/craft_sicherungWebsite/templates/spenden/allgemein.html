@@ -1,0 +1,41 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+
+
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+
+
+  <div class="container achterspaltenlayout" style="padding-top:0px;">
+    {% set entry = craft.entries.section('spenden').slug('menschen-chance2').one() %}
+
+    <div style="padding-bottom:50px; ">
+      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid no-padding" style="background-color: #ed6e2c; padding-bottom: 30px;">
+  <div class="container zwoelferspaltenlayout text-center" style="background-color: #ffffff; padding-bottom: 3rem;">
+    <div id="anleser"> Sie wollen Allgemein Spenden? Vielen Dank!  </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/einmaligallgemein" class="btn btn-primary" role="button">Einmalig allgemein</a>
+      </div>
+      <div class="col-sm-6">
+        <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/regelmaesigallgemein" class="btn btn-primary" role="button">Regelmäßig allgemein</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

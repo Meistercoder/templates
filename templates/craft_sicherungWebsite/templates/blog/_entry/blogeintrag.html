@@ -1,0 +1,195 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block headerZusatz %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+
+
+{% endblock %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
+  <h1> {{ entry.title }} </h1>
+  <div id="info" style="padding-bottom: 8rem;"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }}  </div>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
+<div class="container achterspaltenlayout" style="padding-top: 0;;">
+  <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" style="padding-bottom: 0; margin-top:-7rem; position: relative;">
+
+  <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}  </div>
+
+<section class="gallery-block compact-gallery">
+    <div class="container">
+
+        <div class="row no-gutters">
+          {% set bilder = entry.bild.all() %}
+          {% for bild in bilder %}
+            <div class="col-md-6 col-lg-4 item zoom-on-hover" style="padding: .25rem; background-color: white;">
+                <a class="lightbox" href=" {{ bild.url }}">
+                    <img class="img-fluid image" style="padding-bottom: 0;" src="{{ bild.url }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<h3>Mit Anderen Teilen </h3>
+</div> <!-- Achterspaltenlayout - Container -->
+
+<div class="container zwoelferspaltenlayout" id="copy">
+
+<div class="row">
+  <div class="col-sm-4">
+  {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
+  {% set prev = entry.getPrev(criteria) %}
+  {% if prev %}
+   <a href="{{ prev.url }}" style="text-align: left;"> Vorheriger Beitrag </a>
+  {% endif %}
+</div>
+
+<div class="col-sm-4 text-center"> <a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a> </div>
+
+<div class="col-sm-4 text-right">
+{% set criteria = {section: 'blog', orderBy: 'postDate'} %}
+{% set next = entry.getNext(criteria) %}
+{% if next %}
+ <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag </a>
+{% endif %}
+</div>
+</div>  <hr>
+
+{# @var commentsWork \twentyfourhoursmedia\commentswork\services\CommentsWorkService #}
+{% set commentsWork = craft.commentsWork.service %}
+
+    <div class="card bg-light">
+        <div class="card-header">
+            Leave a comment
+        </div>
+        <div class="card-body">
+            <form method="post" action="{{ url('/actions/comments-work/default/post-comment') }}">
+                {{ csrfInput() }}
+                {{ signCommentForm(entry) }}
+                <input name="redirect" value="{{ craft.app.request.url }}#comments" type="hidden"/>
+                <input name="elementId" value="{{ entry.id }}" type="hidden"/>
+                <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
+                <input name="commentFormat" value="text" type="hidden"/>
+
+                <div class="form-group">
+                    <label for="comment-title">Title</label>
+                    <input name="title" id="comment-title" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="comment-content">Comment</label>
+                    <textarea name="comment" rows="5" id="comment-content" class="form-control"></textarea>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn btn-primary" value="Post comment"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+
+</div> <!-- Die weiterführenden Links -->
+
+
+</div> <!-- Weißer Hintergrund-container -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
+</script>
+
+<style> /* Die Styles für die animierten Bilder */
+.gallery-block{
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+.gallery-block .heading{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.gallery-block .heading h2{
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.gallery-block.compact-gallery .item{
+  overflow: hidden;
+  margin-bottom: 0;
+  background: black;
+  opacity: 1;
+}
+
+.gallery-block.compact-gallery .item .image{
+  transition: 0.8s ease;
+}
+
+.gallery-block.compact-gallery .item .info{
+  position: relative;
+    display: inline-block;
+}
+
+.gallery-block.compact-gallery .item .description{
+  display: grid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding: 10px;
+    font-size: 17px;
+    line-height: 18px;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 1;
+    color: #fff;
+    transition: 0.8s ease;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.39));
+}
+
+.gallery-block.compact-gallery .item .description .description-heading{
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.gallery-block.compact-gallery .item .description .description-body{
+  font-size: 0.8em;
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+@media (min-width: 576px) {
+
+  .gallery-block.compact-gallery .item .description {
+    opacity: 0;
+  }
+
+  .gallery-block.compact-gallery .item a:hover .description {
+    opacity: 1;
+  }
+
+  .gallery-block .zoom-on-hover:hover .image {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+</style>
+{% endblock %}
