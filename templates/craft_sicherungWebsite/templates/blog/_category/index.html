@@ -10,11 +10,9 @@
 
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
-    {% set entry = craft.entries.section('spendenfelderUndSo').slug('blog-ueberschrift').one() %}
 
     <div style="padding-bottom:3rem; ">
-      <h1 style="padding-bottom: 2rem;"> {{ entry.text }}  </h1>
-      <div id="anleser"> {{ entry.textfeld }}  </div>
+      <h1 style="padding-bottom: 2rem;"> Neuigkeiten aus unseren Projekten und Arbeiten in {{ category }}  </h1>
     </div>
   </div>
 </div>
@@ -25,20 +23,20 @@
 
   <div class="container zwoelferspaltenlayout" style="background-color: padding-bottom: 3rem;">
     <div class="row">
-      {% set entries = craft.entries.section('blog').level('1').limit(3) %}
+      {% set entries = craft.entries.relatedTo(category).limit(3) %}
       <div class="col-sm-8">
         {% for entry in entries %}
-        <img class="img-fluid"src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 1rem;">
+        <img class="img-fluid"src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 1rem;">
         <div id="info"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - in <a href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a></div>
-        <!-- Mit der oberen Zeile wird die Kategorie des Artikels abgerufen und angezeigt und sofort klickbar -->
         <h2 style="padding-bottom: 0;"> {{ entry.title}}</h2>
         <div id="copy" style="padding-top: 1rem; padding-bottom: 2.5rem;"> {{ entry.anleser }}
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> Weiterlesen</a> </div>
         {% set counter = counter + 1 %}
         {% endfor %}
-      </div> <!-- Kurzansicht der Einträge mit Bild -->
+      </div> <!-- Anzeige aller der zu der Kategorie gehörigen Einträge -->
 
       <div class="col-sm-4">
+
         <div id="copy" style="background-color: #f8f5f2; padding: 1.5rem; margin-bottom: 1.5rem;">
           <h4 style="margin-bottom: 0;"> E-Mail-Abo <h4>
             <p id="copy"> Um neue Beiträge per E-Mail zu erhalten, hier die E-Mail-Adresse eingeben. </p>
@@ -72,7 +70,7 @@
 
         <div id="copy" style="background-color: #f8f5f2; padding: 1.5rem; margin-bottom: 1.5rem;">
           <p> <strong> Letzte Beiträge </strong> </p>
-          {% set entries = craft.entries.section('blog').level('1').limit(5) %}
+          {% set entries = craft.entries.relatedTo(category).limit(5) %}
           {% for entry in entries %}
           <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> {{ entry.title }}</a>
           <hr style="margin-top: .25rem; margin-bottom: .25rem;">
@@ -87,7 +85,6 @@
             <hr style="margin-top: .25rem; margin-bottom: .25rem;">
         {% endfor %}
       </div> <!-- Alle Kategorien anzeigen -->
-
       </div>
     </div>
 
