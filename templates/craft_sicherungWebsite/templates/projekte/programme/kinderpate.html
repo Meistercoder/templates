@@ -20,7 +20,7 @@
   <div class="container-fluid no-padding">
     <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-kinderpate.jpg').one().getUrl() }} ">
   </div>
-
+{% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
 
   <div class="container achterspaltenlayout">
     {% set entry = craft.entries.section('projekte').slug('säulen').one() %}
@@ -34,26 +34,30 @@
       {# If there are any entries, loop through them #}
       {% if entries | length %}        {% set counter = 0 %}
 
-      {# For each entry we find, do this #}
       {% for entry in entries %} {% set counter = counter + 1 %}
-
-
       <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 2px; margin-bottom: 20px;">
         <div class="card-header bg-white">
-          <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
-          <h4> {{ entry.title }}   </h4>       </a>
-        </div>
-        <div id="{{counter}}" class="collapse" data-parent="#accordion">
-          <div class="card-body" id="copy">
-            {{ entry.text }}
+        <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
+          <div class="row">
+            <div class="col-11">
+              <h4> {{ entry.title }} </h4>
+            </div>
+            <div class="col-1">
+              <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right; margin-top: .25rem;">
+            </div>
+          </div>
+        </a>
+          </div>
+          <div id="{{counter}}" class="collapse" data-parent="#accordion">
+            <div class="card-body" id="copy">
+              {{ entry.text }}
+            </div>
           </div>
         </div>
+        {% endfor %}
+        {% endif %}
       </div>
 
-      {% endfor %}
-
-      {% endif %}
-    </div>
     {% set entry = craft.entries.section('projekte').slug('klausel').one() %}
     <div id="copy"> {{ entry.text }}  </div>
 
@@ -84,31 +88,6 @@
   </div>
 </div>
 
-<script>
-$(document).ready(function(){
-    kindAnpassen();
-});
-
-$(window).resize(function(){
-  kindAnpassen();
-});
-
-function kindAnpassen () {
-
-  if ($(window).innerWidth() <= 752 ) {
-    $("#kind").css("position", "relative"); /*Position des Kindes absolut setzen */
-    $("#kind").css("max-height", "200px"); /*Position des Kindes absolut setzen */
-    $("#kind").css("padding-bottom", "15px"); /*Position des Kindes absolut setzen */
-
-  }
-  else {
-    $("#kind").css("position", "absolute");
-    $("#kind").css("max-height", "100%"); /*Position des Kindes absolut setzen */
-    $("#kind").css("padding-bottom", "0"); /*Position des Kindes absolut setzen */
-}
-}
-
-</script>
 
 {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
 

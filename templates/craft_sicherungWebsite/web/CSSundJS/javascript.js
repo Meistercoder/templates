@@ -15,11 +15,14 @@ verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
 $( document ).ready(function() {
     navlinksAnpassen();
     WelleAnpassen();
+    kindAnpassen();
+    akkordionIconsAnpassen();
 });
 
 $(window).resize(function(){
   navlinksAnpassen();
   WelleAnpassen();
+  kindAnpassen();
 });
 
 function navlinksAnpassen () {
@@ -87,4 +90,30 @@ function WelleAnpassen () {
     $("#navbarDesktop").css("display", "block");
     $("#navbarHandy").css("display", "none");
   }
+}
+
+
+function kindAnpassen () { //Von der Spendenbox
+
+  if ($(window).innerWidth() <= 752 ) {
+    $("#kind").css("position", "relative"); /*Position des Kindes absolut setzen */
+    $("#kind").css("max-height", "200px"); /*Position des Kindes absolut setzen */
+    $("#kind").css("padding-bottom", "15px"); /*Position des Kindes absolut setzen */
+
+  }
+  else {
+    $("#kind").css("position", "absolute");
+    $("#kind").css("max-height", "100%"); /*Position des Kindes absolut setzen */
+    $("#kind").css("padding-bottom", "0"); /*Position des Kindes absolut setzen */
+}
+}
+
+  function akkordionIconsAnpassen () {
+  $( ".card-header" ).click(function() { //Der Pfeil ändert sich beim draufklicken
+    if ($(this).children("a").hasClass("collapsed")) {
+      $(this).children("a").children("div").children(".col-1").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-up.png ");
+    } else {
+      $(this).children("a").children("div").children(".col-1").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-down.png ");
+    }
+});
 }

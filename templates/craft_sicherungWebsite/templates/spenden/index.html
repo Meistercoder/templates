@@ -101,6 +101,35 @@
     <h2> {{ entry.title }} </h2>
     <div id="copy"> {{ entry.anleser }}</div>
 
+    {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
+
+    <div id="accordion">
+      {% set entries = entry.children().all() %}
+      {% if entries | length %}        {% set counter = 0 %}
+      {% for entry in entries %} {% set counter = counter + 1 %}
+      <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 2px; margin-bottom: 20px;">
+        <div class="card-header bg-white">
+        <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
+          <div class="row">
+            <div class="col-11">
+              <h4> {{ entry.title }} </h4>
+            </div>
+            <div class="col-1">
+              <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right; margin-top: .25rem;">
+            </div>
+          </div>
+        </a>
+          </div>
+          <div id="{{counter}}" class="collapse" data-parent="#accordion">
+            <div class="card-body" id="copy">
+              {{ entry.text }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+
   </div>
 
 </div>

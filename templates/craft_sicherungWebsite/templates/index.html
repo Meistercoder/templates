@@ -176,9 +176,9 @@
 
   <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
     <div class="row">
-      <div class="col-2">  </div>
-      <div class="col-3" style="position: relative">   <img id="kind" style="position: absolute; bottom: 0; padding-bottom: 0;" class="img-fluid" src="{{ entry.bild.inReverse().one().url }}"> </div>
-      <div class="col-7">
+      <div class="col-lg-1 col-md-0">  </div>
+      <div class="col-lg-4 col-md-5" style="position: relative; min-height: 150px;">   <img class="mx-auto d-block" id="kind" style="max-width: 100%; bottom: 0; left: 0; " src="{{ entry.bild.inReverse().one().url }}"> </div>
+      <div class="col-lg-7 col-md-7" style="padding-left: 2rem; padding-right: 2rem;">
         <h4 style="color: white;"> {{ entry.title }} </h4>
         <div id="copy" style="color: white;"> {{ entry.text }}</div>
         <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
