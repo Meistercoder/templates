@@ -111,9 +111,9 @@ function kindAnpassen () { //Von der Spendenbox
   function akkordionIconsAnpassen () {
   $( ".card-header" ).click(function() { //Der Pfeil ändert sich beim draufklicken
     if ($(this).children("a").hasClass("collapsed")) {
-      $(this).children("a").children("div").children(".col-1").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-up.png ");
+      $(this).children("a").children("div").children(".col-2").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-up.png ");
     } else {
-      $(this).children("a").children("div").children(".col-1").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-down.png ");
+      $(this).children("a").children("div").children(".col-2").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-down.png ");
     }
 });
 }
