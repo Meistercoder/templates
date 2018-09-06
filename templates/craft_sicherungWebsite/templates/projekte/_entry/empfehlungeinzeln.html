@@ -5,23 +5,30 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center" style="padding-top: 9rem; position: relative;">
 
-<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-<div class="container achterspaltenlayout" style="padding-bottom: 0;">
+<div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
   <h1> {{ entry.title }} </h1>
   <span id="anleser"> <strong> {{ entry.beruf }}</strong> </span>
-    <div id="anleser"> {{ entry.anleser }}</div>
+    <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}</div>
+    <div id="copy">
+      {% if entry.bild2.one() is not null %} <strong> {{ entry.text }} </strong> {% endif %}
+    </div>
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0;">
-  <img class="img-fluid mx-auto d-block" style="max-height: 200px;" src="{% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}">
+<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
+  <img style="padding-top: 2rem; padding-bottom: 0;" class="img-fluid mx-auto d-block" src="{% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}">
+  <div id="copy" style="padding-bottom: 2rem;"> {{ entry.reinertext }} </div>
 </div>
 
 <div class="container achterspaltenlayout">
   <div id="copy">{{ entry.langerText }}
+    {% if entry.slug == ('regina-van-dinther') %}
+    {% if entry.bild.inReverse().one() is not null %} <img class=" mx-auto d-block img-fluid" style="padding-top: 1rem;" src="{{ entry.bild.inReverse().one().url }}" alt=""> {% endif %}
+    {% endif %}
   </div>
 </div>
 

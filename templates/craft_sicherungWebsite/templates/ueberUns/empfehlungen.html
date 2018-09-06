@@ -10,13 +10,11 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
 <div class="container achterspaltenlayout" style="position: relative;">
-  <div style="padding-bottom:5rem; ">
     <h1 style="padding-bottom: 30px;"> Erfahren Sie, was Partner und Freunde über unsere Arbeit sagen
     </h1>
     <p id="anleser"> Chance e.V. wird von ganz unterschiedlichen Kirchen und anderen Einrichtungen in ganz Deutschland begleitet, unterstützt und empfohlen. Hier
       erzählen einige unserer Partner, was sie über unsere Arbeit denken.
     </p>
-    </div>
   </div>
 </div>
 
@@ -35,7 +33,7 @@
         <div class="card-body" style="padding-top: 3rem;">
           <p class="card-text">
             <h3> {{ entry.title }} </h3>
-            <h4> {{ entry.anleser }} </h4>
+            <h4 style="margin-top: -.5rem;"> {{ entry.anleser }} </h4>
             <div id="copy"> {{ entry.text }}
               <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}"> Weiterlesen</a>
             </div>
