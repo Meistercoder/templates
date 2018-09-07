@@ -160,6 +160,12 @@
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+.stylevorgaben2 hr {
+  margin-top: -.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .stylevorgaben2 #horizontalrulerweis p {
   margin-bottom: 0px;
 }
@@ -219,4 +225,21 @@
 
 body {
   margin: 0;
+}
+
+.breadcrumb {
+  background-color: transparent !important;
+  display: block !important;
+}
+.breadcrumb-item {
+  display: inline;
+}
+
+.breadcrumb > li + li:before {
+    content: "> " !important;
+    color: black !important;
+}
+
+.breadcrumb > li > a {
+  color: black;
 }

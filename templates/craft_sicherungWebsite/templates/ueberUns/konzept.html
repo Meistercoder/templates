@@ -5,12 +5,20 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center no-padding" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center no-padding" style="padding-top: 8rem; position: relative;">
+
+  <nav aria-label="breadcrumb" id="info">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
+    <li class="breadcrumb-item"> Konzept</li>
+  </ol>
+</nav>
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
-<div class="container achterspaltenlayout" style="position: relative;">  <div style="padding-bottom:80px; ">
-    <h1 style="padding-bottom: 30px;"> Die Arbeit von Chance e.V. ist christlich, sozial und ökologisch </h1>
+<div class="container achterspaltenlayout" style="position: relative;">  <div style="padding-bottom:3rem; ">
+
+    <h1> Die Arbeit von Chance e.V. ist christlich, sozial und ökologisch </h1>
     <p id="anleser"> Sie beruht auf drei Prinzipien, die den Rahmen und die Natur unseres Engagements in allen seinen Aspekten bestimmen. </p>
     </div>
   </div>

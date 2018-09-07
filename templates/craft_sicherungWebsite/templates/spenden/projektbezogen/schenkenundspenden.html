@@ -13,19 +13,19 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;">
   <div class="container zwoelferspaltenlayout" style="background-color: white; padding-left: 0; padding-right: 0;">
 
     {% set entry = craft.entries.section('spenden').slug('spenden-und-schenken').one() %}
-    <div id="copy" style="padding: 3rem;"> {{ entry.text }}</div>
+    <div id="copy" style="padding-left: 3rem; padding-right: 3rem;"> {{ entry.text }}</div>
 
     <div class="row">
       <div class="col-sm-1"> </div>
-      <div class="col-sm-5"> <img class="img-fluid" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken1">   </div>
-      <div class="col-sm-5"> <img class="img-fluid" src=" {% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}" alt="schenken2">   </div>
+      <div class="col-sm-5"> <img class="img-fluid" style="padding-bottom: 0;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken1">   </div>
+      <div class="col-sm-5"> <img class="img-fluid" style="padding-bottom: 0;" src=" {% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}" alt="schenken2">   </div>
     </div>
 
-    <div id="copy" style="padding: 3rem;"> {{ entry.zusatzfeld1 }} </div>
+    <div id="copy" style="padding-left: 3rem; padding-right: 3rem;"> {{ entry.zusatzfeld1 }} </div>
 
     <img class="img-fluid" src="{% if entry.bild3.one() is not null %} {{ entry.bild3.one().url }} {% endif %}" alt="schenken2">
 </div>

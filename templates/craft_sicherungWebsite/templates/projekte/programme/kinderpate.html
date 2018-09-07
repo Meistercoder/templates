@@ -5,21 +5,28 @@
 
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <nav aria-label="breadcrumb" id="info">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte/programme.html">Programme</a></li>
+    <li class="breadcrumb-item"> Kinderpate </li>
+  </ol>
+</nav>
 
-  <div class="container achterspaltenlayout" style="padding-top: 0px;">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout" style="padding-top: 0px; padding-bottom: 0; position: relative">
 
     {% set entry = craft.entries.section('projekte').slug('kinderpaten').one() %}
 
     <h1 style="padding-bottom: 30px;"> {{ entry.anleser }}  </h1>
-    <div id="anleser"> {{ entry.text }}</div>
+    <div id="anleser" style="padding-bottom: 0;"> {{ entry.text }}</div>
     </div>
   </div>
 
 
-  <div class="container-fluid no-padding">
     <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-kinderpate.jpg').one().getUrl() }} ">
-  </div>
+
 {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
 
   <div class="container achterspaltenlayout">

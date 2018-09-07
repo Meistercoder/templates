@@ -5,7 +5,14 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center no-padding" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center no-padding" style="padding-top: 8rem; position: relative;">
+
+<nav aria-label="breadcrumb" id="info">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
+    <li class="breadcrumb-item"> Arbeitsweise</li>
+  </ol>
+</nav>
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 

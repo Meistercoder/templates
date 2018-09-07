@@ -7,13 +7,20 @@
 
 <div class="container-fluid text-center no-padding" style="padding-top: 150px; position: relative;">
 
+  <nav aria-label="breadcrumb" id="info">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
+    <li class="breadcrumb-item"> Motivation </li>
+  </ol>
+</nav>
+
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
 <div class="container achterspaltenlayout" style="position: relative;">
-  <div style="padding-bottom:80px;">
+  <div style="padding-bottom:4rem;">
     {% set entry = craft.entries.section('ueberUns').slug('motivation').one() %}
-    <h1 style="padding-bottom: 30px;"> {{ entry.zusatzfeld1 }}   </h1>
-    <div id="anleser"> {{ entry.zusatzfeld2 }} </div>
+    <h1 style="padding-bottom: 2rem;"> {{ entry.langerText }}   </h1>
+    <div id="anleser"> {{ entry.zusatzfeld1 }} </div>
     </div>
   </div>
 </div>
@@ -43,7 +50,9 @@
 </div>
 </div>
 
-  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-ueber-uns-motivation.jpg').one().getUrl() }} ">
+{% set entry = craft.entries.section('ueberUns').slug('motivation').one() %}
+
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
 
 <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
 
