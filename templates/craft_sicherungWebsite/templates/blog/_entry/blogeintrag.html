@@ -9,7 +9,13 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
+
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> Blog </li>
+    </ol>
+  </nav>
 
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 

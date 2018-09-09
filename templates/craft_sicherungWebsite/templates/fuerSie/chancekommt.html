@@ -6,24 +6,31 @@
 {% block block1 %}
 
 <style>
-hr {
+.stylevorgaben2 hr {
   margin-top: -1rem;
   margin-bottom: 0;
 }
 
-h2 {
+.stylevorgaben2 h2 {
   padding-bottom: .5rem;
 }
 </style>
 
 <div class="container-fluid text-center" style="padding-top: 10rem; position: relative;">
 
-<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <nav aria-label="breadcrumb" id="info">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
+    <li class="breadcrumb-item"> Chance e.V. kommt zu Ihnen </li>
+  </ol>
+</nav>
 
-<div class="container Achter-Spaltenlayout">
-  <div style="padding-bottom:5rem;">
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+<div class="container achterspaltenlayout" style="position: relative;">
+  <div style="padding-bottom:3rem;">
     {% set entry = craft.entries.section('fuerSie').slug('informationen').one() %}
-    <h1 style="padding-bottom: 30px;"> {{ entry.title }}   </h1>
+    <h1 style="padding-bottom: 2rem;"> {{ entry.title }}   </h1>
     <div id="anleser"> {{ entry.anleser }} </div>
     </div>
   </div>

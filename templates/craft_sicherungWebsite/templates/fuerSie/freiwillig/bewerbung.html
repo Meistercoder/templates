@@ -5,17 +5,25 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie/freiwilligendienst.html">Freiwilligendienst</a></li>
+      <li class="breadcrumb-item"> Deine Bewerbung </li>
+    </ol>
+  </nav>
+
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
 
-  <div class="container achterspaltenlayout" style="padding-top:0px;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
 
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+    <div style="padding-bottom:3rem; ">
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
       </div>
     </div>

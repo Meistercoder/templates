@@ -3,11 +3,15 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb" style="padding: 0;">
+      <li class="breadcrumb-item"> Blog </li>
+    </ol>
+  </nav>
 
   <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
-
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
 

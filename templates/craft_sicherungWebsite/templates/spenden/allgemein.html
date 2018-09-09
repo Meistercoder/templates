@@ -5,15 +5,20 @@
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
 
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/spenden">Spenden</a></li>
+      <li class="breadcrumb-item"> Allgemein Spenden </li>
+    </ol>
+  </nav>
 
-  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-
-  <div class="container achterspaltenlayout" style="padding-top:0px;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance2').one() %}
 
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+    <div style="padding-bottom:3rem; ">
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
     </div>
   </div>
 </div>

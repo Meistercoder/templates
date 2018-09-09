@@ -1,6 +1,11 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('kinderpate').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
 {% block block1 %}
 
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">

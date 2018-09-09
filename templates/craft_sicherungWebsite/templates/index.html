@@ -1,6 +1,12 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
+
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('home').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
 {% block block1 %}
 
 <div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 120px; position: relative;">
@@ -9,8 +15,8 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
-    {% set entry = craft.entries.section('home').slug('mensch-schoepfung').one() %}
 
+    {% set entry = craft.entries.section('home').slug('mensch-schoepfung').one() %}
     <div style="padding-bottom:50px; ">
       <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
