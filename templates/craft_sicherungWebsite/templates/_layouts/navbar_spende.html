@@ -2,18 +2,8 @@
 <!-- navbar-light links the colors with the background image -->
 <nav class="navbar navbar-expand-md fixed-top navbar-light" data-toggle="affix" style="padding-top: 0px; margin-top: -10px;">
 
-  <!-- d-sm-flex: creates a flexbox for small screens;
 
-  flex-sm-nowrap: steht dafür, das auf kleinen Bildschirmen
-  die Items nicht in den Container gepackt werden sollen, sondern durchgängig angezeigt werden
-
-  mx-auto: Additionally, Bootstrap also includes an .mx-auto class for horizontally centering
-  fixed-width block level content—that is, content that has display: block and a width
-  set—by setting the horizontal margins to auto.
-
-  d-block: Use .d-block to simply set an element's display property to block-->
-
-  <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+  <div class="container zwoelferspaltenlayout" style="padding: 0px;">
     <!-- Chance Logo -->
 
     <a class="navbar-brand"  href="https://aufbau-website.de/craft/web/">
@@ -26,17 +16,17 @@
     </button>
 
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar"  >
+    <div class="collapse navbar-collapse" id="collapsibleNavbar" style="justify-content: center;" >
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="https://aufbau-Website.de/craft/web/" style="color:white; font-weight: bold;"> HOME </a>
+          <a class="nav-link" href="https://aufbau-Website.de/craft/web/" style="color:white;" id="naviUeberschrift"> HOME </a>
         </li>
         <div class="dropdown">
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown disabled"
-            href="https://aufbau-Website.de/craft/web/ueberUns" style="color:white; font-weight: bold;"> ÜBER UNS </a>
+            href="https://aufbau-Website.de/craft/web/ueberUns" style="color:white;"  id="naviUeberschrift"> ÜBER UNS </a>
 
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="naviSubmenu">
               <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/arbeitsweise.html"> Arbeitsweise</a> </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/konzept.html"> Konzept</a> </li>
@@ -49,16 +39,8 @@
               <li class="dropdown-divider"></li>
               <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/ueberUns/transparenz.html"> Transparenz</a> </li>
               <li class="dropdown-divider"></li>
-
-              <li class="dropdown-submenu">
-                <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/ueberUns/empfehlungen.html">Empfehlungen</a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-item"><a tabindex="-1" href="#">1. Empfehlung</a></li>
-                  <li class="dropdown-divider"></li>
-                  <li class="dropdown-item"><a href="#">2. Empfehlung</a></li>
-                  <li class="dropdown-divider"></li>
-                  <li class="dropdown-item"><a href="#">3. Empfehlung</a></li>
-                </ul>
+              <li class="dropdown-item">
+                <a href="https://aufbau-Website.de/craft/web/ueberUns/empfehlungen.html">Empfehlungen</a>
               </li>
             </li>
           </ul>
@@ -67,9 +49,9 @@
         <div class="dropdown">
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown disabled" aria-haspopup="true"
-            aria-expanded="false" href="https://aufbau-Website.de/craft/web/projekte" style="color:white; font-weight: bold;"> PROJEKTE </a>
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/projekte" style="color:white;" id="naviUeberschrift"> PROJEKTE </a>
 
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="naviSubmenu">
               <li class="dropdown-item"> <a href="https://aufbau-Website.de/craft/web/projekte/wowirarbeiten.html"> Wo wir arbeiten</a> </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-submenu">
@@ -107,9 +89,9 @@
         <div class="dropdown">
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false" href="https://aufbau-Website.de/craft/web/spenden" style="color:white; font-weight: bold;"> SPENDEN </a>
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/spenden" style="color:white;" id="naviUeberschrift"> SPENDEN </a>
 
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="naviSubmenu">
               <li class="dropdown-submenu">
                 <a  class="dropdown-item" tabindex="-1" href="https://aufbau-Website.de/craft/web/spenden/allgemein.html">Allgemein Spenden</a>
                 <ul class="dropdown-menu">
@@ -153,9 +135,9 @@
         <div class="dropdown">
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown disabled" aria-haspopup="true"
-            aria-expanded="false" href="https://aufbau-Website.de/craft/web/fuerSie" style="color:white; font-weight: bold;"> FÜR SIE </a>
+            aria-expanded="false" href="https://aufbau-Website.de/craft/web/fuerSie" style="color:white;" id="naviUeberschrift"> FÜR SIE </a>
 
-            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="naviSubmenu">
               <li class="dropdown-item"> <a href="#"> Chance e.V. kommt zu Ihnen</a> </li>
               <li class="dropdown-divider"></li>
 
@@ -194,10 +176,10 @@
           </ul>
         </div>
         <li class="nav-item">
-          <a class="nav-link" href="https://aufbau-Website.de/craft/web/blog" style="color:white; font-weight: bold;"> BLOG </a>
+          <a class="nav-link" href="https://aufbau-Website.de/craft/web/blog" style="color:white;" id="naviUeberschrift"> BLOG </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://aufbau-Website.de/craft/web/kontakt" style="color:white; font-weight: bold;"> KONTAKT </a>
+          <a class="nav-link" href="https://aufbau-Website.de/craft/web/kontakt" style="color:white;" id="naviUeberschrift"> KONTAKT </a>
         </li>
 
       </ul>

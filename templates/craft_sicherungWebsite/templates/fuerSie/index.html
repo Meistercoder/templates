@@ -1,16 +1,22 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
+
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('für-sie').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
 {% block block1 %}
 
 <style>
-hr {
+.stylevorgaben2 hr {
   margin-top: -1rem;
   margin-bottom: 0;
 }
 </style>
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7.5rem; position: relative;">
+<div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 7.5rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">

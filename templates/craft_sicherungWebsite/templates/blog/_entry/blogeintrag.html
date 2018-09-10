@@ -1,9 +1,13 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
+{% block titelfuerseo %}
+{% set eintrag = craft.entries.section('suchmaschinenoptimierung').slug('blog').one() %}
+{{ eintrag.titelfeldFuerJens }}
+{% endblock %}
+
 {% block headerZusatz %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-
 
 {% endblock %}
 

@@ -37,6 +37,22 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'source_sans_probold';
+    src: url('fonts/sourcesanspro-bold-webfont.woff2') format('woff2'),
+         url('fonts/sourcesanspro-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+         url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Entfernt das standardmäßige Padding der container-fluid klassen */
 .no-padding {
   padding-left: 0;
@@ -116,6 +132,20 @@ h4 {
   line-height: 18px;
   color: #ed6e2c;
   font-family: 'source_sans_prosemibold';
+}
+
+#naviUeberschrift {
+  font-size: 16px;
+  line-height: 22px;
+  color: #333333;
+  font-family: 'source_sans_probold';
+}
+
+#naviSubmenu{
+  font-size: 16px;
+  line-height: 22px;
+  color: #333333;
+  font-family: 'source_sans_proregular';
 }
 
 @media all and (max-width: 700px)  {
@@ -222,4 +252,9 @@ body {
 /* Block-Boxen nehmen die gesamte Breite des Elternelementes ein */
   .dropdown-submenu:hover>.dropdown-menu {
       display: block;
+  }
+
+  .navbar-nav .nav-item {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
   }

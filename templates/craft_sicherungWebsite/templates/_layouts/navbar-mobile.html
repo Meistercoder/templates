@@ -12,7 +12,7 @@
       } else {
         $("#homeBox").css("margin-top", "2.5rem"); //Mehr Platz von oben einfügen beim Öffnen der Navigationsleiste
         $("#logoMobile").hide();
-        $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/x-symbol.jpg") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
+        $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/schließen.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
       }
       counterMenu++;
     });
@@ -317,10 +317,10 @@
   </a>
 
   <input type="checkbox" id="menu"/> <!-- Hamburger Menu, das nach unten klappt -->
-  <label for="menu" id="nav-icon" style="width: auto; display: inline; float: right; padding-right: 2em;"> <img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; padding-top: 1rem;" src=" {{ entry.bild3.one().url }} "> </label>
+  <label for="menu" id="nav-icon" style="width: auto; display: inline; float: right; padding-right: 1em;"> <img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; padding-top: 1rem;" src=" {{ entry.bild3.one().url }} "> </label>
 
 
-  <div class="multi-level" style="width: 95%;">
+  <div class="multi-level" style="width: 90%;">
 
     <div class="item" style="padding-top: 40px; padding-left: 2em;" id="homeBox">
       <a href="https://aufbau-website.de/craft/web/" id="naviUeberschrift" style="padding-right: 20%; padding-top: 10%;">HOME</a>

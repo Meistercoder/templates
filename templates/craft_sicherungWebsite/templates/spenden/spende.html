@@ -4,11 +4,10 @@
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
 
-
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
 
 
-  <div class="container achterspaltenlayout" style="padding-top:0px;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
 
     <div style="padding-bottom:50px; ">
@@ -17,82 +16,81 @@
   </div>
 </div>
 
+{% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
 
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;" id="eingabeFelder">
 
-<div class="container-fluid no-padding" style="background-color: #ed6e2c; padding-bottom: 30px;">
-  <div class="container zwoelferspaltenlayout" style="background-color: #ffffff;">
-
+  <div class="container zwoelferspaltenlayout" style="background-color: #ffffff; padding-bottom: 2rem;" id="copy">
+    {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
     <h2> {{ entry.anleser }} </h2>
     <div id="copy"> {{ entry.text }}</div>
 
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="zahlungsermaechtigung" name="Ermaechtigung" required>
+      <label class="custom-control-label" for="zahlungsermaechtigung">{{ entry.zusatzfeld1 }} </label>
+    </div>
+    <p id="fehlermeldungErmaechtigung"> </p>
+
+
+    <p> Intervall: </p>
+
+    <!-- Default inline 1-->
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" value="monatlich" class="custom-control-input intervall" id="defaultInline1" name="intervall">
+      <label class="custom-control-label" for="defaultInline1">monatlich</label>
+    </div>
+
+    <!-- Default inline 2-->
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" value="quartalsweise" class="custom-control-input intervall" id="defaultInline2" name="intervall">
+      <label class="custom-control-label" for="defaultInline2">quartalsweise</label>
+    </div>
+
+    <!-- Default inline 3-->
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" value="halbjährlich" class="custom-control-input intervall" id="defaultInline3" name="intervall">
+      <label class="custom-control-label" for="defaultInline3">halbjährlich</label>
+    </div>
+
+    <!-- Default inline 4-->
+    <div class="custom-control custom-radio custom-control-inline">
+      <input type="radio" value="jährlich" class="custom-control-input intervall" id="defaultInline4" name="intervall">
+      <label class="custom-control-label" for="defaultInline4">jährlich</label>
+    </div>
+    <p id="fehlermeldungCheckbox"> </p>
+
     <div class="row">
-      <div class="col-1">
-        <div class="form-check">
-          <label class="form-check-label" style="padding:0;">
-            <input type="checkbox" class="form-check-input" value="" style="height: 1.25rem; width: 1.25rem;">
-          </label>
-        </div>
-      </div>
-      <div class="col-11" style="padding-top: 0px;">
-        <div id="copy"> {{ entry.zusatzfeld1 }}</div>
-      </div>
-    </div>
+      <div class="col-sm-6">
 
-    <div id="copy" style="padding-top: 5%;"> <p> Intervall </p>
-      <div class="form-check-inline" style="padding-right: 5%;">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="">monatlich
-        </label>
-      </div>
-      <div class="form-check-inline" style="padding-right: 5%;">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="">quartalsweise
-        </label>
-      </div>
-      <div class="form-check-inline" style="padding-right: 5%;">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="">halbjährlich
-        </label>
-      </div>
-      <div class="form-check-inline" style="padding-right: 5%;">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" value="">jährlich
-        </label>
-      </div>
-
-      <div class="row" style="padding-top: 5%;">
-        <div class="col-6">
-          <div class="form-group" >
-            <label for="sel1">Verwendungszweck</label>
-            <select class="form-control" id="sel1">
-              <option>Spende Allgemein</option>
-              <option>Spende Programmbezogen</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
-          </div>
+        <div class="form-group" style="padding-top: 3rem;">
+          <label for="sel1">Verwendungszweck</label>
+          <select class="form-control" id="sel1" name="zweck" style="height: auto;">
+            <option>Spende Allgemein</option>
+            <option>Spende Programmbezogen</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
         </div>
       </div>
 
-    </div>
+      <div class="col-sm-6">  </div>
 
-    <div class="row" id="copy">
       <div class="col-sm-6">
         <div class="form-group">
           <label for="usr">Name der Bank</label>
-          <input type="text" class="form-control" id="bank">
+          <input type="text" name="bank" id="bank" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="usr">Betrag in Euro</label>
-          <input type="text" class="form-control" id="euro">
+          <input type="number" name="betrag" id="betrag" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="usr">IBAN</label>
-          <input type="text" class="form-control" id="iban">
+          <input type="text" name="iban" id="iban" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="usr">BIC</label>
-          <input type="text" class="form-control" id="bic">
+          <input type="text" name="bic" id="bic" class="form-control" required>
         </div>
 
       </div>
@@ -101,42 +99,264 @@
 
         <div class="form-group">
           <label for="usr">Kontoinhaber (Vorname, Name)</label>
-          <input type="text" class="form-control" id="inhaber">
+          <input type="text" name="inhaber" id="inhaber" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="usr">Straße, Hausnummer</label>
-          <input type="text" class="form-control" id="strasse">
+          <input type="text" name="adresse" id="adresse" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="usr">PLZ, Ort</label>
-          <input type="text" class="form-control" id="ort">
+          <input type="text" name="plz" id="plz" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="usr">E-Mail-Adresse (freiwillig)</label>
-          <input type="text" class="form-control" id="email">
+          <input type="email" name="email" id="email" class="form-control">
         </div>
       </div>
     </div>
 
-    <div class="form-check" id="copy" style="padding-top: 3%;">
-      <label class="form-check-label" for="check2">
-        <input type="checkbox" style="height: 1rem; width: 1rem;" class="form-check-input" id="check2" name="option2" value="something">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert (Infos zum Datenschutz)
-        und diese nicht an Dritte weiter gibt.
-      </label>
-    </div>
-
-    <div class="form-check" id="copy">
-      <label class="form-check-label" for="check2">
-        <input type="checkbox" style="height: 1rem; width: 1rem;" class="form-check-input" id="check2" name="option2" value="something">Ich bin damit einverstanden, dass Chance e.V. mich einmal im Monat per E-Mail und zwei- bis dreimal im Jahr per Post über die Projekte und die Menschen
-        vor Ort informiert. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org
-      </label>
-    </div>
-
-
-  </div>
-</div>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="datenschutz" name="datenschutz" required>
+      <label class="custom-control-label" for="datenschutz">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert (Infos zum Datenschutz)
+        und diese nicht an Dritte weiter gibt.</label>
+      </div>
+      <p id="fehlermeldungDatenschutz"> </p>
 
 
 
-{% endblock %}
-{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
+      <div class="custom-control custom-checkbox" style="padding-bottom: 2rem;">
+        <input type="checkbox" class="custom-control-input" id="customCheck2" name="newsletter">
+        <label class="custom-control-label" for="customCheck2">Ich bin damit einverstanden, dass Chance e.V. mich einmal im Monat per E-Mail und zwei- bis dreimal im Jahr per Post über die Projekte und die Menschen
+          vor Ort informiert. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org</label>
+        </div>
+
+        <div class="row">
+          <div class="col-10"> </div>
+          <div class="col-2">
+            <button onclick="myFunction()" class="btn btn-primary">Weiter</button>
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- Hintergrundcontainer -->
+
+    <div class="container-fluid no-padding" id="Kontrollansicht" style="display: none;">
+
+
+      {% macro errorList(errors) %}
+      {% if errors %}
+      <ul class="errors">
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endmacro %}
+
+      {% from _self import errorList %}
+
+      <div id="craftFormulare" style="display: none;">
+
+        <form method="post" action="" accept-charset="UTF-8">
+          {{ csrfInput() }}
+          <input type="hidden" name="action" value="contact-form/send">
+          {{ redirectInput('kontakt/dankespende') }}
+
+          <label style="margin-bottom: 0;" for="inhaberCraft">Vorname*</label>
+          <input id="inhaberCraft" required class="form-control" type="text" name="message[Inhaber]" value="">
+
+          <label style="margin-bottom: 0;" for="plzCraft">PLZ*</label>
+          <input id="plzCraft" required class="form-control" type="text" name="message[PLZ]" value="">
+
+          <label style="margin-bottom: 0;" for="bankCraft">Name der Bank*</label>
+          <input id="bankCraft" required class="form-control" type="text" name="message[Name der Bank]" value="">
+
+          <label style="margin-bottom: 0;" for="betragCraft">Betrag*</label>
+          <input id="betragCraft" required class="form-control" type="text" name="message[Betrag]" value="">
+
+          <label style="margin-bottom: 0;" for="zweckCraft">Verwendungszweck*</label>
+          <input id="zweckCraft" required class="form-control" type="text" name="message[Verwendungszweck]" value="">
+
+          <label style="margin-bottom: 0;" for="ibanCraft">IBAN*</label>
+          <input id="ibanCraft" required class="form-control" type="text" name="message[IBAN]" value="">
+
+          <label style="margin-bottom: 0;" for="bicCraft">BIC*</label>
+          <input id="bicCraft" required class="form-control" type="text" name="message[BIC]" value="">
+
+          <label style="margin-bottom: 0;" for="intervallCraft">Intervall*</label>
+          <input id="intervallCraft" required class="form-control" type="text" name="message[Intervall]" value="">
+
+          <label style="margin-bottom: 0;" for="from-email">E-Mail*</label>
+          <input id="from-email" class="form-control" type="email" name="fromEmail" placeholder="name@example.com" value="{{ message.fromEmail ?? '' }}">
+          {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+          <label style="margin-bottom: 0;" for="message"> Kommentar </label>
+          <textarea rows="5" cols="30" class="form-control" id="message" name="message[Kommentar]"> </textarea>
+        </div>
+
+        <div class="container zwoelferspaltenlayout">
+          <h2> Auftrag prüfen und absenden</h2>
+          <p id="copy"> Ich/wir ermächtige(n) Chance e.V. Zahlungen von meinem/unserem Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/ wir mein/unser Kreditinstitut an,
+            die von Chance e.V. auf mein/unser Konto gezogenen Lastschriften einzulösen. </p>
+          </div>
+
+          <div class="container zwoelferspaltenlayout" id="copy" style="padding-bottom: 2rem;"> <!-- Der Container wo der Text automatisch reingerendert wird -->
+            <div class="row" style="padding-bottom: 2rem;">
+              <div class="col-3"> Kontoinhaber   </div> <div class="col-9">  <span id="inhaberK"></span>  </div>
+
+              <div class="col-3"> Straße, Hausnummer   </div> <div class="col-9">  <span id="adresseK"></span>  </div>
+
+              <div class="col-3"> PLZ, Ort   </div> <div class="col-9">  <span id="plzK"></span>  </div>
+
+              <div class="col-3"> Name der Bank   </div> <div class="col-9">  <span id="bankK"></span>  </div>
+
+              <div class="col-3"> Betrag   </div> <div class="col-9">  <span id="betragK"></span>  </div>
+
+              <div class="col-3"> Verwendungszweck   </div> <div class="col-9">  <span id="verwendungszweckK"></span>  </div> <!-- Selektor 1 ist der Verwendungszweck -->
+
+              <div class="col-3"> IBAN   </div> <div class="col-9">  <span id="ibanK"></span>  </div>
+
+              <div class="col-3"> BIC   </div> <div class="col-9">  <span id="bicK"></span>  </div>
+
+              <div class="col-3"> Intervall   </div> <div class="col-9">  <span id="sel1K"></span>  </div>
+
+              <div class="col-3"> E-Mail   </div> <div class="col-9">  <span id="emailK"></span>  </div>
+            </div>
+
+            <div class="row">
+              <div class="col-4">
+                <button type="button" onclick="bearbeiten()" class="btn btn-primary">Bearbeiten</button>
+              </div>
+              <div class="col-5">
+                <button type="button" onclick="pdfErstellen()" class="btn btn-primary">Ausdrucken</button>
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Senden" class="btn btn-primary">
+              </div>
+            </div>
+          </form>
+        </div> <!-- Die Kontrollansicht mit den Feldern -->
+
+      </div> <!-- Kontrollansicht - Hintergrundcontainer -->
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
+
+      <script>
+      function bearbeiten() {
+        $('#eingabeFelder').css('display', 'block');
+        $('#Kontrollansicht').css('display', 'none');
+      }
+
+      function pdfErstellen() { //Automatisches Erstellen eines PDFs mit den gerade eingegebenen Daten
+        var doc = new jsPDF();
+
+        doc.setFont("times");
+        doc.setFontType("normal");
+        doc.text(105, 20, 'Lastschriftmandat', null, null, 'center');
+
+        doc.text(20, 40, 'Kontoinhaber');
+        doc.text(120, 40, $('#inhaberCraft').val());
+
+        doc.text(20, 50, 'Straße, Hausnummer');
+        doc.text(120, 50, $('#adresse').val());
+
+        doc.text(20, 50, 'Straße, Hausnummer');
+        doc.text(120, 50, $('#adresse').val());
+
+        doc.text(20, 60, 'PLZ, ORT');
+        doc.text(120, 60, $('#plz').val());
+
+        doc.text(20, 70, 'E-Mail');
+        doc.text(120, 70, $('#email').val());
+
+        doc.text(20, 80, 'Betrag');
+        doc.text(120, 80, $('#betrag').val());
+
+        doc.text(20, 90, 'Verwendungszweck');
+        doc.text(120, 90, $('#sel1').val());
+
+        doc.text(20, 100, 'Intervall');
+        doc.text(120, 100, $('.intervall:checked').val());
+
+        doc.text(20, 110, 'IBAN');
+        doc.text(120, 110, $('#iban').val());
+
+        doc.text(20, 120, 'BIC');
+        doc.text(120, 120, $('#bic').val());
+
+
+        doc.text(20, 150, 'Ich/wir ermächtige(n) Chance e.V. Zahlungen von meinem/unserem');
+        doc.text(20, 160, 'Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/wir mein/unser');
+        doc.text(20,170, 'Kreditinstitut an, die von Chance e.V. auf mein/unser Konto gezogenen')
+        doc.text(20, 180, 'Lastschriften einzulösen.');
+
+        doc.text(20, 200, '-------------------------------------');
+        doc.text(20, 205, 'Datum, Ort');
+
+        doc.text(120, 200, '------------------------------------');
+        doc.text(120, 205, 'Unterschrift');
+
+        doc.save('a4.pdf')
+
+      }
+
+      function myFunction() {
+        var allesKorrekt = true;
+        $(".fehlermeldung").remove(); //Entfernen aller Fehldermeldungen
+        //Formvalidierung
+        if ($('#inhaber').val().length<1) {    $('#inhaber').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+        if ($('#adresse').val().length<1) { $('#adresse').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false;}
+        if ($('#plz').val().length<1) { $('#plz').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+        if ($('#bank').val().length<1) { $('#bank').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+        if ($('#betrag').val().length<1) { $('#betrag').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+        if ($('#sel1').val().length<1) { $('#sel1').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+        if ($('#iban').val().length<1) { $('#iban').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+        if ($('#bic').val().length<1) { $('#bic').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false;}
+        if (!$('.intervall:checked').val()) { $('#fehlermeldungCheckbox').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen ein Intervall auswählen. </span>'); allesKorrekt = false;} //Chance speichert Daten sicher und gibt sie nicht weiter
+        if (!$('#zahlungsermaechtigung:checked').val()) { $('#fehlermeldungErmaechtigung').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen Ihre Zustimmung zum Lastschrifteinzug geben. </span>'); allesKorrekt = false;}
+        if (!$('.intervall:checked').val()) { $('#fehlermeldungCheckbox').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen ein Intervall auswählen. </span>'); allesKorrekt = false;} //Chance speichert Daten sicher und gibt sie nicht weiter
+        if (!$('#datenschutz:checked').val()) { $('#fehlermeldungDatenschutz').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen Ihre Zustimmung zu der sicheren Speicherung ihre Daten geben. </span>'); allesKorrekt = false;} //Chance speichert Daten sicher und gibt sie nicht weiter
+
+        if (allesKorrekt) {
+          $('#eingabeFelder').css('display', 'none');
+          $('#Kontrollansicht').css('display', 'block');
+        }
+
+        $('#inhaberK').html($('#inhaber').val()); //Wert ins Kontrollfeld schreiben
+        $('#inhaberCraft').val($('#inhaber').val()); //Wert in das Craft-Feld schreiben --> Um dann später abzuschicken, so wird das bei allen Feldern gemacht
+
+        $('#adresseK').html($('#adresse').val());
+        $('#adresseCraft').val($('#adresse').val());
+
+        $('#plzK').html($('#plz').val());
+        $('#plzCraft').val($('#plz').val());
+
+        $('#bankK').html($('#bank').val());
+        $('#bankCraft').val($('#bank').val());
+
+        $('#betragK').html($('#betrag').val());
+        $('#betragCraft').val($('#betrag').val());
+
+        $('#verwendungszweckK').html($('#sel1').val());
+        $('#zweckCraft').val($('#sel1').val());
+
+        $('#ibanK').html($('#iban').val());
+        $('#ibanCraft').val($('#iban').val());
+
+        $('#bicK').html($('#bic').val());
+        $('#bicCraft').val($('#bic').val());
+
+        $('#sel1K').html($('.intervall:checked').val());
+        $('#intervallCraft').val($('.intervall:checked').val());
+
+        $('#emailK').html($('#email').val()); //Einmal das Feld setzen zur Anzeige und einmal das Feld für das Craft-Kontaktformular
+        $('#from-email').val($('#email').val());
+        if ($('#from-email').val().length<1) { $('#from-email').val('AbsenderGibt@Mailnicht.an'); }
+
+
+      }
+      </script>
+
+      {% endblock %}
+      {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

@@ -1,7 +1,10 @@
 
 {% extends "_layouts/layoutHome.html" %}
 
-
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('kaffee').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
 
 {% block block1 %}
 

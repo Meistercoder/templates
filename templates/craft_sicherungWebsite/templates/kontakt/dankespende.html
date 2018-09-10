@@ -1,0 +1,50 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <div class="container achterspaltenlayout text-center" style="padding-top:0px;">
+    {% set entry = craft.entries.section('kontakt').slug('interessieren').one() %}
+    <div style="padding-bottom:50px; ">
+      <h1 style="padding-bottom: 30px;"> Vielen Dank für ihre Spende! </h1>
+      <div id="anleser"> Vielleicht finden sie auf den folgenden Seiten mehr inspirierende Inhalte. </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container-fluid no-padding" style="background-color: white">
+
+  {% set entry = craft.entries.section('projekte').slug('projekte').one() %}
+
+  <div class="zwoelferspaltenlayout container" style="padding-top: 0px; padding-bottom: 4rem;">
+  <div class="row" style="background-color: #f8f5f2;">
+    <div class="col-md-4">
+      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    </div>
+    <div class="col-md-8" style="padding-top: 2rem;">
+      <h3> {{ entry.title }} </h3>
+      <div id="copy"> {{ entry.anleser }}</div>
+    </div>
+</div> <!-- Weitere Informationen zum Projekt -->
+
+
+  {% set entry = craft.entries.section('spendenfelderUndSo').slug('fuer-sie').one() %}
+
+  <div class="row" style="background-color: #f8f5f2; margin-top: 2rem;">
+    <div class="col-md-4">
+      <img class="img-fluid mx-auto d-block" style="padding-bottom: 0px; max-height: 250px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    </div>
+    <div class="col-md-8" style="padding-top: 2rem;">
+      <h3> {{ entry.title }} </h3>
+      <div id="copy"> {{ entry.text }}</div>
+    </div>
+  </div><!-- Weitere Informationen zum Konzept -->
+
+  </div>
+</div>
+
+
+{% endblock %}
