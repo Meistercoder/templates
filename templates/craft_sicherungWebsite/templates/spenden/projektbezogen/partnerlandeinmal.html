@@ -14,7 +14,7 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/spenden">Spenden</a></li>
       <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen.html"> Projektbezogen Spenden</a></li>
-      <li class="breadcrumb-item"> Projektbezogen Einmalig Spenden </li>
+      <li class="breadcrumb-item"> Projektbezogen einmalig Spenden </li>
     </ol>
   </nav>
 
@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;">
   <div class="container" style="max-width: 1280px;">
     <div class="row">
       <div class="col-sm-2">
@@ -56,7 +56,7 @@
                   <div class="col-sm-1" style="background-color: white;"> </div>
                   <div class="col-sm-4" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
 
-                    <div id="copy" style="padding-top: 10%"> {{ entry.zusatzfeld1 }} </div>
+                    <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld1 }} </div>
                   </div>
                   <img class="img-fluid"  src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
                 </div>
@@ -70,7 +70,7 @@
                 </div>
                   <div class="col-sm-1" style="background-color: white;"> </div>
                   <div class="col-sm-4" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
-                    <div id="copy" style="padding-top: 10%"> {{ entry.zusatzfeld1 }} </div>
+                    <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld1 }} </div>
                   </div>
                   <img class="img-fluid" style="max-height: 574px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
                 </div>
@@ -84,7 +84,7 @@
                 </div>
                   <div class="col-sm-1" style="background-color: white;"> </div>
                   <div class="col-sm-4" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
-                    <div id="copy" style="padding-top: 10%"> {{ entry.zusatzfeld1 }} </div>
+                    <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld1 }} </div>
                   </div>
                   <img class="img-fluid" style="max-height: 574px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>

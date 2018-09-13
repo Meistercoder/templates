@@ -55,7 +55,7 @@
 
 {% set entry = craft.entries.section('ueberUns').slug('motivation').one() %}
 
-  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src="{% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}">
 
 <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
 

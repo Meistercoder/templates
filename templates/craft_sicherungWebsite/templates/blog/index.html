@@ -38,14 +38,28 @@
       <div class="col-sm-8">
         {% for entry in entries %}
         <img class="img-fluid"src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 1rem;">
-        <div id="info"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - in <a href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a></div>
+        <div id="info"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - {%if entry.blogKategorie.one() is not null %} in <a href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a> {% endif %}</div>
         <!-- Mit der oberen Zeile wird die Kategorie des Artikels abgerufen und angezeigt und sofort klickbar -->
         <h2 style="padding-bottom: 0;"> {{ entry.title}}</h2>
-        <div id="copy" style="padding-top: 1rem; padding-bottom: 2.5rem;"> {{ entry.anleser }}
+        <div id="copy" style="padding-top: 1rem; padding-bottom: 3.5rem;"> {{ entry.anleser }}
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> Weiterlesen</a> </div>
         {% set counter = counter + 1 %}
         {% endfor %}
+        <button type="button" class="btn btn-primary mx-auto d-block" onclick="mehrLadenAjax()"> Weitere Beiträge laden</button>
+        <div id="div1">  </div>
       </div> <!-- Kurzansicht der Einträge mit Bild -->
+
+
+<script>
+var counter = 3;
+function mehrLadenAjax() {
+
+  $("#div1").load("../templates/blog/demo_test.html h2");
+  counter ++;
+  console.log(counter);
+}
+
+</script>
 
       <div class="col-sm-4">
         <div id="copy" style="background-color: #f8f5f2; padding: 1.5rem; margin-bottom: 1.5rem;">
@@ -66,7 +80,7 @@
               <form class="form-inline" method="post" action="" accept-charset="UTF-8">
                 {{ csrfInput() }}
                 <input type="hidden" name="action" value="contact-form/send">
-                {{ redirectInput('contact/thanks') }}
+                {{ redirectInput('kontakt/danke') }}
 
                 <input id="from-email" required class="form-control" type="email" style="background-color: white; margin-right: 1rem; padding-right: 3rem; margin-bottom: 1rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
                 {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}

@@ -202,14 +202,25 @@
   margin-bottom: 0px;
 }
 .stylevorgaben2 .nav-link.active.tab {
-  background-color: #f8f5f2;
-  color: #0062ae;
+  background-color: #0062ae;
+  color: white;
   font-weight: bold;
 }
-.stylevorgaben2 .nav-link.tab {
+.stylevorgaben2 .nav-link.tab { /*Stylen der Navigationsleisten der verschiedenen Tabs auf den Spendenseiten , weißer hintergrund mit blauer schrift */
+  background-color: white;
   color: #0062ae;
   padding-left: 3rem;
   padding-right: 3rem;
+  margin: .25rem;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'source_sans_prolight';
+}
+
+/* Die nav-pills der spenden-seiten kriegen so den passenden Hintergrund */
+.stylevorgaben2 .nav-pills li {
+  padding: 0;
 }
 
 .stylevorgaben2 .carousel-control-prev-icon {
@@ -274,4 +285,38 @@ body {
 
 .breadcrumb > li > a {
   color: black;
+}
+
+.stylevorgaben2 a { /*Eingärben aller Links */
+  color: #0062ae;
+}
+
+.stylevorgaben2 #myScrollspy a { /* Einfärben des Scrollspys */
+  border: 1px solid #9b9b9b;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  margin: .5rem;
+  margin-left: 1rem;
+  padding: 0;
+  display: inline-block;
+}
+
+.stylevorgaben2 #myScrollspy span { /*  */
+  display: none;
+  position: relative;
+  transform: translateY(-25%);
+  font-family: source_sans_prolight;
+  font-size: 16px;
+  color: #0062ae;
+}
+
+.stylevorgaben2 #myScrollspy a:hover + span { /* Einfärben des Scrollspys */
+  display: inline-block;
+ }
+
+.stylevorgaben2 #myScrollspy { /* Positionieren des gesamten Scrollspy-Menüus  */
+  position: fixed;
+  top: 15rem;
+  z-index: 1;
 }

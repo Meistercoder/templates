@@ -30,11 +30,12 @@
 </div>
 
 
-
-<div class="container-fluid no-padding" style="background-color: #ed6e2c; padding-bottom: 30px;">
+{% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; background-repeat: no-repeat; background-color: white;">
   <div class="container zwoelferspaltenlayout" style="background-color: #ffffff;">
     <div class="row">
       <div class="col-sm-8">
+        {% set entry = craft.entries.section('spenden').slug('menschen-chance2').one() %}
         <h2> {{ entry.anleser }} </h2>
         <div id="copy"> {{ entry.text }}</div>
 
@@ -83,9 +84,9 @@
           {% set entry = craft.entries.section('spenden').slug('menschen-chance1').one() %}
         <div id="copy" style="padding-top: 2rem;"> {{ entry.zusatzfeld1 }}</div>
       </div>
-      <div class="col-sm-4">
-        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button">Jetzt Spenden</a>
-        <div id="copy" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
+      <div class="col-sm-3">
+        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html" class="btn btn-primary" role="button">Jetzt Spenden</a>
+        <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
       </div>
     </div>
   </div>

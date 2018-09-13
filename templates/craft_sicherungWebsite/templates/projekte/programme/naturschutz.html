@@ -3,13 +3,23 @@
 
 
 {% block titelfuerseo %}
-{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('naturschutz').one() %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('umweltschutz').one() %}
 {{ entry.titelfeldFuerJens }}
 {% endblock %}
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
+<nav id="myScrollspy">
+  <ul class="nav nav-pills flex-column">
+       <li class="nav-item">   <a class="nav-link active" href="#start"> </a> <span>Chancen für die Schöpfung</span> </li>
+       <li class="nav-item">   <a class="nav-link" href="#bestandteile"></a> <span> Die Bestandteile </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#ziel"></a> <span>Das Ziel</span>  </li>
+       <li class="nav-item">   <a class="nav-link active" href="#zahlen"></a> <span>In Zahlen</span> </li>
+       <li class="nav-item">   <a class="nav-link" href="#gelingendesLeben"></a> <span>Gelingendes Leben </span>  </li>
+  </ul>
+</nav>
+
+<div class="container-fluid text-center" style="padding-top: 7rem; position: relative;" id="start">
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
@@ -19,7 +29,8 @@
   </ol>
 </nav>
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
 
   <div class="container achterspaltenlayout" style="padding-top: 0px; padding-bottom: 0; position: relative;">
     {% set entry = craft.entries.section('projekte').slug('umwelt-und-naturschutz').one() %}
@@ -43,11 +54,9 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="margin-top: -50px;">
   <img class="img-fluid mx-auto d-block" src=" {{ craft.assets.filename('chance-projekte-programme-naturschutz.jpg').one().getUrl() }}">
-</div>
 
-<div class="container achterspaltenlayout text-center">
+<div class="container achterspaltenlayout text-center" id="bestandteile">
   {% set entry = craft.entries.section('projekte').slug('bestandteile-naturschutzprogramms').one() %}
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
@@ -86,7 +95,7 @@
     </div>
   </div>
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff">
+  <div class="container-fluid no-padding" style="background-color: #ffffff" id="ziel">
     <div class="container achterspaltenlayout text-center">
       {% set entry = craft.entries.section('projekte').slug('bewahrung-schöpfung').one() %}
       <h2> {{ entry.title }} </h2>
@@ -141,7 +150,7 @@
 
     <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-naturschutz_maedchen.jpg').one().getUrl() }}">
 
-  <div class="container zwoelferspaltenlayout text-center" style="min-height: 372px;">
+  <div class="container zwoelferspaltenlayout text-center" style="min-height: 372px;" id="zahlen">
     {% set entry = craft.entries.section('projekte').slug('der-chance-regenwald-in-zahlen').one() %}
     <h3 style="padding-bottom: 2rem;"> {{ entry.title }} </h3>
 
@@ -193,7 +202,7 @@
     </div>
   </div>
 
-  <div class="container achterspaltenlayout text-center" style="padding-top: 2rem; padding-bottom: 0;">
+  <div class="container achterspaltenlayout text-center" style="padding-top: 2rem; padding-bottom: 0;" id="gelingendesLeben">
     {% set entry = craft.entries.section('projekte').slug('gelingenden-leben').one() %}
     <h2> {{ entry.title }} </h2>
     <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}    </div>

@@ -8,6 +8,17 @@
 
 {% block block1 %}
 
+<nav id="myScrollspy">
+  <ul class="nav nav-pills flex-column">
+       <li class="nav-item">   <a class="nav-link active" href="#nachfolge"> </a> <span>Christusnachfolge</span> </li>
+       <li class="nav-item">   <a class="nav-link" href="#verantwortlich"></a> <span> Verantwortlicher Konsum </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#konsum"></a> <span> Konsum - Fluch oder Segen </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#jesus"></a> <span> Jesus als Vorbild </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#mitmachen"></a> <span> Machen Sie mit </span>  </li>
+  </ul>
+</nav>
+
+
 <style>
   hr {
     margin-top: -.5rem;
@@ -27,7 +38,7 @@
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;" id="nachfolge">
     {% set entry = craft.entries.section('fuerSie').slug('gerechtigkeit-consumer').one() %}
 
     <div style="padding-bottom:3rem; ">
@@ -42,11 +53,11 @@
      <div id="copy"> {{ entry.text }} </div>
     </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="verantwortlich">
     {% set entry = craft.entries.section('fuerSie').slug('verantwortlicher-konsum').one() %}
     <h3> {{ entry.title }} </h3>
     <div id="copy"> {{ entry.anleser }}  </div>
-    <h3> {{ entry.zusatzfeld1 }} </h3>
+    <h3 id="konsum"> {{ entry.zusatzfeld1 }} </h3>
     <div id="copy"> {{ entry.text }}  </div>
   </div>
 </div>
@@ -60,7 +71,7 @@
   <div id="info"> {{ entry.anleser }}  </div>
 </div> <!-- Würde Jesus -> durcklickbare Fragen -->
 
-<div class="cotainer-fluid no-padding" style="background-color: #ffffff;">
+<div class="cotainer-fluid no-padding" style="background-color: #ffffff;" id="jesus">
   {% set entry = craft.entries.section('fuerSie').slug('jesus-vorbild').one() %}
 
 <div class="container achterspaltenlayout">
@@ -69,7 +80,7 @@
 </div>
 </div> <!-- weißer Hintergrundcontainer -->
 
-<div class="container zwoelferspaltenlayout" style="padding-bottom: 2rem;">
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 2rem;" id="mitmachen">
   <div class="text-center">
     <h2> {{ entry.zusatzfeld1 }} </h2>
     <div id="anleser"> {{ entry.text }}  </div>

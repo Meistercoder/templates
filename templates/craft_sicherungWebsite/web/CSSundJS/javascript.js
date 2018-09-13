@@ -17,6 +17,7 @@ $( document ).ready(function() {
     WelleAnpassen();
     kindAnpassen();
     akkordionIconsAnpassen();
+    scrollspyPosition();
 });
 
 $(window).resize(function(){
@@ -24,6 +25,16 @@ $(window).resize(function(){
   WelleAnpassen();
   kindAnpassen();
 });
+
+function scrollspyPosition () { //Den Scrollspy an die passende Position setzen beim draufklicken
+  var offset = 60;
+
+  $('#myScrollspy li a').click(function(event) {
+      event.preventDefault();
+      $($(this).attr('href'))[0].scrollIntoView();
+      scrollBy(0, -offset);
+  });
+}
 
 function navlinksAnpassen () {
 

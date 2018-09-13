@@ -15,6 +15,19 @@
  }
 </style>
 
+<nav id="myScrollspy">
+  <ul class="nav nav-pills flex-column">
+       <li class="nav-item">   <a class="nav-link active" href="#allgemein"> </a> <span>Allgemeine Infos</span> </li>
+       <li class="nav-item">   <a class="nav-link" href="#team"></a> <span> Das Team </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#arbeit"></a> <span>Die Arbeit der Freiwilligen</span>  </li>
+       <li class="nav-item">   <a class="nav-link active" href="#zentrum"></a> <span>Das Projektzentrum</span> </li>
+       <li class="nav-item">   <a class="nav-link" href="#einsatzgebiet"></a> <span> Das Einsatzgebiet </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#vielfalt"></a> <span> Vielfalt und Interkulturalität </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#chance"></a> <span> Deine Chance </span>  </li>
+       <li class="nav-item">   <a class="nav-link" href="#arbeitsalltag"></a> <span> Arbeitsalltag </span>  </li>
+  </ul>
+</nav>
+
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
@@ -28,7 +41,7 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;" id="allgemein">
     {% set entry = craft.entries.section('fuerSie').slug('peru-erwartet').one() %}
 
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
@@ -50,7 +63,7 @@
     </div>
   </div> <!-- Zweispaltiges Layout mit allgemeinen Infos -->
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="team">
         {% set entry = craft.entries.section('fuerSie').slug('das-team').one() %}
         <div class="text-center">
         <h2> {{ entry.title }} </h2>
@@ -59,39 +72,39 @@
         <div id="copy"> {{ entry.anleser }}    </div>
   </div> <!-- Das Team kurz erklärt -->
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="arbeit">
     {% set entry = craft.entries.section('fuerSie').slug('arbeit-freiwilligen').one() %}
     <div class="text-center"> <h2> {{ entry.title }} </h2> </div>
     <div id="copy"> {{ entry.anleser}}</div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="zentrum">
     {% set entry = craft.entries.section('fuerSie').slug('projektzentrum').one() %}
     <div class="text-center"> <h2> {{ entry.title }} </h2> </div>
     <img class="img-fluid"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
     <div id="copy"> {{ entry.anleser}}</div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="einsatzgebiet">
     {% set entry = craft.entries.section('fuerSie').slug('einsatzgebiet').one() %}
     <div class="text-center"> <h2> {{ entry.title }} </h2> </div>
     <div id="copy"> {{ entry.anleser}}</div>
   </div>
 
-  <img class="img-fluid w-100"   src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+  <img class="img-fluid w-100" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
   <!-- Hintergrundbild des gesamten Teams -->
 
-  <div class="container achterspaltenlayout" style="padding-top: 3rem;">
+  <div class="container achterspaltenlayout" style="padding-top: 3rem;" id="vielfalt">
     <div class="text-center"> <h2> {{ entry.zusatzfeld1 }} </h2> </div>
     <div id="copy"> {{ entry.text}}</div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="chance">
     <div class="text-center"> <h2> {{ entry.zusatzfeld2 }} </h2> </div>
     <div id="copy"> {{ entry.zusatzfeld3}}</div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" id="arbeitsalltag">
     {% set entry = craft.entries.section('fuerSie').slug('arbeitsalltag-und-kosten').one() %}
     <div class="text-center"> <h2> {{ entry.title }} </h2> </div>
     <div id="copy"> {{ entry.anleser}}</div>

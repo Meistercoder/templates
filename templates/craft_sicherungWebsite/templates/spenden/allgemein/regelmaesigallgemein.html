@@ -26,10 +26,12 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat;">
+{% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;"> <!-- Der Spendenhintergrund, Berg der verblasst -->
   <div class="container zwoelferspaltenlayout" style="background-color: #ffffff;">
     <div class="row">
       <div class="col-sm-7">
+        {% set entry = craft.entries.section('spenden').slug('menschen-chance1').one() %}
         <h2> {{ entry.anleser }} </h2>
         <div id="copy"> {{ entry.text }}</div>
 
@@ -70,8 +72,8 @@
             </div>
           </div> <!-- Die Tabs mit den verschiedenen Auswirkungen der Spenden, wechselbar durch klicken -->
         </div>
-        <div class="col-sm-4">
-          <img class="img-fluid h-100 w-100" style="padding-bottom: 0;" src="{{ entry.bild.one().url }}"> </div>
+        <div class="col-sm-4" style="position: relative;">
+          <img class="img-fluid" style="padding-bottom: 0; position: absolute; bottom: 0; width: 90%;" src="{{ entry.bild.one().url }}"> </div>
         </div> <!-- Umgebende Row -->
         </div><!-- Umgebender Container -->
 
@@ -79,9 +81,9 @@
         <div id="copy" style="padding-top: 2rem;"> {{ entry.zusatzfeld1 }}</div>
       </div>
       <div class="col-sm-1"> </div>
-    <div class="col-sm-4">
-        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-Website.de/spende/spende.php" class="btn btn-primary" role="button">Jetzt Spenden</a>
-        <div id="copy" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
+    <div class="col-sm-3">
+        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html" class="btn btn-primary" role="button">Jetzt Spenden</a>
+        <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
     </div>
   </div>
   </div>
