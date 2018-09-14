@@ -30,16 +30,17 @@ verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
 }
 
 function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird am unteren Teil des Scrollspys wenn er den Footer berührt dieser versteckt.
+  if ( $( "#myScrollspy" ).length ) { //Check whether scrollspy exists
+
    var hFooter = $('#footer').offset().top - 160;
    var hScrollspy = $('#myScrollspy').offset().top;
-
-   console.log('Höhe Footer: ' + hFooter + ' Höhe Scrollspy: ' + hScrollspy);
 
   if (hScrollspy > hFooter){
      $('#myScrollspy > ul').css('display', 'none');
    } else {
      $('#myScrollspy > ul').css('display', 'block');
    }
+ }
 }
 
 /* $(window).scroll(function() {
@@ -54,7 +55,7 @@ function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird
    }
 }); */
 
-function scrollspyPosition () { //Den Scrollspy an die passende Position setzen beim draufklicken
+function scrollspyPosition () { //Den Scrollspy an die passende Position setzen beim draufklicken, also bisschen tiefer als sonst
   var offset = 60;
 
   $('#myScrollspy li a').click(function(event) {

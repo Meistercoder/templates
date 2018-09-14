@@ -144,7 +144,35 @@
   font-family: 'source_sans_proregular';
 }
 
+.stylevorgaben2 .btn-primary { /*Anpassen der Buttons */
+  background-color: #0062ae;
+  border-width: 0;
+  font-family: source_sans_prosemibold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.stylevorgaben2 .btn-primary:hover { /*Anpassen der Buttons */
+  background-color: white;
+  color: #0062ae;
+  border-width: 2px;
+  border-color: #0062ae;
+}
+
+.stylevorgaben2 #video {
+  min-height: 25rem;
+  background-color: white;
+  margin-top: -12.5rem;
+  position: relative;
+}
+
 @media all and (max-width: 1100px) and (min-width: 700px) {
+  #video { /* Video-Box ausblenden */
+    display: none;
+  }
+  #myScrollspy {
+    display: none;
+  }
   .stylevorgaben2 h1 {
     font-size: 41px;
     line-height: 48px;
@@ -161,8 +189,19 @@
     font-size: 16px;
     line-height: 25px;
   }
+  .stylevorgaben2 .btn-primary {
+    font-size: 16px;
+    line-height: 25px;
+  }
 }
 @media all and (max-width: 700px) {
+  #video { /* Video-Box ausblenden */
+    display: none;
+  }
+  #myScrollspy {
+    display: none;
+  }
+
   .stylevorgaben2 {
     font-size: 10px;
   }
@@ -182,7 +221,13 @@
     font-size: 14px;
     line-height: 22px;
   }
+  .stylevorgaben2 .btn-primary {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
+
+
 .stylevorgaben2 .bg-white {
   border: 0;
 }
@@ -319,24 +364,4 @@ body {
   position: fixed;
   top: 15rem;
   z-index: 1;
-}
-
-.stylevorgaben2 .btn-primary { /*Anpassen der Buttons */
-  background-color: #0062ae;
-  border: 0;
-  font-family: source_sans_prosemibold;
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.stylevorgaben2 .btn-primary:hover { /*Anpassen der Buttons */
-  background-color: white;
-  color: #0062ae;
-}
-
-.stylevorgaben2 #video {
-  min-height: 25rem;
-  background-color: white;
-  margin-top: -12.5rem;
-  position: relative;
 }
