@@ -320,3 +320,23 @@ body {
   top: 15rem;
   z-index: 1;
 }
+
+.stylevorgaben2 .btn-primary { /*Anpassen der Buttons */
+  background-color: #0062ae;
+  border: 0;
+  font-family: source_sans_prosemibold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.stylevorgaben2 .btn-primary:hover { /*Anpassen der Buttons */
+  background-color: white;
+  color: #0062ae;
+}
+
+.stylevorgaben2 #video {
+  min-height: 25rem;
+  background-color: white;
+  margin-top: -12.5rem;
+  position: relative;
+}

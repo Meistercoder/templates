@@ -60,9 +60,12 @@
     </div>
   </div>
 
-    <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-dorfentwicklung.jpg').one().getUrl() }} ">
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-dorfentwicklung.jpg').one().getUrl() }} ">
 
-  <div class="container achterspaltenlayout" id="plan">
+<div class="container achterspaltenlayout" id="video"></div>
+
+
+  <div class="container achterspaltenlayout" id="plan" style="padding-top: 2rem;">
     {% set entry = craft.entries.section('projekte').slug('der-fünf-stufen-plan').one() %}
     <h2> {{ entry.title }} </h2>
     <div id="anleser"> {{ entry.anleser }} </div>
@@ -143,7 +146,7 @@
     <div class="col-md-7" style="padding-left: 30px;">
       <h4 style="color: white;"> {{ entry.title }} </h4>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
-      <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate werden </strong></a>
+      <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/verschiedenetabs/dorfpate.html" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate werden </strong></a>
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->

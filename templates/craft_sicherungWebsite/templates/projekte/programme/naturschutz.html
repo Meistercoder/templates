@@ -54,9 +54,11 @@
   </div>
 </div>
 
-  <img class="img-fluid mx-auto d-block" src=" {{ craft.assets.filename('chance-projekte-programme-naturschutz.jpg').one().getUrl() }}">
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-naturschutz.jpg').one().getUrl() }}">
 
-<div class="container achterspaltenlayout text-center" id="bestandteile">
+  <div class="container achterspaltenlayout" id="video"></div>
+
+<div class="container achterspaltenlayout text-center" id="bestandteile" style="padding-top: 2rem;">
   {% set entry = craft.entries.section('projekte').slug('bestandteile-naturschutzprogramms').one() %}
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
@@ -131,7 +133,7 @@
       <div class="col-md-7" style="padding-left: 30px;">
         <h4 style="color: white;"> {{ entry.title }} </h4>
         <div id="copy" style="color: white;"> {{ entry.text }}</div>
-        <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Waldpate werden</a>
+        <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/verschiedenetabs/waldpate.html" class="btn btn-primary" role="button">Waldpate werden</a>
       </div>
     </div>
   </div> <!-- Der orange Berg mit dem Spendenaufruf -->

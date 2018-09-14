@@ -1,14 +1,7 @@
 $(window).scroll ( function() {
-    if ($(document).scrollTop() > 50) {
-        document.getElementById('rechteck').style.height = '50px';
-        document.getElementById('collapsibleNavbar').style.marginTop = '-58px'; //For eg
-/* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen
-davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so
-verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
-    }
-}
-
-);
+  rechteckNavbarVerkleinern();
+  scrollspyVerstecken();
+});
 
 /* Funktion, um Links klickbar zu machen auf großen Bildschirm, jedoch nicht auf kleinen */
 
@@ -25,6 +18,41 @@ $(window).resize(function(){
   WelleAnpassen();
   kindAnpassen();
 });
+
+function rechteckNavbarVerkleinern () {
+  if ($(document).scrollTop() > 50) {
+      document.getElementById('rechteck').style.height = '50px';
+      document.getElementById('collapsibleNavbar').style.marginTop = '-58px'; //For eg
+/* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen
+davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so
+verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
+  }
+}
+
+function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird am unteren Teil des Scrollspys wenn er den Footer berührt dieser versteckt.
+   var hFooter = $('#footer').offset().top - 160;
+   var hScrollspy = $('#myScrollspy').offset().top;
+
+   console.log('Höhe Footer: ' + hFooter + ' Höhe Scrollspy: ' + hScrollspy);
+
+  if (hScrollspy > hFooter){
+     $('#myScrollspy > ul').css('display', 'none');
+   } else {
+     $('#myScrollspy > ul').css('display', 'block');
+   }
+}
+
+/* $(window).scroll(function() {
+   var hT = $('#footer').offset().top,
+       hH = $('#footer').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+  if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
+     $('#myScrollspy').css('display', 'none');
+   } else {
+     $('#myScrollspy').css('display', 'block');
+   }
+}); */
 
 function scrollspyPosition () { //Den Scrollspy an die passende Position setzen beim draufklicken
   var offset = 60;
