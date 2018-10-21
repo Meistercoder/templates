@@ -41,6 +41,8 @@
       <div class="col-sm-3" style="border-left:2px solid #ed6e2c; height: 40%;">
         {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
         {% set entry = random(entries) %}
+        <img class="rounded-circle" style="max-height: 120px; max-width: 120px;" src=" {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        <span id="copy" style="padding-top: 1.5rem; padding-bottom: 1rem; display: block;"> Empfehlung </span>
         <div id="zitat"> {{ entry.text }}  </div>
         <div id="autor" > {{ entry.title }}  </div>
       <div class="col-1"></div>
@@ -78,12 +80,12 @@
 
   {% set entry = craft.entries.section('ueberUns').slug('motivation').one() %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
+  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; padding-left: 0;">
   <div class="row">
     <div class="col-md-4">
       <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
     </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
+    <div class="col-md-8" style="padding-top: 2rem; padding-left: 2rem;">
       <h3> {{ entry.title }} </h3>
       <div id="copy"> {{ entry.text }}</div>
     </div>

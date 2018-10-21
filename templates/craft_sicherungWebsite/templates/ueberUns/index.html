@@ -21,48 +21,61 @@
 <div class="container-fluid no-padding text-center" style="padding-top: 50px; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">Über Uns</a></li>
-  </ol>
-</nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Über Uns</a></li>
+    </ol>
+  </nav>
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
   <div class="container achterspaltenlayout" style="position: relative;">
-      <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
-      <div id="spacer" style="width: height: 100px;">  </div>
-      <p id="anleser"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
-        Motiviert von der Liebe Gottes für Mensch und Natur.
-      </p>
-    </div>
+    <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
+    <div id="spacer" style="width: height: 100px;">  </div>
+    <p id="anleser"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
+      Motiviert von der Liebe Gottes für Mensch und Natur.
+    </p>
   </div>
+</div>
 
 
-  <div class="container zwoelferspaltenlayout">
-    <div class="card-deck">
-      <div class="row">
+<div class="container zwoelferspaltenlayout">
+  <div class="card-deck">
+    <div class="row">
 
-  {% set entries = craft.entries.section('ueberUns').level(1).all() %}
-    {% set counter = 0 %}
+      {% set entries = craft.entries.section('ueberUns').level(1).all() %}
+      {% set counter = 0 %}
 
-        {% for entry in entries %}  {% set counter = counter + 1 %}
-        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 30px;">
+      {% for entry in entries %}  {% set counter = counter + 1 %}
+      <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 40px;">
 
-        <div class="card border-light h-100">
+        <div class="card border-light h-100" style="margin-left: 5px; margin-right: 5px;">
           <a href="{{ entry.reinertext }}">
-          <img class="card-img-top" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
-        </a>
+            <img class="card-img-top" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+          </a>
           <div class="card-body">
-              <h3>{{ entry.title }}</h3>
-              <div id="copy"> {{ entry.text }} </div>
+            <h3>{{ entry.title }}</h3>
+            <div id="copy"> {{ entry.text }} </div>
           </div>
         </div>
       </div>
 
       {% if counter == 6 %}  <div class="col-lg-4 col-md-3 col-sm-3"> </div> {% endif %}
 
-        {% endfor %}
-        </div>
-      </div>
+      {% endfor %}
     </div>
+  </div>
+</div>
+
+{% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
+<div class="container-fluid no-padding pt-md-5 pb-md-5"  style="background-image: url({{ entry.bild.one().url }});">
+  <div class="row">
+    <div class="col-sm-1">  </div>
+    <div class="col-sm-3">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 200px; padding-bottom: 0;"> </div>
+    <div class="col-sm-5" style="padding-left: 30px;">
+      <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
+      <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
+      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
+    </div>
+  </div>
+</div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
 {% endblock %}
