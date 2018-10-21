@@ -1,0 +1,201 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('einmalig').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
+{% block block1 %}
+
+<style> /* Custom style für diese nav-tabs */
+.stylevorgaben2 .nav-link.active.tab {
+  background-color: white;
+  color: #0062ae;
+  font-weight: bold;
+}
+
+.stylevorgaben2 .nav-link.tab {
+  padding: 2rem;
+  padding-left: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+</style>
+
+
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
+
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/spenden">Spenden</a></li>
+      <li class="breadcrumb-item"> Jetzt Spenden </li>
+    </ol>
+  </nav>
+
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
+    {% set entry = craft.entries.section('spenden').slug('menschen-chance2').one() %}
+
+    <div style="padding-bottom:3rem; ">
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
+    </div>
+  </div>
+</div>
+
+
+{% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; background-repeat: no-repeat; background-color: white;">
+  <div class="container achterspaltenlayout">
+
+    <div class="row" id="anleser">
+      <div class="col-3"> </div>
+      <div class="col-6">
+
+        <div class="form-group" style="padding-top: 3rem;">
+          <label for="sel1" id="copy" style="color: white;">Wofür wollen Sie Spenden?</label>
+          <select class="form-control" id="sel1" name="zweck" style="height: auto;">
+            <option>Allgemein Spenden</option>
+            <option>Peru</option>
+            <option>Kenia</option>
+            <option>Dörfer Peru</option>
+            <option>Dörfer Kenia</option>
+            <option>Naturschutz Peru</option>
+            <option id="nichtEinmalig1">Kinderpate Peru*</option>
+            <option id="nichtEinmalig2">Kinderpate Kenia*</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="padding-top: 3rem;">
+          <label for="sel1" id="copy" style="color: white;">Wie oft wollen Sie Spenden?</label>
+          <select class="form-control" id="sel2" name="frequenz" style="height: auto;">
+            <option>Regelmäßig Spenden</option>
+            <option>Einmalig Spenden</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-3"> </div>
+    </div>
+    <div class="text-center">
+      <a id="spendenlink" href="https://aufbau-website.de/craft/web/spenden/spende.html" class="btn btn-primary"> Weiter </a>
+    </div>
+    <div class="text-center" id="copy" style="padding-top: 3rem;">
+      <span>Vielen Dank, dass sie uns Ihr Vertrauen und Ihre Hilfe schenken - gemeinsam können wir vielen Menschen ein Leben in Würde ermöglichen. <br>
+      Spenden sind steuerlich absetzbar und Sie erhalten einmal im Jahr eine Spendenbescheinigung. <br> *Kinderpatenschaften lassen sich nur regelmäßig bespenden
+      </span>
+    </div>
+
+  </div>
+
+</div> <!-- Container-fluid mit den verschiedenen Spenden-zwecken -->
+
+<script>
+var linkButton = 'https://aufbau-website.de/craft/web/spenden/spende.html'
+$(function() { //Link am Anfang schon fertig machen
+  neuerLink = linkButton + '?spendenart=' + $('#sel1').val();
+  $('#spendenlink').attr('href', neuerLink);
+});
+
+$( "#sel1" ).change(function() {
+  neuerLink = linkButton + '?spendenart=' + $('#sel1').val();
+  $('#spendenlink').attr('href', neuerLink);
+});
+
+//Funktion, die das Modal bei anzeigt wenn einmalig spenden ausgewählt wird
+$( "#sel2" ).change(function() {
+  if ($('#sel2').val() == "Einmalig Spenden") {
+    $('#spendenlink').attr('data-toggle', 'modal');
+    $('#spendenlink').attr('data-target', '#myModal');
+    $('#spendenlink').attr('href', '');
+    kinderpatePeru = $('#nichtEinmalig1').detach();     kinderpateKenia = $('#nichtEinmalig2').detach(); //Entfernt die beiden Paten wenn einmalig ausgewählt wird
+  } else {
+    neuerLink = linkButton + '?spendenart=' + $('#sel1').val();
+    $('#spendenlink').attr('href', neuerLink);
+    $('#spendenlink').attr('data-toggle', '');
+    $('#spendenlink').attr('data-target', '');
+    $('#sel1').append(kinderpatePeru); //Fügt die Paten wieder hinzu
+    $('#sel1').append(kinderpateKenia);
+  }
+});
+</script>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> <br>
+        <h2>Weiterleitung zur KD-Bank</h2>
+        <span id="copy">Spenden Sie online und geben Sie Menschen eine Chance - ganz einfach, schnell und sicher über unseren Online-Spendenservice der Bank für Kirche und Diakonie</span>
+        <br> <a style="margin-top: 3rem;" href="https://aufbau-website.de/craft/web/spenden/spende.html" class="btn btn-primary"> Jetzt bei der KD Bank spenden </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
+
+  <div class="container achterspaltenlayout" style="background-color: #ffffff; padding-bottom: 0;">
+    <span id="copy"> Mit einer monatlichen Spende von </span>
+
+    <div class="row" style="padding-top: 1.5rem;">
+      <div class="col-sm-7">
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active tab" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">5 Euro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tab" id="pills-profile-tab" data-toggle="pill" href="#pills-profile1" role="tab" aria-controls="pills-profile" aria-selected="false">20 Euro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tab"id="pills-profile-tab" data-toggle="pill" href="#pills-profile2" role="tab" aria-controls="pills-profile" aria-selected="false">35 Euro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tab" id="pills-profile-tab" data-toggle="pill" href="#pills-profile3" role="tab" aria-controls="pills-profile" aria-selected="false">50 Euro</a>
+          </li>
+        </ul>
+
+        {% set entry = craft.entries.section('spenden').slug('5-euro').one() %}
+        <div class="tab-content" id="pills-tabContent" style="padding-top: 2rem;">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div id="copy"> {{ entry.anleser }}  </div>
+          </div>
+          {% set entry = craft.entries.section('spenden').slug('20-euro').one() %}
+          <div class="tab-pane fade" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div id="copy"> {{ entry.anleser }}  </div>
+          </div>
+          {% set entry = craft.entries.section('spenden').slug('35-euro').one() %}
+          <div class="tab-pane fade" id="pills-profile2" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div id="copy"> {{ entry.anleser }}  </div>
+          </div>
+          {% set entry = craft.entries.section('spenden').slug('50-euro').one() %}
+          <div class="tab-pane fade" id="pills-profile3" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div id="copy"> {{ entry.anleser }}  </div>
+          </div>
+        </div> <!-- Die Tabs mit den verschiedenen Auswirkungen der Spenden, wechselbar durch klicken -->
+      </div>
+      <div class="col-sm-5">
+        <img class="img-fluid h-100 w-100" style="padding-bottom: 0;" src="{{ entry.bild.one().url }}"> </div>
+      </div> <!-- Umgebende Row -->
+    </div><!-- Umgebender Container -->
+
+  </div> <!-- Container fluid -->
+
+  <div class="container achterspaltenlayout" style="padding-top: 3rem;">
+    <h2 style="padding-bottom: 1rem;">Spendenkonto</h2>
+    <div class="row" id="anleser">
+      <div class="col-6">
+        Chance e.V. <br> Bank für Kirche und Diakonie
+      </div>
+      <div class="col-6">
+        IBAN: DE92 3506 0190 1014 4450 10 <br> BIC: GENO DE D1 DKD
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}
+  {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}
