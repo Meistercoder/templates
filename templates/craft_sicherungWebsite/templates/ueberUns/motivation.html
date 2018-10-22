@@ -65,17 +65,8 @@
 
   {% set entry = craft.entries.section('ueberUns').slug('der-verein').one() %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-  <div class="row">
-    <div class="col-md-4" style="padding: 0;">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-    </div>
-    <div class="col-md-8" style="padding-top: 2rem; padding-left: 30px;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.text }}</div>
-    </div>
-  </div>
-</div> <!-- Weitere Informationen zum Konzept -->
+  {% include "_layouts/weiterleitungkorrekt" %}
+
 
 </div>
 {% endblock %}

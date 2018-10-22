@@ -31,49 +31,37 @@
 
 <div class="container achterspaltenlayout" style="padding-bottom: 0; padding-top: 2rem;">
 
-  {% set entries = craft.entries.section('ueberUns').slug('transparenz').one().children().all() %}
-    {% if entries | length %}
-      {% for entry in entries %}
+  {% set entry = craft.entries.section('ueberUns').slug('verwaltungskosten').one() %}
         <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
         <div id="copy" style="padding-bottom: 2rem;"> {{ entry.text }} </div>
-      {% endfor %}
-  {% endif %}
-    </div>
+
+  {% set entry = craft.entries.section('ueberUns').slug('spendensiegel').one() %}
+      <div style="padding-left: .8rem;">
+          <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
+          <div id="copy" style="margin-left: -.8rem;"> {{ entry.anleser }} </div>
+          <div id="copy" style="text-indent: -.8rem; margin-top: -1rem;"> {{ entry.text }} </div>
+          <div id="copy" style="text-indent: -.8rem; margin-top: -1rem;"> {{ entry.langerText }} </div>
+          <div id="copy" style="padding-bottom: 2rem; text-indent: -.8rem; margin-top: -1rem;"> {{ entry.zusatzfeld1 }} </div>
+        </div>
+
+  {% set entry = craft.entries.section('ueberUns').slug('offenheit').one() %}
+        <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
+        <div id="copy" style="padding-bottom: 2rem;"> {{ entry.text }} </div>
+ </div>
 
   {% set entry = craft.entries.section('ueberUns').slug('verwaltungskosten').one() %}
   <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
 
-  {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-  <div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
-    <div class="row">
-      <div class="col-md-1">  </div>
-      <div class="col-md-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding-bottom: 0;"> </div>
-      <div class="col-md-1">  </div>
-      <div class="col-md-7" style="padding-left: 30px;">
-        <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
-        <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-        <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
-      </div>
-    </div>
-  </div> <!-- Der orange Berg mit dem Spendenaufruf -->
+  {% include "_layouts/spendenaufrufmitherz" %}
+
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 3rem;">
   <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
   </div>
 
   {% set entry = craft.entries.section('ueberUns').slug('empfehlungen').one() %}
+  {% include "_layouts/weiterleitungkorrekt" %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-    </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.text }}</div>
-    </div>
-  </div>
-</div> <!-- Weitere Informationen zum Konzept -->
 
 </div> <!-- Weißer Hintergrundcontainer -->
 

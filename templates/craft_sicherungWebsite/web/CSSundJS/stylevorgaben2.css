@@ -51,6 +51,7 @@
     font-style: normal;
 }
 
+
 .stylevorgaben2 .no-padding {
   padding-left: 0;
   padding-right: 0;
@@ -150,12 +151,14 @@
   font-family: source_sans_prosemibold;
   font-size: 18px;
   line-height: 28px;
+  border-width: 1px;
+  border-color: #0062ae;
 }
 
 .stylevorgaben2 .btn-primary:hover { /*Anpassen der Buttons */
   background-color: white;
   color: #0062ae;
-  border-width: 2px;
+  border-width: 1px;
   border-color: #0062ae;
 }
 
@@ -263,6 +266,14 @@
   font-family: 'source_sans_prolight';
 }
 
+.stylevorgaben2 .card-link { /*So wird der ganze Akkordion-Tab klickbar gemacht */
+  display: block;
+  padding: .75rem 1.25rem;
+}
+.stylevorgaben2 .card-header { /*So wird der ganze Akkordion-Tab klickbar gemacht */
+  padding: 0;
+}
+
 /* Die nav-pills der spenden-seiten kriegen so den passenden Hintergrund */
 .stylevorgaben2 .nav-pills li {
   padding: 0;
@@ -332,7 +343,7 @@ body {
   color: black;
 }
 
-.stylevorgaben2 a { /*Eingärben aller Links */
+.stylevorgaben2 a { /*Einfärben aller Links */
   color: #0062ae;
 }
 

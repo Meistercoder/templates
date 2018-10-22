@@ -65,17 +65,7 @@
   </div>
 </div>
 
-{% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-<div class="container-fluid no-padding pt-md-5 pb-md-5"  style="background-image: url({{ entry.bild.one().url }});">
-  <div class="row">
-    <div class="col-sm-1">  </div>
-    <div class="col-sm-3">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 200px; padding-bottom: 0;"> </div>
-    <div class="col-sm-5" style="padding-left: 30px;">
-      <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
-      <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
-    </div>
-  </div>
-</div> <!-- Der orange Berg mit dem Spendenaufruf -->
+{% include "_layouts/spendenaufrufmitherz" %}
+
 
 {% endblock %}

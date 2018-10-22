@@ -11,6 +11,7 @@ $( document ).ready(function() {
     kindAnpassen();
     akkordionIconsAnpassen();
     scrollspyPosition();
+    headerbilderAnpassen();
 });
 
 $(window).resize(function(){
@@ -29,6 +30,16 @@ verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
   }
 }
 
+function headerbilderAnpassen () { //Bei Headerbildern die Größe anpassen
+  var height = window.innerHeight * 0.3;
+  if (height > 300) {
+    $('#headerbild').css('height', height);
+  } else {
+    $('#headerbild').css('height', 300);
+  }
+  $('#headerbild').css('width', '100%');
+}
+
 function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird am unteren Teil des Scrollspys wenn er den Footer berührt dieser versteckt.
   if ( $( "#myScrollspy" ).length ) { //Check whether scrollspy exists
 
@@ -43,17 +54,6 @@ function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird
  }
 }
 
-/* $(window).scroll(function() {
-   var hT = $('#footer').offset().top,
-       hH = $('#footer').outerHeight(),
-       wH = $(window).height(),
-       wS = $(this).scrollTop();
-  if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
-     $('#myScrollspy').css('display', 'none');
-   } else {
-     $('#myScrollspy').css('display', 'block');
-   }
-}); */
 
 function scrollspyPosition () { //Den Scrollspy an die passende Position setzen beim draufklicken, also bisschen tiefer als sonst
   var offset = 60;
@@ -63,6 +63,37 @@ function scrollspyPosition () { //Den Scrollspy an die passende Position setzen 
       $($(this).attr('href'))[0].scrollIntoView();
       scrollBy(0, -offset);
   });
+}
+
+
+function WelleAnpassen () { //Welle für große und kleine Bildschirme anpassen
+
+  if ($(window).innerWidth() < 800 ) {
+
+    $("#welle").css("width", "100%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+    $("#welle").css("margin-left", "-50%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+
+    $("#empfehlungenMobil").css("display", "block");
+    $("#empfehlungenDesktop").css("display", "none"); /*Die mobilen oder standard-empfehlungen werden angezeigt, je nach bildschirmgröße */
+  }
+  else {
+      $("#welle").css("width", "40%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+      $("#welle").css("margin-left", "0"); /*Die Welle größer machen auf kleinen Bildschirmen */
+
+      $("#empfehlungenDesktop").css("display", "block");
+      $("#empfehlungenMobil").css("display", "none"); /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
+  }
+
+  if ($(window).innerWidth() < 1000 ) { //Die Navbar anpassen
+
+  $("#navbarDesktop").css("display", "none");
+  $("#navbarHandy").css("display", "block");
+
+  }
+  else {
+    $("#navbarDesktop").css("display", "block");
+    $("#navbarHandy").css("display", "none");
+  }
 }
 
 function navlinksAnpassen () {
@@ -102,36 +133,6 @@ function navlinksAnpassen () {
   }
 }
 
-function WelleAnpassen () {
-
-  if ($(window).innerWidth() < 800 ) {
-
-    $("#welle").css("width", "100%"); /*Die Welle größer machen auf kleinen Bildschirmen */
-    $("#welle").css("margin-left", "-50%"); /*Die Welle größer machen auf kleinen Bildschirmen */
-
-    $("#empfehlungenMobil").css("display", "block");
-    $("#empfehlungenDesktop").css("display", "none"); /*Die mobilen oder standard-empfehlungen werden angezeigt, je nach bildschirmgröße */
-  }
-  else {
-      $("#welle").css("width", "40%"); /*Die Welle größer machen auf kleinen Bildschirmen */
-      $("#welle").css("margin-left", "0"); /*Die Welle größer machen auf kleinen Bildschirmen */
-
-      $("#empfehlungenDesktop").css("display", "block");
-      $("#empfehlungenMobil").css("display", "none"); /*Der mobile oder standard-footer wird angezeigt, je nach bildschirmgröße */
-  }
-
-  if ($(window).innerWidth() < 1000 ) { //Die Navbar anpassen
-
-  $("#navbarDesktop").css("display", "none");
-  $("#navbarHandy").css("display", "block");
-
-  }
-  else {
-    $("#navbarDesktop").css("display", "block");
-    $("#navbarHandy").css("display", "none");
-  }
-}
-
 
 function kindAnpassen () { //Von der Spendenbox
 
@@ -148,7 +149,7 @@ function kindAnpassen () { //Von der Spendenbox
 }
 }
 
-  function akkordionIconsAnpassen () {
+  function akkordionIconsAnpassen () { //Pfeil nach oben und unten ergänzen
   $( ".card-header" ).click(function() { //Der Pfeil ändert sich beim draufklicken
     if ($(this).children("a").hasClass("collapsed")) {
       $(".card-header").children("a").children("div").children(".col-2").children("img").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/chance-ev-arrow-down.png ");

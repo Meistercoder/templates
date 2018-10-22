@@ -11,14 +11,14 @@
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
-    <li class="breadcrumb-item"> Verein</li>
-  </ol>
-</nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
+      <li class="breadcrumb-item"> Verein</li>
+    </ol>
+  </nav>
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
-<div class="container achterspaltenlayout" style="position: relative;">
+  <div class="container achterspaltenlayout" style="position: relative;">
     {% set entry = craft.entries.section('ueberUns').slug('der-verein').one() %}
     <h1 style="padding-bottom: 30px;"> {{ entry.zusatzfeld1 }}  </h1>
     <div id="anleser">  {{ entry.langerText }} </div>
@@ -99,27 +99,26 @@
     <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout text-left" id="copy">
     {% set entry = craft.entries.section('ueberUns').slug('erste-kontakte').one() %}
     <h4> {{ entry.title }} </h4>
     <div id="copy"> {{ entry.text }} </div>
+
+    <a onclick="jsfunction()" id="unobtrusive" href="javascript:void(0);">Weiterlesen</a>
+
+    <div id="copy" class="versteckt" style="display: none;"> {{ entry.langerText }} </div>
   </div>
 </div>
 
+<script>
+function jsfunction() {
+  $(".versteckt").css("display", "inline");
+  $("#unobtrusive").css("display", "none");
+}
+</script>
 
-{% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-<div class="container-fluid no-padding"  style="padding-top: 1rem; background-image: url({{ entry.bild.one().url }});">
-  <div class="row">
-    <div class="col-sm-1">  </div>
-    <div class="col-sm-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 200px; padding-bottom: 0;"> </div>
-    <div class="col-sm-1">  </div>
-    <div class="col-sm-7" style="padding-left: 30px;">
-      <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
-      <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-      <a href="https://aufbau-website.de/craft/web/projekte" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
-    </div>
-  </div>
-</div> <!-- Der orange Berg mit dem Spendenaufruf -->
+{% include "_layouts/spendenaufrufmitherz" %}
+
 
 <div class="container-fluid no-padding text-center" style="background-color: #ffffff; padding-bottom: 3rem;">
 
@@ -128,58 +127,23 @@
     <h2> {{ entry.title }} </h2>
   </div>
 
-<div class="container">
-
-    <div class="row">
-      {% set entries = entry.children().all() %} {% set counter = 0 %}
-      <div class="col-sm-6">
-        <div class="row">
+<div class="container-fluid no-padding">
+    {% set entries = entry.children().all() %} {% set counter = 0 %}
         {% for entry in entries %} {% set counter = counter + 1 %}
-      <div class="col-4" style="padding-right: 0; padding-left: 0;">
-       <a href="{{ entry.reinertext }}" >
-            <img class="card-img-top grayscale" style="border: 2px solid #f8f5f2;"
-            src=" {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
-        </a>
-      </div>
-
-        {% if counter is divisible by(3) %}
-        </div>
-      </div>      <div class="col-sm-6"> <div class="row">
-      {% endif %}
+        <a href="{{ entry.reinertext }}" style="margin-right: -.25rem;">
+            <img class="card-img-top grayscale" style="border: 1px solid #f8f5f2; width: 20%;"
+            src=" {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image"></a>
       {% endfor %}
     </div>
-  </div>
-
-      {# Durch divisible by 6 wird das Feld immer ausgefüllt bis 6 Spalten #}
-      {% if counter is not divisible by(6) %}
-      {% for i in 0..10000 if counter is not divisible by(6) %}
-      <div class="col-sm-2" style="padding: 0;">
-        <div class="card" > </div>
-      </div>
-      {% set counter = counter + 1 %}
-      {% endfor %}
-      {% endif %}
-    </div> <!-- Row der Bilder -->
-  </div>
 
 
-  <div class="container zwoelferspaltenlayout">
-    <hr style="height: 2px; padding-top: 1rem;"> <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
-  </div>
+<div class="container zwoelferspaltenlayout" style="padding-top: 7rem;">
+  <hr style="height: 2px; padding-top: 2rem;"> <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
+</div>
 
-  {% set entry = craft.entries.section('ueberUns').slug('transparenz').one() %}
+{% set entry = craft.entries.section('ueberUns').slug('transparenz').one() %}
+{% include "_layouts/weiterleitungkorrekt" %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-      </div>
-      <div class="col-md-8" style="padding-top: 2rem;">
-        <h3> {{ entry.title }} </h3>
-        <div id="copy"> {{ entry.text }}</div>
-      </div>
-    </div>
-  </div> <!-- Weitere Informationen zum Konzept -->
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
