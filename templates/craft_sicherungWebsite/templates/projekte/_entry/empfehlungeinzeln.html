@@ -11,6 +11,14 @@
 
 <div class="container-fluid text-center" style="padding-top: 9rem; position: relative;">
 
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
+      <li class="breadcrumb-item"> Empfehlungen</li>
+    </ol>
+  </nav>
+
+
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
 <div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
@@ -44,10 +52,10 @@
   {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
 
       {% for entry in entries %}
-      <div class="card">
+      <div class="card" style="border: 0;">
             <div class="row">
               <div class="col-4" style="text-align: center; white-space: nowrap;">
-                 <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                 <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span> <!-- Helperspan für vertical alignment in der Mitte -->
                   <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
                 </div>
                 <div class="col-8">
@@ -81,5 +89,14 @@
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
 
+<div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
+<p id="anleser" class="text-center"> Erfahren Sie mehr über unser Engagement vor Ort </p>
+</div>
+
+{% set entry = craft.entries.section('projekte').slug('projekte').one() %}
+{% include "_layouts/weiterleitungkorrekt" %}
+
+</div> <!-- Weißer Hintergrundcontainer -->
 {% endblock %}

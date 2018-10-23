@@ -40,11 +40,12 @@
   {% set entry = craft.entries.section('projekte').slug('peru').one() %}
 <div class="container achterspaltenlayout text-center">
   <h2> {{ entry.title }} </h2>
-  <div id="anleser"> {{ entry.anleser }} </div>
-  <div class="container zwoelferspaltenlayout" style="padding-top: 3rem;">
+  <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }} </div>
+</div>
+
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
     <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
   </div>
-</div>
 
 <div class="container achterspaltenlayout">
 
@@ -66,17 +67,17 @@
       <div class="container-fluid no-padding" style="background-color: #f8f5f2; padding-top: 0;">
         <div class="row">
           <div class="col-md-3 col-sm-1 col-1"> </div>
-          <div class="col-md-4 col-sm-5 col-5" id="copy" style="display: flex; align-items: center;">
+          <div class="col-md-3 col-sm-5 col-5" id="copy" style="display: flex; align-items: center;">
             <span style="width: 100%;">
-            <strong> Provinz Oxapampa </strong>  <br>
-            19000 km² <br> <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
-            Regenwald <br> <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
-            Andenvorgebirge <br> <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
-            XXX Einwohner <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
+            <p> <strong> Provinz Oxapampa </strong>  </p>
+            19000 km² <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+            Regenwald <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+            Andenvorgebirge <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+            XXX Einwohner <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
           </span>
           </div>
-          <div class="col-md-5 col-sm-6 col-6">
-          <img class="img-fluid w-100 h-100" style="padding-bottom: 0;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+          <div class="col-md-6 col-sm-6 col-6">
+          <img class="img-fluid float-right w-100 h-100" style="padding-bottom: 0; object-fit: cover; max-height: 60vh;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
         </div>
         </div>
       </div> <!-- Nach dem ersten Durchlauf der for-schleife wird die Peru-Karte eingefuegt -->
@@ -102,10 +103,11 @@
   {% set entry = craft.entries.section('projekte').slug('kenia').one() %}
   <h2> {{ entry.title }} </h2>
   <div id="anleser"> {{ entry.anleser }} </div>
-  <div class="container zwoelferspaltenlayout">
+</div>
+
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
     <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
   </div> <!-- Projekte aus Kenia mit Bild -->
-</div>
 
 <div class="container achterspaltenlayout">
 
@@ -124,16 +126,16 @@
         <div class="container-fluid no-padding" style="background-color: #f8f5f2; padding-top: 0; margin-bottom: 3rem;">
 
           <div class="row">
-            <div class="col-md-5 col-sm-6 col-6">
-            <img class="img-fluid w-100 h-100" style="padding-bottom: 0;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-            </div>
-            <div class="col-md-4 col-sm-5 col-5" id="copy" style="display: flex; align-items: center;">
+            <div class="col-md-6 col-sm-6 col-6">
+            <img class="img-fluid float-left w-100 h-100" style="padding-bottom: 0; object-fit: cover; max-height: 60vh;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+          </div>
+            <div class="col-md-3 col-sm-5 col-5" id="copy" style="display: flex; align-items: center;">
               <span style="width: 100%;">
               <strong> Narok County </strong>  <br> <br>
-              19000 km² <br> <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
-              Savannen und Buschland <br> <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
-              Maasai-Ebenen <br> <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
-              900.000 Einwohner <hr style="border-top: 2px solid #ed6e2c; margin-bottom: 0; margin-top: 0;">
+              19000 km² <br> <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+              Savannen und Buschland <br> <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+              Maasai-Ebenen <br> <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+              900.000 Einwohner <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
             </span>
             </div>
             <div class="col-md-3 col-sm-1 col-1"> </div>

@@ -72,7 +72,7 @@
     {% if entries | length %}        {% set counter = 0 %}
 
     {% for entry in entries %} {% set counter = counter + 1 %}
-    <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 2px; margin-bottom: 20px;">
+    <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
       <div class="card-header bg-white">
       <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
         <div class="row">
@@ -152,7 +152,19 @@
 
     <img class="img-fluid" src=" {{ craft.assets.filename('chance-projekte-programme-naturschutz_maedchen.jpg').one().getUrl() }}">
 
-  <div class="container zwoelferspaltenlayout text-center" style="min-height: 372px;" id="zahlen">
+<style>
+  .stylevorgaben2 .carousel-item .col-md-4 { /*Einfügen der Border zwischen den Leisten */
+    border-style: solid;
+    border-width: 1rem;
+    border-color: #f8f5f2;
+    background-color: white;
+    padding: 2rem;
+    height: 25.5rem;
+  }
+
+</style>
+
+  <div class="container zwoelferspaltenlayout text-center" id="zahlen">
     {% set entry = craft.entries.section('projekte').slug('der-chance-regenwald-in-zahlen').one() %}
     <h3 style="padding-bottom: 2rem;"> {{ entry.title }} </h3>
 
@@ -163,7 +175,7 @@
         <div class="carousel-item active text-center">
           <div class="row">
 
-            <div class="col-md-4 px-5"> <!-- px-5 steht für Padding rechts und links ne gewisse Breite -->
+            <div class="col-md-4"> <!-- px-5 steht für Padding rechts und links ne gewisse Breite -->
               <h3> {{ entry.title }} </h3>
               <div id="copy"> {{ entry.text }} </h3> </div>
             </div>
@@ -181,9 +193,9 @@
           </div>
         </div>  <div class="carousel-item text-center"> <div class="row"> {% endif %}
 
-            <div class="col-md-4 px-5">
+            <div class="col-md-4" id="{{ 'kasten' ~ counter }}">
               <h3> {{ entry.title }} </h3>
-              <div id="copy"> {{ entry.text }} </h3>  </div>
+              <div id="copy"> {{ entry.text }} </h3> </div>
             </div>
 
             {% endfor %}

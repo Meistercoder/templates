@@ -8,9 +8,9 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center no-padding" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center no-padding" style="padding-top: 9rem; position: relative;">
 
-  <nav aria-label="breadcrumb" id="info">
+<nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
     <li class="breadcrumb-item"> Empfehlungen</li>
@@ -94,18 +94,7 @@
 </div>
 
 {% set entry = craft.entries.section('projekte').slug('projekte').one() %}
-
-<div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-<div class="row">
-  <div class="col-md-4">
-    <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-  </div>
-  <div class="col-md-8" style="padding-top: 2rem;">
-    <h3> {{ entry.title }} </h3>
-    <div id="copy"> {{ entry.anleser }}</div>
-  </div>
-</div>
-</div> <!-- Weitere Informationen zum Konzept -->
+{% include "_layouts/weiterleitungkorrekt" %}
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
