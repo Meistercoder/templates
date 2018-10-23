@@ -10,7 +10,7 @@
 
 <div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
-  <nav aria-label="breadcrumb" id="info">
+<nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
     <li class="breadcrumb-item"> Erfahrungsberichte </li>
@@ -105,39 +105,17 @@ function erfahrungenAnpassen () {
     </div>
   </div>
 
-{% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-<div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
-  <div class="row">
-    <div class="col-md-1">  </div>
-    <div class="col-md-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding-bottom: 10px;"> </div>
-    <div class="col-md-1">  </div>
-    <div class="col-md-7" style="padding-left: 30px;">
-      <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
-      <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-      <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button">Jetzt Spenden</a>
-    </div>
-  </div>
-</div> <!-- Der orange Berg mit dem Spendenaufruf -->
+  {% include "_layouts/spendenaufrufmitherz" %}
+
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
 
   <div class="container zwoelferspaltenlayout text-center">
-    {% set entry = craft.entries.section('projekte').slug('projektberichte').one() %}
    <div id="anleser" style="padding-bottom: 3rem;"> Erfahren Sie mehr über unsere Projekte vor Ort </div>
   </div>
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-    </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.text }}</div>
-    </div>
-  </div>
-  </div> <!-- Weitere Informationen zum Freiwilligendienst -->
-
+  {% set entry = craft.entries.section('projekte').slug('projektberichte').one() %}
+  {% include "_layouts/weiterleitungkorrekt" %}
 
 </div> <!-- Weißer Hintergrundcontainer -->
 

@@ -36,7 +36,7 @@
       <div class="row">
 
         {% for entry in entries %}
-        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
+        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 40px; padding-left: 5px; padding-right: 5px;">
         <div class="card border-light h-100">
           <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
           <div class="card-body">
@@ -53,22 +53,12 @@
     <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
 
       <div class="container zwoelferspaltenlayout text-center">
-        {% set entry = craft.entries.section('projekte').slug('projektberichte').one() %}
        <div id="anleser" style="padding-bottom: 3rem;"> Das könnte Sie auch interessieren </div>
       </div>
 
-      <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-      <div class="row">
-        <div class="col-md-4">
-          <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-        </div>
-        <div class="col-md-8" style="padding-top: 2rem;">
-          <h3> {{ entry.title }} </h3>
-          <div id="copy"> {{ entry.text }}</div>
-        </div>
-      </div>
-      </div> <!-- Weitere Informationen zum Freiwilligendienst -->
-
+      {% set entry = craft.entries.section('spendenfelderUndSo').slug('fuer-sie').one() %}
+      {% include '_layouts/weiterleitungkorrekt' %}
+      
     </div> <!-- Weißer Hintergrundcontainer -->
 
 
