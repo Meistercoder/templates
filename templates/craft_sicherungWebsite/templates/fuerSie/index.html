@@ -16,9 +16,11 @@
 }
 </style>
 
-<div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 7.5rem; position: relative;">
+<div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
-  <nav aria-label="breadcrumb" id="info">
+  <img id="headerbild" src="{{ craft.assets.filename('chance-ev-fuer-sie-header.jpg').one().getUrl() }}" >
+
+  <nav aria-label="breadcrumb" id="info" style="padding-top: 4rem;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item">Für Sie</a></li>
   </ol>
@@ -44,7 +46,7 @@
         {% set counter = 0 %}
         {% for entry in entries %}  {% if entry.slug != 'fuelleintrag' %}
         {% set counter = counter + 1 %}
-        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 50px;">
+        <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 40px; padding-left: 5px; padding-right: 5px;">
         <div class="card border-light h-100">
           <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
           <div class="card-body">
