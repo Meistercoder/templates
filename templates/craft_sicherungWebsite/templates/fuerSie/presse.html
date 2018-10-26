@@ -1,0 +1,63 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('projektbesuch').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
+{% block block1 %}
+
+<div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
+
+  <nav aria-label="breadcrumb" id="info">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
+    <li class="breadcrumb-item"> Presse und Downloads </li>
+  </ol>
+</nav>
+
+<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+<div class="container achterspaltenlayout" style="position: relative;">
+  {% set entry = craft.entries.section('fuerSie').slug('weitere-informationen').one() %}
+
+  <div style="padding-bottom:2rem; ">
+    <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
+    <div id="anleser"> {{ entry.anleser }}  </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="background-color: #ffffff;">
+
+  <div class="container achterspaltenlayout">
+    <h3>Chance-Broschüren</h3>
+
+    <hr style="border-width: 2px; margin-top: 2rem; margin-bottom: 2rem;">
+
+    <h3 style="padding-bottom: 2rem;">Presseberichte</h3>
+    {% set entries = craft.entries.section('fuerSie').slug('presseberichte').one().children().all() %}
+    {% for entry in entries %}
+    <div>
+    <h4 style="display: inline;">{{entry.title}}</h4> <a target="_blank" style="float: right; color: #0062ae;" id="copy" href="{{entry.bild.one().url}}"> Download PDF </a>
+    {% if entry.slug != 'charisma-2-quartal-2013' %}
+    <hr style="border-width: 1px; margin-top: 1rem; margin-bottom: 1rem;">
+    {% endif %}
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
+    <hr style="margin-bottom: 2rem; margin-top: 2rem;">
+   <div id="copy" style="padding-bottom: 3rem;"> Das könnte Sie auch interessieren</div>
+  </div>
+
+  {% set entry = craft.entries.section('fuerSie').slug('literaturtipps').one() %}
+  {% include '_layouts/weiterleitungkorrekt' %}
+  <div style="padding-bottom: 4rem;"></div>
+
+</div>
+
+{% endblock %}

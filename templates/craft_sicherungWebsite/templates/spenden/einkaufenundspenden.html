@@ -25,16 +25,15 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;">
-  <div class="container zwoelferspaltenlayout" style="background-color: white; padding-left: 0; padding-right: 0;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 4rem; background-repeat: no-repeat; background-color: #f8f5f2;">
+  <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 0;">
 
     {% set entry = craft.entries.section('spenden').slug('einkaufen-und-spenden').one() %}
     <div id="copy" style="padding: 3rem;"> {{ entry.anleser }}</div>
 
-
     <div id="copy" style="padding: 3rem;"> {{ entry.zusatzfeld1 }} </div>
 
-    <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken2">
+    <img style="padding: 0;" class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken2">
 </div>
 </div>
 

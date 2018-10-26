@@ -11,10 +11,11 @@
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
-    <ol class="breadcrumb" style="padding: 0;">
-      <li class="breadcrumb-item"> Blog </li>
-    </ol>
-  </nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/blog">Blog</a></li>
+    <li class="breadcrumb-item"> {{ category }} </li>
+  </ol>
+</nav>
 
   <img class="img-fluid" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
@@ -35,9 +36,13 @@
       {% set entries = craft.entries.relatedTo(category).limit(3) %}
       <div class="col-sm-8">
         {% for entry in entries %}
+        <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
         <img class="img-fluid"src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 1rem;">
+        </a>
         <div id="info"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - in <a href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a></div>
+        <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
         <h2 style="padding-bottom: 0;"> {{ entry.title}}</h2>
+        </a>
         <div id="copy" style="padding-top: 1rem; padding-bottom: 2.5rem;"> {{ entry.anleser }}
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> Weiterlesen</a> </div>
         {% set counter = counter + 1 %}

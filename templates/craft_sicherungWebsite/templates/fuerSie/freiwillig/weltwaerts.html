@@ -25,10 +25,10 @@
     </ol>
   </nav>
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
 
-  <div class="container achterspaltenlayout" style="padding-top:0px;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;" id="allgemein">
     {% set entry = craft.entries.section('fuerSie').slug('weltwaerts').one() %}
 
     <div style="padding-bottom:50px; ">
@@ -40,20 +40,11 @@
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 4rem;">
   <div class="container achterspaltenlayout">
-    <div class="row">
-      <div class="col-sm-6">
+
         {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-peru').one() %}
         <img class="img-fluid" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
         <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
         <div id="copy"> {{ entry.anleser }}</div>
-      </div>
-      <div class="col-sm-6">
-        {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-kenia').one() %}
-        <img class="img-fluid" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-        <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
-        <div id="copy"> {{ entry.anleser }}</div>
-      </div>
-    </div>
 
     {% set entry = craft.entries.section('fuerSie').slug('weltwaerts').one() %}
     <div class="text-center" style="padding-top: 8%;">
@@ -63,22 +54,12 @@
     <div id="copy"> {{ entry.zusatzfeld2 }}    </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout text-center">
-    {% set entry = craft.entries.section('fuerSie').slug('weitere-einsatzmöglichkeiten-in-peru').one() %}
-    <div id="copy" style="padding-bottom: 2rem;"> <hr style="margin-bottom: 1rem;"> Weitere Einsatzmöglichkeiten in Peru </div>
+  <div class="container zwoelferspaltenlayout text-center" style="padding-top: 2rem;">
+    <div id="copy" style="padding-bottom: 2rem;"> <hr style="margin-bottom: 1rem;"> Weitere Informationen zum Freiwilligendienst </div>
   </div>
 
-<div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-<div class="row">
-  <div class="col-md-4">
-    <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-  </div>
-  <div class="col-md-8" style="padding-top: 2rem;">
-    <h3> {{ entry.title }} </h3>
-    <div id="copy"> {{ entry.anleser }}</div>
-  </div>
-</div>
-</div> <!-- Weitere Informationen zum Freiwilligendienst -->
+  {% set entry = craft.entries.section('fuerSie').slug('weitere-einsatzmöglichkeiten-in-peru').one() %}
+  {% include '_layouts/weiterleitungkorrekt' %}
 
 </div> <!-- Weißer Hintergrund-Div -->
 

@@ -1,5 +1,5 @@
 
-{% extends "_layouts/layoutSpende.html" %}
+{% extends "_layouts/layoutHome.html" %}
 
 {% block titelfuerseo %}
 {% set entry = craft.entries.section('suchmaschinenoptimierung').slug('spenden').one() %}
@@ -17,16 +17,37 @@
 {% endblock %}
 
 {% block block1 %}
+<style media="screen"> /*Anpassen der Spendennavbar an die Vorgabe */
+
+.stylevorgaben2 .rectangle {
+  height: 70px;
+  background-color: #ed6e2c;
+  }
+
+.stylevorgaben2 #naviUeberschrift {
+  font-size: 16px;
+  line-height: 22px;
+  color: white;
+  font-family: 'source_sans_probold';
+}
+
+</style>
 
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 80px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="position: relative;">
 
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
-  <div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> Spenden </li>
+    </ol>
+  </nav>
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('spenden').slug('spende').one() %}
       <h1 style="padding-bottom: 30px;"> {{ entry.title }} </h1>
       <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}  </div>
-      <a href="https://aufbau-website.de/craft/web/spenden/allgemein/regelmaesigallgemein.html" class="btn btn-primary" role="button">Jetzt Spenden</a>
+      <a href="https://aufbau-website.de/craft/web/spenden/jetztspenden.html" class="btn btn-primary" role="button">Jetzt Spenden</a>
     </div>
   </div>
 
@@ -42,7 +63,7 @@
       <div class="col-sm-6">
         <h3 style="color: white;"> {{ entry.title }} </h3>
         <span id="copy" style="color: white;"> {{ entry.anleser }} </span>
-        <a style="margin-bottom: 3rem;" href="https://aufbau-website.de/craft/web/spenden/allgemein/regelmaesigallgemein.html" class="btn btn-primary" role="button">Jetzt Pate werden</a>
+        <a style="margin-bottom: 3rem;" href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button">Jetzt Pate werden</a>
       </div>
       <div class="col-sm-2"> </div>
     </div>
@@ -59,7 +80,7 @@
           {% set entries = entry.children().all() %}
           {% if entries | length %}        {% set counter = 0 %}
           {% for entry in entries %} {% set counter = counter + 1 %}
-          <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 2px; margin-bottom: 20px;">
+          <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
             <div class="card-header bg-white">
             <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
               <div class="row">

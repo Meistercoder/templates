@@ -40,10 +40,38 @@
 
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" style="padding-bottom: 0;">
     <div class="text-center"> <h2> {{ entry.zusatzfeld1 }} </h2> </div>
     <div id="copy"> {{ entry.text}}</div>
+
+  {% set entries = craft.entries.section('fuerSie').slug('1-joh-3-16-ff').one().children().all() %}
+  {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
+  <div id="accordion">
+    {% set counter = 0 %}
+    {% for entry in entries %} {% set counter = counter + 1 %}
+    <div class="card" style="border-radius: 0; border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
+      <div class="card-header" style="border-bottom: 0; border-radius: 0; background-color: #f8f5f2;">
+      <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
+        <div class="row">
+          <div class="col-md-11 col-10">
+            <h4> {{ entry.title }} </h4>
+          </div>
+          <div class="col-md-1 col-2">
+            <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right; margin-top: .25rem;">
+          </div>
+        </div>
+      </a>
+        </div>
+        <div id="{{counter}}" class="collapse" data-parent="#accordion">
+          <div class="card-body" id="copy" style="background-color: #f8f5f2;">
+            {{ entry.anleser }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div> <!-- Das Akkordion-Div wird hier verwendet -->
   </div> <!-- Dein Profil -->
+
 
   <div class="container achterspaltenlayout">
       <div id="copy"> {{ entry.zusatzfeld2 }} </div>
@@ -72,24 +100,15 @@
 
 <div class="container-fluid no-padding" style="background-color: white; padding-top: .5rem;">
 
-  <div class="container zwoelferspaltenlayout text-center" style="margin-top: 0;">
-    <hr style="margin-bottom: 1rem;">
+  <div class="container zwoelferspaltenlayout text-center" style="margin-top: 2rem;">
+    <hr style="margin-bottom: 2rem;">
    <div id="anleser" style="padding-bottom: 3rem;"> Weitere Informationen zum Freiwilligendienst </div>
   </div>
 
   {% set entry = craft.entries.section('fuerSie').slug('erfahrungsberichte').one() %}
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 4rem;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-    </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.anleser }}</div>
-    </div>
-  </div>
-  </div> <!-- Weitere Informationen zum Freiwilligendienst -->
+  {% include '_layouts/weiterleitungkorrekt' %}
 
+  <div style="padding-bottom: 4rem;">  </div>
 </div>
 
 

@@ -5,11 +5,20 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
 
-<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
+<div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
 
-<div class="container achterspaltenlayout" style="padding-bottom: 0;">
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie/freiwilligendienst.html">Freiwilligendienst</a></li>
+      <li class="breadcrumb-item"> Erfahrungsberichte </li>
+    </ol>
+  </nav>
+
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout" style="padding-top: 0px; position: relative;">
   <h1> {{ entry.title }} </h1>
   <span id="anleser"> <strong> {{ entry.beruf }}</strong> </span>
     <div id="anleser"> {{ entry.anleser }}</div>
@@ -69,6 +78,18 @@
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->
+
+<div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
+
+    <div class="container zwoelferspaltenlayout text-center" style="margin-top: 0;">
+     <div id="anleser" style="padding-bottom: 3rem;"> Weitere Informationen zum Freiwilligendienst </div>
+    </div>
+
+    {% set entry = craft.entries.section('fuerSie').slug('deine-bewerbung').one() %}
+    {% include '_layouts/weiterleitungkorrekt' %}
+    <div style="padding-bottom: 4rem;"></div>
+
+  </div>
 
 
 {% endblock %}

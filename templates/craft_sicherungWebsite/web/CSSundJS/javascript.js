@@ -32,6 +32,7 @@ verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
 
 function headerbilderAnpassen () { //Bei Headerbildern die Größe anpassen
   var height = window.innerHeight * 0.3;
+  console.log(height);
   if (height > 300) {
     $('#headerbild').css('height', height);
   } else {

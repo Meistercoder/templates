@@ -16,10 +16,10 @@
 <div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"> Blog </li>
-    </ol>
-  </nav>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/blog">Blog</a></li>
+  </ol>
+</nav>
 
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
@@ -54,7 +54,7 @@
 <h3>Mit Anderen Teilen </h3>
 </div> <!-- Achterspaltenlayout - Container -->
 
-<div class="container zwoelferspaltenlayout" id="copy">
+<div class="container zwoelferspaltenlayout" id="copy" style="padding-bottom: 3rem;">
 
 <div class="row">
   <div class="col-sm-4">
@@ -74,8 +74,8 @@
  <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag </a>
 {% endif %}
 </div>
-</div>  <hr>
-
+</div>
+<hr style="border-width:2px; margin-top: 3rem; margin-bottom: 0;">
 
 </div> <!-- Die weiterführenden Links -->
 
