@@ -17,7 +17,7 @@ $( document ).ready(function() {
 $(window).resize(function(){
   navlinksAnpassen();
   WelleAnpassen();
-  kindAnpassen();
+  kindAnpassen(); 
 });
 
 function rechteckNavbarVerkleinern () {

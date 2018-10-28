@@ -4,12 +4,22 @@
   <div class="row">
     <div class="col-lg-8 col-md-0">  </div>
     <div class="col-lg-4 col-md-11">
-      <a href="www.mein-regenwald.de" class="btn btn-success">Der Chance-Regenwald <br> www.mein-regenwald.de</a>
+      <a href="www.mein-regenwald.de" class="btn btn-success">Der Chance-Regenwald <br> <strong>www.mein-regenwald.de</strong></a>
     </div>
   </div>
 </div>
 
   <style>
+  #footer .btn-success {
+    background-image: linear-gradient(to right, #678a45 , #9eac50);
+    text-align: left;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-width: 0;
+    padding: 20px;
+  }
+
   #footerDesktop {
     input[type="email"]::-webkit-input-placeholder {
       color: white !important;
@@ -48,6 +58,11 @@
   #footerDesktop a { /* Die Links im Footer weiß einfärben */
       color: #d7d7d7;
   }
+
+  #footerDesktop a:hover { /* Die Links im Footer weiß einfärben */
+      color: #ffffff;
+      text-decoration: none;
+  }
   #footerDesktop h4 {
     color: #d7d7d7;
   }
@@ -64,13 +79,13 @@
 
 </style>
 
-<div class="container" id="footerDesktop" style="padding-top: 30px;">
+<div class="container" id="footerDesktop" style="padding-top: 0;">
 
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col-sm-7" style="margin-top: -12px;">
 
       <h4 style="color: #d7d7d7;"> Freundesbrief abbonnieren <h4>
-        <p style="padding-bottom: .5rem; color: #d7d7d7;" id="copy"> Lassen Sie sich ungefähr einmal monatlich durch unseren kostenfreien
+        <p style="color: #d7d7d7;" id="copy"> Lassen Sie sich ungefähr einmal monatlich durch unseren kostenfreien
           Freundesbrief „Chance-Aktuell“ informieren. </p>
 
           {% macro errorList(errors) %}
@@ -99,14 +114,14 @@
 
           </form>
 
-          <p style="padding-top: 1rem; margin-bottom: 0; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
+          <p style="padding-top: 40px; margin-bottom: 0; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
           <br> <a href="https://aufbau-website.de/craft/web/kontakt">Diesen können Sie hier bestellen</a>
 
           </div>
 
           <div class="col-sm-1">  </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-4" style="padding-top: 40px;">
             <h4 style="margin-bottom: 0;"> Spendenkonto </h4>
             {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer-mobile').one() %}
             {{ entry.textfeld }}
@@ -115,7 +130,7 @@
 
 
               <!-- Trennlinie für den Footer -->
-              <hr style="height: 2px; color: #f8f5f2;">
+              <hr style="border-top-color: #d7d7d7; margin-top: 35px; margin-bottom: 40px;">
 
 
               <!-- Der zweite Teil des Footers mit den Links -->
@@ -131,7 +146,7 @@
               </div>
 
               <!-- Trennlinie für den Footer -->
-              <hr style="height: 2px; color: #f8f5f2; margin-top: 0;">
+              <hr style="border-top-color: #d7d7d7; margin-top: 24px; margin-bottom: 20px;">
 
 
               <!-- Der letzte Teil des Footers -->

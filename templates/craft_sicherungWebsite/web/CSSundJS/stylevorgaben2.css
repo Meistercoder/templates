@@ -61,6 +61,35 @@
   padding-right: 0;
   padding-top: 2rem;
 }
+@media all and (max-width: 820px) and (min-width: 600px) {
+
+  .stylevorgaben2 .achterspaltenlayout {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media all and (max-width: 1220px) and (min-width: 600px) {
+
+  .stylevorgaben2 .zwoelferspaltenlayout {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media all and (max-width: 600px) {
+
+  .stylevorgaben2 .zwoelferspaltenlayout {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .stylevorgaben2 .achterspaltenlayout {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    }
+}
+
+
 .stylevorgaben2 .achterspaltenlayout {
   max-width: 760px;
   padding-bottom: 2rem;

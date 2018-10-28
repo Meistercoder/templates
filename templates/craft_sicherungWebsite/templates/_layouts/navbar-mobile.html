@@ -8,9 +8,7 @@
       if (counterMenu % 2 != 0) {
         $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/hamburger.svg") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
         $("#logoMobile").show();
-        $("#homeBox").css("margin-top", "0rem");
       } else {
-        $("#homeBox").css("margin-top", "2.5rem"); //Mehr Platz von oben einfügen beim Öffnen der Navigationsleiste
         $("#logoMobile").hide();
         $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/schließen.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
       }
@@ -84,7 +82,7 @@
 
     });
 
-    $("#C").click(function() { // Projekte anklicken --> die anderen ausblenden
+    $("#C").click(function() { // Spenden anklicken --> die anderen ausblenden
       if (counter % 2 != 0) {
         $("#homeBox").show();
         $("#ersteBox").show();
@@ -110,47 +108,8 @@
       counter++;
     });
 
-    $("#C-A").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#dritteBox").hide(); //Zweite Box ganz verstecken
-      $("#spendenAllgemin").show() //Neues div anzeigen
-    });
 
-    $("#C-A1").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#dritteBox").show(); //Zweite Box wieder zeigen
-      $("#spendenAllgemin").hide() //Neues div verstecken
-    });
-
-    $("#C-B").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#dritteBox").hide(); //Zweite Box ganz verstecken
-      $("#spendenProjektbezogen").show() //Neues div anzeigen
-    });
-
-    $("#C-B1").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#dritteBox").show(); //Zweite Box wieder zeigen
-      $("#spendenProjektbezogen").hide() //Neues div verstecken
-    });
-
-    $("#C-C").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#spendenProjektbezogen").hide(); //Zweite Box ganz verstecken
-      $("#spendenProjektbezogenEinmalig").show() //Neues div anzeigen
-    });
-
-    $("#C-C1").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#spendenProjektbezogen").show(); //Zweite Box wieder zeigen
-      $("#spendenProjektbezogenEinmalig").hide() //Neues div verstecken
-    });
-
-    $("#C-D").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#spendenProjektbezogen").hide(); //Zweite Box ganz verstecken
-      $("#spendenProjektbezogenRegelmaesig").show() //Neues div anzeigen
-    });
-
-    $("#C-D1").click(function() { // Programme anklicken --> Dorfentwicklung, Kinderpate sehen
-      $("#spendenProjektbezogen").show(); //Zweite Box wieder zeigen
-      $("#spendenProjektbezogenRegelmaesig").hide() //Neues div verstecken
-    });
-
-    $("#D").click(function() { // Projekte anklicken --> die anderen ausblenden
+    $("#D").click(function() { // Fuer sie anklicken --> die anderen ausblenden
       if (counter % 2 != 0) {
         $("#homeBox").show();
         $("#ersteBox").show();
@@ -218,7 +177,7 @@
 .navbarMobilgeraet .item input:checked ~ ul {
   display: block;
 }
-.navbarMobilgeraet .arrow {
+.navbarMobilgeraet .arrow { /*Anordnen der Pfeile */
   width: 20px;
   height: 20px;
   vertical-align: middle;
@@ -226,7 +185,7 @@
   z-index: 0;
 }
 
-.navbarMobilgeraet .pfeilUnterebene {
+.navbarMobilgeraet .pfeilUnterebene { /*Anordnen der Unterpfeil */
   width: 20px;
   height: 20px;
   vertical-align: middle;
@@ -266,19 +225,23 @@
 .navbarMobilgeraet .nav ul,
 .navbarMobilgeraet .nav li,
 .navbarMobilgeraet label {
-  line-height: 30px;
+  line-height: 45px;
   margin: 0;
   list-style: none;
   text-decoration: none;
-  color: #90A4AE;
+  color: #9b9b9b;
   font-weight: 100;
   width: 100%;
 }
 .navbarMobilgeraet .item ul {
   padding: 0 0.25em;
 }
+.navbarMobilgeraet .item { /*Padding der Items setzen*/
+  padding: 0 2rem;
+}
+
 .navbarMobilgeraet .nav a {
-  line-height: 30px;
+  line-height: 45px;
   margin: 0;
   padding: 0 4em;
   padding-left: 0;
@@ -290,9 +253,10 @@
 
 .navbarMobilgeraet hr {
   background: transparent;
-  border-top: 2px solid #f8f5f2;
+  border-top-width: 1px;
+  border-top-color: #e3d7cb;
 }
-.navbarMobilgeraet .arrow{ /* Die Pfeil in der ersten Ebene richtig setzen */
+.navbarMobilgeraet .arrow { /* Die Pfeil in der ersten Ebene richtig setzen */
   float: left;
   position: relative;
   top: 50%;
@@ -305,6 +269,11 @@
   float: right;
 }
 
+.navbarMobilgeraet .nichtklickbareUeberschriften {
+  line-height: 45px;
+  color: #9b9b9b;
+  font-family: 'source_sans_prolight';
+}
 </style>
 
 <div class="navbarMobilgeraet">
@@ -317,23 +286,23 @@
   </a>
 
   <input type="checkbox" id="menu"/> <!-- Hamburger Menu, das nach unten klappt -->
-  <label for="menu" id="nav-icon" style="width: auto; display: inline; float: right; padding-right: 1em;"> <img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; padding-top: 1rem;" src=" {{ entry.bild3.one().url }} "> </label>
+  <label for="menu" id="nav-icon" style="width: auto; display: inline; float: right; padding-right: 1em;"><img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; padding-top: 1rem;" src=" {{ entry.bild3.one().url }} "> </label>
 
 
-  <div class="multi-level" style="width: 90%;">
+  <div class="multi-level" style="width: 100vw; height: 100vh;">
 
-    <div class="item" style="padding-top: 40px; padding-left: 2em;" id="homeBox">
+    <div class="item" style="padding-left: 2em;" id="homeBox">
       <a href="https://aufbau-website.de/craft/web/" id="naviUeberschrift" style="padding-right: 20%; padding-top: 10%;">HOME</a>
       <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
-    <div class="item" id="ersteBox" style="padding-left: 2em;">
+    <div class="item" id="ersteBox" >
       <a href="https://aufbau-website.de/craft/web/ueberUns" style="display: inline; padding-right: 20%;" id="linkUeberUns" >ÜBER UNS</a>
       <input type="checkbox" id="A"/>
       <label for="A" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " id="pfeil1" class="arrow" style="float: right;">  </label>
       <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
       <ul>
-        <li id="ueberUnsSchrift"> Über Uns</li> <hr>
+        <li id="ueberUnsSchrift" class="nichtklickbareUeberschriften"> ÜBER UNS</li> <hr>
         <li > <a href="https://aufbau-Website.de/craft/web/ueberUns/arbeitsweise.html"> Arbeitsweise</a> </li> <hr>
 
         <li > <a href="https://aufbau-Website.de/craft/web/ueberUns/konzept.html"> Konzept</a> </li> <hr>
@@ -349,14 +318,14 @@
       <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
-    <div class="item" id="zweiteBox" style="padding-left: 2em;">
+    <div class="item" id="zweiteBox" >
       <a href="https://aufbau-Website.de/craft/web/projekte" id="linkProjekte" style="display: inline; padding-right: 20%;">PROJEKTE</a>
       <input type="checkbox" id="B"/>
       <label for="B" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil2" style="float: right;">  </label>
 
       <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
       <ul> <!-- Dropdown beginnt -->
-        <li id="projekteSchrift"> Projekte</li> <hr>
+        <li id="projekteSchrift" class="nichtklickbareUeberschriften"> PROJEKTE</li> <hr>
         <li> <a href="https://aufbau-Website.de/craft/web/projekte/wowirarbeiten.html"> Wo wir arbeiten</a> </li> <hr>
 
         <li>
@@ -385,102 +354,31 @@
       </ul>
     </div>
 
-    <div class="item" id="dritteBox" style="padding-left: 2em;">
+    <div class="item" id="dritteBox" >
       <a href="https://aufbau-Website.de/craft/web/spenden" id="linkSpenden" style="display: inline; padding-right: 20%;">SPENDEN</a>
       <input type="checkbox" id="C"/>
       <label for="C" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil3" style="float: right;">  </label>
       <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
 
       <ul> <!-- Dropdown beginnt -->
-        <li id="spendenSchrift"> Spenden</li> <hr>
-        <li>
-          <div class="sub-item"> <!-- Zweite Dropdown-Ebene beginnt, also Spenden-Allgemein -> Einmalig oder Regelmäßig -->
-            <a href="https://aufbau-Website.de/craft/web/spenden/einmalig.html" style="display: inline; padding-right: 20%;">Allgemein Spenden</a>
-            <input type="checkbox" id="C-A"/>
-            <label for="C-A" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="pfeilErsteUnterebene" </label>
-          </div>
-        </li> <hr>
-        <li> <!-- Das List-Element zeigt an, dass auch das Dropdown-Menu auch nur ein List-Element in dem Obermenu ist -->
-          <div class="sub-item"> <!-- Zweite Dropdown-Ebene beginnt, also Spenden spezifisch -> Einmalig oder Regelmäßig -->
-            <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandeinmal" style="display: inline; padding-right: 20%;">Projektbezogen Spenden</a>
-            <input type="checkbox" id="C-B"/>
-            <label for="C-B" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="pfeilErsteUnterebene" </label>
-          </div>
-          </li> <hr>
-        </ul>
+        <li id="spendenSchrift" class="nichtklickbareUeberschriften"> SPENDEN</li> <hr>
+        <li>  <a href="https://aufbau-Website.de/craft/web/spenden">Übersicht Spenden</a></li> <hr>
+        <li> <a href="https://aufbau-Website.de/craft/web/spenden/jetztspenden.html">Jetzt Spenden</a></li> <hr>
+        <li> <a href="https://aufbau-website.de/craft/web/spenden/patewerden.html">Pate werden</a></li> <hr>
+        <li> <a href="https://aufbau-Website.de/craft/web/spenden/schenkenundspenden.html">Schenken und Spenden</a></li> <hr>
+        <li> <a href="https://aufbau-Website.de/craft/web/spenden/einkaufenundspenden.html">Einkaufen und Spenden</a></li> <hr>
+      </ul>
         <hr> <!-- Horizontal Ruler für Abstände -->
     </div> <!-- Dritte Box (Spenden) - Ende -->
 
-    <div id="spendenAllgemin" style="display: none;">
-      <input type="checkbox" id="C-A1"/>
-      <label for="C-A1" style="display: inline;">   <img src=" {{ entry.bild2.one().url }} " id="pfeil12" class="pfeilUnterebene">  </label>
-      <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
-      <ul>
-        <li> Allgemein Spenden</li> <hr>
-        <li> <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/einmaligallgemein.html">Einmalig</a></li> <hr>
-        <li> <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/regelmaesigallgemein.html">Regelmäßig</a></li> <hr>
-      </ul>
-    </div>
-
-    <div id="spendenProjektbezogen" style="display: none;"> <!-- Die Box mit den verschiedenen Spendenangeboten (Projektbezogen -> Regelmäßig/Einmalig/ schenken und spenden...)-->
-      <input type="checkbox" id="C-B1"/>
-      <label for="C-B1" style="display: inline;">   <img src=" {{ entry.bild2.one().url }} " class="pfeilUnterebene">  </label>
-      <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
-      <ul>
-        <li> Projektbezogen Spenden</li> <hr>
-
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandeinmal" style="display: inline; padding-right: 20%;">Einmalig</a>
-          <input type="checkbox" id="C-C"/>
-          <label for="C-C" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="pfeilErsteUnterebene">  </label>
-        </li> <hr>
-
-        <li> <a href="https://aufbau-Website.de/craft/web/spenden/allgemein/regelmaesigallgemein.html" style="display: inline; padding-right: 20%;">Regelmäßig</a>
-          <input type="checkbox" id="C-D"/>
-          <label for="C-D" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="pfeilErsteUnterebene">  </label>
-        </li> <hr>
-
-        <li><a href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/schenkenundspenden">Schenken und Spenden</a></li> <hr>
-        <li><a href="https://aufbau-Website.de/craft/web/spenden/projektbezogen/einkaufenundspenden">Einkaufen und Spenden</a></li> <hr>
-        <li><a href="#">Lastschrifttermine</a></li> <hr>
-      </ul>
-    </div>
-
-
-    <div id="spendenProjektbezogenEinmalig" style="padding-left: 2em; display: none;">
-      <input type="checkbox" id="C-C1"/>
-      <label for="C-C1" style="display: inline;">   <img src=" {{ entry.bild2.one().url }} " class="pfeilUnterebene">  </label>
-      <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
-      <ul>
-        <li> Einmalig Projektbezogen Spenden </li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Länderpate</a></li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Dorfpate</a></li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Kinderpate Plus</a></li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Waldpate</a></li> <hr>
-      </ul>
-    </div>
-
-
-    <div id="spendenProjektbezogenRegelmaesig" style="padding-left: 2em; display: none;">
-      <input type="checkbox" id="C-D1"/>
-      <label for="C-D1" style="display: inline;">   <img src=" {{ entry.bild2.one().url }} " class="pfeilUnterebene">  </label>
-      <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
-      <ul>
-        <li> Regelmäßig Projektbezogen Spenden </li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Länderpate</a></li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Dorfpate</a></li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Kinderpate Plus</a></li> <hr>
-        <li> <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/partnerlandregelmaesig">Waldpate</a></li> <hr>
-      </ul>
-    </div>
-
-    <div class="item" id="vierteBox" style="padding-left: 2em;">
+    <div class="item" id="vierteBox" >
       <a href="https://aufbau-website.de/craft/web/fuerSie" id="linkFuerSie" style="display: inline; padding-right: 20%;">FÜR SIE</a>
       <input type="checkbox" id="D"/>
       <label for="D" style="display: inline;">   <img src=" {{ entry.bild.one().url }} " class="arrow" id="pfeil4" style="float: right;">  </label>
       <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
 
       <ul> <!-- Dropdown beginnt -->
-        <li id="fuerSieSchrift"> Für Sie</li> <hr>
+        <li id="fuerSieSchrift" class="nichtklickbareUeberschriften"> FÜR SIE</li> <hr>
         <li> <a href="https://aufbau-Website.de/craft/web/fuerSie/chancekommt.html"> Chance e.V. kommt zu Ihnen</a> </li> <hr>
         <li>
           <div class="sub-item" id="subItemFreiwilligendienst"> <!-- Zweite Dropdown-Ebene beginnt, also Programme -> Dorfentwicklung und so -->
@@ -530,12 +428,12 @@
       </ul>
     </div>
 
-    <div style="padding-top: 5px; padding-left: 2em;" id="blogBox">
+    <div style="padding-top: 5px; padding: 0 2rem;" id="blogBox">
       <a href="https://aufbau-website.de/craft/web/blog">BLOG</a>
       <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
 
-    <div style="padding-top: 20px; padding-left: 2em;" id="kontaktBox">
+    <div style="padding-top: 20px; padding: 0 2rem;" id="kontaktBox">
       <a href="https://aufbau-website.de/craft/web/kontakt">KONTAKT</a>
       <hr> <!-- Horizontal Ruler für Abstände -->
     </div>
