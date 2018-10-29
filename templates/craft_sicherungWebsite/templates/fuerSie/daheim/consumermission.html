@@ -6,35 +6,40 @@
 {{ entry.titelfeldFuerJens }}
 {% endblock %}
 
+{% block headerZusatz %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+{% endblock %}
+
 {% block block1 %}
 
 <nav id="myScrollspy">
   <ul class="nav nav-pills flex-column">
-       <li class="nav-item">   <a class="nav-link active" href="#nachfolge"> </a> <span>Christusnachfolge</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#verantwortlich"></a> <span> Verantwortlicher Konsum </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#konsum"></a> <span> Konsum - Fluch oder Segen </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#jesus"></a> <span> Jesus als Vorbild </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#mitmachen"></a> <span> Machen Sie mit </span>  </li>
+    <li class="nav-item">   <a class="nav-link active" href="#nachfolge"> </a> <span>Christusnachfolge</span> </li>
+    <li class="nav-item">   <a class="nav-link" href="#verantwortlich"></a> <span> Verantwortlicher Konsum </span>  </li>
+    <li class="nav-item">   <a class="nav-link" href="#konsum"></a> <span> Konsum - Fluch oder Segen </span>  </li>
+    <li class="nav-item">   <a class="nav-link" href="#jesus"></a> <span> Jesus als Vorbild </span>  </li>
+    <li class="nav-item">   <a class="nav-link" href="#mitmachen"></a> <span> Machen Sie mit </span>  </li>
   </ul>
 </nav>
 
 
 <style>
-  hr {
-    margin-top: -.5rem;
-    margin-bottom: .5rem;
-  }
+hr {
+  margin-top: -.5rem;
+  margin-bottom: .5rem;
+}
 </style>
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie/daheim.html">Für Sie daheim</a></li>
-    <li class="breadcrumb-item">  Consumer Missions </li>
-  </ol>
-</nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie/daheim.html">Für Sie daheim</a></li>
+      <li class="breadcrumb-item">  Consumer Missions </li>
+    </ol>
+  </nav>
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
@@ -44,14 +49,14 @@
     <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
-      </div>
     </div>
   </div>
+</div>
 
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
-    <div class="container achterspaltenlayout">
-     <div id="copy"> {{ entry.text }} </div>
-    </div>
+  <div class="container achterspaltenlayout">
+    <div id="copy"> {{ entry.text }} </div>
+  </div>
 
   <div class="container achterspaltenlayout" id="verantwortlich">
     {% set entry = craft.entries.section('fuerSie').slug('verantwortlicher-konsum').one() %}
@@ -62,22 +67,50 @@
   </div>
 </div>
 
+
 <div class="container zwoelferspaltenlayout text-center">
   {% set entry = craft.entries.section('fuerSie').slug('wuerde-jesus').one() %}
-   <h3> {{ entry.title }} </h3>
+  <h3> {{ entry.title }} </h3>
 </div>
 
-<div class="container achterspaltenlayout">
+{% include '_layouts/codeschnipsel/karussellmitjs' %}
+
+<style media="screen">
+
+.slick-track{
+  display: flex;
+}
+.slick-slide{
+  display: flex;
+  height: auto;
+  align-items: center; //optional
+  justify-content: center; //optional
+}
+</style>
+
+<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
+
+  <div class="karussell">
+
+    {% set entries = entry.children().all() %}
+    {% for entry in entries %}
+    <div style="padding: 1rem; padding-bottom: 0; margin: 1rem; margin-bottom: 2rem; background-color: white;">
+      <div id="copy" style="color: #ed6e2c;"> {{ entry.title }} </div>
+      <div id="copy"> {{ entry.anleser }} </div>
+    </div>
+    {% endfor %}
+  </div>
+
   <div id="info"> {{ entry.anleser }}  </div>
-</div> <!-- Würde Jesus -> durcklickbare Fragen -->
+</div> <!-- Würde Jesus -> durcklickbare Fragen und Container für karussell -->
 
 <div class="cotainer-fluid no-padding" style="background-color: #ffffff;" id="jesus">
   {% set entry = craft.entries.section('fuerSie').slug('jesus-vorbild').one() %}
 
-<div class="container achterspaltenlayout">
-  <h3> {{ entry.title }} </h3>
-  <div id="copy"> {{ entry.anleser }}  </div>
-</div>
+  <div class="container achterspaltenlayout">
+    <h3> {{ entry.title }} </h3>
+    <div id="copy"> {{ entry.anleser }}  </div>
+  </div>
 </div> <!-- weißer Hintergrundcontainer -->
 
 <div class="container zwoelferspaltenlayout" style="padding-bottom: 2rem;" id="mitmachen">
@@ -88,12 +121,12 @@
 
   {% set entries = entry.children().all() %}
   <div class="row">
-  {% for entry in entries %}
+    {% for entry in entries %}
     <div class="col-sm-6 col-md-3">
       <div id="copy"> {{ entry.anleser }}  </div>
     </div>
-  {% endfor %}
-</div> <!-- Die Spalten mit den verschiedenen Links, durch hr getrennt -->
+    {% endfor %}
+  </div> <!-- Die Spalten mit den verschiedenen Links, durch hr getrennt -->
 
 </div> <!-- zwoelferspaltenlayout container -->
 
@@ -104,30 +137,30 @@
   {% set entry = craft.entries.section('fuerSie').slug('kaffee-unsere-tägliche-chance').one() %}
 
   <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+      </div>
+      <div class="col-md-8" style="padding-top: 2rem;">
+        <h3> {{ entry.title }} </h3>
+        <div id="copy"> {{ entry.anleser }}</div>
+      </div>
     </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.anleser }}</div>
-    </div>
-  </div>
-</div> <!-- Weitere Informationen zum Kaffee -->
+  </div> <!-- Weitere Informationen zum Kaffee -->
 
   {% set entry = craft.entries.section('fuerSie').slug('baeume-fuer-kenia').one() %}
 
   <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-top: 3rem;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+      </div>
+      <div class="col-md-8" style="padding-top: 2rem;">
+        <h3> {{ entry.title }} </h3>
+        <div id="copy"> {{ entry.anleser }}</div>
+      </div>
     </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.anleser }}</div>
-    </div>
-  </div>
-</div> <!-- Baeume fuer Kenia -->
+  </div> <!-- Baeume fuer Kenia -->
 
 </div> <!-- Weißer Hintergrundcontainer -->
 

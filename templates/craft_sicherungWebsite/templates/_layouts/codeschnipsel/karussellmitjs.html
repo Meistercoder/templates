@@ -1,0 +1,35 @@
+<script src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.karussell').slick({
+    {% set entry = craft.entries.section('spendenfelderUndSo').slug('carousel-pfeile').one() %}
+    prevArrow:"<img class='a-left control-c prev slick-prev' style='height: 35px;' src='{{ entry.bild.one().url }}'>",
+    nextArrow:"<img class='a-right control-c next slick-next' style='height: 35px;' src='{{ entry.bild2.one().url }}'>",
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+});
+</script>

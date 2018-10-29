@@ -153,30 +153,11 @@
    <hr style="height: 1px; margin-top: 2rem; margin-bottom: 2rem;"> <div id="anleser"> Lernen Sie unsere weiteren Progamme kennen </div>
 </div>
 
-<div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 3rem;">
-<div class="row">
-  <div class="col-md-4">
-    <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-  </div>
-  <div class="col-md-8" style="padding-top: 2rem;">
-    <h3> {{ entry.anleser }} </h3>
-    <div id="copy"> {{ entry.text }}</div>
-  </div>
-</div>
-</div> <!-- Weitere Informationen zur Dorfentwicklung -->
+{% include '_layouts/weiterleitungkorrekt' %}
+<div style="padding-top: 5rem;"> </div>
 
 {% set entry = craft.entries.section('projekte').slug('naturschutz').one() %}
-<div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 3rem;">
-<div class="row">
-  <div class="col-md-4">
-    <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-  </div>
-  <div class="col-md-8" style="padding-top: 2rem;">
-    <h3> {{ entry.anleser }} </h3>
-    <div id="copy"> {{ entry.text }}</div>
-  </div>
-</div>
-</div> <!-- Weitere Informationen zum Naturschutz -->
-</div>
+{% include '_layouts/weiterleitungkorrekt' %}
+<div style="padding-top: 5rem;"> </div>
 
   {% endblock %}
