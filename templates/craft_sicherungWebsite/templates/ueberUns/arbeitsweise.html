@@ -20,15 +20,13 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
 <div class="container achterspaltenlayout" style="position: relative;">
-  <div style="padding-bottom:80px; ">
-    <h1 style="padding-bottom: 30px;"> Unsere Zielsetzung: Ganzheitliche, nachhaltige
+    <h1 style="padding-bottom: 2rem;"> Unsere Zielsetzung: Ganzheitliche, nachhaltige
       und von den Menschen selbst bestimmte Entwicklung  </h1>
     <p id="anleser"> Vier Begriffe machen deutlich, wie wir dieses Ziel erreichen. </p>
     </div>
-  </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem; padding-top: 0;">
 <div class="container zwoelferspaltenlayout" >
 
   <style> /*Größe der Icons begrenzen*/
@@ -59,13 +57,13 @@
   </div>
 </div>
 
-<div class="container achterspaltenlayout text-center" style="padding-bottom: 0;">
+<div class="container achterspaltenlayout text-center" style="padding-bottom: 0; padding-top: 3rem;">
   {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
   {% set entry = random(entries) %}
-  <hr style="background-color: #ed6e2c; height: 1px; margin-bottom: 1rem;">
+  <hr style="background-color: #ed6e2c; margin-bottom: 1rem;">
   <div id="zitat"> {{ entry.text }}  </div>
   <div id="autor" > {{ entry.title }}  </div>
-  <hr style="background-color: #ed6e2c; height: 1px; margin-top: 1rem;">
+  <hr style="background-color: #ed6e2c; margin-top: 1rem;">
 </div> <!-- Empfehlungen in ihrem schönen Kästchen -->
 
   <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-ueber-uns-arbeitsweise_farm.jpg').one().getUrl() }} ">
@@ -86,17 +84,7 @@
 
   {% set entry = craft.entries.section('ueberUns').slug('konzept').one() %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-    </div>
-    <div class="col-md-8" style="padding-top: 2rem;">
-      <h3> {{ entry.title }} </h3>
-      <div id="copy"> {{ entry.text }}</div>
-    </div>
-  </div>
-</div> <!-- Weitere Informationen zum Konzept -->
+  {% include '_layouts/weiterleitungkorrekt' %}
 
 </div> <!-- Weißer Hintergrundcontainer -->
 

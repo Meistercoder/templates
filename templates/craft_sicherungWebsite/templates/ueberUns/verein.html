@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0;">
+<div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 4rem;">
   {% set entry = craft.entries.section('ueberUns').slug('engagement').one() %}
   <img class="img-fluid mx-auto d-block" style="max-height: 160px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
   <div class="row">
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding  text-center" style="background-color: #ffffff;">
+<div class="container-fluid no-padding  text-center" style="background-color: #ffffff; padding-top: 5rem;">
 
   <div class="container achterspaltenlayout">
     {% set entry = craft.entries.section('ueberUns').slug('team').one() %}

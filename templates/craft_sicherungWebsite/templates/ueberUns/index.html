@@ -8,8 +8,8 @@
 
 {% block headerbildPosition1 %}
 
-<div class="container-fluid no-padding" style="padding-top: 70px;">
-  <img class="img-fluid mx-auto d-block" src=" {{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }} ">
+<div class="container-fluid no-padding" style="padding-top: 5rem;">
+  <img class="img-fluid mx-auto d-block" src="{{ craft.assets.filename('chance-ueber-uns-header.jpg').one().getUrl() }}" style="padding-bottom: 0">
 </div>
 
 
@@ -18,7 +18,7 @@
 {% block block1 %}
 {% set link = craft.assets.filename('welle.png').one().getUrl() %}
 
-<div class="container-fluid no-padding text-center" style="padding-top: 50px; position: relative;">
+<div class="container-fluid no-padding text-center" style="padding-top: 2rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
@@ -27,10 +27,9 @@
   </nav>
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
-  <div class="container achterspaltenlayout" style="position: relative;">
-    <h1 style="padding-bottom: 30px;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
-    <div id="spacer" style="width: height: 100px;">  </div>
-    <p id="anleser"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
+  <div class="container achterspaltenlayout" style="position: relative; padding-bottom: 0;">
+    <h1 style="padding-bottom: 2rem;"> Für ein gelingendes, selbstbestimmtes Leben in Einklang mit der Schöpfung  </h1>
+    <p id="anleser" style="padding-bottom: 0;"> Begleiten, bestärken, befähigen und bewahren – unser Ansatz zu einem selbstbestimmten und gelingendem Leben.
       Motiviert von der Liebe Gottes für Mensch und Natur.
     </p>
   </div>
