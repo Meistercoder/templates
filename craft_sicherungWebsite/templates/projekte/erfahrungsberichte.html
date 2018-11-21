@@ -8,7 +8,7 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center" style="padding-top: 9rem; position: relative;">
 
 <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
@@ -52,12 +52,12 @@ function erfahrungenAnpassen () {
 </script>
 
 
-<div class="container zwoelferspaltenlayout" id="erfahrungenDesktop" >
+<div class="container zwoelferspaltenlayout" id="erfahrungenDesktop" style="padding-bottom: 4rem;">
   <div class="card-columns">
   {% set entries = craft.entries.section('erfahrungsberichte').all() %}
   {% if entries | length %}
       {% for entry in entries %}
-      <div class="card bg-white">
+      <div class="card bg-white" style="border:10px solid #f8f5f2;">
         <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
         <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
         src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
@@ -108,10 +108,10 @@ function erfahrungenAnpassen () {
   {% include "_layouts/spendenaufrufmitherz" %}
 
 
-<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 5rem; padding-top: 0;">
 
   <div class="container zwoelferspaltenlayout text-center">
-   <div id="anleser" style="padding-bottom: 3rem;"> Erfahren Sie mehr über unsere Projekte vor Ort </div>
+   <div id="anleser" style="padding-bottom: 5rem;"> Erfahren Sie mehr über unsere Projekte vor Ort </div>
   </div>
 
   {% set entry = craft.entries.section('projekte').slug('projektberichte').one() %}

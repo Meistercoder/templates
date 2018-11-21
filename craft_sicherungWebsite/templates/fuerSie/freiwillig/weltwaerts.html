@@ -9,10 +9,10 @@
 {% block block1 %}
 
 <style>
- .stylevorgaben2 hr {
-   margin-top: -1rem;
-   margin-bottom: 0;
- }
+.stylevorgaben2 hr {
+  margin-top: -1rem;
+  margin-bottom: 0;
+}
 </style>
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
@@ -31,31 +31,33 @@
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;" id="allgemein">
     {% set entry = craft.entries.section('fuerSie').slug('weltwaerts').one() %}
 
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
-      <div id="anleser"> {{ entry.anleser }}</div>
-      </div>
-    </div>
+    <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
+    <div id="anleser"> {{ entry.anleser }}</div>
   </div>
+</div>
 
-<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 4rem;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 5rem; padding-top: 5rem;">
   <div class="container achterspaltenlayout">
 
-        {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-peru').one() %}
-        <img class="img-fluid" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-        <h2 style="padding-top: 2rem;"> {{ entry.title }} </h2>
-        <div id="copy"> {{ entry.anleser }}</div>
+    {% set entry = craft.entries.section('fuerSie').slug('einsaetze-in-peru').one() %}
+    <img class="img-fluid w-100" style="padding-bottom: 0;"  src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+    <h2 style="padding-top: 3rem; padding-bottom: 2rem;"> {{ entry.title }} </h2>
+    <div id="copy"> {{ entry.anleser }}</div>
+    <div id="copy" style="padding-top: 1rem;"> {{ entry.zusatzfeld1 }}</div>
 
     {% set entry = craft.entries.section('fuerSie').slug('weltwaerts').one() %}
-    <div class="text-center" style="padding-top: 8%;">
-    <h2> {{ entry.text }} </h2>
-    <div id="anleser"> {{ entry.zusatzfeld1 }}    </div>
+    <div class="text-center" style="padding-top: 4rem;">
+      <h2 style="padding-bottom: 1rem;"> {{ entry.text }} </h2>
+      <div id="anleser" style="padding-bottom: 0;"> {{ entry.zusatzfeld1 }}    </div>
     </div>
     <div id="copy"> {{ entry.zusatzfeld2 }}    </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout text-center" style="padding-top: 2rem;">
-    <div id="copy" style="padding-bottom: 2rem;"> <hr style="margin-bottom: 1rem;"> Weitere Informationen zum Freiwilligendienst </div>
+  <div class="container zwoelferspaltenlayout text-center" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div id="copy" style="padding-bottom: 2rem;">
+      <hr style="margin-bottom: 4rem;">
+      Weitere Informationen zum Freiwilligendienst
+    </div>
   </div>
 
   {% set entry = craft.entries.section('fuerSie').slug('weitere-einsatzmöglichkeiten-in-peru').one() %}

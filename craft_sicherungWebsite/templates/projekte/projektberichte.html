@@ -8,7 +8,7 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 9rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
@@ -23,12 +23,10 @@
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('projekte').slug('geschichten').one() %}
 
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.zusatzfeld1 }}</div>
       </div>
     </div>
-  </div>
   {% set entries = craft.entries.section('projektberichte').all() %}
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
@@ -51,10 +49,10 @@
       </div>
     </div>
 
-    <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
+    <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 5rem; padding-top: 0;">
 
       <div class="container zwoelferspaltenlayout text-center">
-       <div id="anleser" style="padding-bottom: 3rem;"> Das könnte Sie auch interessieren </div>
+       <div id="anleser" style="padding-bottom: 5rem;"> Das könnte Sie auch interessieren </div>
       </div>
 
       {% set entry = craft.entries.section('spendenfelderUndSo').slug('fuer-sie').one() %}

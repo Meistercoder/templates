@@ -10,9 +10,8 @@
 {% block block1 %}
 
 <style>
-.stylevorgaben2 hr {
-  margin-top: -1rem;
-  margin-bottom: 0;
+ hr {
+  border-width: 2px;
 }
 </style>
 
@@ -30,15 +29,12 @@
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('chance-kommt').one() %}
-
-    <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 2rem;"> {{ entry.text }}  </h1>
       <div id="anleser"> {{ entry.zusatzfeld1 }}</div>
-      </div>
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 2.5rem;">
     <div class="card-deck">
       <div class="row">
 
@@ -63,7 +59,7 @@
     </div> <!-- Die verschiedenen Für-Sie Sektionen als Karten dargestellt -->
 
     {% set entry = craft.entries.section('fuerSie').slug('freundesbrief').one() %}
-    <div class="container-fluid no-padding" style="background-color: #ffffff;">
+    <div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 0; padding-bottom: 2rem;">
       <div class="container zwoelferspaltenlayout">
         <div class="row">
           <div class="col-sm-6">
@@ -105,11 +101,11 @@
     {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
 
     <div class="container zwoelferspaltenlayout text-center">
-      <h2> {{ entry.title }} </h2>
+      <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
       <div id="anleser"> {{ entry.anleser }}  </div>
     </div>
 
-    <div class="container zwoelferspaltenlayout">
+    <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
       {% set entries = entry.children().all() %}
 
     <div class="row">
@@ -125,7 +121,7 @@
     </div>
   </div>  <!-- Ende Container -->
 
-  <div class="container achterspaltenlayout text-center">
+  <div class="container achterspaltenlayout text-center" style="padding-top: 3rem;">
     <div id="anleser"> {{ entry.text }}  </div>
   </div>
 

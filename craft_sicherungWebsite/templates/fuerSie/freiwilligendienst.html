@@ -21,25 +21,21 @@
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('freiwillig-helfen').one() %}
-
-    <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
-      </div>
     </div>
   </div>
 
   {% set entries = entry.children().all() %}
 
-    <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
+    <div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 2.5rem;">
       <div class="card-deck">
         <div class="row">
 
           {% set counter = 0 %}
           {% for entry in entries %}
           {% set counter = counter + 1 %}
-          <div class="col-lg-4 col-md-6" style="padding-bottom: 50px;">
-
+          <div class="col-lg-4 col-md-6" style="padding-bottom: 40px; padding-left: 5px; padding-right: 5px;">
           <div class="card border-light h-100">
             <img class="card-img-top"
             src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">

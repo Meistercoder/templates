@@ -32,14 +32,15 @@
 
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
 
-  <div class="container achterspaltenlayout text-center" style="padding-top: 3rem;">
+  <div class="container achterspaltenlayout text-center" style="padding-top: 3rem; padding-bottom: 1rem;">
     {% set entry = craft.entries.section('projekte').slug('armutsbekämpfung').one() %}
     <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
     <div id="anleser" style="padding-bottom: 0px;"> {{ entry.anleser }}</div>
   </div>
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" style="padding-bottom: 5rem;">
     <div id="copy">    {{ entry.text }}   </div>
+    <div id="copy" style="padding-top: 1rem;">    {{ entry.zusatzfeld1 }}   </div>
   </div>
 
 </div> <!-- Weißer Hintergrundcontainer -->
@@ -64,11 +65,11 @@
 </div> <!-- Container für Carousel -->
 
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
 
-  <div class="container achterspaltenlayout text-center">
+  <div class="container achterspaltenlayout text-center" style="padding-bottom: 0;">
     {% set entry = craft.entries.section('projekte').slug('bildung').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
     <div id="anleser" style="padding-bottom: 0px;"> {{ entry.anleser }}</div>
   </div>
 
@@ -94,11 +95,11 @@
   </div>
 </div> <!-- Container für Carousel -->
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
 
   <div class="container achterspaltenlayout text-center" style="padding-bottom: 0px;">
     {% set entry = craft.entries.section('projekte').slug('engagement').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
     <div id="anleser" style="padding-bottom: 0px;"> {{ entry.anleser }}</div>
   </div>
 
@@ -123,11 +124,11 @@
 </div> <!-- Container für Carousel -->
 
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
 
   <div class="container achterspaltenlayout text-center" style="padding-bottom: 0px;">
     {% set entry = craft.entries.section('projekte').slug('soziales').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
     <div id="anleser" style="padding-bottom: 0px;"> {{ entry.anleser }}</div>
   </div>
 
@@ -153,11 +154,11 @@
   </div>
 </div> <!-- Container für Carousel -->
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
 
   <div class="container achterspaltenlayout text-center" style="padding-bottom: 0px;">
     {% set entry = craft.entries.section('projekte').slug('umwelt-und-naturschutz-1').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
     <div id="anleser" style="padding-bottom: 0px;"> {{ entry.anleser }}</div>
   </div>
 
@@ -217,21 +218,12 @@
 
   <div class="container zwoelferspaltenlayout text-center">
     {% set entry = craft.entries.section('projekte').slug('erfahrungsberichte').one() %}
-    <hr style="height: 1px;">  <div id="anleser"> Erfahren Sie, was die Menschen vor Ort berichten </div>
+    <hr style="height: 1px;">
+    <div id="anleser" style="padding-top: 4rem; padding-bottom: 5rem;"> Erfahren Sie, was die Menschen vor Ort berichten </div>
   </div>
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-      </div>
-      <div class="col-md-8" style="padding-top: 2rem;">
-        <h3> {{ entry.title }} </h3>
-        <div id="copy"> {{ entry.text }}</div>
-      </div>
-    </div>
-  </div> <!-- Weitere Informationen zum Freiwilligendienst -->
-
+{% include '_layouts/weiterleitungkorrekt' %}
+<div style="height: 2.5rem;"> </div>
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
