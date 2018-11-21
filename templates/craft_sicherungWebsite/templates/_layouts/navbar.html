@@ -8,16 +8,24 @@
       padding-right: 1.5rem;
     }
 
+    @media all and (max-width: 1220px) {
+
+      .nav-item {
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
+    }
+
   </style>
 
   <!-- navbar-light links the colors with the background image -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-light" data-toggle="affix" style="padding: 0px; margin-top: -10px;">
 
-    <div class="container zwoelferspaltenlayout" style="padding: 0px;">
+    <div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 0;">
 
       <!-- Chance Logo -->
       <a class="navbar-brand"  href="https://aufbau-website.de/craft/web/">
-        <img src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logo" alt="Logo" width="160" height="120">
+        <img src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logo" alt="Logo" width="160" height="200">
       </a>
 
 

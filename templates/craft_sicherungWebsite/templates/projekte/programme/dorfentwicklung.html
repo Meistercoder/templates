@@ -32,13 +32,13 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
   <div class="container achterspaltenlayout" style="padding-top: 0px; position: relative;">
-    <h1 style="padding-bottom: 30px;"> Dorfentwicklung <br> Chancen für Dörfer  </h1>
+    <h1 style="padding-bottom: 2rem;"> Dorfentwicklung <br> Chancen für Dörfer  </h1>
     <p id="anleser" style="padding-bottom: 0;"> Wir befähigen Dorfgemeinschaften, ihr Schicksal selbst in die Hand zu nehmen. Im Zentrum unseres Ansatzes stehen nicht die Probleme der Gemeinschaft,
       sondern das Potential der Dorfbewohner, das wir konsequent fördern. </p>
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout" style="padding-top: 3rem;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
     <div class="row">
       <div class="col-sm-4">
         {% set entry = craft.entries.section('projekte').slug('motor').one() %}
@@ -65,9 +65,9 @@
 <div class="container achterspaltenlayout" id="video"></div>
 
 
-  <div class="container achterspaltenlayout" id="plan" style="padding-top: 2rem;">
+  <div class="container achterspaltenlayout" id="plan" style="padding-top: 5rem;">
     {% set entry = craft.entries.section('projekte').slug('der-fünf-stufen-plan').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
     <div id="anleser"> {{ entry.anleser }} </div>
 
     {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
@@ -79,7 +79,7 @@
       {% if entries | length %}        {% set counter = 0 %}
 
       {% for entry in entries %} {% set counter = counter + 1 %}
-      <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 2px; margin-bottom: 20px;">
+      <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
         <div class="card-header bg-white">
         <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
           <div class="row">
@@ -111,6 +111,7 @@
         <div id="anleser" style="color: #ffffff;"> {{ entry.anleser }}    </div>
     </div>
 
+
     <div class="container zwoelferspaltenlayout" style="padding:0;">
 
       <div class="row">
@@ -127,18 +128,18 @@
       {% endif %}
 
 <style> /* Einfärben der horizontal ruler in weiß */
-  .stylevorgaben2 hr {
+  hr {
     border-color: white;
     opacity: .5;
   }
 
-.stylevorgaben2 .nav-link.active.tab { /*Die Tabs entsprechend anpassen der beiden Grafiken */
+ .nav-link.active.tab { /*Die Tabs entsprechend anpassen der beiden Grafiken */
       background-color: #f8f5f2;
       color: #0062ae;
       margin: 0;
   }
 
-  .stylevorgaben2 .nav-link.tab {
+   .nav-link.tab {
         color: #0062ae;
         margin: 0;
         font-weight: bold;
@@ -168,10 +169,10 @@
 
 
 <div class="container-fluid no-padding" style="background-color: white;" id="gelingendesLeben">
-  <div class="container achterspaltenlayout text-center" style="padding-bottom: 0;">
+  <div class="container achterspaltenlayout text-center" style="padding-bottom: 0; padding-top: 5rem;">
     {% set entry = craft.entries.section('projekte').slug('gelingendes-leben').one() %}
 
-      <h2> {{ entry.title }} </h2>
+      <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
       <div id="anleser" style="padding-bottom: 3rem;"> {{ entry.text }}    </div>
   </div>
 
@@ -208,18 +209,18 @@
 </div> <!-- Das Wolkenbild mit den Zitaten drin -->
 
 
-<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 1rem;" id="indigen">
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 1rem; padding-top: 5rem" id="indigen">
   <div class="container achterspaltenlayout text-center">
     {% set entry = craft.entries.section('projekte').slug('warum-indigene-gemeinschaften').one() %}
 
-      <h2> {{ entry.title }} </h2>
+      <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
       <div id="anleser"> {{ entry.anleser }}    </div>
     </div>
 
     <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
       <div class="row">
         <div class="col-md-9">  <div id="copy">{{ entry.text }}  </div>  </div>
-        <div class="col-md-3" style="border-left:2px solid #ed6e2c; height: 40%; margin-top: 15px;">
+        <div class="col-md-3" style="border-left:1px solid #ed6e2c; height: 40%; margin-top: 15px;">
               {% set entries = craft.entries.section('projekte').slug('erfahren-sie-mehr-1').one().children().all() %}
               {% set eintrag = random(entries) %}
               <img style="max-height: 100px;" class="rounded-circle" src="{% if eintrag.bild.one() is not null %} {{ eintrag.bild.one().url }}{% endif %}" alt="">
@@ -231,17 +232,20 @@
   </div> <!-- Warum indigene Gemeinschaften -->
 
   <div class="container zwoelferspaltenlayout text-center">
-    <hr style="border:none; height:1px; background-color:grey; margin-bottom: 2rem; margin-top: 1rem;">
+    <hr style="border:none; height:1px; background-color:grey; margin-bottom: 5rem; margin-top: 0;">
 
-     <div id="anleser"> Lernen Sie unsere weiteren Progamme kennen </div>
+     <div id="anleser" style="padding-bottom: 5rem;"> Lernen Sie unsere weiteren Progamme kennen </div>
   </div>
 
   {% set entry = craft.entries.section('projekte').slug('patenschaft').one() %}
   {% include "_layouts/weiterleitungmitzeilenumbruch" %}
 
+  <div style="height: 2.5rem;"></div>
+
   {% set entry = craft.entries.section('projekte').slug('naturschutz').one() %}
   {% include "_layouts/weiterleitungmitzeilenumbruch" %}
 
+  <div style="height: 2.5rem;"></div>
 
 </div>
 

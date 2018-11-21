@@ -8,7 +8,7 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center" style="padding-top: 9rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
@@ -20,7 +20,7 @@
 
   <div class="container achterspaltenlayout" style="position: relative;">
     {% set entry = craft.entries.section('ueberUns').slug('der-verein').one() %}
-    <h1 style="padding-bottom: 30px;"> {{ entry.zusatzfeld1 }}  </h1>
+    <h1 style="padding-bottom: 2rem;"> {{ entry.zusatzfeld1 }}  </h1>
     <div id="anleser">  {{ entry.langerText }} </div>
   </div>
 </div>
@@ -53,7 +53,7 @@
     <div id="anleser"> {{ entry.anleser }} </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 1rem;">
     <div class="card-deck">
       <div class="row">
         {% set entries = craft.entries.section('ueberUns').slug('team').one().children().all() %}
@@ -91,15 +91,15 @@
 
   <div class="container achterspaltenlayout" style="padding-top: 3rem;">
     {% set entry = craft.entries.section('ueberUns').slug('geschichte').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
     <div id="anleser"> {{ entry.anleser }} </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout" style="padding-top: 0">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 2rem;">
     <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
   </div>
 
-  <div class="container achterspaltenlayout text-left" id="copy">
+  <div class="container achterspaltenlayout text-left" id="copy" style="padding-bottom: 5rem;">
     {% set entry = craft.entries.section('ueberUns').slug('erste-kontakte').one() %}
     <h4> {{ entry.title }} </h4>
     <div id="copy"> {{ entry.text }} </div>
@@ -124,7 +124,7 @@ function jsfunction() {
 
   <div class="container-fluid no-padding">
     {% set entry = craft.entries.section('ueberUns').slug('kooperationspartner').one() %}
-    <h2> {{ entry.title }} </h2>
+    <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
   </div>
 
 <div class="container-fluid no-padding">
@@ -137,7 +137,7 @@ function jsfunction() {
     </div>
 
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 7rem;">
+<div class="container zwoelferspaltenlayout" style="padding-top: 5rem;">
   <hr style="height: 2px; padding-top: 2rem;"> <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>
 </div>
 

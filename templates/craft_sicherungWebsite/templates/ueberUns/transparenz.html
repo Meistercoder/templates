@@ -8,7 +8,7 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center no-padding" style="padding-top: 150px; position: relative;">
+<div class="container-fluid text-center no-padding" style="padding-top: 9rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
@@ -19,7 +19,7 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; width: 40%; left: 0px;">
 
 <div class="container achterspaltenlayout" style="position: relative;">
-    <h1 style="padding-bottom: 30px;"> Ihre Spenden kommen an </h1>
+    <h1 style="padding-bottom: 2rem;"> Ihre Spenden kommen an </h1>
     <p id="anleser"> Mit Ihrer Spende verbessern Sie das Leben von Menschen und Gemeinschaften zielgerichtet und effizient. Ihre Hilfe kommt bei den Menschen vor Ort
       an und setzt dort positive Prozesse in Gang, die die Selbstbestimmung, Armutsbekämpfung und nachhaltige Entwicklung fördern. Erfahren Sie mehr
       über unseren Umgang mit Spenden. </p>
@@ -32,20 +32,20 @@
 <div class="container achterspaltenlayout" style="padding-bottom: 0; padding-top: 2rem;">
 
   {% set entry = craft.entries.section('ueberUns').slug('verwaltungskosten').one() %}
-        <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
-        <div id="copy" style="padding-bottom: 2rem;"> {{ entry.text }} </div>
+        <h3 style="padding-bottom: 1rem;">{{ entry.title }}</h3>
+        <div id="copy" style="padding-bottom: 4rem;"> {{ entry.text }} </div>
 
   {% set entry = craft.entries.section('ueberUns').slug('spendensiegel').one() %}
       <div style="padding-left: .8rem;">
-          <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
+          <h3 style="padding-bottom: 1rem;">{{ entry.title }}</h3>
           <div id="copy" style="margin-left: -.8rem;"> {{ entry.anleser }} </div>
           <div id="copy" style="text-indent: -.8rem; margin-top: -1rem;"> {{ entry.text }} </div>
           <div id="copy" style="text-indent: -.8rem; margin-top: -1rem;"> {{ entry.langerText }} </div>
-          <div id="copy" style="padding-bottom: 2rem; text-indent: -.8rem; margin-top: -1rem;"> {{ entry.zusatzfeld1 }} </div>
+          <div id="copy" style="padding-bottom: 4rem; text-indent: -.8rem; margin-top: -1rem;"> {{ entry.zusatzfeld1 }} </div>
         </div>
 
   {% set entry = craft.entries.section('ueberUns').slug('offenheit').one() %}
-        <h3 style="padding-bottom: 2rem;">{{ entry.title }}</h3>
+        <h3 style="padding-bottom: 1rem;">{{ entry.title }}</h3>
         <div id="copy" style="padding-bottom: 2rem;"> {{ entry.text }} </div>
  </div>
 

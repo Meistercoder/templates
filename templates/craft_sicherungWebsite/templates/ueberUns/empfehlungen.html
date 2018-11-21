@@ -35,7 +35,7 @@
   {# If there are any entries, loop through them #}
   {% if entries | length %}
       {% for entry in entries %}
-      <div class="card bg-white">
+      <div class="card bg-white" style="border:10px solid #f8f5f2; ;">
         <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
         <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
         src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
