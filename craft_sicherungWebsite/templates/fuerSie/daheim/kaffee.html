@@ -8,6 +8,12 @@
 
 {% block block1 %}
 
+<style media="screen">
+  h3 {
+    padding-bottom: 1rem;
+  }
+</style>
+
 <nav id="myScrollspy">
   <ul class="nav nav-pills flex-column">
        <li class="nav-item">   <a class="nav-link active" href="#genuss"> </a> <span>Kaffeegenuss</span> </li>
@@ -19,7 +25,7 @@
   </ul>
 </nav>
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
@@ -38,7 +44,7 @@
   </div>
 </div>
 
-<img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+<img class="img-fluid mx-auto d-block" id="headerbild" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
 
 <div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
   <div class="container achterspaltenlayout" style="padding-top: 0;">
@@ -48,14 +54,14 @@
   </div>
 </div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 0;">
 
-  <div class="container achterspaltenlayout">
+  <div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
     <div id="copy"> {{ entry.text }} </div>
   </div>
 
   <div class="container achterspaltenlayout text-center" style="padding-bottom: 0;" id="segen">
-    <h2 style="padding-bottom: 0;"> {{ entry.zusatzfeld2 }} </h2>
+    <h2 style="padding-bottom: .5rem;"> {{ entry.zusatzfeld2 }} </h2>
     <div id="anleser"> {{ entry.zusatzfeld3 }}</div>
   </div>
 
@@ -70,7 +76,7 @@
 
     {% set entry = craft.entries.section('fuerSie').slug('menschen').one() %}
 
-    <div class="container achterspaltenlayout">
+    <div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
       <h3> {{ entry.title }} </h3>
       <div id="copy"> {{ entry.anleser }} </div>
 
@@ -87,14 +93,12 @@
       <div id="copy"> {{ entry.zusatzfeld3 }} </div>
     </div>
 
-    <div class="container-fluid no-padding" style="background-color: white; padding-top: 0px;">
-      <img class="img-fluid mx-auto d-block" style="padding-bottom: 0px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+      <img class="img-fluid mx-auto d-block headerbild" style="padding-bottom: 0px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
       <div class="container achterspaltenlayout">
         <div id="info">
           Abbildung 3: CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=117185
         </div>
       </div>
-    </div> <!-- Ganzseitiges Kaffeebild mit Quelle -->
 
 
     {% set entry = craft.entries.section('fuerSie').slug('klimawandel').one() %}
@@ -109,7 +113,7 @@
     </div>
 
     <div class="container achterspaltenlayout" id="abfall">
-      <h3> {{ entry.zusatzfeld2 }} </h3>
+      <h3 style="padding-bottom: 0;"> {{ entry.zusatzfeld2 }} </h3>
       <div id="copy"> {{ entry.zusatzfeld3 }} </div>
     </div>
 
@@ -121,46 +125,29 @@
 
   </div> <!-- weißer Hintergrundcontainer -->
 
-  <div class="container achterspaltenlayout text-center" style="padding-top:3rem; padding-bottom: 1rem;" id="fazit">
-    <h2> {{ entry.zusatzfeld1 }} </h2>
+  <div class="container achterspaltenlayout text-center" style="padding-top:5rem; padding-bottom: 2rem;" id="fazit">
+    <h2 style="padding-bottom: .5rem;"> {{ entry.zusatzfeld1 }} </h2>
     <div id="anleser"> {{ entry.text }}  </div>
   </div>
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: .5rem;">
+  <div class="container-fluid no-padding" style="background-color: #ffffff; padding: 5rem 0;">
     <div class="container achterspaltenlayout">
       <div id="info"> {{ entry.zusatzfeld2 }}  </div>
     </div>
 
     <div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
-      <hr>
+      <hr style="margin-bottom: 3rem; margin-top: 1rem;">
       <div id="copy" style="padding-bottom: 3rem;"> Was Sie daheim tun können</div>
     </div>
 
     {% set entry = craft.entries.section('fuerSie').slug('consumer-missions').one() %}
-    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 4rem;">
-      <div class="row">
-        <div class="col-md-4">
-          <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-        </div>
-        <div class="col-md-8" style="padding-top: 2rem;">
-          <h3> {{ entry.title }} </h3>
-          <div id="copy"> {{ entry.anleser }}</div>
-        </div>
-      </div>
-    </div> <!-- Weitere Informationen für sie daheim -->
+    {% include '_layouts/weiterleitungkorrekt' %}
+
+    <div style="padding-bottom: 3rem;"> </div>
 
     {% set entry = craft.entries.section('fuerSie').slug('baeume-fuer-kenia').one() %}
-    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 4rem;">
-      <div class="row">
-        <div class="col-md-4">
-          <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-        </div>
-        <div class="col-md-8" style="padding-top: 2rem;">
-          <h3> {{ entry.title }} </h3>
-          <div id="copy"> {{ entry.anleser }}</div>
-        </div>
-      </div>
-    </div> <!-- Weitere Informationen für sie daheim -->
+    {% include '_layouts/weiterleitungkorrekt' %}
+
 
   </div>
 

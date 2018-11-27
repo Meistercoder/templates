@@ -55,6 +55,10 @@
   object-fit: cover;
   object-position: 50% 0; /* positioned top left of the content box */
 }
+.headerbild { /*Damit die Bilder nicht oben abgeschnitten werden bei großen BIldschirmen */
+  object-fit: cover;
+  object-position: 50% 0; /* positioned top left of the content box */
+}
 
 .spendenaufruf {
   padding-top: 2rem;
@@ -93,6 +97,10 @@
     padding-right: 2rem;
     }
 }
+
+/* a::after { Einfuegen des Pfeils nach jedem Link
+    content: " >";
+}*/
 
 .achterspaltenlayout {
   max-width: 760px;

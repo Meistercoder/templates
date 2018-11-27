@@ -23,21 +23,18 @@
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('erfahrungsberichte').one() %}
-
-    <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 2rem;"> {{ entry.zusatzfeld1 }}  </h1>
-      </div>
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 4.25rem;"> <!-- Wegen dem unteren Rand der Karten von .75 rem -->
 
     <div class="card-columns">
 
   {% set entries = craft.entries.section('freiwilligenberichte').all() %}
     {% if entries | length %}
         {% for entry in entries %}
-        <div class="card bg-white">
+        <div class="card bg-white" style="border:5px solid #f8f5f2;">
           <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
           <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
           src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
@@ -59,12 +56,13 @@
 <div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
 
     <div class="container zwoelferspaltenlayout text-center" style="margin-top: 0;">
-     <div id="anleser" style="padding-bottom: 3rem;"> Weitere Informationen zum Freiwilligendienst </div>
+     <div id="anleser" style="padding-bottom: 4rem;"> Weitere Informationen zum Freiwilligendienst </div>
     </div>
 
     {% set entry = craft.entries.section('fuerSie').slug('deine-bewerbung').one() %}
     {% include '_layouts/weiterleitungkorrekt' %}
-    <div style="padding-bottom: 4rem;"></div>
+
+    <div style="padding-bottom: 5rem;"></div>
 
   </div>
 

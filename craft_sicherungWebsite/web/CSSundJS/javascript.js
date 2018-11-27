@@ -17,7 +17,7 @@ $( document ).ready(function() {
 $(window).resize(function(){
   navlinksAnpassen();
   WelleAnpassen();
-  kindAnpassen(); 
+  kindAnpassen();
 });
 
 function rechteckNavbarVerkleinern () {
@@ -34,10 +34,13 @@ function headerbilderAnpassen () { //Bei Headerbildern die Größe anpassen
   var height = window.innerHeight * 0.3;
   console.log(height);
   if (height > 300) {
+    $('.headerbild').css('height', height); //Falls mehr als ein Headerbild auf der Seite ist
     $('#headerbild').css('height', height);
   } else {
+    $('.headerbild').css('height', 300);
     $('#headerbild').css('height', 300);
   }
+  $('.headerbild').css('width', '100%');
   $('#headerbild').css('width', '100%');
 }
 

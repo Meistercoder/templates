@@ -9,9 +9,10 @@
 {% block block1 %}
 
 <style>
-.stylevorgaben2 hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+ hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-width: 2px;
 }
 </style>
 
@@ -30,11 +31,11 @@
     {% set entry = craft.entries.section('fuerSie').slug('zitate').one() %}
 
       <h1 style="padding-bottom: .5rem;"> {{ entry.zusatzfeld1 }}  </h1>
-      <div id="anleser" style="padding-bottom: 4rem;"> {{ entry.text }}</div>
+      <div id="anleser"> {{ entry.text }}</div>
     </div>
 </div>
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+  <div class="container-fluid no-padding" style="background-color: #ffffff; padding: 5rem 0;">
     <div class="container achterspaltenlayout text-center">
       {% set entries = entry.children().all() %}
 
@@ -44,26 +45,13 @@
      {% endfor %}
 
     </div>
-  </div> <!-- weißer Hintergrundcontainer -->
 
-  <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
     <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
     <hr> <br> <p id="anleser" class="text-center"> Wofür wir uns einsetzen </p>
     </div>
 
     {% set entry = craft.entries.section('projekte').slug('themen').one() %}
-
-    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-      </div>
-      <div class="col-md-8" style="padding-top: 2rem;">
-        <h3> {{ entry.title }} </h3>
-        <div id="copy"> {{ entry.text }}</div>
-      </div>
-    </div>
-  </div> <!-- Weiterleitung zu Zitate -->
+    {% include '_layouts/weiterleitungkorrekt' %}
 
 
   </div> <!-- Weißer Hintergrundcontainer -->

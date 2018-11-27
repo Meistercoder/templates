@@ -46,32 +46,26 @@ hr {
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;" id="nachfolge">
     {% set entry = craft.entries.section('fuerSie').slug('gerechtigkeit-consumer').one() %}
 
-    <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
-    </div>
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-color: #ffffff;">
-  <div class="container achterspaltenlayout">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
+  <div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
     <div id="copy"> {{ entry.text }} </div>
   </div>
 
-  <div class="container achterspaltenlayout" id="verantwortlich">
+  <div class="container achterspaltenlayout" id="verantwortlich" style="padding-bottom: 5rem;">
     {% set entry = craft.entries.section('fuerSie').slug('verantwortlicher-konsum').one() %}
-    <h3> {{ entry.title }} </h3>
+    <h3 style="padding-bottom: 1rem;"> {{ entry.title }} </h3>
     <div id="copy"> {{ entry.anleser }}  </div>
-    <h3 id="konsum"> {{ entry.zusatzfeld1 }} </h3>
+
+    <h3 id="konsum" style="padding-top:4rem; padding-bottom: 1rem;"> {{ entry.zusatzfeld1 }} </h3>
     <div id="copy"> {{ entry.text }}  </div>
   </div>
 </div>
 
-
-<div class="container zwoelferspaltenlayout text-center">
-  {% set entry = craft.entries.section('fuerSie').slug('wuerde-jesus').one() %}
-  <h3> {{ entry.title }} </h3>
-</div>
 
 {% include '_layouts/codeschnipsel/karussellmitjs' %}
 
@@ -88,7 +82,9 @@ hr {
 }
 </style>
 
-<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
+<div class="container zwoelferspaltenlayout text-center" style="padding-top: 0; padding-bottom: 5rem;">
+  {% set entry = craft.entries.section('fuerSie').slug('wuerde-jesus').one() %}
+  <h2 style="padding-top: 5rem;"> {{ entry.title }} </h2>
 
   <div class="karussell">
 
@@ -101,21 +97,21 @@ hr {
     {% endfor %}
   </div>
 
-  <div id="info"> {{ entry.anleser }}  </div>
+  <div id="info" style="padding-top: 5rem;"> {{ entry.anleser }}  </div>
 </div> <!-- Würde Jesus -> durcklickbare Fragen und Container für karussell -->
 
-<div class="cotainer-fluid no-padding" style="background-color: #ffffff;" id="jesus">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem; padding-bottom: 2rem;" id="jesus">
   {% set entry = craft.entries.section('fuerSie').slug('jesus-vorbild').one() %}
 
   <div class="container achterspaltenlayout">
-    <h3> {{ entry.title }} </h3>
+    <h3 style="padding-bottom: 1rem;"> {{ entry.title }} </h3>
     <div id="copy"> {{ entry.anleser }}  </div>
   </div>
 </div> <!-- weißer Hintergrundcontainer -->
 
-<div class="container zwoelferspaltenlayout" style="padding-bottom: 2rem;" id="mitmachen">
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 5rem;" id="mitmachen">
   <div class="text-center">
-    <h2> {{ entry.zusatzfeld1 }} </h2>
+    <h2 style="padding-bottom: 0;"> {{ entry.zusatzfeld1 }} </h2>
     <div id="anleser"> {{ entry.text }}  </div>
   </div>
 
@@ -130,37 +126,18 @@ hr {
 
 </div> <!-- zwoelferspaltenlayout container -->
 
-<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
+<div class="container-fluid no-padding" style="background-color: white; padding: 5rem 0rem;">
 
-  <p id="anleser" class="text-center"> Was sie daheim tun können </p>
+  <p id="anleser" class="text-center" style="padding-bottom: 5rem;"> Was sie daheim tun können </p>
 
   {% set entry = craft.entries.section('fuerSie').slug('kaffee-unsere-tägliche-chance').one() %}
+  {% include '_layouts/weiterleitungkorrekt' %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-      </div>
-      <div class="col-md-8" style="padding-top: 2rem;">
-        <h3> {{ entry.title }} </h3>
-        <div id="copy"> {{ entry.anleser }}</div>
-      </div>
-    </div>
-  </div> <!-- Weitere Informationen zum Kaffee -->
+  <div style="padding-bottom: 3rem;">  </div>
 
   {% set entry = craft.entries.section('fuerSie').slug('baeume-fuer-kenia').one() %}
+  {% include '_layouts/weiterleitungkorrekt' %}
 
-  <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px; margin-top: 3rem;">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-      </div>
-      <div class="col-md-8" style="padding-top: 2rem;">
-        <h3> {{ entry.title }} </h3>
-        <div id="copy"> {{ entry.anleser }}</div>
-      </div>
-    </div>
-  </div> <!-- Baeume fuer Kenia -->
 
 </div> <!-- Weißer Hintergrundcontainer -->
 

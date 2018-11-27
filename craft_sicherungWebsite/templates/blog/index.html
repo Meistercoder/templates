@@ -21,10 +21,8 @@
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('spendenfelderUndSo').slug('blog-ueberschrift').one() %}
 
-    <div style="padding-bottom:3rem; ">
       <h1 style="padding-bottom: 2rem;"> {{ entry.text }}  </h1>
       <div id="anleser"> {{ entry.textfeld }}  </div>
-    </div>
   </div>
 </div>
 
@@ -38,7 +36,7 @@
       <div class="col-sm-8">
         {% for entry in entries %}
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
-        <img class="img-fluid"src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 1rem;">
+        <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 1rem;">
         </a>
         <div id="info"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - {%if entry.blogKategorie.one() is not null %} in <a href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a> {% endif %}
         {%if entry.blogKategorie.inReverse().one() is not null %} und <a href="{{ entry.blogKategorie.inReverse().one().url }}">{{ entry.blogKategorie.inReverse().one().title }}</a> {% endif %}</div>
@@ -50,18 +48,37 @@
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> Weiterlesen</a> </div>
         {% set counter = counter + 1 %}
         {% endfor %}
-        <button type="button" class="btn btn-primary mx-auto d-block" onclick="mehrLadenAjax()"> Weitere Beiträge laden</button>
         <div id="div1">  </div>
+        <button type="button" class="btn btn-primary mx-auto d-block" onclick="mehrLadenAjax()"> Weitere Beiträge laden</button>
       </div> <!-- Kurzansicht der Einträge mit Bild -->
 
 
 <script>
-var counter = 3;
+{% set entries = craft.entries.section('blog').level('1').offset(3) %}
+
 function mehrLadenAjax() {
 
+  var eintraege = [];
+
+  {% for entry in entries %} //Alle Zitate werden in ein Feld kopiert aus Craft
+    var eintrag = { slug: "{{entry.slug}}", kategorie: "{{entry.blogKategorie.one().title}}", title: "{{entry.title}}", anleser: "{{entry.anleser}}", bild: "{{entry.bild.one().url}}"};
+    eintraege.push(eintrag);
+  {% endfor %}
+
+  var durchlaeufe = 0;
+  if (eintraege.length > 3) { durchlaeufe = 3;  } else { durchlaeufe = eintraege.length }
+
+  for (i = 0; i < durchlaeufe; i++) {
+    $("#div1").append("<img src=" + eintraege[i].bild + "> </img>");
+    $("#div1").append("<h2>" + eintraege[i].title + "</h2>");
+    $("#div1").append("<p>" + eintraege[i].anleser + "</p>");
+    //$("#div1").html("<img src=" + eintraege[i].bild + "> </img>");
+}
+for (i = 0; i < durchlaeufe; i++) { //Loeschen des ersten Elementes
+  eintraege.shift();
+}
+
   $("#div1").load("../templates/blog/demo_test.html h2");
-  counter ++;
-  console.log(counter);
 }
 
 </script>

@@ -22,37 +22,23 @@
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('wissenswertes').one() %}
 
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
-      </div>
     </div>
   </div>
 
-  <div class="container-fluid no-padding" style="background-color: #ffffff;">
+  <div class="container-fluid no-padding" style="background-color: #ffffff; padding: 5rem 0;">
     <div class="container achterspaltenlayout">
      <div id="copy"> {{ entry.text }} </div>
     </div>
-  </div> <!-- weißer Hintergrundcontainer -->
 
-  <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
     <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
-    <hr> <br> <p id="anleser" class="text-center"> Lust auf inspirierende Zitate? </p>
+    <hr style="margin-top: 5rem; margin-bottom: 2rem;">
+    <p id="anleser" class="text-center"> Lust auf inspirierende Zitate? </p>
     </div>
 
-    {% set entry = craft.entries.section('fuerSie').slug('zitate').one() %}
-
-    <div class="zwoelferspaltenlayout container" style="background-color: #f8f5f2; padding-top: 0px;">
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
-      </div>
-      <div class="col-md-8" style="padding-top: 2rem;">
-        <h3> {{ entry.title }} </h3>
-        <div id="copy"> {{ entry.anleser }}</div>
-      </div>
-    </div>
-  </div> <!-- Weiterleitung zu Zitate -->
+    {% set entry = craft.entries.section('fuerSie').slug('zitate-1').one() %}
+    {% include '_layouts/weiterleitungkorrekt' %}
 
 
   </div> <!-- Weißer Hintergrundcontainer -->
