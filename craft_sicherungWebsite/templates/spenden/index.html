@@ -12,7 +12,7 @@
 
 </div>
 
-  <img class="img-fluid w-100" src=" {{ craft.assets.filename('chance-spenden-header.jpg').one().getUrl() }} ">
+  <img class="img-fluid" id="headerbild" src=" {{ craft.assets.filename('chance-spenden-header.jpg').one().getUrl() }} ">
 
 {% endblock %}
 
@@ -43,10 +43,10 @@
   </nav>
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; padding-bottom: 5rem; position: relative;">
     {% set entry = craft.entries.section('spenden').slug('spende').one() %}
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }} </h1>
-      <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}  </div>
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }} </h1>
+      <div id="anleser"> {{ entry.anleser }}  </div>
       <a href="https://aufbau-website.de/craft/web/spenden/jetztspenden.html" class="btn btn-primary" role="button">Jetzt Spenden</a>
     </div>
   </div>
@@ -69,14 +69,14 @@
     </div>
 </div> <!-- container-fluid von jetzt pate werden -->
 
-    <div class="container achterspaltenlayout text-center" style="padding-top: 3rem;">
+    <div class="container achterspaltenlayout text-center" style="padding-top: 5rem;">
         {% set entry = craft.entries.section('spenden').slug('eine-spende').one() %}
-        <h2> {{ entry.title }} </h2>
+        <h2 style="padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
         <div id="copy"> {{ entry.anleser }}</div>
 
         {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
 
-        <div id="accordion">
+        <div id="accordion" style="padding-top: 3rem;">
           {% set entries = entry.children().all() %}
           {% if entries | length %}        {% set counter = 0 %}
           {% for entry in entries %} {% set counter = counter + 1 %}
@@ -107,10 +107,10 @@
 
 
 
-<div class="container achterspaltenlayout" style="padding-top: 2rem;">
+<div class="container achterspaltenlayout" style="padding-top: 2rem; padding-bottom: 5rem;">
   {% set entry = craft.entries.section('spenden').slug('spendenmultiplikator').one() %}
-  <div class="text-center">
-    <h2> {{ entry.title }} </h2>
+  <div class="text-center" style="padding-bottom: 2rem;">
+    <h2 style="padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
     <div id="copy"> {{ entry.anleser }}  </div>
   </div>
     <div class="card-deck">

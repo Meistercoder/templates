@@ -8,6 +8,12 @@
 
 {% block block1 %}
 
+<style media="screen">
+  p {
+    margin-bottom: 0;
+  }
+</style>
+
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
@@ -21,7 +27,7 @@
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
 
-    <div style="padding-bottom:3rem; ">
+    <div style="padding-bottom:.5rem; ">
       <h1 style="padding-bottom: 2rem;"> Neuigkeiten aus unseren Projekten und Arbeiten in {{ category }}  </h1>
     </div>
   </div>
@@ -29,7 +35,7 @@
 
 {% set counter = 0 %}
 
-<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 2rem;">
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 0;">
 
   <div class="container zwoelferspaltenlayout" style="background-color: padding-bottom: 3rem;">
     <div class="row">
@@ -43,7 +49,7 @@
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
         <h2 style="padding-bottom: 0;"> {{ entry.title}}</h2>
         </a>
-        <div id="copy" style="padding-top: 1rem; padding-bottom: 2.5rem;"> {{ entry.anleser }}
+        <div id="copy" style="padding-top: 0; padding-bottom: 5rem;"> {{ entry.anleser }}
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> Weiterlesen</a> </div>
         {% set counter = counter + 1 %}
         {% endfor %}

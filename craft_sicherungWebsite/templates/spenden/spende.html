@@ -2,27 +2,24 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
-
-  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;  z-index: -999;">
-
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; padding-bottom: 3rem; position: relative;">
 
   <div class="container achterspaltenlayout" style="padding-top:0px; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
 
-    <div style="padding-bottom:50px; ">
-      <h1 style="padding-bottom: 30px;"> {{ entry.title }}  </h1>
+    <div style="padding-bottom:3rem; ">
+      <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
     </div>
   </div>
 </div>
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 30px; background-repeat: no-repeat; background-color: white;" id="eingabeFelder">
+<div class="container-fluid no-padding" style="padding-top: 5rem; padding-bottom: 5rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat;">
 
-  <div class="container zwoelferspaltenlayout" style="background-color: #ffffff; padding-bottom: 2rem;" id="copy">
+  <div class="container" style="background-color: white; width: 61vw; padding: 4rem 2rem;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
-    <h2> {{ entry.anleser }} </h2>
+    <h2 style="padding-bottom: 1.5rem;"> {{ entry.anleser }} </h2>
     <div id="copy"> {{ entry.text }}</div>
 
     <div class="custom-control custom-checkbox">
