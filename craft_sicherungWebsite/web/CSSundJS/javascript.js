@@ -12,6 +12,7 @@ $( document ).ready(function() {
     akkordionIconsAnpassen();
     scrollspyPosition();
     headerbilderAnpassen();
+    activeElementAnpassenNavbar();
 });
 
 $(window).resize(function(){
@@ -150,6 +151,28 @@ function kindAnpassen () { //Von der Spendenbox
     $("#kind").css("position", "absolute");
     $("#kind").css("max-height", "100%"); /*Position des Kindes absolut setzen */
     $("#kind").css("padding-bottom", "0"); /*Position des Kindes absolut setzen */
+}
+}
+
+function activeElementAnpassenNavbar () {
+
+var url = window.location.href
+console.log(url)
+
+if(url.includes("ueberUns")) {
+  $("#ueberUns").addClass("active");
+} else if(url.includes("projekte")) {
+  $("#projekte").addClass("active");
+} else if(url.includes("spenden")) {
+  $("#spenden").addClass("active");
+} else if(url.includes("fuerSie")) {
+  $("#fuerSie").addClass("active");
+} else if(url.includes("blog")) {
+  $("#blog").addClass("active");
+} else if(url.includes("kontakt")) {
+  $("#kontakt").addClass("active");
+} else {
+  $("#home").addClass("active");
 }
 }
 

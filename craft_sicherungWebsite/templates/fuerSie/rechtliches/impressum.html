@@ -1,0 +1,43 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('schenken-und-spenden').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
+{% block block1 %}
+
+<style media="screen">
+  p {  margin-bottom: .25rem; }
+  h4 {  margin-bottom: 0;
+        margin-top: 2rem; }
+  h3 {  margin-bottom: 0;
+        margin-top: 4rem; }
+
+</style>
+
+<div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 7rem; position: relative;">
+
+  <nav aria-label="breadcrumb" id="info" style="padding-top: 4rem;">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">Impressum</a></li>
+    </ol>
+  </nav>
+
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="z-index: -50; position: absolute; left:0; width: 40%;">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
+    <h1 style="padding-bottom: 2rem;"> Impressum </h1>
+  </div>
+</div>
+
+<div class="container-fluid no-padding" style="padding-top: 0; padding-bottom: 3rem; background-color: white;">
+  {% set entry = craft.entries.section('spendenfelderUndSo').slug('impressum').one() %}
+  <div class="container zwoelferspaltenlayout" id="copy">
+    {{ entry.text }}
+  </div>
+</div>
+
+
+{% endblock %}
+{# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

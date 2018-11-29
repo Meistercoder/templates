@@ -9,6 +9,9 @@
  dass sie rechts von dem Vatermenü sind */
   /* Block-Boxen nehmen die gesamte Breite des Elternelementes ein */
 }
+.navbar-light .navbar-nav .nav-link.active {
+  color: #0062ae;
+}
 .navbarCSSNeu .rectangle {
   height: 70px;
   background-color: #f8f5f2;

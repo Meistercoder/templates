@@ -176,7 +176,7 @@ h4 {
   font-family: 'source_sans_prosemibold';
 }
 
-#naviUeberschrift {
+.navbar-light .navbar-nav .nav-link  {
   font-size: 16px;
   line-height: 22px;
   color: #333333;
