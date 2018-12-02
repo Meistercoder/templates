@@ -12,7 +12,7 @@
   margin-top: -30px;
 }
 #collapsibleNavbar {
-  margin-top: -68px;
+  margin-top: -48px;
 }
 
 .navbar-brand {
@@ -36,12 +36,16 @@
 }
 
 .pfeil {
-  border:solid 10px transparent;
-  border-bottom-color:blue;
-  display: none;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  padding-left: 50px;
+  margin-left: 20%;
+  visibility: hidden;
 }
 .nav-item:hover > .pfeil {
-  display: block;
+  visibility: visible;
 }
 
 .dropdown-item {

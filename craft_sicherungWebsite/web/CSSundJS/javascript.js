@@ -24,7 +24,7 @@ $(window).resize(function(){
 function rechteckNavbarVerkleinern () {
   if ($(document).scrollTop() > 50) {
       document.getElementById('rechteck').style.height = '58px';
-      document.getElementById('collapsibleNavbar').style.marginTop = '-102px'; //For eg
+      document.getElementById('collapsibleNavbar').style.marginTop = '-82px';
 /* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen
 davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so
 verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
@@ -58,7 +58,6 @@ function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird
    }
  }
 }
-
 
 function scrollspyPosition () { //Den Scrollspy an die passende Position setzen beim draufklicken, also bisschen tiefer als sonst
   var offset = 60;
