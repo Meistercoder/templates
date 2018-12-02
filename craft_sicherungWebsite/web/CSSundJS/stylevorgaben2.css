@@ -176,19 +176,6 @@ h4 {
   font-family: 'source_sans_prosemibold';
 }
 
-.navbar-light .navbar-nav .nav-link  {
-  font-size: 16px;
-  line-height: 22px;
-  color: #333333;
-  font-family: 'source_sans_probold';
-}
-
-#naviSubmenu{
-  font-size: 16px;
-  line-height: 22px;
-  color: #333333;
-  font-family: 'source_sans_proregular';
-}
 
 .btn-primary { /*Anpassen der Buttons */
   background-color: #0062ae;

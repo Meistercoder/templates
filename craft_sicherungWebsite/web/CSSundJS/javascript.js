@@ -23,8 +23,8 @@ $(window).resize(function(){
 
 function rechteckNavbarVerkleinern () {
   if ($(document).scrollTop() > 50) {
-      document.getElementById('rechteck').style.height = '50px';
-      document.getElementById('collapsibleNavbar').style.marginTop = '-58px'; //For eg
+      document.getElementById('rechteck').style.height = '58px';
+      document.getElementById('collapsibleNavbar').style.marginTop = '-102px'; //For eg
 /* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen
 davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so
 verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
