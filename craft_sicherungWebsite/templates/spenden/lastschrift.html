@@ -1,0 +1,87 @@
+
+{% extends "_layouts/layoutHome.html" %}
+
+{% block titelfuerseo %}
+{% set entry = craft.entries.section('suchmaschinenoptimierung').slug('schenken-und-spenden').one() %}
+{{ entry.titelfeldFuerJens }}
+{% endblock %}
+
+{% block block1 %}
+
+<style media="screen">
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #f8f5f2;
+}
+
+    </style>
+
+    <div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 7rem; position: relative;">
+
+      <nav aria-label="breadcrumb" id="info" style="padding-top: 4rem;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Lastschrift-Termine</a></li>
+        </ol>
+      </nav>
+
+      <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="z-index: -50; position: absolute; left:0; width: 40%;">
+      <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
+        <h1 style="padding-bottom: 2rem;"> SEPA-Lastschrift-Termine </h1>
+      </div>
+    </div>
+
+    <div class="container-fluid no-padding" style="padding-top: 0; padding-bottom: 5rem; background-color: white;">
+      <div class="container zwoelferspaltenlayout" id="copy">
+
+        <div style="padding-bottom: 2rem;">
+          <h4> Chance e.V. zieht alle Lastschriften seit der Umstellung des europäischen Zahlungsverkehrs auf den SEPA-Standard jeweils zu folgenden Terminen ein: </h4>
+        </div>
+
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>Monatliche Einzüge zum Ersten</td>
+              <td>am ersten Bankarbeitstag des Monats</td>
+            </tr>
+            <tr>
+              <td>Monatliche Einzüge zum Fünfzehnten</td>
+              <td>am Fünfzehnten oder am ersten Bankarbeitstag nach dem Fünfzehnten</td>
+            </tr>
+            <tr>
+              <td>Quartalseinzüge	</td>
+              <td>am 01.01. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.01. </div> <br>
+                am 01.04. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.04. </div> <br>
+                am 01.07. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.07. </div> <br>
+                am 01.10. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.10. </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Halbjahreseinzüge	</td>
+              <td>am 01.01. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.01. </div> <br>
+                am 01.07. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.07. </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Jahreseinzüge	</td>
+              <td>am 01.01. <br>
+                <div id="info">oder am ersten Bankarbeitstag nach dem 01.01. </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style=" padding-top: 3rem;">
+          Den genauen Einzugstermin einmaliger Lastschriften stimmen wir individuell ab. Jede SEPA-Lastschrift hat eine so genannte Mandatsreferenz. Diese entspricht immer der persönlichen Spendernummer. Zu finden ist sie als zweiter Bestandteil des in der Lastschrift angegebenen Verwendungszwecks nach dem Querstrich, z.B. XXXX/001.
+        </div>
+
+      </div>
+    </div>
+
+
+    {% endblock %}
+    {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

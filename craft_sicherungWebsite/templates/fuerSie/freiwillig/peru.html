@@ -13,6 +13,10 @@
    margin-top: -1rem;
    margin-bottom: 0;
  }
+ #allgemeineInfos hr {
+   margin-top: -.5rem;
+   margin-bottom: .5rem;
+ }
 </style>
 
 <nav id="myScrollspy">
@@ -48,7 +52,7 @@
     </div>
   </div>
 
-<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;" id="allgemeineInfos">
   <div class="container achterspaltenlayout">
     <div class="text-center"> <h2 style="padding-bottom: 2rem;"> {{ entry.zusatzfeld1 }} </h2> </div>
       <div id="copy">    {{ entry.zusatzfeld3 }}  </div>
@@ -122,12 +126,12 @@
   <!-- Hintergrundbild des gesamten Teams -->
 
   <div class="container achterspaltenlayout" style="padding-top: 3rem;" id="vielfalt">
-    <h2 class="text-center" style="padding-bottom: 1rem;"> {{ entry.title }} </h2>
+    <h2 class="text-center" style="padding-bottom: 1rem;"> {{ entry.zusatzfeld1 }} </h2>
     <div id="copy"> {{ entry.text}}</div>
   </div>
 
   <div class="container achterspaltenlayout" style="padding-top: 2rem;" id="chance">
-    <h2 class="text-center" style="padding-bottom: 1rem;"> {{ entry.title }} </h2>
+    <h2 class="text-center" style="padding-bottom: 1rem;"> {{ entry.zusatzfeld2 }} </h2>
     <div id="copy"> {{ entry.zusatzfeld3}}</div>
   </div>
 
@@ -143,7 +147,7 @@
   </div>
 
   <div class="container zwoelferspaltenlayout text-center" style="margin-top: 0; padding-top: 3rem;">
-    <hr style="margin-bottom: 2rem; border-width: 2px">
+    <hr style="margin-bottom: 2rem; border-width: 1px">
    <div id="anleser" style="padding-bottom: 5rem;"> Weitere Informationen zum Freiwilligendienst </div>
   </div>
 

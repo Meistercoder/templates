@@ -12,6 +12,30 @@
     </div>
   </div>
 </div>
+<!--Styleanweisungen für das Modal -->
+<style media="screen">
+  #myModal h2 {
+    padding-bottom: 1rem;
+  }
+  #myModal h4 {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal body -->
+      <div class="modal-body" style="padding: 2rem;">
+        {% set entry = craft.entries.section('spendenfelderUndSo').slug('lastschrift').one() %}
+        {{ entry.text }}
+        <div id="info"> {{ entry.textfeld }} </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
 
@@ -24,7 +48,8 @@
 
     <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="zahlungsermaechtigung" name="Ermaechtigung" required>
-      <label class="custom-control-label" for="zahlungsermaechtigung">{{ entry.zusatzfeld1 }} </label>
+      <label class="custom-control-label" for="zahlungsermaechtigung"> <p>Hiermit ermächtige(n) ich/wir Chance e.V. Zahlungen von meinem/unserem Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/wir mein/unser Kreditinstitut an, die von Chance e.V. auf mein/unser Konto gezogenen Lastschriften einzulösen. <br> Hier können Sie die <a href="#myModal" data-toggle="modal" data-target="#myModal">Termine der Einzüge unserer SEPA-Lastschriften</a> einsehen.</p>
+ </label>
     </div>
     <p id="fehlermeldungErmaechtigung"> </p>
 
@@ -151,7 +176,7 @@
 
     <div class="custom-control custom-checkbox">
       <input type="checkbox" class="custom-control-input" id="datenschutz" name="datenschutz" required>
-      <label class="custom-control-label" for="datenschutz">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert (Infos zum Datenschutz)
+      <label class="custom-control-label" for="datenschutz">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert <a href="https://aufbau-website.de/craft/web/fuerSie/rechtliches/datenschutz">(Infos zum Datenschutz)</a>
         und diese nicht an Dritte weiter gibt.</label>
       </div>
       <p id="fehlermeldungDatenschutz"> </p>
@@ -334,7 +359,8 @@
 
       }
 
-      function myFunction() {
+
+      function myFunction() { //Ueberpruefen, ob alle Felder korekkt ausgefüllt sind
         var allesKorrekt = true;
         $(".fehlermeldung").remove(); //Entfernen aller Fehldermeldungen
         //Formvalidierung
