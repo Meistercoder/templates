@@ -94,8 +94,8 @@ if (eintraege.length == 0) {
 
       <div class="col-sm-4">
         <div id="copy" style="background-color: #f8f5f2; padding: 1.5rem; margin-bottom: 1.5rem;">
-          <h4 style="margin-bottom: 0;"> E-Mail-Abo <h4>
-            <p id="copy"> Um neue Beiträge per E-Mail zu erhalten, hier die E-Mail-Adresse eingeben. </p>
+          <h4 style="margin-bottom: 0;"> Abonnieren Sie den Chance-Blog <h4>
+            <p id="copy"> Um neue Blogbeiträge per E-Mail zu erhalten, hier die E-Mail-Adresse eingeben. </p>
               {% macro errorList(errors) %}
               {% if errors %}
               <ul class="errors">
@@ -108,12 +108,12 @@ if (eintraege.length == 0) {
 
               {% from _self import errorList %}
 
-              <form class="form-inline" method="post" action="" accept-charset="UTF-8">
+              <form class="form-inline" method="post" action="" accept-charset="UTF-8" style="padding-top: 1rem;">
                 {{ csrfInput() }}
                 <input type="hidden" name="action" value="contact-form/send">
                 {{ redirectInput('kontakt/danke') }}
 
-                <input id="from-email" required class="form-control" type="email" style="background-color: white; margin-right: 1rem; padding-right: 3rem; margin-bottom: 1rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
+                <input id="from-email" required class="form-control" type="email" style="background-color: white; margin-right: 1rem; padding-right: 3rem; margin-bottom: .5rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
                 {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
                 <input type="submit" value="Anmelden" class="btn btn-primary">
 

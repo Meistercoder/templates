@@ -36,8 +36,8 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0;">
-  <hr> <div id="copy" class="text-center" style="padding-bottom: 3rem; padding-top: 1rem;"> Weitere Erfahrungsberichte  </div>
+<div class="container zwoelferspaltenlayout" style="padding-top: 2rem; padding-bottom: 4.5rem;">
+  <hr> <div id="copy" class="text-center" style="padding-bottom: 3rem; padding-top: 4rem;"> Weitere Erfahrungsberichte  </div>
 
   {% set aktuellerTitle = entry.slug %}
 
@@ -70,21 +70,9 @@
   </div>
 </div>
 
-{% set entry = craft.entries.section('spendenfelderUndSo').slug('paten-dringend-gesucht').one() %}
+{% include '_layouts/codeschnipsel/spendenaufrufkindrund' %}
 
-<div class="container-fluid no-padding"  style="padding-top: 30px; padding-bottom: 30px; background-image: url({{ entry.bild.one().url }});">
-  <div class="row">
-    <div class="col-sm-2">  </div>
-    <div class="col-lg-2 col-md-3 col-sm-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding:0;"> </div>
-    <div class="col-sm-1">  </div>
-    <div class="col-sm-6" style="padding-left: 2rem; padding-right: 2rem;">
-      <h4 style="color: white;"> {{ entry.title }} </h4>
-      <div id="copy" style="color: white;"> {{ entry.text }}</div>
-    </div>
-  </div>
-</div> <!-- Der orange Berg mit dem Spendenaufruf -->
-
-<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 3rem;">
+<div class="container-fluid no-padding" style="background-color: #ffffff; padding-bottom: 5rem; padding-top: 0;">
 
   <div class="container zwoelferspaltenlayout text-center">
    <div id="anleser" style="padding-bottom: 3rem;"> Erfahren Sie mehr über unsere Projekte vor Ort </div>
