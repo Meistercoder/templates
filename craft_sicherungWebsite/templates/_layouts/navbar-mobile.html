@@ -176,22 +176,22 @@
 .navbarMobilgeraet .item input:checked ~ ul {
   display: block;
 }
-.navbarMobilgeraet .arrow { /*Anordnen der Pfeile */
+.navbarMobilgeraet .arrow, .pfeilUnterebene, .pfeilErsteUnterebene { /*Anordnen der Pfeile */
   width: 20px;
   height: 20px;
   vertical-align: middle;
   float: left;
   z-index: 0;
+  transform: translateY(50%); /* Die Pfeil in der ersten Ebene richtig setzen */
 }
 
 .navbarMobilgeraet .pfeilUnterebene { /*Anordnen der Unterpfeil */
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  float: left;
-  padding-top: 1rem;
-  padding-left: 3rem;
-  padding-bottom: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.navbarMobilgeraet .pfeilErsteUnterebene {
+  float: right;
 }
 
 .navbarMobilgeraet .item input + .arrow {
@@ -254,22 +254,29 @@
   border-top-width: 1px;
   border-top-color: #e3d7cb;
 }
-.navbarMobilgeraet .arrow { /* Die Pfeil in der ersten Ebene richtig setzen */
-  transform: translateY(50%);
-}
-
-.navbarMobilgeraet .pfeilErsteUnterebene {
-  transform: translateY(50%);
-  width: 20px;
-  height: 20px;
-  float: right;
-}
 
 .navbarMobilgeraet .nichtklickbareUeberschriften {
   line-height: 45px;
   color: #9b9b9b;
   font-family: 'source_sans_prolight';
 }
+#fuerSieFreiwilligendienst ul, /*Padding der beiden untermenus setzen */
+#fuerSie ul {
+  padding: 0 2rem;"
+}
+
+#gurkigerText {
+  position: absolute;
+  left: 82%;
+  top: 19%;
+}
+@media all and (max-width: 820px){
+  #gurkigerText {
+    left: 70%;
+  }
+}
+
+
 </style>
 
 <div class="navbarMobilgeraet">
@@ -283,7 +290,8 @@
   </a>
 
   <input type="checkbox" id="menu"/> <!-- Hamburger Menu, das nach unten klappt -->
-  <label for="menu" id="nav-icon"><img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; padding-top: 1rem;" src=" {{ entry.bild3.one().url }} "> </label>
+  <!--<div id="gurkigerText">Menü </div> -->
+  <label for="menu" id="nav-icon"><img id="hamburgerMobile" style="max-width: 32px; max-height: 32px; margin-top: .4rem;" src=" {{ entry.bild3.one().url }} "> </label>
 
 
   <div class="multi-level" style="width: 100vw; height: 100vh;">
@@ -402,7 +410,7 @@
 
     <div id="fuerSieFreiwilligendienst" style="display: none;">
       <input type="checkbox" id="D-A1"/>
-      <label for="D-A1" style="display: inline;">   <img src=" {{ entry.bild2.one().url }} " class="pfeilUnterebene">  </label>
+      <label for="D-A1" style="display: inline;">   <img src="https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-left.png" class="pfeilUnterebene">  </label>
       <br clear="all" /> <!-- Einen rabiaten Zeileumbruch am Ende -->
       <ul>
         <li> Freiwilligendienst </li> <hr>

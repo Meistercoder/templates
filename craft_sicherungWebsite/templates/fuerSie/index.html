@@ -28,7 +28,7 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
-    {% set entry = craft.entries.section('fuerSie').slug('chance-kommt').one() %}
+    {% set entry = craft.entries.section('fuerSie').slug('chancekommt').one() %}
       <h1 style="padding-bottom: 2rem;"> {{ entry.text }}  </h1>
       <div id="anleser"> {{ entry.zusatzfeld1 }}</div>
     </div>
@@ -44,7 +44,9 @@
         {% set counter = counter + 1 %}
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 40px; padding-left: 5px; padding-right: 5px;">
         <div class="card border-light h-100">
+          <a href="{{'https://aufbau-website.de/craft/web/fuerSie/' ~ entry.slug}}">
           <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+        </a>
           <div class="card-body">
               <h3>{{ entry.title }}</h3>
               <div id="copy"> {{ entry.anleser }} </div>

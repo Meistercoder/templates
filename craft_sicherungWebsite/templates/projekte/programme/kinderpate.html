@@ -117,7 +117,7 @@
 
 {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
 
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid"  style="background-image: url({{ entry.bild.one().url }});">
   <div class="row">
     <div class="col-lg-1 col-md-0">  </div>
     <div class="col-lg-4 col-md-5" style="position: relative; min-height: 150px;">   <img class="mx-auto d-block" id="kind" style="max-width: 100%; bottom: 0; left: 0; " src="{{ entry.bild.inReverse().one().url }}"> </div>
