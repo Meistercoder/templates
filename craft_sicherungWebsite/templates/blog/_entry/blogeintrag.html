@@ -13,6 +13,21 @@
 
 {% block block1 %}
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+ <script>
+ $(function(){
+ $('.bxslider').bxSlider({
+   mode: 'fade',
+   captions: true,
+   slideWidth: 1000,
+   adaptiveHeight: true
+ });
+});
+   </script>
+
 <div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
@@ -30,27 +45,21 @@
 </div>
 
 <div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
-<div class="container achterspaltenlayout" style="padding: 0;">
+<div class="container achterspaltenlayout">
   <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" style="padding-bottom: 0; margin-top:-7rem; position: relative;">
-
   <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}  </div>
+</div>
 
-<section class="gallery-block compact-gallery">
-    <div class="container">
-
-        <div class="row no-gutters">
+  <div class="container zwoelferspaltenlayout" style="padding: 3rem 0;"> <!-- Der Slider mit den verschiedenen Bildern -->
           {% set bilder = entry.bild.all() %}
+          <div class="bxslider">
           {% for bild in bilder %}
-            <div class="col-md-6 col-lg-4 item zoom-on-hover" style="padding: .25rem; background-color: white;">
-                <a class="lightbox" href=" {{ bild.url }}">
-                    <img class="img-fluid image" style="padding-bottom: 0;" src="{{ bild.url }}">
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+          <div>  <img src="{{bild.url}}" title="{{bild.title}}"> </div>
+          {% endfor %}
+          </div>
+  </div>
 
+<div class="container achterspaltenlayout">
 <h3>Mit Anderen Teilen </h3>
 {% set bilder = craft.entries.section('spendenfelderUndSo').slug('logosfbtwitteremail').one() %}
 <a class="teilen" style="padding-left: 0;" target="_blank" href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
@@ -97,12 +106,6 @@
 
 </div> <!-- Weißer Hintergrund-container -->
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-<script>
-    baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
-</script>
-
 <style> /* Die Styles für die animierten Bilder */
 .teilen {
     padding: 0 1rem;
@@ -111,85 +114,5 @@
   display: inline-block;
   line-height: 20px;
 }
-
-.gallery-block{
-  padding-bottom: 60px;
-  padding-top: 60px;
-}
-
-.gallery-block .heading{
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.gallery-block .heading h2{
-    font-weight: bold;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-}
-
-.gallery-block.compact-gallery .item{
-  overflow: hidden;
-  margin-bottom: 0;
-  background: black;
-  opacity: 1;
-}
-
-.gallery-block.compact-gallery .item .image{
-  transition: 0.8s ease;
-}
-
-.gallery-block.compact-gallery .item .info{
-  position: relative;
-    display: inline-block;
-}
-
-.gallery-block.compact-gallery .item .description{
-  display: grid;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: #fff;
-    padding: 10px;
-    font-size: 17px;
-    line-height: 18px;
-    width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    opacity: 1;
-    color: #fff;
-    transition: 0.8s ease;
-    text-align: center;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.39));
-}
-
-.gallery-block.compact-gallery .item .description .description-heading{
-  font-size: 1em;
-  font-weight: bold;
-}
-
-.gallery-block.compact-gallery .item .description .description-body{
-  font-size: 0.8em;
-  margin-top: 10px;
-  font-weight: 300;
-}
-
-@media (min-width: 576px) {
-
-  .gallery-block.compact-gallery .item .description {
-    opacity: 0;
-  }
-
-  .gallery-block.compact-gallery .item a:hover .description {
-    opacity: 1;
-  }
-
-  .gallery-block .zoom-on-hover:hover .image {
-    transform: scale(1.3);
-    opacity: 0.7;
-  }
-}
-
 </style>
 {% endblock %}
