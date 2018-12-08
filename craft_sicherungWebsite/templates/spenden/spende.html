@@ -39,9 +39,9 @@
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
 
-<div class="container-fluid no-padding" style="padding-top: 5rem; padding-bottom: 5rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat;">
+<div class="container-fluid no-padding" id="eingabeFelder" style="padding: 5rem 2rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat;">
 
-  <div class="container" style="background-color: white; width: 61vw; padding: 4rem 2rem;">
+  <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 4rem 2rem;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
     <h2 style="padding-bottom: 1.5rem;"> {{ entry.anleser }} </h2>
     <div id="copy"> {{ entry.text }}</div>
@@ -52,7 +52,6 @@
  </label>
     </div>
     <p id="fehlermeldungErmaechtigung"> </p>
-
 
     <p> Intervall: </p>
 
@@ -189,15 +188,10 @@
           vor Ort informiert. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org</label>
         </div>
 
-        <div class="row">
-          <div class="col-10"> </div>
-          <div class="col-2">
-            <button onclick="myFunction()" class="btn btn-primary">Weiter</button>
-          </div>
-        </div>
+            <button onclick="myFunction()" class="btn btn-primary float-right">Weiter</button>
 
       </div>
-    </div> <!-- Hintergrundcontainer -->
+    </div> <!-- Hintergrundcontainer für Eingabe der Daten -->
 
     <div class="container-fluid no-padding" id="Kontrollansicht" style="display: none;">
 
@@ -253,13 +247,12 @@
           <textarea rows="5" cols="30" class="form-control" id="message" name="message[Kommentar]"> </textarea>
         </div>
 
-        <div class="container zwoelferspaltenlayout">
-          <h2> Auftrag prüfen und absenden</h2>
+        <div class="container zwoelferspaltenlayout" style="padding-bottom: 5rem;">  <!-- Der Container wo der Text automatisch reingerendert wird -->
+
+          <h2 style="padding-bottom: 1.5rem;"> Auftrag prüfen und absenden</h2>
           <p id="copy"> Ich/wir ermächtige(n) Chance e.V. Zahlungen von meinem/unserem Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/ wir mein/unser Kreditinstitut an,
             die von Chance e.V. auf mein/unser Konto gezogenen Lastschriften einzulösen. </p>
-          </div>
 
-          <div class="container zwoelferspaltenlayout" id="copy" style="padding-bottom: 2rem;"> <!-- Der Container wo der Text automatisch reingerendert wird -->
             <div class="row" style="padding-bottom: 2rem;">
               <div class="col-3"> Kontoinhaber   </div> <div class="col-9">  <span id="inhaberK"></span>  </div>
 
@@ -308,54 +301,66 @@
 
       function pdfErstellen() { //Automatisches Erstellen eines PDFs mit den gerade eingegebenen Daten
         var doc = new jsPDF();
+        var bild = 'data:image/png;base64,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'
+
+        doc.addImage(bild, 'PNG', 90, 0, 30, 30)
 
         doc.setFont("times");
         doc.setFontType("normal");
-        doc.text(105, 20, 'Lastschriftmandat', null, null, 'center');
 
-        doc.text(20, 40, 'Kontoinhaber');
-        doc.text(120, 40, $('#inhaberCraft').val());
+        doc.text(20, 35, 'Zurück an: \nChance e.V. \nLütticher Str. 51 \n50674 Köln')
 
-        doc.text(20, 50, 'Straße, Hausnummer');
-        doc.text(120, 50, $('#adresse').val());
+        doc.text(105, 65, 'Lastschriftmandat', null, null, 'center');
 
-        doc.text(20, 50, 'Straße, Hausnummer');
-        doc.text(120, 50, $('#adresse').val());
+        var text = 'Ich/wir ermächtige(n) Chance e.V. Zahlungen von meinem/unserem Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/wir mein/unser Kreditinstitut an, die von Chance e.V. auf mein/unser Konto gezogenen Lastschriften einzulösen.';
+        var strArr = doc.splitTextToSize(text, 150);
+        doc.text(strArr, 20, 70);
 
-        doc.text(20, 60, 'PLZ, ORT');
-        doc.text(120, 60, $('#plz').val());
+        doc.text(20, 100, 'Kontoinhaber');
+        doc.text(120, 100, $('#inhaberCraft').val());
 
-        doc.text(20, 70, 'E-Mail');
-        doc.text(120, 70, $('#email').val());
+        doc.text(20, 110, 'Straße, Hausnummer');
+        doc.text(120, 110, $('#adresse').val());
 
-        doc.text(20, 80, 'Betrag');
-        doc.text(120, 80, $('#betrag').val());
+        doc.text(20, 120, 'Straße, Hausnummer');
+        doc.text(120, 120, $('#adresse').val());
 
-        doc.text(20, 90, 'Verwendungszweck');
-        doc.text(120, 90, $('#sel1').val());
+        doc.text(20, 130, 'PLZ, ORT');
+        doc.text(120, 130, $('#plz').val());
 
-        doc.text(20, 100, 'Intervall');
-        doc.text(120, 100, $('.intervall:checked').val());
+        doc.text(20, 140, 'E-Mail');
+        doc.text(120, 140, $('#email').val());
 
-        doc.text(20, 110, 'IBAN');
-        doc.text(120, 110, $('#iban').val());
+        doc.text(20, 150, 'Betrag');
+        doc.text(120, 150, $('#betrag').val());
 
-        doc.text(20, 120, 'BIC');
-        doc.text(120, 120, $('#bic').val());
+        doc.text(20, 160, 'Verwendungszweck');
+        doc.text(120, 160, $('#sel1').val());
+
+        doc.text(20, 170, 'Intervall');
+        doc.text(120, 170, $('.intervall:checked').val());
+
+        doc.text(20, 180, 'IBAN');
+        doc.text(120, 180, $('#iban').val());
+
+        doc.text(20, 190, 'BIC');
+        doc.text(120, 190, $('#bic').val());
 
 
-        doc.text(20, 150, 'Ich/wir ermächtige(n) Chance e.V. Zahlungen von meinem/unserem');
-        doc.text(20, 160, 'Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/wir mein/unser');
-        doc.text(20,170, 'Kreditinstitut an, die von Chance e.V. auf mein/unser Konto gezogenen')
-        doc.text(20, 180, 'Lastschriften einzulösen.');
 
         doc.text(20, 200, '-------------------------------------');
         doc.text(20, 205, 'Datum, Ort');
 
         doc.text(120, 200, '------------------------------------');
-        doc.text(120, 205, 'Unterschrift');
+        doc.text(120, 205, 'Unterschrift(en)');
 
-        doc.save('a4.pdf')
+
+        doc.setFontSize(10)
+        text = 'Hinweis: Ich kann/Wir können innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem/unserem Kreditinstitut vereinbarten Bedingungen.Chance e.V. speichert Ihre Daten sicher und gibt diese nicht an Dritte weiter. Spender erhalten 1mal im Monat per E-Mail und 2-3mal im Jahr per Brief Informationen. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org';
+        var strArr = doc.splitTextToSize(text, 100);
+        doc.text(strArr, 20, 220);
+
+        doc.save('Lastschriftmandat.pdf')
 
       }
 

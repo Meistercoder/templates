@@ -30,7 +30,7 @@
 </div>
 
 <div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
-<div class="container achterspaltenlayout" style="padding-top: 0;;">
+<div class="container achterspaltenlayout" style="padding: 0;">
   <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" style="padding-bottom: 0; margin-top:-7rem; position: relative;">
 
   <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}  </div>
@@ -52,6 +52,21 @@
 </section>
 
 <h3>Mit Anderen Teilen </h3>
+{% set bilder = craft.entries.section('spendenfelderUndSo').slug('logosfbtwitteremail').one() %}
+<a class="teilen" style="padding-left: 0;" target="_blank" href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+  <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild.one().url }}">
+  <div>Facebook</div>
+</a>
+
+<a class="teilen" target="_blank" href="{{ 'https://twitter.com/home?status=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+  <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild2.one().url }}">
+  <div> Twitter </div>
+</a>
+
+<a class="teilen" href="mailto:?subject=Interessanter Artikel&body={{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+  <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild3.one().url }}">
+  <div> Email </div>
+</a>
 </div> <!-- Achterspaltenlayout - Container -->
 
 <div class="container zwoelferspaltenlayout" id="copy" style="padding-bottom: 3rem;">
@@ -89,6 +104,14 @@
 </script>
 
 <style> /* Die Styles für die animierten Bilder */
+.teilen {
+    padding: 0 1rem;
+}
+.teilen div {
+  display: inline-block;
+  line-height: 20px;
+}
+
 .gallery-block{
   padding-bottom: 60px;
   padding-top: 60px;

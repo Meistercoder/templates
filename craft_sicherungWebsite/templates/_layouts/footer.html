@@ -150,9 +150,11 @@
 
 
               <!-- Der letzte Teil des Footers -->
-              <div class="row" id="info" style="padding-bottom: 20px;">
+              <div class="row" id="info" style="padding-bottom: 20px; line-height: 25px;">
                 {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer').one() %}
-                        {{ entry.text}}
+                        {{ entry.text}} <!-- Das col-layout ist in craft gespeichert -->
+
+                        <div class="col-sm-1"> <a target="_blank" href="https://www.facebook.com/chanceinternational/"> <img class="img-fluid float-right" style="height: 25px; padding-bottom: 0;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}"> </a> </div>
               </div>
 
             </div> <!-- Normaler Container -->
@@ -163,16 +165,17 @@
               <span >
               {% set entry = craft.entries.section('spendenfelderUndSo').slug('footer-mobile').one() %}
               {{ entry.text }}
-              <hr>
+              <hr style="margin: 1rem 0">
               <h4 style="margin-bottom: 0;"> Spendenkonto </h4>
               {{ entry.textfeld }}
               </span>
 
-              <hr>
+              <hr style="margin: 1rem 0">
 
               <div class="row" id="info" style="padding-bottom: 20px;">
 
                         {{ entry.zusatzfeld1}}
+                        <div class="col-sm-12" style="padding-top: 2rem;"> <a target="_blank" href="https://www.facebook.com/chanceinternational/"> <img class="img-fluid float-right" style="height: 25px; padding-bottom: 0;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}"> </a> </div>
               </div>
             </div> <!-- Footer für Mobilgeräte -->
 

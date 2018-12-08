@@ -9,9 +9,9 @@
 {% block block1 %}
 
 <style media="screen">
-  h2 {
-    padding-bottom: 1.5rem;
-  }
+h2 {
+  padding-bottom: 1.5rem;
+}
 </style>
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; padding-bottom: 3rem;">
@@ -31,16 +31,16 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="padding-top: 5rem; padding-bottom: 5rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat;">
-  <div class="container" style="background-color: white; width: 61vw; padding-top: 5rem; padding-left: 0; padding-right: 0;">
+<div class="container-fluid no-padding" style="padding: 5rem 2rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat;">
+  <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 4rem 2rem;">
 
     {% set entry = craft.entries.section('spenden').slug('einkaufen-und-spenden').one() %}
-    <div id="copy" style="padding-left: 3rem; padding-right: 3rem;"> {{ entry.anleser }}</div>
-
-    <div id="copy" style="padding: 3rem;"> {{ entry.zusatzfeld1 }} </div>
-
+    <div id="copy"> {{ entry.anleser }}</div>
+  </div>
+  
+  <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 0;">
     <img style="padding: 0;" class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken2">
-</div>
+  </div>
 </div>
 
 
