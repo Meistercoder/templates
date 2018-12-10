@@ -11,7 +11,7 @@
 
 <style>
  hr {
-  border-width: 2px;
+  border-width: 1px;
 }
 </style>
 
@@ -128,7 +128,7 @@
   </div>
 
   {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
-  <div class="container-fluid no-padding"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
+  <div class="container-fluid"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
     <div class="row">
       <div class="col-md-1">  </div>
       <div class="col-md-2">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding-bottom: 10px;"> </div>
@@ -136,7 +136,7 @@
       <div class="col-md-7" style="padding-left: 30px;">
         <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
         <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-        <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button">Jetzt Spenden</a>
+        <a href="https://aufbau-website.de/craft/web/spenden/spende.html" class="btn btn-primary" role="button">Jetzt Spenden</a>
       </div>
     </div>
   </div> <!-- Der orange Berg mit dem Spendenaufruf -->

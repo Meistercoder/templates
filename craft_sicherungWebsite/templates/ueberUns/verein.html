@@ -120,14 +120,14 @@ function jsfunction() {
 {% include "_layouts/spendenaufrufmitherz" %}
 
 
-<div class="container-fluid no-padding text-center" style="background-color: #ffffff; padding-bottom: 3rem;">
+<div class="container-fluid no-padding text-center" style="background-color: #ffffff; padding-bottom: 5rem;">
 
   <div class="container-fluid no-padding">
     {% set entry = craft.entries.section('ueberUns').slug('kooperationspartner').one() %}
     <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
   </div>
 
-<div class="container-fluid no-padding">
+<div class="container-fluid" style="padding: 0 4px;">
     {% set entries = entry.children().all() %} {% set counter = 0 %}
         {% for entry in entries %} {% set counter = counter + 1 %}
         <a href="{{ entry.reinertext }}" style="margin-right: -.25rem;">

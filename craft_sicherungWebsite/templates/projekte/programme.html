@@ -45,7 +45,9 @@
           <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 40px;">
 
           <div class="card border-light h-100" style="margin: 0 5px;">
+            <a href="{{'https://aufbau-website.de/craft/web/projekte/programme/' ~ entry.slug }}">
             <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+            </a>
             <div class="card-body">
                 <h3>{{ entry.anleser }}</h3>
                 <div id="copy"> {{ entry.text }} </div>

@@ -36,8 +36,10 @@
         {% for entry in entries %}
         <div class="card bg-white" style="border:5px solid #f8f5f2;">
           <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
+            <a href="{{ 'https://aufbau-website.de/craft/web/freiwilligenberichte/' ~ entry.slug }}">
           <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
           src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
+            </a>
         </div>
           <div class="card-body" style="padding-top: 3rem;">
             <p class="card-text">
@@ -59,7 +61,7 @@
      <div id="anleser" style="padding-bottom: 4rem;"> Weitere Informationen zum Freiwilligendienst </div>
     </div>
 
-    {% set entry = craft.entries.section('fuerSie').slug('deine-bewerbung').one() %}
+    {% set entry = craft.entries.section('fuerSie').slug('bewerbung-1').one() %}
     {% include '_layouts/weiterleitungkorrekt' %}
 
     <div style="padding-bottom: 5rem;"></div>

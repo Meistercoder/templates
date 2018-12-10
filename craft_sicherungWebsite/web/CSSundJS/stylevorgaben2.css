@@ -210,70 +210,110 @@ h4 {
   #video { /* Video-Box ausblenden */
     display: none;
   }
-  #myScrollspy {
-    display: none;
-  }
   h1 {
-    font-size: 80%;
-    line-height: 80%;
+    font-size: 41.6px;
+    line-height: 48px;
   }
   h2 {
-    font-size: 80%;
-    line-height: 80%;
+    font-size: 32px;
+    line-height: 36.8px;
   }
   h3 {
-    font-size: 85%;
-    line-height: 85%;
+    font-size: 20.4px;
+    line-height: 23.8px;
   }
   h4 {
-    font-size: 90%;
-    line-height: 90%;
+    font-size: 16.2px;
+    line-height: 25.2px;
   }
   #anleser {
-    font-size: 90%;
-    line-height: 90%;
+    font-size: 21.6px
+    line-height: 30.6px;
+
   }
   #copy {
-    font-size: 90%;
-    line-height: 90%;
+    font-size: 16.2px;
+    line-height: 25.2px;
+  }
+  a {
+    font-size: 16.2px;
+    line-height: 25.2px;
+  }
+  #info {
+    font-size: 12.6px;
+    line-height: 18px;
+  }
+  #zitat {
+    font-size: 18px;
+    line-height: 25.2px;
+  }
+  #autor {
+    font-size: 14.4px;
+    line-height: 16.2px;
   }
   .btn-primary {
-    font-size: 90%;
-    line-height: 90%;
+    font-size: 16.2px;
+    line-height: 25.2px;
   }
 }
 
 @media all and (max-width: 768px) {
+  html {
+    font-size: 60%;
+}
   #video { /* Video-Box ausblenden */
     display: none;
   }
   #myScrollspy {
     display: none;
   }
-
-  {
-    font-size: 10px;
-  }
   h1 {
-    font-size: 31px;
+    font-size: 31.2px;
     line-height: 36px;
   }
   h2 {
     font-size: 24px;
-    line-height: 27px;
+    line-height: 27.6px;
+  }
+  h3 {
+    font-size: 16.8px;
+    line-height: 23.8px;
+  }
+  h4 {
+    font-size: 14.4px;
+    line-height: 22.4px;
   }
   #anleser {
-    font-size: 19px;
-    line-height: 27px;
+    font-size: 19.2px;
+    line-height: 27.2px;
   }
   #copy {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 14.4px;
+    line-height: 22.4px;
+  }
+  #copy {
+    font-size: 14.4px;
+    line-height: 22.4px;
+  }
+  #info {
+    font-size: 11.2px;
+    line-height: 16px;
+  }
+  #zitat {
+    font-size: 16px;
+    line-height: 22.4px;
+  }
+  #autor {
+    font-size: 12.8px;
+    line-height: 14.4px;
   }
   .btn-primary {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 14.4px;
+    line-height: 22.4px;
   }
+  #emailAnmelden { /*Anpassen der Buttons */
+    margin-top: 1rem;
+}
 }
 
 .bg-white {
@@ -422,4 +462,17 @@ a p { /*Einfärben aller Links in paragraphen*/
   position: fixed;
   top: 15rem;
   z-index: 1;
+}
+
+@media all and (max-width: 768px) {
+  #myScrollspy span {
+    display: block;
+  }
+  #myScrollspy a {
+    all: initial;
+    text-align: center;
+  }
+  #myScrollspy {
+    all: initial;
+  }
 }

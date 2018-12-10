@@ -8,17 +8,6 @@
 
 
 {% block block1 %}
-
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-       <li class="nav-item">   <a class="nav-link active" href="#start"> </a> <span>Dorfentwicklung</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#plan"></a> <span> Fünf-Stufen-Plan </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#ziel"></a> <span>Starke Dörfer</span>  </li>
-       <li class="nav-item">   <a class="nav-link active" href="#gelingendesLeben"></a> <span>Gelingendes Leben</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#indigen"></a> <span>Indigene Gemeinschaften </span>  </li>
-  </ul>
-</nav>
-
 <div class="container-fluid text-center" style="padding-top: 9rem; position: relative;" id="start">
 
   <nav aria-label="breadcrumb" id="info">
@@ -31,16 +20,26 @@
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-  <div class="container achterspaltenlayout" style="padding-top: 0px; position: relative;">
+  <div class="container achterspaltenlayout text-center" style="padding-top: 0px; position: relative;">
     <h1 style="padding-bottom: 2rem;"> Dorfentwicklung <br> Chancen für Dörfer  </h1>
     <p id="anleser" style="padding-bottom: 0;"> Wir befähigen Dorfgemeinschaften, ihr Schicksal selbst in die Hand zu nehmen. Im Zentrum unseres Ansatzes stehen nicht die Probleme der Gemeinschaft,
       sondern das Potential der Dorfbewohner, das wir konsequent fördern. </p>
-    </div>
+  </div>
+
+  <nav id="myScrollspy">
+    <ul class="nav nav-pills flex-column">
+         <li class="nav-item">   <a class="nav-link active" href="#start"> <span>Dorfentwicklung</span> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#plan"> <span> Fünf-Stufen-Plan </span> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#ziel"> <span>Starke Dörfer</span> </a> </li>
+         <li class="nav-item">   <a class="nav-link active" href="#gelingendesLeben"> <span>Gelingendes Leben</span> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#indigen"><span>Indigene Gemeinschaften </span> </a> </li>
+    </ul>
+  </nav>
   </div>
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         {% set entry = craft.entries.section('projekte').slug('motor').one() %}
         <h4> {{ entry.title}} </h4>
         <div id="copy"> {{ entry.text}} </div>
@@ -104,10 +103,10 @@
 
   </div> <!-- Accordion - Div -->
 
-  <div class="container-fluid no-padding" style="background-color: #9EAC50" id="ziel">
+  <div class="container-fluid" style="padding-top: 5rem; background-color: #9EAC50" id="ziel">
     <div class="container achterspaltenlayout text-center">
       {% set entry = craft.entries.section('projekte').slug('das-ziel-starke-dörfer').one() %}
-        <h2 style="color: #ffffff;"> {{ entry.title }} </h2>
+        <h2 style="color: #ffffff; padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
         <div id="anleser" style="color: #ffffff;"> {{ entry.anleser }}    </div>
     </div>
 
@@ -162,7 +161,7 @@
     <div class="col-md-7" style="padding-left: 30px;">
       <h4 style="color: white;"> {{ entry.title }} </h4>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
-      <a href="https://aufbau-website.de/craft/web/spenden/projektbezogen/verschiedenetabs/dorfpate.html" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate werden </strong></a>
+      <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Peru" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate werden </strong></a>
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->
@@ -237,7 +236,7 @@
      <div id="anleser" style="padding-bottom: 5rem;"> Lernen Sie unsere weiteren Progamme kennen </div>
   </div>
 
-  {% set entry = craft.entries.section('projekte').slug('patenschaft').one() %}
+  {% set entry = craft.entries.section('projekte').slug('kinderpate').one() %}
   {% include "_layouts/weiterleitungmitzeilenumbruch" %}
 
   <div style="height: 2.5rem;"></div>

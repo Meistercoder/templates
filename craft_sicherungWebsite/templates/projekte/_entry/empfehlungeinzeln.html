@@ -25,7 +25,7 @@
   <h1> {{ entry.title }} </h1>
   <span id="anleser"> <strong> {{ entry.beruf }}</strong> </span>
     <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}</div>
-    <div id="copy">
+    <div id="copy" style="padding-top: 1rem;">
       {% if entry.bild2.one() is not null %} <strong> {{ entry.text }} </strong> {% endif %}
     </div>
   </div>
@@ -56,7 +56,9 @@
             <div class="row">
               <div class="col-4" style="text-align: center; white-space: nowrap;">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span> <!-- Helperspan für vertical alignment in der Mitte -->
+                 <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}">
                   <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+                </a>
                 </div>
                 <div class="col-8">
                   <div class="card-body" style="padding: 0; padding-right: 1rem;">

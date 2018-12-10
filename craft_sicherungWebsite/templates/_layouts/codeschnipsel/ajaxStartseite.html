@@ -35,7 +35,7 @@ function mehrLadenAjax() {
     var link = "https://aufbau-website.de/craft/web/projekte/projektberichte/" + eintraege[i].slug;
     button = "Projektbericht";
   }
-    $("#vorschau").append("<div class=\"col-md-4\" style=\"padding: 20px 15px;\"> <div class=\"card border-light h-100\"> <a href=\"" + link  + "\"> <img class=\"card-img-top\" src=" + eintraege[i].bild + "> <button class=\"btn btn-primary reiter\" role=\"button\">" + button + "</button> </a> <div class=\"card-body\" style=\"padding-top: 0;\"> <h3>" + eintraege[i].title + "</h3> <div id=\"copy\">" + eintraege[i].anleser + "</div> <a href=\"" + link  + "\"> Weiterlesen</a> </div> </div>");
+    $("#vorschau").append("<div class=\"col-md-4\" style=\"padding: 20px 15px;\"> <div class=\"card border-light h-100\"> <a href=\"" + link  + "\"> <img class=\"card-img-top\" src=" + eintraege[i].bild + "> <button class=\"btn btn-primary reiter\" role=\"button\">" + button + "</button> </a> <div class=\"card-body\" style=\"padding-top: 0;\"> <h3>" + eintraege[i].title + "</h3> <div id=\"copy\">" + eintraege[i].anleser + "<a href=\"" + link  + "\"> Weiterlesen > </a> </div> </div> </div>");
 }
 for (i = 0; i < durchlaeufe; i++) { //Loeschen der ersten drei angezeigten Elemente
   eintraege.shift();

@@ -7,26 +7,30 @@
 {% endblock %}
 
 {% block headerZusatz %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-
+<link rel="stylesheet" type="text/css" href="https://aufbau-website.de/craft/web/CSSundJS/gallery/css/strip.css"/>
 {% endblock %}
 
 {% block block1 %}
+<script type="text/javascript" src="https://aufbau-website.de/craft/web/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
- <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
 
- <script>
- $(function(){
- $('.bxslider').bxSlider({
-   mode: 'fade',
-   captions: true,
-   slideWidth: 1000,
-   adaptiveHeight: true
- });
-});
-   </script>
+/*Strip.setDefaultSkin('custom');
+$(function() {
+  $.extend(Strip.Skins, {
+    'custom': {
+      loop: false,
+    }
+  });
+}); /*Anpassen der Funktionen möglich */
+</script>
+
+<style media="screen">
+.thumbnail img {
+  max-height: 257.77px;
+  width: 100%;
+}
+</style>
 
 <div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
 
@@ -50,13 +54,19 @@
   <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}  </div>
 </div>
 
-  <div class="container zwoelferspaltenlayout" style="padding: 3rem 0;"> <!-- Der Slider mit den verschiedenen Bildern -->
-          {% set bilder = entry.bild.all() %}
-          <div class="bxslider">
-          {% for bild in bilder %}
-          <div>  <img src="{{bild.url}}" title="{{bild.title}}"> </div>
+  <div class="container zwoelferspaltenlayout" style="padding-top: 3rem; padding-bottom: 5rem;"> <!-- Der Slider mit den verschiedenen Bildern -->
+          {% set bilder = entry.bild.all() %} {% set counter = 0 %}
+          <div class="row">
+          {% for bild in bilder %} {% set counter = counter + 1 %}
+          {% if counter < 7 %} <div class="col-4" style="padding: 0;"> {% endif %}
+          {% if counter >= 7 %} <div class="col-4" style="display: none;"> {% endif %}
+            <a href="{{bild.url}}" class="strip thumbnail" hideOnClickOutside: false data-strip-group="mygroup">
+            <img src="{{bild.url}}" class="img-fluid" style="padding-bottom: 0;">
+           </a>
+         </div>
           {% endfor %}
-          </div>
+        </div>
+
   </div>
 
 <div class="container achterspaltenlayout">
@@ -107,6 +117,9 @@
 </div> <!-- Weißer Hintergrund-container -->
 
 <style> /* Die Styles für die animierten Bilder */
+.bx-wrapper {
+  margin: 0 auto;
+}
 .teilen {
     padding: 0 1rem;
 }

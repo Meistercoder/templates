@@ -30,6 +30,9 @@
   color: white;
   font-family: 'source_sans_probold';
 }
+h3 p {
+  margin-bottom: 0;
+}
 .navbar-light .navbar-nav .nav-link.active { color: white; }
 </style>
 
@@ -53,7 +56,7 @@
 
 
 
-  <div class="container-fluid" style="background-image: url({{ entry.bild.one().url }});">
+  <div class="container-fluid" style="padding: 3rem 0; background-image: url({{ entry.bild.one().url }});">
     {% set entry = craft.entries.section('spenden').slug('pate-werden').one() %}
     <div class="row">
       <div class="col-sm-1"> </div>
@@ -63,7 +66,7 @@
       <div class="col-sm-6">
         <h3 style="color: white;"> {{ entry.title }} </h3>
         <span id="copy" style="color: white;"> {{ entry.anleser }} </span>
-        <a style="margin-bottom: 3rem;" href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button">Jetzt Pate werden</a>
+        <a href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button">Jetzt Pate werden</a>
       </div>
       <div class="col-sm-2"> </div>
     </div>
@@ -116,8 +119,10 @@
     <div class="card-deck">
     <div class="card" style="background-color: #ffffff;">
       <div class="wrapper" style="background-image: url({{ entry.bild.one().url }});">
+        <a href="https://aufbau-website.de/craft/web/spenden/schenkenundspenden.html">
       <img class="card-img-top mx-auto d-block" style="max-height: 160px; max-width: 160px; margin-top: 2rem; margin-bottom: 2rem;"
        src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}" alt="Card image">
+     </a>
      </div>
      <div class="card-body">
       <h3> {{ entry.text }} </h3>
@@ -127,8 +132,10 @@
 
     <div class="card" style="background-color: #ffffff;">
       <div class="wrapper" style="background-image: url({{ entry.bild.one().url }});">
+        <a href="https://aufbau-website.de/craft/web/spenden/einkaufenundspenden">
       <img class="card-img-top mx-auto d-block" style="max-height: 160px; max-width: 160px; margin-top: 2rem; margin-bottom: 2rem;"
        src="  {% if entry.bild3.one() is not null %}  {{ entry.bild3.one().getUrl() }}  {% endif %}" alt="Card image">
+     </a>
      </div>
      <div class="card-body">
       <h3> {{ entry.zusatzfeld2 }} </h3>

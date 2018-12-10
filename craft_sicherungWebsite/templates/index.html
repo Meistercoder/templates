@@ -138,7 +138,7 @@
 </div> <!-- Erfahren Sie mehr über unsere Projekte - Button -->
 
 {% set entry = craft.entries.section('fuerSie').slug('freundesbrief').one() %}
-  <div class="container zwoelferspaltenlayout">
+  <div class="container zwoelferspaltenlayout" style="padding-bottom: 2rem;">
     <div class="row">
       <div class="col-sm-6">
         <h3> {{ entry.title }} </h3>
@@ -160,13 +160,15 @@
         <form class="form-inline" method="post" action="" accept-charset="UTF-8">
           {{ csrfInput() }}
           <input type="hidden" name="action" value="contact-form/send">
-          {{ redirectInput('contact/thanks') }}
+
+          <input id="ziel" type="hidden" name="toEmail" value="{{ 'felix-gregor.fessler@stud.uni-bamberg.de, fe.fessler@gmx.de'|hash }}">
+          {{ redirectInput('kontakt/danke') }}
 
           <input id="from-email" required class="form-control" type="email" style="margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
           {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-          <input type="submit" value="Anmelden" class="btn btn-primary">
+          <input type="submit" value="Anmelden" class="btn btn-primary" id="emailAnmelden">
 
-          <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Die oben genannte E-Mail-Adresse würde sich gerne für den Newsletter anmelden.</textarea>
+          <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Vielen Dank für ihr Interesse an Chance e.V. Um sich für den Newsletter anzumelden, schreiben Sie bitte eine Mail mit 'ja' an chance@international.org.</textarea>
           {{ message is defined and message ? errorList(message.getErrors('message')) }}
 
         </form>
@@ -175,18 +177,20 @@
     </div>
   </div>
 
+
   {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
 
-  <div class="container-fluid spendenaufruf"  style="background-image: url({{ entry.bild.one().url }});">
-    <div class="row">
-      <div class="col-lg-1 col-md-0">  </div>
-      <div class="col-lg-4 col-md-5" style="position: relative; min-height: 150px;">   <img class="mx-auto d-block" id="kind" style="max-width: 100%; bottom: 0; left: 0; " src="{{ entry.bild.inReverse().one().url }}"> </div>
-      <div class="col-lg-7 col-md-7" style="padding-left: 2rem; padding-right: 2rem;">
+  <div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+    <div class="container zwoelferspaltenlayout" style="padding-top: 1rem;">
+      <div class="row">
+      <div class="col-md-5" style="position: relative; min-height: 150px;">   <img class="mx-auto d-block" id="kind" style="max-width: 100%; bottom: 0; left: 0; " src="{{ entry.bild.inReverse().one().url }}"> </div>
+      <div class="col-md-7" style="padding-left: 2rem; padding-right: 2rem;">
         <h4 style="color: white;"> {{ entry.title }} </h4>
         <div id="copy" style="color: white;"> {{ entry.text }}</div>
         <a href="https://aufbau-website.de/craft/web/spenden/jetztspenden.html" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Jetzt Spenden</a>
       </div>
     </div>
+  </div>
   </div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
 {% endblock %}

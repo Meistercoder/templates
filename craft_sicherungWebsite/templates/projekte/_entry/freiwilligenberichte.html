@@ -46,7 +46,9 @@
             <div class="row">
               <div class="col-4" style="text-align: center; white-space: nowrap;">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                 <a href="{{ 'https://aufbau-website.de/craft/web/freiwilligenberichte/' ~ entry.slug }}">
                   <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+                  </a>
                 </div>
                 <div class="col-8">
                   <div class="card-body" style="padding: 0; padding-right: 1rem;">
@@ -74,7 +76,7 @@
      <div id="anleser" style="padding-bottom: 3rem;"> Weitere Informationen zum Freiwilligendienst </div>
     </div>
 
-    {% set entry = craft.entries.section('fuerSie').slug('deine-bewerbung').one() %}
+    {% set entry = craft.entries.section('fuerSie').slug('bewerbung-1').one() %}
     {% include '_layouts/weiterleitungkorrekt' %}
 
   </div>
