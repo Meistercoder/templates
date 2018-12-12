@@ -26,7 +26,8 @@
       sondern das Potential der Dorfbewohner, das wir konsequent fördern. </p>
   </div>
 
-  <nav id="myScrollspy">
+  <span id="klicker" onclick="zeigeBreadcrumb()"> Übersicht der Inhalte</span>
+      <nav id="myScrollspy">
     <ul class="nav nav-pills flex-column">
          <li class="nav-item">   <a class="nav-link active" href="#start"> <span>Dorfentwicklung</span> </a> </li>
          <li class="nav-item">   <a class="nav-link" href="#plan"> <span> Fünf-Stufen-Plan </span> </a> </li>
@@ -36,6 +37,12 @@
     </ul>
   </nav>
   </div>
+
+  <script type="text/javascript">
+function zeigeBreadcrumb() {
+  $('#myScrollspy span').show();
+}
+  </script>
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
     <div class="row">

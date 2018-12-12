@@ -69,7 +69,7 @@ $(function() {
 
   </div>
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout" style="overflow: hidden; white-space: nowrap;">
 <h3>Mit Anderen Teilen </h3>
 {% set bilder = craft.entries.section('spendenfelderUndSo').slug('logosfbtwitteremail').one() %}
 <a class="teilen" style="padding-left: 0;" target="_blank" href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
@@ -88,24 +88,24 @@ $(function() {
 </a>
 </div> <!-- Achterspaltenlayout - Container -->
 
-<div class="container zwoelferspaltenlayout" id="copy" style="padding-bottom: 3rem;">
+<div class="container zwoelferspaltenlayout text-center" id="copy" style="padding-bottom: 3rem;">
 
 <div class="row">
   <div class="col-sm-4">
   {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
   {% set prev = entry.getPrev(criteria) %}
   {% if prev %}
-   <a href="{{ prev.url }}" style="text-align: left;"> Vorheriger Beitrag </a>
+   <a href="{{ prev.url }}" style="text-align: left;"> < Vorheriger Beitrag </a>
   {% endif %}
 </div>
 
-<div class="col-sm-4 text-center"> <a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a> </div>
+<div class="col-sm-4"> <a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a> </div>
 
-<div class="col-sm-4 text-right">
+<div class="col-sm-4">
 {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
 {% set next = entry.getNext(criteria) %}
 {% if next %}
- <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag </a>
+ <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag > </a>
 {% endif %}
 </div>
 </div>
