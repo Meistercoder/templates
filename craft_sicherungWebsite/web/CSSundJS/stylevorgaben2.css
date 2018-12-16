@@ -176,7 +176,12 @@ h4 {
   color: #ed6e2c;
   font-family: 'source_sans_prosemibold';
 }
-
+strong {
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  font-family: 'source_sans_prosemibold';
+}
 
 .btn-primary { /*Anpassen der Buttons */
   background-color: #0062ae;
@@ -466,7 +471,7 @@ a p { /*Einfärben aller Links in paragraphen*/
 
 @media all and (min-width: 768px) {
   #klicker, #myScrollspy span  {
-    display: none !important;
+    display: none;
   }
 }
 

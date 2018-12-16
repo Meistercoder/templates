@@ -44,32 +44,19 @@
 
   {% set entries = craft.entries.section('fuerSie').slug('1-joh-3-16-ff').one().children().all() %}
   {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
-  <div id="accordion" style="padding-top: 2rem; padding-bottom: 1.5rem;">
-    {% set counter = 0 %}
-    {% for entry in entries %} {% set counter = counter + 1 %}
-    <div class="card" style="border-radius: 0; border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
-      <div class="card-header" style="border-bottom: 0; border-radius: 0; background-color: #f8f5f2;">
-      <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
-        <div class="row">
-          <div class="col-md-11 col-10">
-            <h4> {{ entry.title }} </h4>
-          </div>
-          <div class="col-md-1 col-2">
-            <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right; margin-top: .25rem;">
-          </div>
-        </div>
-      </a>
-        </div>
-        <div id="{{counter}}" class="collapse" data-parent="#accordion">
-          <div class="card-body" id="copy" style="background-color: #f8f5f2;">
-            {{ entry.anleser }}
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div> <!-- Das Akkordion-Div wird hier verwendet -->
+  {% include '_layouts/codeschnipsel/accordion' %}
   </div> <!-- Dein Profil -->
 
+  <style media="screen">
+  #accordion .card, #accordion .card-header{
+    background-color: #f8f5f2 !important;
+  }
+  #accordion p {
+    padding-left: 1.3rem;
+    text-indent: -.8rem;
+  }
+
+  </style>
 
   <div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
       <div id="copy"> {{ entry.zusatzfeld2 }} </div>

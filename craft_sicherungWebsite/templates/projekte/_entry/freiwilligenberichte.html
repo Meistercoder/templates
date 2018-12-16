@@ -38,13 +38,14 @@
   <hr> <div id="copy" class="text-center" style="padding-bottom: 3rem; padding-top: 4rem;"> Weitere Freiwilligenberichte  </div>
 
 <div class="card-columns">
-
+  {% set ursprungseintrag = entry.slug %}
   {% set entries = craft.entries.section('freiwilligenberichte').all() %}
 
       {% for entry in entries %}
+      {% if entry.slug != ursprungseintrag %}
       <div class="card">
             <div class="row">
-              <div class="col-4" style="text-align: center; white-space: nowrap;">
+              <div class="col-4">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
                  <a href="{{ 'https://aufbau-website.de/craft/web/freiwilligenberichte/' ~ entry.slug }}">
                   <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
@@ -62,11 +63,16 @@
             </div>
           </div>
         </div>
-
+        {% endif %}
       {% endfor %}
   </div>
 </div>
-
+<style media="screen">
+  .card {
+    border-radius: 0;
+    border-width: 0;
+  }
+</style>
 {% include '_layouts/codeschnipsel/spendenaufrufkindrund' %}
 
 

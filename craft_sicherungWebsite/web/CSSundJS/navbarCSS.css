@@ -30,6 +30,7 @@
   padding: 23px 0; /* Padding oben und unten 23, da die dropdown-items schon 7 oben haben */
   border-radius: 0 0 0 0;
   border: none;
+  /*box-shadow: grey 0px 3px 30px;*/
 }
 .dropdown-item a {
   color: #333333;

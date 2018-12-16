@@ -12,30 +12,7 @@
     </div>
   </div>
 </div>
-<!--Styleanweisungen für das Modal -->
-<style media="screen">
-  #myModal h2 {
-    padding-bottom: 1rem;
-  }
-  #myModal h4 {
-    margin-bottom: 0;
-  }
-  .modal.fade.show {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .form-control {
-    border-radius: 0;
-    border-color: transparent;
-    padding: .75rem;
-  }
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-</style>
+
 
 <div class="modal fade" id="myModal">
   <div class="modal-dialog modal-lg">
@@ -51,6 +28,7 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
   </div>
 </div>
+
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
 
@@ -114,42 +92,7 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
       </div>
 
-      <script> //Script um das passende Spendenfeld auszuwählen
-      $(function() {
-      var welcheSpende =  '{{ craft.request.getQueryStringWithoutPath() }}';
-      welcheSpende = welcheSpende.replace('spendenart=', '');
-      welcheSpende = welcheSpende.replace('%20', ' ');       welcheSpende = welcheSpende.replace('*', '');
-
-      if (welcheSpende.match(/Allgemein/)) {
-        $('#sel1').val('Allgemein Spenden'); }
-
-      if (welcheSpende == 'Peru') {
-          $('#sel1').val('Peru'); }
-
-      if (welcheSpende == 'Kenia') {
-          $('#sel1').val('Kenia'); }
-
-      if (welcheSpende.match(/rfer Peru/)) {
-          $('#sel1').val('Dorfpate Peru'); }
-
-      if (welcheSpende.match(/rfer Kenia/)) {
-          $('#sel1').val('Dorfpate Kenia'); }
-
-      if (welcheSpende.match(/Naturschutz Peru/)) {
-        $('#sel1').val('Naturschutz Peru'); }
-
-      if (welcheSpende.match(/Kinderpate Peru/)) {
-        $('#sel1').val('Kinderpate Peru'); }
-
-      if (welcheSpende.match(/Kinderpate Kenia/)) {
-        $('#sel1').val('Kinderpate Kenia'); }
-
-      function mindestspendenbetragSetzen () {
-        $("#betrag").attr("placeholder", "New Value");
-      }
-
-      });
-      </script>
+      {% include '_layouts/codeschnipsel/spendenjs' %}
 
       <div class="col-sm-6">  </div>
       <div class="col-sm-6">
@@ -159,7 +102,7 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
         <div class="form-group">
           <label for="usr">Betrag in Euro</label>
-          <input type="number" name="betrag" id="betrag" class="form-control" placeholder="Enter email" required>
+          <input type="number" name="betrag" id="betrag" class="form-control" placeholder="" required>
         </div>
         <div class="form-group">
           <label for="usr">IBAN</label>

@@ -160,13 +160,13 @@ function activeElementAnpassenNavbar () {
 var url = window.location.href
 console.log(url)
 
-if(url.includes("ueberUns")) {
+if(url.includes("ueberUns") || url.includes("ueber-uns")) {
   $("#ueberUns").addClass("active");
 } else if(url.includes("projekte")) {
   $("#projekte").addClass("active");
 } else if(url.includes("spenden")) {
   $("#spenden").addClass("active");
-} else if(url.includes("fuerSie")) {
+} else if(url.includes("fuerSie") || url.includes("freiwilligenberichte")) {
   $("#fuerSie").addClass("active");
 } else if(url.includes("blog")) {
   $("#blog").addClass("active");

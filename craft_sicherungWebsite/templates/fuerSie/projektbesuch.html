@@ -29,8 +29,8 @@
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem; padding-bottom: 5rem;">
 <div class="container achterspaltenlayout" style="padding-bottom: 5rem;">
-  <img class="img-fluid" style="padding-bottom: 5rem;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-  <div id="anleser" class="text-center" style="padding-bottom: 1rem;"> {{ entry.zusatzfeld1 }}</div>
+  <img class="img-fluid" style="padding-bottom: 3rem;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+  <div id="anleser" class="text-center" style="padding-bottom: 0;"> {{ entry.zusatzfeld1 }}</div>
   <div id="copy"> {{ entry.text }} </div>
 </div>
 
@@ -41,7 +41,7 @@
 
   <div class="container zwoelferspaltenlayout text-center">
     <hr style="margin-bottom: 2rem;">
-   <div id="copy" style="padding-bottom: 5rem;"> Das könnte Sie auch interessieren</div>
+   <div id="anleser" style="padding-bottom: 5rem;"> Das könnte Sie auch interessieren</div>
   </div>
 
   {% set entry = craft.entries.section('fuerSie').slug('daheim').one() %}

@@ -19,6 +19,7 @@
   {% set url = entry.url |replace({'spendenfelder-und-so/fuer-sie': 'fuerSie'}) %}
   {% endif %}
 
+
   <div class="col-md-4" style="padding: 0;">
     <a href="{{url}}">
     <img class="img-fluid w-100 h-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
