@@ -1,0 +1,42 @@
+<div id="accordion">
+  {% set counter = 0 %}
+  {% for entry in entries %} {% set counter = counter + 1 %}
+  <div class="card">
+    <div class="card-header bg-white">
+    <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
+      <div class="row">
+        <div class="col-md-11 col-10">
+          <h4> {{ entry.title }} </h4>
+        </div>
+        <div class="col-md-1 col-2">
+          <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right;">
+        </div>
+      </div>
+    </a>
+      </div>
+      <div id="{{counter}}" class="collapse" data-parent="#accordion">
+        <div class="card-body" id="copy">
+          {{ entry.text }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+<style media="screen">
+#accordion .card {
+  padding: 0;
+  border-color: white;
+  border-top-color: #ed6e2c;
+  border-width: 1px;
+  margin-bottom: 20px;
+  border-radius: 0;"
+}
+.card-link {
+  padding: 1.5rem;
+}
+  #accordion h4 {
+    margin-bottom: 0;
+    line-height: 18px;
+  }
+</style>

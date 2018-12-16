@@ -18,7 +18,7 @@
     </ol>
   </nav>
 
-
+{% set aktuellerEintrag = entry.slug %}
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
 <div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
@@ -44,14 +44,15 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0;">
-  <hr> <div id="copy" class="text-center" style="padding-bottom: 3rem; padding-top: 1rem;"> Weitere Erfahrungsberichte  </div>
+<div class="container zwoelferspaltenlayout" style="padding-top: 0; padding-bottom: 5rem;">
+  <hr style="margin: 2rem 0;">
+  <div id="copy" class="text-center" style="padding-bottom: 3rem; padding-top: 1rem;"> Weitere Erfahrungsberichte
+  </div>
 
 <div class="card-columns">
-
   {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
-
       {% for entry in entries %}
+        {% if entry.slug != aktuellerEintrag %}
       <div class="card" style="border: 0;">
             <div class="row">
               <div class="col-4" style="text-align: center; white-space: nowrap;">
@@ -72,26 +73,15 @@
             </div>
           </div>
         </div>
-
+        {% endif %}
       {% endfor %}
   </div>
 </div>
 
-{% set entry = craft.entries.section('spendenfelderUndSo').slug('paten-dringend-gesucht').one() %}
+{% include '_layouts/codeschnipsel/spendenaufrufkindrund' %}
 
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
-  <div class="row">
-    <div class="col-sm-2">  </div>
-    <div class="col-lg-2 col-md-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding:0;"> </div>
-    <div class="col-sm-1">  </div>
-    <div class="col-sm-6">
-      <h4 style="color: white;"> {{ entry.title }} </h4>
-      <div id="copy" style="color: white;"> {{ entry.text }}</div>
-    </div>
-  </div>
-</div> <!-- Der orange Berg mit dem Spendenaufruf -->
 
-<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 3rem;">
+<div class="container-fluid no-padding" style="background-color: white; padding-bottom: 5rem;">
 
 <div class="container zwoelferspaltenlayout" style="padding-top: 2rem;">
 <p id="anleser" class="text-center"> Erfahren Sie mehr über unser Engagement vor Ort </p>

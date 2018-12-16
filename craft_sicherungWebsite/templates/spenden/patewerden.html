@@ -8,7 +8,7 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; padding-bottom: 3rem;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 8rem; padding-bottom: 3rem;">
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
@@ -18,7 +18,9 @@
     </ol>
   </nav>
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout" style="padding-top:0px; padding-bottom: 5rem; position: relative;">
     {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
     <div>
       <h1 style="padding-bottom: 3rem;"> {{ entry.anleser }}  </h1>
@@ -26,7 +28,7 @@
   </div>
 </div>
 
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; padding-top: 5rem; background-repeat: no-repeat; background-color: white;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 5rem; padding-top: 5rem; background-repeat: no-repeat; background-color: #f8f5f2;">
   <div class="container" style="max-width: 1280px;">
     <div class="row">
       <div class="col-md-2">
@@ -46,17 +48,16 @@
         </ul>
       </div>
 
-      <div class="col-md-10" style="background-color: white;"> <!--Spaltenlayout, um die jetzt-spenden spalte mit 4 spalten dann zu integrieren -->
+      <div class="col-md-10" style="background-color: white; padding-right: 0; padding-left: 0;"> <!--Spaltenlayout, um die jetzt-spenden spalte mit 4 spalten dann zu integrieren -->
           <div class="tab-content" id="pills-tabContent"> <!-- tab-content fuer alle Pills -->
 
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
               <div class="row">
-                <div class="col-md-8" style="padding-top: 3rem; padding-left: 2rem;">
+                <div class="col-md-9" style="padding: 2rem 3rem;">
                   <h2 style="padding-bottom: 0; margin-bottom: 0;"> {{ entry.title }} </h2>
                   <div id="copy"> {{ entry.text }}  </div>
                 </div>
-                  <div class="col-md-1" style="background-color: white;"> </div>
                   <div class="col-md-3" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
                     <div class="row">
@@ -69,24 +70,20 @@
                     </div>
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
                   </div>
-                  <img class="img-fluid" style="max-height: 720px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
                 </div>
+                <img class="img-fluid" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
             </div>
             <div class="tab-pane fade" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab">
               {% set entry = craft.entries.section('spenden').slug('partnerdorf').one() %}
               <div class="row">
-                <div class="col-md-8" style="padding-top: 3rem; padding-left: 2rem;">
+                <div class="col-md-9" style="padding: 2rem 3rem;">
                   <h2 style="padding-bottom: 0; margin-bottom: 0;"> {{ entry.title }} </h2>
                   <div id="copy"> {{ entry.anleser }}  </div>
                 </div>
-                  <div class="col-md-1" style="background-color: white;"> </div>
                   {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
                   <div class="col-md-3" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
                     <div class="row">
-                      <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html" class="btn btn-primary" role="button">Dorfpate allgemein</a>
-                      </div>
                       <div class="col-12">
                         <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Peru" class="btn btn-primary" role="button">Dorfpate in Peru</a>
                       </div>
@@ -96,18 +93,17 @@
                     </div>
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
                   </div>
-                  {% set entry = craft.entries.section('spenden').slug('partnerdorf').one() %}
-                  <img class="img-fluid" style="max-height: 478px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>
+              {% set entry = craft.entries.section('spenden').slug('partnerdorf').one() %}
+              <img class="img-fluid" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
             </div>
             {% set entry = craft.entries.section('spenden').slug('partnerkind').one() %}
             <div class="tab-pane fade" id="pills-profile2" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div class="row">
-                <div class="col-md-8" style="padding-top: 3rem; padding-left: 2rem;">
+                <div class="col-md-9" style="padding: 2rem 3rem;">
                   <h2 style="padding-bottom: 0; margin-bottom: 0;"> {{ entry.title }} </h2>
                   <div id="copy"> {{ entry.anleser }}  </div>
                 </div>
-                  <div class="col-md-1" style="background-color: white;"> </div>
                   <div class="col-md-3" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
                     {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
@@ -122,17 +118,16 @@
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
                   </div>
                   {% set entry = craft.entries.section('spenden').slug('partnerkind').one() %}
-                  <img class="img-fluid" style="max-height: 588px;" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>
+              <img class="img-fluid" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
             </div>
             {% set entry = craft.entries.section('spenden').slug('partnerwald').one() %}
             <div class="tab-pane fade" id="pills-profile3" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div class="row">
-                <div class="col-md-8" style="padding-top: 3rem; padding-left: 2rem;">
+                <div class="col-md-9" style="padding: 2rem 3rem;">
                   <h2 style="padding-bottom: 0; margin-bottom: 0;"> {{ entry.title }} </h2>
                   <div id="copy"> {{ entry.anleser }}  </div>
                 </div>
-                  <div class="col-md-1" style="background-color: white;"> </div>
                   <div class="col-md-3" style="background-color: white; padding-top: 3rem;"> <!-- der Spendenaufruf in eigener Spalte -->
                     {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
@@ -144,8 +139,8 @@
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
                   </div>
                   {% set entry = craft.entries.section('spenden').slug('partnerwald').one() %}
-                  <img class="img-fluid"  style="max-height: 530px;" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>
+              <img class="img-fluid" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
             </div>
           </div> <!-- Die Tabs mit den verschiedenen Auswirkungen der Spenden, wechselbar durch klicken -->
       </div>
@@ -153,7 +148,11 @@
 </div>
 </div>
 
-
+<style media="screen">
+  .img-fluid {
+    padding-bottom: 0;
+  }
+</style>
 
 {% endblock %}
 {# Alles, was bis zu dem endblock-Tag kommt, überschreibt den Block in layoutHome #}

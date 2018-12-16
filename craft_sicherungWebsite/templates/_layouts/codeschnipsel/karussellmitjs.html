@@ -6,7 +6,7 @@ $(document).ready(function(){
     {% set entry = craft.entries.section('spendenfelderUndSo').slug('carousel-pfeile').one() %}
     prevArrow:"<img class='a-left control-c prev slick-prev' style='height: 35px;' src='{{ entry.bild.one().url }}'>",
     nextArrow:"<img class='a-right control-c next slick-next' style='height: 35px;' src='{{ entry.bild2.one().url }}'>",
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 300,
     slidesToShow: 3,

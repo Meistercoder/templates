@@ -57,7 +57,7 @@
     {% for entry in entries %}
     <div style="padding: 0 1rem;">
       <img class="img-fluid mx-auto d-block" style="max-height: 150px; padding-bottom: 0;" src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
-      <h4> {{ entry.title }} </h4>
+      <h4> {{ entry.text }} </h4>
       <div id="copy" style="margin-top: -.5rem"> {{ entry.anleser }} </div>
     </div>
     {% endfor %}
@@ -170,7 +170,7 @@
 
 <div class="container zwoelferspaltenlayout text-center" style="padding-top: 0;">
 
-  <div class="karussell">
+  <div class="karussell" style="padding-bottom: 0;">
           {% set entries = craft.entries.section('projekte').slug('umwelt-und-naturschutz-1').one().children().all() %}
           {% for entry in entries %}
 
@@ -184,6 +184,13 @@
 
 </div>
 </div> <!-- Container für Carousel -->
+
+<style media="screen"> /*Setzen des Paddings aller Karussells */
+  .karussell {
+    padding: 2rem 0;
+    padding-top: 1rem;
+  }
+</style>
 
 {% set entry = craft.entries.section('fuerSie').slug('fuelleintrag').one() %}
 <div class="container-fluid spendenaufruf"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
@@ -204,15 +211,29 @@
 
   <div class="container achterspaltenlayout" id="info" style="padding-bottom: 0px;">
     <h4 style="margin-bottom: 0;"> Quellen: </h4>
-    <sub>*</sub> &nbsp; http://www.unric.org/html/german/mdg/MP_PovertyFacts.pdf <br>
-    <sup>1</sup> &nbsp; Deutschlandfunk: „Durchwachsene Bilanz im Kampf gegen die Armut“ 23.03.15, http://www.deutschlandfunk.de/entwicklungslaender-durchwachsene-bilanz-im-kampf-gegen-die.724.de.html?dram:article_id=314962 <br>
-    <sup>2</sup> &nbsp; UNICEF, „The State of the World’s Children 2015: Reimagine the Future“, http://sowc2015.unicef.org, Under-5 mortality rate (2013) S.31, New York 2015. <br>
-    <sup>3</sup> &nbsp; Ravallion, M; Chen, S; Sangraula, P. Dollar a Day Revisited. World Bank Economic Review. 23, 2, 163-184, 2009. <br>
-    <sup>4</sup> &nbsp; Worldbank: http://data.worldbank.org/indicator/SI.POV.DDAY/countries?display=graph <br>
-    <sup>5</sup> &nbsp; UNICEF, „The State of the World’s Children 2010“, http://www.unicef.org/rightsite/sowc/ <br>
-    <sup>6</sup> &nbsp; WHO, World Hunger and Poverty Statistics, 2013, http://www.worldhunger.org/articles/Learn/world%20hunger%20facts%202002.htm <br>
-    <sup>7</sup> &nbsp; FAO, State of Food Insecurity in the World, 2015. http://www.fao.org/3/a-i4646e.pdf <br>
-    <sup>8</sup> &nbsp; Welthungerhilfe: „FACT-Sheet. Fakten und Zahlen zu Wasser“, 2013, http://www.welthungerhilfe.de/fileadmin/user_upload/Themen/ <br>
+    <sup>1</sup> &nbsp; UNICEF, „The State of the World’s Children 2015: Reimagine the Future“, http://sowc2015.unicef.org, Under-5 mortality rate (2013) S. 31, New York 2015. <br>
+    <sup>2</sup> &nbsp; UNICEF, „The State of the World’s Children 2010“, http://www.unicef.org/rightsite/sowc/ <br>
+    <sup>3</sup> &nbsp; FAO, State of Food Insecurity in the World, 2015. http://www.fao.org/3/a-i4646e.pdf <br>
+    <sup>4</sup> &nbsp; WHO nach: http://de.statista.com/statistik/daten/studie/226881/umfrage/kindersterblichkeit-nach-weltregion/ Worldbank: http://data.worldbank.org/indicator/SI.POV.DDAY/countries?display=graph <br>
+    <sup>5</sup> &nbsp; New Internationalists, State of the World, Issue 287, http://newint.org/features/1997/01/05/keynote/ <br>
+    <sup>6</sup> &nbsp; UNICEF, State of the World‘s Children 2015, S. 41. <br>
+    <sup>7</sup> &nbsp; BMZ: „Trinkwasser und Sanitätsversorgung“, 2015, http://www.bmz.de/de/was_wir_machen/themen/umwelt/wasser/deutscher_beitrag/wasser_fuer_menschen/sanitaerversorgung/index.html <br>
+    <sup>8</sup> &nbsp; UNICEF: https://www.unicef.de/informieren/infothek/-/jede-minute-stirbt-eine-mutter/8886, 05/2009 <br>
+    <sup>9</sup> &nbsp; Worldbank 2012, http://data.worldbank.org/indicator/EG.ELC.ACCS.ZS/countries/1W-ZG?display=graph <br>
+    <sup>10</sup> &nbsp; http://www.aidshilfe.de/de/infothek/hiv-zahlen/weltweit und UNRIC http://www.unric.org/html/german/mdg/MP_PovertyFacts.pdf <br>
+    <sup>11</sup> &nbsp; https://www.dosomething.org/facts/11-facts-about-global-poverty <br>
+    <sup>12</sup> &nbsp; Oxfam: http://www.oxfam.de/informieren/soziale-ungleichheit <br>
+    <sup>13</sup> &nbsp; Ravallion, M; Chen, S; Sangraula, P. Dollar a Day Revisited. World Bank Economic Review. 23, 2, 163-184, 2009. Worldbank: http://data.worldbank.org/indicator/SI.POV.DDAY/countries?display=graph <br>
+    <sup>14</sup> &nbsp; UNDP, United Nations Development Program, November 27, 2007, S.25 <br>
+    <sup>15</sup> &nbsp; UNDP, United Nations Development Program, November 27, 2007, S.25 <br>
+    <sup>16</sup> &nbsp; NDR, 2015: http://www.ndr.de/ratgeber/verbraucher/muell-wert-geld,muellvermeidung104.html <br>
+    <sup>17</sup> &nbsp;Alexander von Humboldt, 1769 <br>
+    <sup>18</sup> &nbsp; FAO, 2011: http://www.fao.org/food-loss-and-food-waste/en/ <br>
+    <sup>19</sup> &nbsp; UNDP, United Nations Development Program, November 27, 2007, S.45. <br>
+    <sup>20</sup> &nbsp; BpB, 2015: http://www.bpb.de/internationales/weltweit/megastaedte/64768/slums <br>      <sup>11</sup> &nbsp; WHO 2014 nach: http://www.welt.de/gesundheit/article126163590/Jeder-achte-Todesfall-durch-verschmutzte-Luft.html <br>
+    <sup>21</sup> &nbsp; WWF: http://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/WWF_Waldzustandsbericht.pdf <br>
+    <sup>22</sup> &nbsp; http://www.desertifikation.de/ <br>
+    <sup>23</sup> &nbsp; https://www.openpetition.de/petition/online/landwirtschaftliche-bodennutzung-flaechenverbrauch-senken-und-landwirtschaftliche-nutzflaechen-schue <br>
 
   </div>
 

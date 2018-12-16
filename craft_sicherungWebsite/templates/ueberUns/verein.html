@@ -125,17 +125,30 @@ function jsfunction() {
   <div class="container-fluid no-padding">
     {% set entry = craft.entries.section('ueberUns').slug('kooperationspartner').one() %}
     <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
-  </div>
 
-<div class="container-fluid" style="padding: 0 4px;">
     {% set entries = entry.children().all() %} {% set counter = 0 %}
+    <div class="reihe">
         {% for entry in entries %} {% set counter = counter + 1 %}
-        <a href="{{ entry.reinertext }}" style="margin-right: -.25rem;">
-            <img class="card-img-top grayscale" style="border: 1px solid #f8f5f2; width: 20%;"
-            src=" {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image"></a>
+        <div class="column">
+            <img class="grayscale img-fluid" style="border: 1px solid #f8f5f2;" src=" {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+        </div>
       {% endfor %}
     </div>
+    </div>
 
+<style media="screen">
+.column {
+float: left;
+width: 20%;
+}
+
+/* Clear floats after the columns */
+.reihe:after {
+content: "";
+display: table;
+clear: both;
+}
+</style>
 
 <div class="container zwoelferspaltenlayout" style="padding-top: 5rem;">
   <hr style="height: 2px; padding-top: 2rem;"> <p id="anleser" class="text-center"> Erfahren Sie mehr über uns </p>

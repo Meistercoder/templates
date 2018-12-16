@@ -1,7 +1,18 @@
+
+{% set url = entry.url %}
+
+
+{% if 'erfahrungsberichte' in entry.url %}
+{% set url = entry.url |replace({'erfahrungsberichte': 'programme'}) %}
+{% endif %}
+
+
 <div class="zwoelferspaltenlayout container text-left" style="background-color: #f8f5f2; padding-top: 0px; margin-bottom: 2.5rem;">
 <div class="row">
   <div class="col-md-4" style="padding: 0;">
+    <a href="{{url}}">
     <img class="img-fluid w-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+  </a>
   </div>
   <div class="col-md-8" style="padding-top: 2rem; padding-left: 30px;">
     <h3> {{ entry.anleser }} </h3>

@@ -89,12 +89,12 @@
 @media all and (max-width: 600px) {
 
   .zwoelferspaltenlayout {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
   .achterspaltenlayout {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     }
 }
 
@@ -464,10 +464,23 @@ a p { /*Einfärben aller Links in paragraphen*/
   z-index: 1;
 }
 
+@media all and (min-width: 768px) {
+  #klicker, #myScrollspy span  {
+    display: none !important;
+  }
+}
+
 @media all and (max-width: 768px) {
-  #myScrollspy span {
+  #klicker {
     display: block;
   }
+
+  #myScrollspy span {
+  justify-content: center;
+}
+#scroller {
+  max-width: 30vw;
+}
   #myScrollspy a {
     all: initial;
     text-align: center;

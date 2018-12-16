@@ -11,11 +11,12 @@
 <div class="container-fluid text-center" style="padding-top: 8rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
-    <li class="breadcrumb-item"> Projektberichte </li>
-  </ol>
-</nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte/projektberichte.html">Projektberichte</a></li>
+      <li class="breadcrumb-item"> {{ entry.title }} </li>
+    </ol>
+  </nav>
 
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
@@ -26,30 +27,83 @@
 
 <style>
 
-    @media all and (max-width: 1200px) {
-      #erfahrungsbericht {
-        display: none;
-      }
-    }
+@media all and (max-width: 1200px) {
+  #erfahrungsbericht {
+    display: none;
+  }
+}
 </style>
 
 <div class="container achterspaltenlayout">
-  <img class="img-fluid mx-auto d-block" style="padding-bottom: 5rem; position: relative;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+  <img class="img-fluid mx-auto d-block" style="padding-bottom: 5rem; position: relative; max-height: 450px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
 
-      <div id="erfahrungsbericht" class="float-right" style="border-left:2px solid #ed6e2c; width: 40%; margin-left: 3rem; margin-right: -25%; margin-bottom: 3rem;">
-        {% set entries = craft.entries.section('projekte').slug('erfahren-sie-mehr-1').one().children().all() %}
-        {% set eintrag = random(entries) %}
-        <div class="helper" style="padding-left: 1rem;"> <!-- Div zum Abstand setzen -->
-        <img style="max-height: 100px;" class="rounded-circle" src="{% if eintrag.bild.one() is not null %} {{ eintrag.bild.one().url }}{% endif %}" alt="">
-        <p style="padding-top: 2rem;" id="copy"> Erfahrungsbericht </p>
-        <div id="zitat"> {{ eintrag.text }}  </div>
-        <div id="autor" > {{ eintrag.zusatzfeld1 }}  </div>
-        </div>
+  <div id="erfahrungsbericht" class="float-right" style="border-left:2px solid #ed6e2c; width: 40%; margin-left: 3rem; margin-right: -25%; margin-bottom: 3rem;">
+    {% set entries = craft.entries.section('projekte').slug('erfahren-sie-mehr-1').one().children().all() %}
+    {% set eintrag = random(entries) %}
+    <div class="helper" style="padding-left: 1rem;"> <!-- Div zum Abstand setzen -->
+      <img style="max-height: 100px;" class="rounded-circle" src="{% if eintrag.bild.one() is not null %} {{ eintrag.bild.one().url }}{% endif %}" alt="">
+      <p style="padding-top: 2rem;" id="copy"> Erfahrungsbericht </p>
+      <div id="zitat"> {{ eintrag.text }}  </div>
+      <div id="autor" > {{ eintrag.zusatzfeld1 }}  </div>
     </div>
-
+  </div>
 
   <div id="copy">{{ entry.restlichertext }} </div>
 </div>
+
+{% if entry.bild2.one() is not null %} <!--Wenn bilder hinzugefuegt werden, wird ein slider angezeigt -->
+{% block headerZusatz %}
+<link rel="stylesheet" type="text/css" href="https://aufbau-website.de/craft/web/CSSundJS/gallery/css/strip.css"/>
+{% endblock %}
+
+<script type="text/javascript" src="https://aufbau-website.de/craft/web/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
+
+<style media="screen">
+.thumbnail img {
+  max-height: 257.77px;
+  width: 100%;
+}
+</style>
+  <div class="container achterspaltenlayout" style="padding:0;"> <!-- Der Slider mit den verschiedenen Bildern -->
+          {% set bilder = entry.bild2.all() %} {% set counter = 0 %}
+          <div class="row">
+          {% for bild in bilder %} {% set counter = counter + 1 %}
+          {% if counter < 7 %} <div class="col-4" style="padding: 0;"> {% else %} <div class="col-4" style="display: none;"> {% endif %}
+            <a href="{{bild.url}}" class="strip thumbnail" hideOnClickOutside: false data-strip-group="mygroup">
+            <img src="{{bild.url}}" class="img-fluid" style="padding-bottom: 0;">
+           </a>
+         </div>
+          {% endfor %}
+        </div>
+  </div>
+{% endif %}
+
+<!--Wird nur eingefuegt, wegen den teilnehmerberichten..nur einmal eingefuegt -->
+{% if entry.slug == 'schulungen-für-starke-dörfer' %}
+<div class="container achterspaltenlayout">
+  <script>
+  $("#erfahrungsbericht").hide();
+</script>
+{% set entries = entry.children().all() %}
+<div class="card-group" style="padding-top: 2rem;">
+  <div class="row"> {% set counter = 0 %}
+    {% for entry in entries %}
+    <div class="col-sm-3" style="padding: 0;">
+      {% if counter % 3 == 0 %}   <div class="card h-100" style="border-radius: 0; border-width: 0;">  {% elseif counter % 2 == 0 %}   <div class="card h-100" style="background-color: rgb(255, 225, 157); border-radius: 0; border-width: 0;"> {% else %}   <div class="card h-100" style="background-color: #b8dbb8; border-radius: 0; border-width: 0;"> {% endif %}
+        {% set counter = counter + 1 %}
+        <img class="card-img-top mx-auto d-block" style="border-radius: 0; padding: 5px; max-height: 200px; max-width: 200px;" src="{{ entry.bild.one().url }}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{ entry.title }}</h4>
+          <span id="info" class="card-text">{{ entry.anleser }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+{% endif %}
 
 
 <div class="container zwoelferspaltenlayout" style="padding-bottom: 4.5rem;">
@@ -58,12 +112,11 @@
   {% set slugUrsprung = entry.slug %}
 
   <div class="card-columns">
-
-    {% set entries = craft.entries.section('projektberichte').all() %}
+    {% set entries = craft.entries.section('projektberichte').level(1).all() %}
     {% for entry in entries %} {% if slugUrsprung != entry.slug %}
 
-    <div class="card">
-      <div class="card-body" style="padding: .5rem;">
+    <div class="card" style="border-width: 0; border-radius: 0; background-color: #f8f5f2; padding: 1rem;">
+      <div class="card-body" style="padding: 1rem 2rem; background-color: white;">
         <p class="card-text">
           <h4 style="margin: 0;"> {{ entry.title }} </h4>
           <a id="copy" href="{{ 'https://aufbau-website.de/craft/web/projekte/projektberichte/' ~ entry.slug }}"> {{ entry.nurDerLink }}</a>
@@ -76,18 +129,18 @@
   </div>
 </div> <!-- Die restlichen Projektberichte -->
 
-{% include '_layouts/codeschnipsel/spendenaufrufkindrund' %}
+{% include '_layouts/codeschnipsel/spendeprojekt' %}
 
 
 
 <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 5rem; padding-top: 3rem;">
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
-<p id="anleser" class="text-center"> Das könnte Sie auch interessieren </p>
-</div>
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0px;">
+    <p id="anleser" class="text-center"> Das könnte Sie auch interessieren </p>
+  </div>
 
-{% set entry = craft.entries.section('spendenfelderUndSo').slug('fuer-sie').one() %}
-{% include '_layouts/weiterleitungkorrekt' %}
+  {% set entry = craft.entries.section('spendenfelderUndSo').slug('fuer-sie').one() %}
+  {% include '_layouts/weiterleitungkorrekt' %}
 
 </div>
 

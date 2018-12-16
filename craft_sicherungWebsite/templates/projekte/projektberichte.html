@@ -27,7 +27,7 @@
       <div id="anleser"> {{ entry.zusatzfeld1 }}</div>
       </div>
     </div>
-  {% set entries = craft.entries.section('projektberichte').all() %}
+  {% set entries = craft.entries.section('projektberichte').level(1).all() %}
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
     <div class="card-deck">

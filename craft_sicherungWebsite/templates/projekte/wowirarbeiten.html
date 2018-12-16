@@ -69,15 +69,15 @@
           <div class="col-md-3 col-sm-1 col-1"> </div>
           <div class="col-md-3 col-sm-5 col-5" id="copy" style="display: flex; align-items: center;">
             <span style="width: 100%;">
-            <p> <strong> Provinz Oxapampa </strong>  </p>
-            19000 km² <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
-            Regenwald <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
-            Andenvorgebirge <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
-            XXX Einwohner <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+            <h4 style="padding-bottom: 1rem;"> Provinz Oxapampa </h4>
+            19000 km² <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
+            Regenwald <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
+            Andenvorgebirge <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
+            80000 Einwohner <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
           </span>
           </div>
           <div class="col-md-6 col-sm-6 col-6">
-          <img class="img-fluid float-right w-100 h-100" style="padding-bottom: 0; object-fit: cover; max-height: 60vh;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+          <img class="img-fluid float-right w-100 h-100" style="padding-bottom: 0; object-fit: cover; max-height: 50vh;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
         </div>
         </div>
       </div> <!-- Nach dem ersten Durchlauf der for-schleife wird die Peru-Karte eingefuegt -->
@@ -127,15 +127,15 @@
 
           <div class="row">
             <div class="col-md-6 col-sm-6 col-6">
-            <img class="img-fluid float-left w-100 h-100" style="padding-bottom: 0; object-fit: cover; max-height: 60vh;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
+            <img class="img-fluid float-left w-100 h-100" style="padding-bottom: 0; object-fit: cover; max-height: 50vh;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">
           </div>
             <div class="col-md-3 col-sm-5 col-5" id="copy" style="display: flex; align-items: center;">
               <span style="width: 100%;">
-              <strong> Narok County </strong>  <br> <br>
-              19000 km² <br> <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
-              Savannen und Buschland <br> <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
-              Maasai-Ebenen <br> <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
-              900.000 Einwohner <hr style="border-top: 1px solid #ed6e2c; margin-bottom: 1rem; margin-top: .5rem;">
+              <h4 style="padding-bottom: 1rem;"> Narok County </h4>
+              19000 km² <br> <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
+              Savannen und Buschland <br> <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
+              Maasai-Ebenen <br> <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
+              900.000 Einwohner <hr style="border-top: 1px solid #ed6e2c; margin: .5rem 0;">
             </span>
             </div>
             <div class="col-md-3 col-sm-1 col-1"> </div>
@@ -167,7 +167,7 @@
       <div class="col-md-7" style="padding-left: 30px;">
         <h4 style="color: white;"> {{ entry.zusatzfeld2 }} </h4>
         <div id="copy" style="color: white;"> {{ entry.zusatzfeld3 }}</div>
-        <a href="https://aufbau-website.de/craft/web/spenden" class="btn btn-primary" role="button">Jetzt Länderpate werden</a>
+        <a href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button">Jetzt Länderpate werden</a>
       </div>
     </div>
   </div> <!-- Der orange Berg mit dem Spendenaufruf -->

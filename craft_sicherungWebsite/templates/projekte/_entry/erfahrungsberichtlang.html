@@ -13,7 +13,8 @@
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
-      <li class="breadcrumb-item"> Erfahrungsberichte </li>
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte/erfahrungsberichte.html">Erfahrungsberichte</a></li>
+      <li class="breadcrumb-item"> {{ entry.title }} </li>
     </ol>
   </nav>
 
@@ -47,14 +48,16 @@
 
       {% for entry in entries %}
         {% if entry.slug != aktuellerTitle %}
-      <div class="card" style="border: 0;">
-            <div class="row">
+        <div class="card" style="border-width: 0; border-radius: 0; background-color: #f8f5f2; padding: 1rem 2rem;">
+            <div class="row" style="background-color: white;">
               <div class="col-4" style="text-align: center; white-space: nowrap;">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                  <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
-                </div>
+                 <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}">
+                  <img class="rounded-circle" style="width: 85%; margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
+                </a>
+              </div>
                 <div class="col-8">
-                  <div class="card-body" style="padding: 0; padding-right: 1rem;">
+                  <div class="card-body" style="padding: 0;">
                     <p class="card-text">
                       <h4 style="margin: 0;"> {{ entry.title }} </h4>
                       <span id="copy">
@@ -65,7 +68,7 @@
             </div>
           </div>
         </div>
-        {% endif %} {# Damit der aktuelle TItle nicht angezeigt wird #}
+        {% endif %} {# Damit der aktuelle Title nicht angezeigt wird #}
       {% endfor %}
   </div>
 </div>

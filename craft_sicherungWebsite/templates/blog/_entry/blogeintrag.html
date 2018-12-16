@@ -13,18 +13,6 @@
 {% block block1 %}
 <script type="text/javascript" src="https://aufbau-website.de/craft/web/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
 
-<script type="text/javascript">
-
-/*Strip.setDefaultSkin('custom');
-$(function() {
-  $.extend(Strip.Skins, {
-    'custom': {
-      loop: false,
-    }
-  });
-}); /*Anpassen der Funktionen möglich */
-</script>
-
 <style media="screen">
 .thumbnail img {
   max-height: 257.77px;
@@ -58,8 +46,7 @@ $(function() {
           {% set bilder = entry.bild.all() %} {% set counter = 0 %}
           <div class="row">
           {% for bild in bilder %} {% set counter = counter + 1 %}
-          {% if counter < 7 %} <div class="col-4" style="padding: 0;"> {% endif %}
-          {% if counter >= 7 %} <div class="col-4" style="display: none;"> {% endif %}
+          {% if counter < 7 %} <div class="col-4" style="padding: 0;"> {% else %} <div class="col-4" style="display: none;"> {% endif %}
             <a href="{{bild.url}}" class="strip thumbnail" hideOnClickOutside: false data-strip-group="mygroup">
             <img src="{{bild.url}}" class="img-fluid" style="padding-bottom: 0;">
            </a>

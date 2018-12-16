@@ -12,7 +12,7 @@
  .nav-link.active.tab {
   background-color: white;
   color: #0062ae;
-  font-weight: bold;
+  font-family: 'source_sans_prosemibold';
 }
 
  .nav-link.tab {
@@ -21,10 +21,20 @@
   padding-bottom: 0;
   padding-top: 0;
 }
+.form-control {
+  border-radius: 0;
+  padding: .75rem;
+  font-size: 1.5rem;
+}
+.modal.fade.show {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
 </style>
 
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 8rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
@@ -54,7 +64,7 @@
       <div class="col-6">
 
         <div class="form-group" style="padding-top: 3rem;">
-          <label for="sel1" id="copy" style="color: white;">Wofür wollen Sie Spenden?</label>
+          <label for="sel1" id="copy" style="color: white; font-size: 1.25rem: ">Wofür wollen Sie Spenden?</label>
           <select class="form-control" id="sel1" name="zweck" style="height: auto;">
             <option>Allgemein Spenden</option>
             <option>Peru</option>
@@ -68,7 +78,7 @@
         </div>
 
         <div class="form-group" style="padding-top: 3rem;">
-          <label for="sel1" id="copy" style="color: white;">Wie oft wollen Sie Spenden?</label>
+          <label for="sel1" id="copy" style="color: white; font-size: 1.25rem;">Wie oft wollen Sie Spenden?</label>
           <select class="form-control" id="sel2" name="frequenz" style="height: auto;">
             <option>Regelmäßig Spenden</option>
             <option>Einmalig Spenden</option>
@@ -98,43 +108,62 @@ $(function() { //Link am Anfang schon fertig machen
 });
 
 $( "#sel1" ).change(function() {
+  linkModalAnpasen();
   neuerLink = linkButton + '?spendenart=' + $('#sel1').val();
   $('#spendenlink').attr('href', neuerLink);
 });
 
 //Funktion, die das Modal bei anzeigt wenn einmalig spenden ausgewählt wird
 $( "#sel2" ).change(function() {
+  linkModalAnpasen();
   if ($('#sel2').val() == "Einmalig Spenden") {
-    $('#spendenlink').attr('data-toggle', 'modal');
-    $('#spendenlink').attr('data-target', '#myModal');
-    $('#spendenlink').attr('href', '');
-    kinderpatePeru = $('#nichtEinmalig1').detach();     kinderpateKenia = $('#nichtEinmalig2').detach(); //Entfernt die beiden Paten wenn einmalig ausgewählt wird
-  } else {
+    $('#spendenlink').attr('data-toggle', 'modal').attr('data-target', '#myModal').attr('href', '');
+    kinderpatePeru = $('#nichtEinmalig1').detach();     kinderpateKenia = $('#nichtEinmalig2').detach(); //Entfernt die beiden Patenmoglichkeiten wenn einmalig ausgewählt wird
+    } else {
     neuerLink = linkButton + '?spendenart=' + $('#sel1').val();
-    $('#spendenlink').attr('href', neuerLink);
-    $('#spendenlink').attr('data-toggle', '');
-    $('#spendenlink').attr('data-target', '');
+    $('#spendenlink').attr('href', neuerLink).attr('data-toggle', '').attr('data-target', '');
     $('#sel1').append(kinderpatePeru); //Fügt die Paten wieder hinzu
     $('#sel1').append(kinderpateKenia);
   }
-});
-</script>
 
-<div class="modal fade" id="myModal">
+});
+
+function linkModalAnpasen () {
+    if ($('#sel1').val() == 'Allgemein Spenden') {
+      $('#linkKDBank').attr('href', 'https://www.kd-onlinespende.de/projekt/chance-e-v-zukunft-für-mensch-und-schöpfung-669.html');
+    }
+    if ($('#sel1').val() == 'Kenia') {
+      $('#linkKDBank').attr('href', 'https://www.kd-onlinespende.de/projekt/chancen-für-kenia-665.html');
+    }
+    if ($('#sel1').val() == 'Peru') {
+      $('#linkKDBank').attr('href', 'https://www.kd-onlinespende.de/projekt/chancen-für-peru-666.html');
+    }
+    if ($('#sel1').val() == 'Dörfer Peru') {
+      $('#linkKDBank').attr('href', 'https://www.kd-onlinespende.de/projekt/chancen-für-indianerdörfer-im-tropischen-regenwald-664.html');
+    }
+    if ($('#sel1').val() == 'Dörfer Kenia') {
+      $('#linkKDBank').attr('href', 'https://www.kd-onlinespende.de/projekt/chancen-für-massai-dörfer-in-kenia-663.html');
+    }
+    if ($('#sel1').val() == 'Naturschutz Peru') {
+      $('#linkKDBank').attr('href', 'https://www.kd-onlinespende.de/projekt/mein-regenwald-chancen-für-die-natur-in-peruanischen-amazonasgebiet.html');
+    }
+  }
+</script>
+  <div class="modal fade" id="myModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body" style="padding: 3rem; padding-top: 2rem;">
         <button type="button" class="close" data-dismiss="modal">&times;</button> <br>
-        <h2>Weiterleitung zur KD-Bank</h2>
+        <h2 style="padding-bottom: 2rem;">Weiterleitung zur KD-Bank</h2>
         <span id="copy">Spenden Sie online und geben Sie Menschen eine Chance - ganz einfach, schnell und sicher über unseren Online-Spendenservice der Bank für Kirche und Diakonie</span>
-        <br> <a style="margin-top: 3rem;" href="https://www.kd-onlinespende.de/projekt/Indianerselbsthilfe/display/link.html" class="btn btn-primary"> Jetzt bei der KD Bank spenden </a>
+        <br> <a id="linkKDBank" style="margin-top: 3rem;" href="https://www.kd-onlinespende.de/projekt/Indianerselbsthilfe/display/link.html" class="btn btn-primary"> Jetzt bei der KD Bank spenden </a>
       </div>
 
     </div>
   </div>
 </div>
+
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">
 

@@ -53,36 +53,8 @@
 
     {% set entries = craft.entries.section('projekte').slug('säulen').one().children().all() %}
 
-    <div id="accordion">
+    {% include '_layouts/codeschnipsel/accordion' %}
 
-      {# If there are any entries, loop through them #}
-      {% set counter = 0 %}
-
-      {% for entry in entries %}
-      {% if entry.slug != 'klausel' %}
-      {% set counter = counter + 1 %}
-      <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
-        <div class="card-header bg-white">
-        <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
-          <div class="row">
-            <div class="col-md-11 col-10">
-              <h4> {{ entry.title }} </h4>
-            </div>
-            <div class="col-md-1 col-2">
-              <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right; margin-top: .25rem;">
-            </div>
-          </div>
-        </a>
-          </div>
-          <div id="{{counter}}" class="collapse" data-parent="#accordion">
-            <div class="card-body" id="copy">
-              {{ entry.text }}
-            </div>
-          </div>
-        </div>
-        {% endif %}
-        {% endfor %}
-      </div>
 
     {% set entry = craft.entries.section('projekte').slug('klausel').one() %}
     <div id="copy"> {{ entry.text }}  </div>
@@ -163,5 +135,10 @@
 {% set entry = craft.entries.section('projekte').slug('naturschutz').one() %}
 {% include '_layouts/weiterleitungmitzeilenumbruch' %}
 <div style="padding-top: 2.5rem;"> </div>
+
+{% set entry = craft.entries.section('projekte').slug('themen').one() %}
+{% include '_layouts/weiterleitungkorrekt' %}
+<div style="height: 5rem;"></div>
+
 
   {% endblock %}

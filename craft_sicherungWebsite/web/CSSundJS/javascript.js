@@ -20,14 +20,16 @@ $(window).resize(function(){
   WelleAnpassen();
   kindAnpassen();
 });
-
+/* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
 function rechteckNavbarVerkleinern () {
   if ($(document).scrollTop() > 50) {
       document.getElementById('rechteck').style.height = '58px';
-      document.getElementById('collapsibleNavbar').style.marginTop = '-82px';
-/* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen
-davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so
-verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
+      document.getElementById('collapsibleNavbar').style.marginTop = '-64px';
+      $('#rechteck').css('box-shadow', 'grey 0px 3px 30px');
+  } else {
+    $('#rechteck').css('box-shadow', 'grey 0 0 0');
+    document.getElementById('rechteck').style.height = '70px';
+    document.getElementById('collapsibleNavbar').style.marginTop = '-48px';
   }
 }
 

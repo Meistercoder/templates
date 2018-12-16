@@ -24,16 +24,13 @@
   background-color: #ed6e2c;
   }
 
- #naviUeberschrift {
-  font-size: 16px;
-  line-height: 22px;
+.navbar-light .navbar-nav .nav-link {
   color: white;
-  font-family: 'source_sans_probold';
 }
 h3 p {
   margin-bottom: 0;
 }
-.navbar-light .navbar-nav .nav-link.active { color: white; }
+.navbar-light .navbar-nav .nav-link.active { color: #0062ae; }
 </style>
 
 
@@ -72,39 +69,15 @@ h3 p {
     </div>
 </div> <!-- container-fluid von jetzt pate werden -->
 
-    <div class="container achterspaltenlayout text-center" style="padding-top: 5rem;">
+    <div class="container achterspaltenlayout" style="padding-top: 5rem;">
         {% set entry = craft.entries.section('spenden').slug('eine-spende').one() %}
-        <h2 style="padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
-        <div id="copy"> {{ entry.anleser }}</div>
-
+        <div class="text-center">
+          <h2 style="padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
+          <div id="anleser"> {{ entry.anleser }}</div>
+        </div>
         {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
-
-        <div id="accordion" style="padding-top: 3rem;">
-          {% set entries = entry.children().all() %}
-          {% if entries | length %}        {% set counter = 0 %}
-          {% for entry in entries %} {% set counter = counter + 1 %}
-          <div class="card" style=" border-color: white; border-top-color: #ed6e2c; border-width: 1px; margin-bottom: 20px;">
-            <div class="card-header bg-white">
-            <a class="collapsed card-link" data-toggle="collapse" href="#{{counter}}">
-              <div class="row">
-                <div class="col-md-11 col-10">
-                  <h4> {{ entry.title }} </h4>
-                </div>
-                <div class="col-md-1 col-2">
-                  <img src="{{ akkordionBilder.bild.one().url }}" style="height: 1rem; float: right; margin-top: .25rem;">
-                </div>
-              </div>
-            </a>
-              </div>
-              <div id="{{counter}}" class="collapse" data-parent="#accordion">
-                <div class="card-body" id="copy">
-                  {{ entry.text }}
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-          </div>
+        {% set entries = entry.children().all() %}
+        {% include '_layouts/codeschnipsel/accordion' %}
 
       </div> <!-- Akkordion -->
 
@@ -114,7 +87,7 @@ h3 p {
   {% set entry = craft.entries.section('spenden').slug('spendenmultiplikator').one() %}
   <div class="text-center" style="padding-bottom: 2rem;">
     <h2 style="padding-bottom: 1.5rem;"> {{ entry.title }} </h2>
-    <div id="copy"> {{ entry.anleser }}  </div>
+    <div id="anleser"> {{ entry.anleser }}  </div>
   </div>
     <div class="card-deck">
     <div class="card" style="background-color: #ffffff;">

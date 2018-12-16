@@ -1,21 +1,22 @@
 {% set entry = craft.entries.section('spendenfelderUndSo').slug('paten-dringend-gesucht').one() %}
 
 <div class="container-fluid"  style="background-image: url({{ entry.bild.one().url }}); padding: 3rem 0;">
+  <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
   <div class="row">
-    <div class="col-sm-2">  </div>
-    <div class="col-lg-2 col-md-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 150px; padding:0;"> </div>
-    <div class="col-sm-1">  </div>
-    <div class="col-sm-6">
-      <h4 style="color: white;"> {{ entry.title }} </h4>
+    <div class="col-md-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 180px; padding-bottom: 1rem;"> </div>
+    <div class="col-md-1">  </div>
+    <div class="col-md-8">
+      <h3 style="color: white;"> {{ entry.title }} </h3>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
       <div class="row">
         <div class="col-sm-4">
-          <a href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Kinderpate plus in Peru werden</a>
+          <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Kinderpate%20Peru*" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Kinderpate plus in Peru werden</a>
         </div> <div class="col-sm-2">  </div>
         <div class="col-sm-6">
-          <a href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Kinderpate plus in Kenia werden</a>
+          <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Kinderpate%20Kenia*" class="btn btn-primary" role="button" style="margin-bottom: 2rem;">Kinderpate plus in Kenia werden</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->

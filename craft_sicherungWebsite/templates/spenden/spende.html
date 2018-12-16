@@ -20,6 +20,21 @@
   #myModal h4 {
     margin-bottom: 0;
   }
+  .modal.fade.show {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form-control {
+    border-radius: 0;
+    border-color: transparent;
+    padding: .75rem;
+  }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>
 
 <div class="modal fade" id="myModal">
@@ -45,7 +60,7 @@
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
     <h2 style="padding-bottom: 1.5rem;"> {{ entry.anleser }} </h2>
     <div id="copy" style="padding-bottom: 2rem;">  <h4> SEPA-Lastschriftmandat </h4>
-    Eine regelmäßige Spende können Sie durch das Ausfüllen des folgenden Formulars bequem online einrichten. Alternativ können Sie das SEPA-Lastschriftmandat <a target="_blank" href="{{entry.bild.one().url}}">herunterladen</a> und eigenständig ausfüllen oder aber Sie richten einen Dauerauftrag ein.
+    Eine regelmäßige Spende können Sie durch das Ausfüllen des folgenden Formulars bequem online einrichten. Alternativ können Sie das <a target="_blank" href="{{entry.bild.one().url}}">SEPA-Lastschriftmandat herunterladen</a> und eigenständig ausfüllen oder aber Sie richten einen Dauerauftrag ein.
   </div>
 
     <div class="custom-control custom-checkbox">
@@ -129,7 +144,10 @@
       if (welcheSpende.match(/Kinderpate Kenia/)) {
         $('#sel1').val('Kinderpate Kenia'); }
 
-        console.log(welcheSpende);
+      function mindestspendenbetragSetzen () {
+        $("#betrag").attr("placeholder", "New Value");
+      }
+
       });
       </script>
 
@@ -141,7 +159,7 @@
         </div>
         <div class="form-group">
           <label for="usr">Betrag in Euro</label>
-          <input type="number" name="betrag" id="betrag" class="form-control" required>
+          <input type="number" name="betrag" id="betrag" class="form-control" placeholder="Enter email" required>
         </div>
         <div class="form-group">
           <label for="usr">IBAN</label>
