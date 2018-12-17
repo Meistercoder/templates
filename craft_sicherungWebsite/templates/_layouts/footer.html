@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-0">  </div>
     <div class="col-lg-4 col-md-11">
-      <a href="www.mein-regenwald.de" class="btn btn-success">Der Chance-Regenwald <br> <strong>https://www.mein-regenwald.de</strong></a>
+      <a href="https://www.mein-regenwald.de" class="btn btn-success">Der Chance-Regenwald <br> <strong>https://www.mein-regenwald.de</strong></a>
     </div>
   </div>
 </div>
@@ -105,9 +105,9 @@
             <input type="hidden" name="action" value="contact-form/send">
             {{ redirectInput('kontakt/danke') }}
 
-            <input id="from-email" required class="form-control" type="email" style="background-color: #333333; margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
+            <input id="from-email" required class="form-control" type="email" style="padding-top: 9px; background-color: #333333; margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
             {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
-            <input type="submit" value="Anmelden" class="btn btn-light">
+            <input type="submit" value="Anmelden" class="btn btn-light" style="line-height: 16px;  padding-top: 11px; padding-bottom: 9px;">
 
             <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Die oben genannte E-Mail-Adresse würde sich gerne für den Newsletter anmelden.</textarea>
             {{ message is defined and message ? errorList(message.getErrors('message')) }}
@@ -115,7 +115,7 @@
           </form>
 
           <p style="padding-top: 40px; margin-bottom: 0; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
-          <br> <a href="https://aufbau-website.de/craft/web/kontakt">Diesen können Sie hier bestellen</a>
+          <br> <a href="https://aufbau-website.de/craft/web/kontakt">Diesen können Sie hier bestellen ></a>
 
           </div>
 
@@ -130,7 +130,7 @@
 
 
               <!-- Trennlinie für den Footer -->
-              <hr style="border-top-color: #d7d7d7; margin-top: 35px; margin-bottom: 40px;">
+              <hr style="border-top-color: #7a6c6c; margin-top: 35px; margin-bottom: 40px;">
 
 
               <!-- Der zweite Teil des Footers mit den Links -->
@@ -146,7 +146,7 @@
               </div>
 
               <!-- Trennlinie für den Footer -->
-              <hr style="border-top-color: #d7d7d7; margin-top: 24px; margin-bottom: 20px;">
+              <hr style="border-top-color: #7a6c6c; margin-top: 24px; margin-bottom: 20px;">
 
 
               <!-- Der letzte Teil des Footers -->

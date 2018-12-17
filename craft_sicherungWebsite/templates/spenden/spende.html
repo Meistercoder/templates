@@ -4,13 +4,18 @@
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; padding-bottom: 3rem; position: relative;">
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
-    {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
+  <nav aria-label="breadcrumb" id="info">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/spenden/jetztspenden.html">Spenden</a></li>
+      <li class="breadcrumb-item"> Regelmäßig Spenden </li>
+    </ol>
+  </nav>
 
-    <div style="padding-bottom:3rem; ">
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+
+  <div class="container achterspaltenlayout text-center" style="padding-top: 0px; position: relative;">    {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
     </div>
-  </div>
 </div>
 
 
@@ -36,8 +41,7 @@
 
   <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 4rem 2rem;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
-    <h2 style="padding-bottom: 1.5rem;"> {{ entry.anleser }} </h2>
-    <div id="copy" style="padding-bottom: 2rem;">  <h4> SEPA-Lastschriftmandat </h4>
+    <div id="copy" style="padding-bottom: 2rem;">  <h2 style="padding-bottom: 1.5rem;"> SEPA-Lastschriftmandat </h2>
     Eine regelmäßige Spende können Sie durch das Ausfüllen des folgenden Formulars bequem online einrichten. Alternativ können Sie das <a target="_blank" href="{{entry.bild.one().url}}">SEPA-Lastschriftmandat herunterladen</a> und eigenständig ausfüllen oder aber Sie richten einen Dauerauftrag ein.
   </div>
 
@@ -136,21 +140,19 @@
       </div>
     </div>
 
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="datenschutz" name="datenschutz" required>
-      <label class="custom-control-label" for="datenschutz">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert <a href="https://aufbau-website.de/craft/web/fuerSie/rechtliches/datenschutz">(Infos zum Datenschutz)</a>
-        und diese nicht an Dritte weiter gibt.</label>
-      </div>
-      <p id="fehlermeldungDatenschutz"> </p>
+    <p> <h3>Achtung, sind Sie mit beidem einverstanden? </h3> </p>
 
-
-
-      <div class="custom-control custom-checkbox" style="padding-bottom: 2rem;">
+      <div class="custom-control custom-checkbox" style="padding-bottom: 1rem;">
         <input type="checkbox" class="custom-control-input" id="customCheck2" name="newsletter">
-        <label class="custom-control-label" for="customCheck2">Ich bin damit einverstanden, dass Chance e.V. mich einmal im Monat per E-Mail und zwei- bis dreimal im Jahr per Post über die Projekte und die Menschen
-          vor Ort informiert. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org</label>
+        <label class="custom-control-label" for="customCheck2">Ja, ich möchte darüber informiert bleiben, was mit meinen Spenden geschieht und fordere den Newsletter von Chance e.V. an. Per E-Mail einmal im Monat. Per Brief zweimal im Jahr.</label>
         </div>
 
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="datenschutz" name="datenschutz" required>
+          <label class="custom-control-label" for="datenschutz">Ich bin damit einverstanden, dass Chance e. V. meine Daten sicher speichert <a href="https://aufbau-website.de/craft/web/fuerSie/rechtliches/datenschutz">(Infos zum Datenschutz)</a>
+            und diese nicht an Dritte weiter gibt. Ohne diese Daten können wir Ihnen keine Zuwendungsbescheinigung zusenden.</label>
+        </div>
+          <p id="fehlermeldungDatenschutz"> </p>
             <button onclick="myFunction()" class="btn btn-primary float-right">Weiter</button>
 
       </div>
@@ -340,6 +342,7 @@
 
       $(function() {
         $('#datenschutz').prop('checked', true);
+        $('#customCheck2').prop('checked', true);
       });
 
       function myFunction() { //Ueberpruefen, ob alle Felder korekkt ausgefüllt sind

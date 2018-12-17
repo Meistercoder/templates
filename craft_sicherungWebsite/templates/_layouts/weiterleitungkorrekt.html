@@ -1,27 +1,8 @@
 <div class="zwoelferspaltenlayout container text-left" style="background-color: white; padding-top: 0px;">
 <div class="row">
 
-  {% set url = entry.url %}
-
-  {% if 'empfehlung' in entry.url %}
-  {% set url = entry.url |replace({'empfehlung/': '', 'ueber-uns': 'ueberUns'}) %}
-  {% endif %}
-
-  {% if 'erfahrungsberichte' in entry.url %}
-  {% set url = entry.url |replace({'erfahrungsberichte/': ''}) %}
-  {% endif %}
-
-  {% if 'fuer-sie' in entry.url %}
-  {% set url = entry.url |replace({'fuer-sie': 'fuerSie'}) %}
-  {% endif %}
-
-  {% if 'spendenfelder-und-so' in entry.url and 'fuer-sie' in entry.url %}
-  {% set url = entry.url |replace({'spendenfelder-und-so/fuer-sie': 'fuerSie'}) %}
-  {% endif %}
-
-
   <div class="col-md-4" style="padding: 0;">
-    <a href="{{url}}">
+    <a href="{{ entry.reinertext }}">
     <img class="img-fluid w-100 h-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
     </a>
   </div>

@@ -22,9 +22,11 @@
       <li class="breadcrumb-item"> Schenken und Spenden </li>
     </ol>
   </nav>
+  
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; padding-bottom: 5rem; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
-    {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
+  <div class="container achterspaltenlayout text-center" style="padding-top: 0px; position: relative;">
+  {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
     <div>
       <h1 style="padding-bottom: 3rem;"> Geben Sie Menschen eine Chance!  </h1>
     </div>

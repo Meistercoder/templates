@@ -98,9 +98,13 @@
     }
 }
 
-/* a::after { Einfuegen des Pfeils nach jedem Link
-    content: " >";
-}*/
+.wandernderButton {
+  position: fixed;
+  top: 132px;
+  right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
 .achterspaltenlayout {
   max-width: 760px;
@@ -201,10 +205,18 @@ strong {
 }
 
 #video {
-  min-height: 25rem;
-  background-color: white;
+  width: 100%;
+  height: 0;
+  padding-bottom: 21%;
   margin-top: -12.5rem;
   position: relative;
+}
+#video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /*Tablets: */
@@ -212,7 +224,7 @@ strong {
   html {
     font-size: 80%;
 }
-  #video { /* Video-Box ausblenden */
+  #video, .wrapperVideo { /* Video-Box ausblenden */
     display: none;
   }
   h1 {
@@ -266,7 +278,7 @@ strong {
   html {
     font-size: 60%;
 }
-  #video { /* Video-Box ausblenden */
+  #video, .wrapperVideo { /* Video-Box ausblenden */
     display: none;
   }
   #myScrollspy {
@@ -415,6 +427,7 @@ body {
 }
 
 .breadcrumb {
+  padding-top: 3rem;
   background-color: transparent !important;
   display: block !important;
 }

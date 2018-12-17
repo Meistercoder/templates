@@ -23,8 +23,8 @@ h2 {
     </ol>
   </nav>
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; padding-bottom: 5rem; background-image: url({{ craft.assets.filename('chance-ev-spenden-allgemein-icon.png').one().getUrl() }}); background-repeat: no-repeat;">
-    {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
+  <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+  <div class="container achterspaltenlayout text-center" style="padding-top: 0px; position: relative;">    {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
     <div>
       <h1 style="padding-bottom: 3rem;"> Geben Sie Menschen eine Chance!  </h1>
     </div>
@@ -37,7 +37,7 @@ h2 {
     {% set entry = craft.entries.section('spenden').slug('einkaufen-und-spenden').one() %}
     <div id="copy"> {{ entry.anleser }}</div>
   </div>
-  
+
   <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 0;">
     <img style="padding: 0;" class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="schenken2">
   </div>

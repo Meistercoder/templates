@@ -32,6 +32,14 @@
   <img class="img-fluid" src="{% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}" alt="">
 </div>
 
+{% if entry.slug == 'medalid-lang-1' %}
+<div class="wrapperVideo" style="padding-top: 8rem; padding-bottom: 3rem;">
+<div class="container achterspaltenlayout" id="video">
+<iframe src="https://www.youtube.com/embed/ucReBc4Os7k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+{% endif %}
+
 <div class="container achterspaltenlayout">
   <div id="copy">{{ entry.langerText }}
   </div>

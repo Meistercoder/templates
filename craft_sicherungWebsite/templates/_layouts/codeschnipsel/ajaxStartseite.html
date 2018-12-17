@@ -23,7 +23,7 @@ var eintraege = [];
   eintraege.push(eintrag);
 {% endfor %}
 
-{% set entries = craft.entries.section('projektberichte').all() %}
+{% set entries = craft.entries.section('projektberichte').level('1').all() %}
 
 {% for entry in entries %} //Alle projektberichte werden in ein Feld kopiert aus Craft
   var eintrag = { slug: "{{entry.slug}}", blogOderProjekt: "projekt", title: "{{entry.title}}", anleser: "{{entry.anleser}}", bild: "{{entry.bild.one().url}}" };
