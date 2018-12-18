@@ -8,7 +8,7 @@
 
 {% block block1 %}
 
-<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 120px; position: relative;">
+<div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
@@ -123,10 +123,11 @@
   <div class="col-sm-2"> <!-- Buttons im Spaltenlayout -->
   <button onclick="myFunction()" class="btn btn-secondary"> Löschen </button>
   <script>
-  function myFunction() {
+  $(function() {
     $(".form-control").val("");
-    $(".custom-control-input").prop("checked", false);
-  }
+    $("#customCheck13").prop("checked", true);
+    $("#customCheck14").prop("checked", true);
+  });
   </script>
   </div>
 

@@ -44,17 +44,12 @@ h3 { padding-bottom: 1rem; }
     {{ entry.zusatzfeld2 }}
   </div>
 
-<div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
-  {% set entry = craft.entries.section('fuerSie').slug('gemeinden').one() %}
-  <div id="anleser" style="padding-bottom: 0;"> {{ entry.anleser }}</div>
-  <div id="copy"> {{ entry.zusatzfeld1 }}  </div>
-</div>
+  <div class="container achterspaltenlayout" id="saeulen" style="padding-top: 0rem; padding-bottom: 4rem;">
+    {% set akkordionBilder = craft.entries.section('spendenfelderUndSo').slug('akkordion-bilder').one() %}
+    {% set entries = craft.entries.section('fuerSie').slug('zitate-1').one().children().all() %}
+    {% include '_layouts/codeschnipsel/accordion' %}
 
-<div class="container achterspaltenlayout">
-  <div id="anleser" style="padding-bottom: 0;"> {{ entry.text }}</div>
-  <div id="copy"> {{ entry.zusatzfeld2 }}  </div>
-</div>
-
+  </div>
 
   <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
     <hr style="margin-top: 2rem; border-width: 1px;"> <br>

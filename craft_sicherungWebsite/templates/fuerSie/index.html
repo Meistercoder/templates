@@ -15,9 +15,9 @@
 }
 </style>
 
-<div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 1rem; position: relative;">
+<div class="container-fluid text-center no-padding" id="ersterContainer" style="padding-top: 5rem; position: relative;">
 
-  <img id="headerbild" style="object-position: 50% 10%;" src="{{ craft.assets.filename('chance-ev-fuer-sie-header.jpg').one().getUrl() }}" >
+  <img id="headerbild" src="{{ craft.assets.filename('chance-ev-fuer-sie-header.jpg').one().getUrl() }}" >
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
@@ -29,7 +29,12 @@
 
   <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('chancekommt').one() %}
-      <h1 style="padding-bottom: 2rem;"> {{ entry.text }}  </h1>
+      <h1 style="padding-bottom: .5rem;"> {{ entry.text }}  </h1>
+
+      <div class="container achterspaltenlayout" id="video" style="margin-top: 0; padding-bottom: 51%; margin-bottom: 2rem;">
+        <iframe src="https://www.youtube.com/embed/oFzu5ElARTo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
       <div id="anleser"> {{ entry.zusatzfeld1 }}</div>
     </div>
   </div>

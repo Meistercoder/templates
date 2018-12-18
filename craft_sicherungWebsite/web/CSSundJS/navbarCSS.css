@@ -30,25 +30,35 @@
   padding: 23px 0; /* Padding oben und unten 23, da die dropdown-items schon 7 oben haben */
   border-radius: 0 0 0 0;
   border: none;
-  /*box-shadow: grey 0px 3px 30px;*/
+  box-shadow: grey 0px 3px 30px;
 }
+
+/*.obermenu:hover > .dropdown-menu { Damit soll der Rand bei den Untermenus weggehen..
+    box-shadow: 3px -5px 10px grey, -7px 2px 7px 0px grey, 3px 4px 6px grey;
+}
+.obermenu:hover > .ausklappbar {
+    box-shadow: 3px -5px 10px grey, 6px 1px 14px 0px grey, 3px 4px 6px grey;
+  } */
+
 .dropdown-item a {
   color: #333333;
 }
 
 .pfeil {
-  width: 20px;
-  height: 20px;
-  background-color: white;
-  clip-path: polygon(50% 0, 0 100%, 100% 100%);
-  padding-left: 50px;
-  margin-left: 20%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 20px;
+  border-color: transparent transparent #ffffff transparent;
   visibility: hidden;
+  margin-left: 28%;
+  position: relative;
+  z-index: 1001;
 }
 .nav-item:hover > .pfeil {
   visibility: visible;
 }
-
+/* Alte Variante mit dem Polygon .pfeil {  width: 20px;  height: 20px;  background-color: white;  clip-path: polygon(50% 0, 0 100%, 100% 100%);  padding-left: 50px;margin-left: 20%;  visibility: hidden;}*/
 .dropdown-item {
   padding: 7px 20px;
 }
