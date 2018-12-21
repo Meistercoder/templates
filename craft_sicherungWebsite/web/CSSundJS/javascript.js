@@ -55,10 +55,10 @@ function scrollspyVerstecken () { //Der Scrollspy ist 160 px lang, deswegen wird
 
   if (hScrollspy > hFooter){
      $('#myScrollspy > ul').css('display', 'none');
-     $('.wandernderButton').css('display', 'none');
+    // $('.wandernderButton').css('display', 'none');
    } else {
      $('#myScrollspy > ul').css('display', 'block');
-     $('.wandernderButton').css('display', 'block');
+    // $('.wandernderButton').css('display', 'block');
    }
  }
 }

@@ -182,10 +182,8 @@ h4 {
   font-family: 'source_sans_prosemibold';
 }
 strong {
-  font-size: 18px;
-  line-height: 28px;
-  color: #000000;
   font-family: 'source_sans_prosemibold';
+  font-weight: normal;
 }
 
 .btn-primary { /*Anpassen der Buttons */
@@ -205,19 +203,8 @@ strong {
   border-color: #0062ae;
 }
 
-#video {
-  width: 100%;
-  height: 0;
-  padding-bottom: 21%;
-  margin-top: -12.5rem;
-  position: relative;
-}
-#video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.videoStart {
+  margin-top: -27%;
 }
 
 /*Tablets: */
@@ -225,9 +212,9 @@ strong {
   html {
     font-size: 80%;
 }
-  #video, .wrapperVideo { /* Video-Box ausblenden */
-    display: none;
-  }
+#video {
+  max-width: 90vw;
+}
   h1 {
     font-size: 41.6px;
     line-height: 48px;
@@ -279,9 +266,9 @@ strong {
   html {
     font-size: 60%;
 }
-  #video, .wrapperVideo { /* Video-Box ausblenden */
-    display: none;
-  }
+#video {
+  max-width: 90vw;
+}
   #myScrollspy {
     display: none;
   }
@@ -331,6 +318,9 @@ strong {
   }
   #emailAnmelden { /*Anpassen der Buttons */
     margin-top: 1rem;
+}
+.wandernderButton { /*Der button für kinderpate und so verschwindet */
+  display: none;
 }
 }
 

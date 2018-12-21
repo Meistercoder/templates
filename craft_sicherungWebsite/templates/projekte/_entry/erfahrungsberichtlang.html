@@ -28,13 +28,13 @@
   </div>
 </div>
 
-<div class="container zwoelferspaltenlayout" style="padding-top: 0;">
+<div class="container zwoelferspaltenlayout" {% if entry.bild2.one() is null %} style = "height: 0; padding-top: 0;" {% else %} style = "padding-top: 0;" {% endif %}>
   <img class="img-fluid" src="{% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}" alt="">
 </div>
 
 {% if entry.slug == 'medalid-lang-1' %}
-<div class="wrapperVideo" style="padding-top: 8rem; padding-bottom: 3rem;">
-<div class="container achterspaltenlayout" id="video">
+<div class="container achterspaltenlayout" style="padding-bottom: 4rem;">
+  <div class="embed-responsive embed-responsive-16by9">
 <iframe src="https://www.youtube.com/embed/ucReBc4Os7k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </div>
