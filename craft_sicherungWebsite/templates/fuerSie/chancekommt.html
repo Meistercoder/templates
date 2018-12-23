@@ -13,8 +13,9 @@
  hr {
   border-width: 1px;
 }
-h3 { padding-bottom: 1rem; }
- h2 {
+h3 {
+  padding-bottom: 1rem; }
+h2 {
   padding-bottom: .5rem;
 }
 </style>
@@ -55,6 +56,12 @@ h3 { padding-bottom: 1rem; }
     <hr style="margin-top: 2rem; border-width: 1px;"> <br>
   <p id="anleser" class="text-center" style="padding-top: 2rem; padding-bottom: 3rem;"> Erfahre, wie du vor Ort helfen kannst  </p>
   </div>
+
+  <style media="screen">
+    .card-header.bg-white, .card {
+      background-color: #f8f5f2 !important;
+    }
+  </style>
 
   {% set entry = craft.entries.section('fuerSie').slug('freiwilligendienst').one() %}
 

@@ -25,14 +25,6 @@
   </div>
 </div>
 
-<style>
-
-@media all and (max-width: 1200px) {
-  #erfahrungsbericht {
-    display: none;
-  }
-}
-</style>
 
 <div class="container achterspaltenlayout">
   <img class="img-fluid mx-auto d-block" style="padding-bottom: 5rem; position: relative; max-height: 450px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
@@ -86,12 +78,11 @@
 </script>
 {% set entries = entry.children().all() %}
 <div class="card-group" style="padding-top: 2rem;">
-  <div class="row"> {% set counter = 0 %}
+  <div class="row">
     {% for entry in entries %}
     <div class="col-sm-3" style="padding: 0;">
-      {% if counter % 3 == 0 %}   <div class="card h-100" style="border-radius: 0; border-width: 0;">  {% elseif counter % 2 == 0 %}   <div class="card h-100" style="background-color: rgb(255, 225, 157); border-radius: 0; border-width: 0;"> {% else %}   <div class="card h-100" style="background-color: #b8dbb8; border-radius: 0; border-width: 0;"> {% endif %}
-        {% set counter = counter + 1 %}
-        <img class="card-img-top mx-auto d-block" style="border-radius: 0; padding: 5px; max-height: 200px; max-width: 200px;" src="{{ entry.bild.one().url }}" alt="Card image cap">
+    <div class="card h-100" style="border-radius: 0; border: 10px solid #f8f5f2;">
+        <img class="card-img-top mx-auto d-block w-100" style="border-radius: 0;" src="{{ entry.bild.one().url }}" alt="Card image cap">
         <div class="card-body">
           <h4 class="card-title">{{ entry.title }}</h4>
           <span id="info" class="card-text">{{ entry.anleser }}</span>
@@ -105,8 +96,7 @@
 
 {% endif %}
 
-
-<div class="container zwoelferspaltenlayout" style="padding-bottom: 4.5rem;">
+<div class="container zwoelferspaltenlayout" id="weitereBerichte" style="padding-bottom: 4.5rem;">
 
   <hr> <p class="text-center" id="anleser" style="padding-top: 2rem;"> Weitere Projektberichte</p>
   {% set slugUrsprung = entry.slug %}
@@ -129,6 +119,16 @@
   </div>
 </div> <!-- Die restlichen Projektberichte -->
 
+<style media="screen">
+@media all and (max-width: 1200px) {
+  #erfahrungsbericht {
+    display: none;
+  }
+}
+#weitereBerichte  a:hover {
+   text-decoration: underline #0062ae;
+ }
+</style>
 {% include '_layouts/codeschnipsel/spendeprojekt' %}
 
 

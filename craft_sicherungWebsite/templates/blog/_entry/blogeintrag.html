@@ -1,4 +1,3 @@
-
 {% extends "_layouts/layoutHome.html" %}
 
 {% block titelfuerseo %}
@@ -7,132 +6,206 @@
 {% endblock %}
 
 {% block headerZusatz %}
-<link rel="stylesheet" type="text/css" href="https://aufbau-website.de/craft/web/CSSundJS/gallery/css/strip.css"/>
+<link href="https://aufbau-website.de/craft/web/CSSundJS/gallery/css/strip.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block block1 %}
 <script type="text/javascript" src="https://aufbau-website.de/craft/web/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
 
 <style media="screen">
-.thumbnail img {
-  max-height: 257.77px;
-  width: 100%;
-}
+    .thumbnail img {
+        max-height: 257.77px;
+        width: 100%;
+    }
 </style>
 
 <div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
 
-  <nav aria-label="breadcrumb" id="info">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/blog">Blog</a></li>
-    <li class="breadcrumb-item"> {{entry.title }} </li>
-  </ol>
-</nav>
+    <nav aria-label="breadcrumb" id="info">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://aufbau-website.de/craft/web/blog">Blog</a></li>
+            <li class="breadcrumb-item"> {{entry.title }}</li>
+        </ol>
+    </nav>
 
-<img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
+    <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}"
+         style="position: absolute; left:0; width: 40%;">
 
-  <div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
-  <h1> {{ entry.title }} </h1>
-  <div id="info" style="padding-bottom: 8rem;"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - in <a href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a></div>
-  </div>
+    <div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
+        <h1> {{ entry.title }} </h1>
+        <div id="info" style="padding-bottom: 8rem;"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - in <a
+                href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a></div>
+    </div>
 </div>
 
 <div class="container-fluid no-padding" style="background-color: white; padding-top: 0;">
-<div class="container achterspaltenlayout">
-  <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" style="padding-bottom: 0; margin-top:-7rem; position: relative;">
-  <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}  </div>
-</div>
+    <div class="container achterspaltenlayout">
+        <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}"
+             style="padding-bottom: 0; margin-top:-7rem; position: relative;">
+        <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}</div>
+    </div>
 
-  <div class="container zwoelferspaltenlayout" style="padding-top: 3rem; padding-bottom: 5rem;"> <!-- Der Slider mit den verschiedenen Bildern -->
-          {% set bilder = entry.bild.all() %} {% set counter = 0 %}
-          <div class="row">
-          {% for bild in bilder %} {% set counter = counter + 1 %}
-          {% if counter < 7 %} <div class="col-4" style="padding: 0;"> {% else %} <div class="col-4" style="display: none;"> {% endif %}
-            <a href="{{bild.url}}" class="strip thumbnail" hideOnClickOutside: false data-strip-group="mygroup">
-            <img src="{{bild.url}}" class="img-fluid" style="padding-bottom: 0;">
-           </a>
-         </div>
-          {% endfor %}
+    <div class="container zwoelferspaltenlayout" style="padding-top: 3rem; padding-bottom: 5rem;">
+        <!-- Der Slider mit den verschiedenen Bildern -->
+        {% set bilder = entry.bild.all() %} {% set counter = 0 %}
+        <div class="row">
+            {% for bild in bilder %} {% set counter = counter + 1 %}
+            {% if counter < 7 %}
+            <div class="col-4" style="padding: 0;"> {% else %}
+                <div class="col-4" style="display: none;"> {% endif %}
+                    <a href="{{bild.url}}" class="strip thumbnail" hideOnClickOutside: false data-strip-group="mygroup">
+                        <img src="{{bild.url}}" class="img-fluid" style="padding-bottom: 0;">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
         </div>
 
-  </div>
+        <div class="container achterspaltenlayout" style="overflow: hidden; white-space: nowrap;">
+            <h3>Mit Anderen Teilen </h3>
+            {% set bilder = craft.entries.section('spendenfelderUndSo').slug('logosfbtwitteremail').one() %}
+            <a class="teilen" style="padding-left: 0;" target="_blank"
+               href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+                <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild.one().url }}">
+                <div>Facebook</div>
+            </a>
 
-<div class="container achterspaltenlayout" style="overflow: hidden; white-space: nowrap;">
-<h3>Mit Anderen Teilen </h3>
-{% set bilder = craft.entries.section('spendenfelderUndSo').slug('logosfbtwitteremail').one() %}
-<a class="teilen" style="padding-left: 0;" target="_blank" href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
-  <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild.one().url }}">
-  <div>Facebook</div>
-</a>
+            <a class="teilen" target="_blank"
+               href="{{ 'https://twitter.com/home?status=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+                <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild2.one().url }}">
+                <div> Twitter</div>
+            </a>
 
-<a class="teilen" target="_blank" href="{{ 'https://twitter.com/home?status=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
-  <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild2.one().url }}">
-  <div> Twitter </div>
-</a>
+            <a class="teilen"
+               href="mailto:?subject=Interessanter Artikel&body={{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+                <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild3.one().url }}">
+                <div> Email</div>
+            </a>
+        </div> <!-- Achterspaltenlayout - Container -->
 
-<a class="teilen" href="mailto:?subject=Interessanter Artikel&body={{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
-  <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild3.one().url }}">
-  <div> Email </div>
-</a>
-</div> <!-- Achterspaltenlayout - Container -->
+        <div class="container zwoelferspaltenlayout text-center" id="copy"
+             style="padding-bottom: 3rem; border-bottom: double;">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
+                    {% set prev = entry.getPrev(criteria) %}
+                    {% if prev %}
+                    <a href="{{ prev.url }}" style="text-align: left;"> < Vorheriger Beitrag </a>
+                    {% endif %}
+                </div>
 
-<div class="container zwoelferspaltenlayout text-center" id="copy" style="padding-bottom: 3rem;">
-
-<div class="row">
-  <div class="col-sm-4">
-  {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
-  {% set prev = entry.getPrev(criteria) %}
-  {% if prev %}
-   <a href="{{ prev.url }}" style="text-align: left;"> < Vorheriger Beitrag </a>
-  {% endif %}
-</div>
-
-<div class="col-sm-4"> <a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a> </div>
-    <p>TEST</p>
-
-    {# @var commentsWork \twentyfourhoursmedia\commentswork\services\CommentsWorkService #}
-    {% set commentsWork = craft.commentsWork.service %}
-
-    {% if not currentUser and not commentsWork.allowAnonymous(entry) %}
-    <p>Anonymous commenting is not allowed. Please login.</p>
-    {% else %}
-    <div class="card bg-light">
-        <div class="card-header">
-            Leave a comment
+                <div class="col-sm-4"><a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a></div>
+                <div class="col-sm-4">
+                    {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
+                    {% set next = entry.getNext(criteria) %}
+                    {% if next %}
+                    <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag > </a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <form method="post"> action="{{ url('craft/vendor/twentyfourhoursmedia/comments-work/src/controllers//DefaultController') }}">
+
+
+        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;" style="padding-top: 3rem;">
+
+            {# @var commentsWork \twentyfourhoursmedia\commentswork\services\CommentsWorkService #}
+            {% set commentsWork = craft.commentsWork.service %}
+            {# show latest 50 comments#}
+
+            <h3>{{ commentsWork.countComments(entry) }} Kommentare</h3>
+
+        </div>
+        {% set comments = commentsWork.fetchComments(entry, 0, 50) %}
+        {% for comment in comments %}
+        {# @var comment \twentyfourhoursmedia\commentswork\models\CommentModel #}
+        <div class="container achterspaltenlayout">
+            <p><strong>{{comment.name}}</strong></p>
+            <p>Am {{ comment.dateCreated | date }} um {{ comment.dateCreated | date('H:i') }} </p>
+        </div>
+        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;">
+            {%- if comment.comment is not empty %}
+            <p>
+                {{ comment | commentAsHtml }}
+            </p>
+            {% endif -%}
+        </div>
+
+        <br/>
+        {% endfor %}
+        {# end comments #}
+
+
+        {# start comments #}
+        {# you may want to put this code in an include or embed for reusability #}
+
+        <div id="comments"><!-- anchor --></div>
+
+        {# check if the user has just posted a comment and provide feedback #}
+        {% set justPosted = commentsWork.checkJustPosted() %}
+
+        {% if justPosted %}
+        {# show a message not the form #}
+        {% if justPosted.error %}
+        <div class="alert alert-danger">
+            <p>The comment could not be posted.</p>
+        </div>
+        {% else %}
+        {% if justPosted.status == 'APPROVED' %}
+        <div class="alert alert-success"><p>Your comment has been published.</p></div>
+        {% elseif justPosted.status == 'PENDING' %}
+        <div class="alert alert-warning"><p>Your comment has been posted and is awaiting moderation.</p></div>
+        {% else %}
+        {# the status is either trashed or spam for some reason,, #}
+        <div class="alert alert-danger"><p>Your comment has been posted but has not been not published..</p>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% else %}
+        {# show the form #}
+        {% if not currentUser and not commentsWork.allowAnonymous(entry) %}
+        <p>Anonymous commenting is not allowed. Please login.</p>
+        {% else %}
+        <div class="container achterspaltenlayout">
+            <h3>Neuen Kommentar schreiben</h3>
+
+
+
+            <form method="post" action="" accep-charset="UTF-8">
+                <input type="hidden" name="action" value="comments-work/default/post-comment">
                 {{ csrfInput() }}
                 {{ signCommentForm(entry) }}
                 <input name="redirect" value="{{ craft.app.request.url }}#comments" type="hidden"/>
                 <input name="elementId" value="{{ entry.id }}" type="hidden"/>
                 <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
                 <input name="commentFormat" value="text" type="hidden"/>
-
-                <div class="form-group">
-                    <label for="comment-title">Title</label>
-                    <input name="title" id="comment-title" type="text" class="form-control"/>
+                <div class="row">
+                        <textarea name="comment" rows="5" id="comment-content" class="form-control"
+                                  placeholder="Gib hier deinen Kommentar ein"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="comment-content">Comment</label>
-                    <textarea name="comment" rows="5" id="comment-content" class="form-control"></textarea>
+                <div class="row">
+                    <input name="name" id="comment-name" class="form-control" type="text"
+                           placeholder="Name (erforderlich)"/>
+
+                    <input name="mail" id="comment-mail" type="text" class="form-control"
+                           placeholder="Mail (erforderlich)"/>
                 </div>
 
-                <div>
-                    <input type="submit" class="btn btn-primary" value="Post comment"/>
+
+                <div class="row">
+                <input type="submit" class="btn btn-primary" value="Post comment" style="float: right;"/>
                 </div>
             </form>
         </div>
+
     </div>
-    {% endif %}
-<div class="col-sm-4">
-{% set criteria = {section: 'blog', orderBy: 'postDate'} %}
-{% set next = entry.getNext(criteria) %}
-{% if next %}
- <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag > </a>
-{% endif %}
 </div>
-</div>-->
+{% endif %}
+{% endif %}
+
+
+</div>
+-->
 <hr style="border-width:2px; margin-top: 3rem; margin-bottom: 0;">
 
 </div> <!-- Die weiterführenden Links -->
@@ -142,14 +215,16 @@
 
 <style> /* Die Styles für die animierten Bilder */
 .bx-wrapper {
-  margin: 0 auto;
+    margin: 0 auto;
 }
+
 .teilen {
     padding: 0 1rem;
 }
+
 .teilen div {
-  display: inline-block;
-  line-height: 20px;
+    display: inline-block;
+    line-height: 20px;
 }
 </style>
 {% endblock %}

@@ -164,7 +164,7 @@
           {{ csrfInput() }}
           <input type="hidden" name="action" value="contact-form/send">
 
-          <input id="ziel" type="hidden" name="toEmail" value="{{ 'felix-gregor.fessler@stud.uni-bamberg.de, fe.fessler@gmx.de'|hash }}">
+          <input id="ziel" type="hidden" name="toEmail" value="">
           {{ redirectInput('kontakt/danke') }}
 
           <input id="from-email" required class="form-control" type="email" style="margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">

@@ -22,7 +22,7 @@
       <li class="breadcrumb-item"> Schenken und Spenden </li>
     </ol>
   </nav>
-  
+
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
   <div class="container achterspaltenlayout text-center" style="padding-top: 0px; position: relative;">
@@ -45,8 +45,8 @@
       <div class="col-sm-5"> <img class="img-fluid" style="padding-bottom: 0;" src=" {% if entry.bild2.one() is not null %} {{ entry.bild2.one().url }} {% endif %}" alt="schenken2">   </div>
     </div>
 
-    <div id="copy"> {{ entry.zusatzfeld1 }}
-    </div>
+    <div id="copy"> {{ entry.zusatzfeld1 }}     </div>
+    <div id="copy" style="padding-top: 1rem;"> {{ entry.zusatzfeld2 }}     </div>
   </div>
 
   <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 0;">

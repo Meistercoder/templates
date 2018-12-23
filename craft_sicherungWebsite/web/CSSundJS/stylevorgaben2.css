@@ -54,10 +54,12 @@
 #headerbild { /*Damit die Bilder nicht oben abgeschnitten werden bei großen BIldschirmen */
   object-fit: cover;
   object-position: 50% 0; /* positioned top left of the content box */
+  width: 100%;
 }
 .headerbild { /*Damit die Bilder nicht oben abgeschnitten werden bei großen BIldschirmen */
   object-fit: cover;
   object-position: 50% 0; /* positioned top left of the content box */
+  width: 100%;
 }
 
 .spendenaufruf {

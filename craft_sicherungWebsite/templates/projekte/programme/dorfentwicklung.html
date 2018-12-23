@@ -86,7 +86,7 @@
     </div>
 
 
-    <div class="container zwoelferspaltenlayout" style="padding:0;">
+    <div class="container zwoelferspaltenlayout" style="padding-top:0;">
 
       <div class="row">
       {% set entries = craft.entries.section('projekte').slug('das-ziel-starke-dörfer').one().children().all() %}
@@ -135,9 +135,9 @@
     <div class="col-md-7" style="padding-left: 30px;">
       <h3 style="color: white;"> {{ entry.title }} </h3>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
-      <div style="display: flex; justify-content: space-evenly">
-      <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Peru" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate in Peru werden </strong></a>
-      <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Kenia" class="btn btn-primary" id="copy" style="color: white;" role="button"> <strong> Dorfpate in Kenia werden </strong></a>
+      <div style="display: flex; justify-content: flex-start; flex-wrap: wrap;">
+      <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Peru" class="btn btn-primary" style="margin-right: 2rem; margin-top: 1rem;"> Dorfpate in Peru werden </a>
+      <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Kenia" class="btn btn-primary" style="margin-top: 1rem"> Dorfpate in Kenia werden </a>
     </div>
     </div>
   </div>
