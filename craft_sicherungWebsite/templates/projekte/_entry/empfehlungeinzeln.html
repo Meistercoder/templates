@@ -14,7 +14,7 @@
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns/empfehlungen.html">Über Uns</a></li>
+      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns/empfehlungen.html">Empfehlungen</a></li>
       <li class="breadcrumb-item"> {{ entry.title }} </li>
     </ol>
   </nav>
@@ -37,7 +37,7 @@
   <div id="copy" style="padding-bottom: 2rem;"> {{ entry.reinertext }} </div>
 </div>
 
-<div class="container achterspaltenlayout">
+<div class="container achterspaltenlayout" style="position: relative;">
   <div id="copy">{{ entry.langerText }}
     {% if entry.slug == ('regina-van-dinther') %}
     {% if entry.bild.inReverse().one() is not null %} <img class=" mx-auto d-block img-fluid" style="padding-top: 1rem;" src="{{ entry.bild.inReverse().one().url }}" alt=""> {% endif %}

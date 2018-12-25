@@ -37,9 +37,9 @@
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
 
-<div class="container-fluid no-padding" id="eingabeFelder" style="padding: 5rem 2rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat;">
+<div class="container-fluid no-padding" id="eingabeFelder" style="padding: 5rem 2rem; background-image: url({{ entry.bild.one().url }}); background-repeat: no-repeat; position: relative;">
 
-  <div class="container zwoelferspaltenlayout" style="background-color: white; padding: 4rem 2rem;">
+  <div class="container zwoelferspaltenlayout" id="copy" style="background-color: white; padding: 4rem 2rem;">
     {% set entry = craft.entries.section('spenden').slug('menschen-chance3').one() %}
     <div id="copy" style="padding-bottom: 2rem;">  <h2 style="padding-bottom: 1.5rem;"> SEPA-Lastschriftmandat </h2>
     Eine regelmäßige Spende können Sie durch das Ausfüllen des folgenden Formulars bequem online einrichten. Alternativ können Sie das <a target="_blank" href="{{entry.bild.one().url}}">SEPA-Lastschriftmandat herunterladen</a> und eigenständig ausfüllen oder aber Sie richten einen Dauerauftrag ein.

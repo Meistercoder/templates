@@ -40,7 +40,7 @@ $(document).ready(function() {
       $("#vierteBox").show();
       $("#blogBox").show();         $("#kontaktBox").show();
       $("#pfeil1").attr("src", "  https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-right.png "); //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "right");    $(".arrow").css("padding-top", "0");         $(".arrow").css("padding-bottom", "0");
+      $(".arrow").css("float", "right");   $(".arrow").css("margin-bottom", "0");
       $("#linkUeberUns").show();
       $("#ueberUnsSchrift").hide();
 
@@ -51,7 +51,7 @@ $(document).ready(function() {
       $("#vierteBox").hide();
       $("#blogBox").hide();         $("#kontaktBox").hide();
       $("#pfeil1").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-left.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "1rem");
+      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "3rem");
       $("#linkUeberUns").hide();
       $("#ueberUnsSchrift").show();
     }
@@ -66,7 +66,7 @@ $(document).ready(function() {
       $("#vierteBox").show();
       $("#blogBox").show();         $("#kontaktBox").show();
       $("#pfeil2").attr("src", "  https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-right.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "right");    $(".arrow").css("padding-top", "0");         $(".arrow").css("padding-bottom", "0");
+      $(".arrow").css("float", "right");   $(".arrow").css("margin-bottom", "0");
       $("#linkProjekte").show();
       $("#projekteSchrift").hide();
     } else {
@@ -76,7 +76,7 @@ $(document).ready(function() {
       $("#vierteBox").hide();
       $("#blogBox").hide();         $("#kontaktBox").hide();
       $("#pfeil2").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-left.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "1rem");
+      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "3rem");
       $("#linkProjekte").hide();
       $("#projekteSchrift").show();
     }
@@ -106,7 +106,7 @@ $(document).ready(function() {
       $("#vierteBox").show();
       $("#blogBox").show();         $("#kontaktBox").show();
       $("#pfeil3").attr("src", "  https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-right.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "right");    $(".arrow").css("padding-top", "0");         $(".arrow").css("padding-bottom", "0");
+      $(".arrow").css("float", "right");  $(".arrow").css("margin-bottom", "0");
       $("#linkSpenden").show();
       $("#spendenSchrift").hide();
 
@@ -117,7 +117,7 @@ $(document).ready(function() {
       $("#vierteBox").hide();
       $("#blogBox").hide();         $("#kontaktBox").hide();
       $("#pfeil3").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-left.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "1rem");
+      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "3rem");
       $("#linkSpenden").hide();
       $("#spendenSchrift").show();
     }
@@ -133,7 +133,7 @@ $(document).ready(function() {
       $("#dritteBox").show();
       $("#blogBox").show();         $("#kontaktBox").show();
       $("#pfeil4").attr("src", "https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-right.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "right");    $(".arrow").css("padding-top", "0");         $(".arrow").css("padding-bottom", "0");
+      $(".arrow").css("float", "right");  $(".arrow").css("margin-bottom", "0");
       $("#linkFuerSie").show();
       $("#fuerSieSchrift").hide();
 
@@ -144,7 +144,7 @@ $(document).ready(function() {
       $("#dritteBox").hide();
       $("#blogBox").hide();         $("#kontaktBox").hide();
       $("#pfeil4").attr("src", "https://aufbau-website.de/craft/web/bilder/header-bilder/arrow-boxes-35px-left.png ") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
-      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "1rem");
+      $(".arrow").css("float", "left");   $(".arrow").css("margin-bottom", "3rem");
       $("#linkFuerSie").hide();
       $("#fuerSieSchrift").show();
     }
@@ -176,13 +176,11 @@ $(document).ready(function() {
 
 <style>
 
-.navbarMobilgeraet,
 .navbarMobilgeraet {
 width: 100%;
 margin: 0;
 padding: 0;
 font-family: helvetica, sans-serif;
-font-size: 16px;
 }
 .navbarMobilgeraet .multi-level,
 .navbarMobilgeraet .item ul,
@@ -198,13 +196,13 @@ width: 20px;
 height: 20px;
 vertical-align: middle;
 float: left;
-z-index: 0;
 transform: translateY(50%); /* Die Pfeil in der ersten Ebene richtig setzen */
+padding: 0;
 }
 
 .navbarMobilgeraet .pfeilUnterebene { /*Anordnen der Unterpfeil */
 margin-left: 2rem;
-margin-bottom: 1rem;
+margin-bottom: 3rem;
 }
 
 .navbarMobilgeraet .pfeilErsteUnterebene {
@@ -289,8 +287,8 @@ width: 40px;
 height: 40px;
 padding-bottom: .65rem;"
 }
-
+/*Alle Schritgrößen setzen */
+.navbarMobilgeraet .nav li, #menuSchrift, .navbarMobilgeraet .nav a {
+  font-size: 20px;
 }
-
-
 </style>

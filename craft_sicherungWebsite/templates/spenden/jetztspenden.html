@@ -56,7 +56,7 @@
 
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; background-repeat: no-repeat; background-color: white;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; background-repeat: no-repeat; background-color: white; position: relative;">
   <div class="container achterspaltenlayout">
 
     <div class="row" id="anleser">
@@ -213,13 +213,13 @@ function linkModalAnpasen () {
 
   </div> <!-- Container fluid -->
 
-  <div class="container achterspaltenlayout" style="padding: 5rem 0;">
+  <div class="container achterspaltenlayout" style="padding-top: 5rem; padding-bottom: 5rem;">
     <h2 style="padding-bottom: 1rem;">Spendenkonto</h2>
     <div class="row" id="anleser">
-      <div class="col-6">
+      <div class="col-lg-6 col-md-6 col-sm-12">
         Chance e.V. <br> Bank für Kirche und Diakonie
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-md-6 col-sm-12">
         IBAN: DE92 3506 0190 1014 4450 10 <br> BIC: GENO DE D1 DKD
       </div>
     </div>
