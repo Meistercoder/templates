@@ -17,6 +17,15 @@
         max-height: 257.77px;
         width: 100%;
     }
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: white;
+      z-index: 2;
+    }
 </style>
 
 <div class="container-fluid text-center" style="padding-top: 7rem; position: relative;">
@@ -45,14 +54,17 @@
         <div id="copy" style="padding-top: 3rem;">{{ entry.restlichertext }}</div>
     </div>
 
-    <div class="container zwoelferspaltenlayout" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container achterspaltenlayout" style="padding-top: 3rem; padding-bottom: 5rem;">
         <!-- Der Slider mit den verschiedenen Bildern -->
         {% set bilder = entry.bild.all() %} {% set counter = 0 %}
+
+        {% set numberOfPhotos = entry.bild|length - 6 %}
         <div class="row">
             {% for bild in bilder %} {% set counter = counter + 1 %}
-            {% if counter < 7 %}
-            <div class="col-4" style="padding: 0;"> {% else %}
-                <div class="col-4" style="display: none;"> {% endif %}
+            {% if counter < 6 %}  <div class="col-4" style="padding: 0; border: 5px solid white;"> {% elseif counter == 6 %}
+              <div class="col-4" style="padding: 0; border: 5px solid white; opacity: 0.6;"> <div class="center"> <strong> + {{ numberOfPhotos }}</strong></div>
+               {% else %} <div class="col-4" style="display: none;"> {% endif %}
+
                     <a href="{{bild.url}}" class="strip thumbnail" hideOnClickOutside: false data-strip-group="mygroup">
                         <img src="{{bild.url}}" class="img-fluid" style="padding-bottom: 0;">
                     </a>
@@ -171,7 +183,7 @@
 
 
 
-            <form method="post" action="" accep-charset="UTF-8">
+            <form method="POST" action="" accep-charset="UTF-8">
                 <input type="hidden" name="action" value="comments-work/default/post-comment">
                 {{ csrfInput() }}
                 {{ signCommentForm(entry) }}
@@ -226,5 +238,6 @@
     display: inline-block;
     line-height: 20px;
 }
+
 </style>
 {% endblock %}
