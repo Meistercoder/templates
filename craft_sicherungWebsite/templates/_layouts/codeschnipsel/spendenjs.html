@@ -198,6 +198,7 @@ function myFunction() { //Ueberpruefen, ob alle Felder korekkt ausgefüllt sind
   if ($('#sel1').val().length<1) { $('#sel1').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#iban').val().length<1) { $('#iban').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#bic').val().length<1) { $('#bic').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false;}
+  if ($('#email').val().length<1) { $('#email').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false;}
   if (!$('.intervall:checked').val()) { $('#fehlermeldungCheckbox').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen ein Intervall auswählen. </span>'); allesKorrekt = false;} //Chance speichert Daten sicher und gibt sie nicht weiter
   if (!$('#zahlungsermaechtigung:checked').val()) { $('#fehlermeldungErmaechtigung').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen Ihre Zustimmung zum Lastschrifteinzug geben. </span>'); allesKorrekt = false;}
   if (!$('.intervall:checked').val()) { $('#fehlermeldungCheckbox').html('<span id="info" class="fehlermeldung" style="color: red;">Sie müssen ein Intervall auswählen. </span>'); allesKorrekt = false;} //Chance speichert Daten sicher und gibt sie nicht weiter

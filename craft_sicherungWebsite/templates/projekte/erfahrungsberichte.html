@@ -19,13 +19,18 @@
 
 <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
-<div class="container achterspaltenlayout" style="position: relative;">
+<div class="container achterspaltenlayout" style="position: relative; padding-bottom: 0;">
   {% set entry = craft.entries.section('projekte').slug('erfahren-sie-mehr').one() %}
     <h1 style="padding-bottom: 2rem;"> {{ entry.title }} </h1>
     <div id="anleser"> {{ entry.anleser }}</div>
   </div>
 </div>
 
+<div class="container achterspaltenlayout" style="padding-bottom: 0;">
+  <div class="embed-responsive embed-responsive-16by9">
+<iframe src="https://www.youtube.com/embed/ucReBc4Os7k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
 
 <div class="container zwoelferspaltenlayout" style="padding-bottom: 4rem;">
   <div class="card-columns">
