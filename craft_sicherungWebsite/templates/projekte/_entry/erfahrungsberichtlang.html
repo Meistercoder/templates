@@ -94,5 +94,27 @@
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
+<style media="screen"> /*Anpassen der auf einmal angezeigten weiteren Erfahrungsberichte, dazu werden die bootstrap breakpoints ueberschrieben */
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+}
+</style>
 
 {% endblock %}

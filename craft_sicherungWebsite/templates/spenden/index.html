@@ -12,7 +12,7 @@
 
 </div>
 
-  <img class="img-fluid" style="padding-bottom: 1rem;" id="headerbild" src=" {{ craft.assets.filename('chance-spenden-header.jpg').one().getUrl() }} ">
+  <img class="img-fluid" id="headerbild" src=" {{ craft.assets.filename('chance-spenden-header.jpg').one().getUrl() }} ">
 
 {% endblock %}
 
@@ -63,20 +63,20 @@ h3 p {
 
 
 
-  <div class="container-fluid" style="padding: 3rem 15px; background-image: url({{ entry.bild.one().url }});">
+  <div class="container-fluid" id="spendenbehalter" style="padding: 3rem 15px; background-image: url({{ entry.bild.inReverse().one().url }}); background-repeat: no-repeat; background-size: cover;">
     {% set entry = craft.entries.section('spenden').slug('pate-werden').one() %}
-    <div class="row">
-      <div class="col-sm-1"> </div>
-      <div class="col-sm-3">
-      <img src="{{ entry.bild.one().url }}" style="float: right">
+    <div class="container zwoelferspaltenlayout">
+      <div class="row">
+      <div class="col-sm-4">
+      <img class="img-fluid mx-auto d-block" src="{{ entry.bild.one().url }}">
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <h3 style="color: white;"> {{ entry.title }} </h3>
         <span id="copy" style="color: white;"> {{ entry.anleser }} </span>
         <a href="https://aufbau-website.de/craft/web/spenden/patewerden.html" class="btn btn-primary" role="button">Jetzt Pate werden</a>
       </div>
-      <div class="col-sm-2"> </div>
     </div>
+  </div>
 </div> <!-- container-fluid von jetzt pate werden -->
 
     <div class="container achterspaltenlayout" style="padding-top: 5rem;">

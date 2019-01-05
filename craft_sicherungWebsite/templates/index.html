@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<img class="img-fluid mx-auto d-block" style="padding-bottom: 0; width: 100%;" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} " >
+<img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-home-header.jpg').one().getUrl() }} " >
 
   <div class="container achterspaltenlayout" id="video">
     <div class="embed-responsive embed-responsive-16by9 videoStart">
@@ -164,14 +164,16 @@
           {{ csrfInput() }}
           <input type="hidden" name="action" value="contact-form/send">
 
-          <input id="ziel" type="hidden" name="toEmail" value="">
+          <input id="ziel" type="hidden" name="toEmail">
           {{ redirectInput('kontakt/danke') }}
+
 
           <input id="from-email" required class="form-control" type="email" style="margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
           {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
           <input type="submit" value="Anmelden" class="btn btn-primary" id="emailAnmelden">
 
-          <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Vielen Dank für ihr Interesse an Chance e.V. Um sich für den Newsletter anzumelden, schreiben Sie bitte eine Mail mit 'ja' an chance@international.org.</textarea>
+          <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Die oben genannte E-Mail-Adresse würde sich gerne für den Newsletter anmelden.</textarea>
           {{ message is defined and message ? errorList(message.getErrors('message')) }}
 
         </form>

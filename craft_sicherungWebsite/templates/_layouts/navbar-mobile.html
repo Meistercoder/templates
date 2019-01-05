@@ -9,7 +9,7 @@
 <div class="nav" style="position: fixed; top: 0; overflow: hidden; z-index: 1; background-color: transparent;">
   {% set entry = craft.entries.section('spendenfelderUndSo').slug('navbar').one() %}
 
-  <a href="https://aufbau-website.de/craft/web/">
+    <a href="https://aufbau-website.de/craft/web/" style="padding-right: 0;">
     <img style="display: inline; margin-left: 2.5rem; width: 101.5px; height: 90px;" src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logoMobile" alt="Logo">
   </a>
 
@@ -17,6 +17,7 @@
   <div id="copy" style="padding: 1rem; font-size: 18px; display: flex; justify-content: center;"> <span style="line-height: 32px;" id="menuSchrift">Menü</span>
   <label for="menu" id="nav-icon"><img id="hamburgerMobile" src=" {{ entry.bild3.one().url }} "> </label>
   </div>
+
 
   <div class="multi-level" style="width: 100vw; height: 100vh; padding-right: 2rem;">
 

@@ -173,11 +173,12 @@
 
       {% from _self import errorList %}
 
-      <div id="craftFormulare" style="display: none;">
+      <div id="craftFormulare" style="display: none;"  id="spende">
 
         <form method="post" action="" accept-charset="UTF-8">
           {{ csrfInput() }}
           <input type="hidden" name="action" value="contact-form/send">
+
           {{ redirectInput('kontakt/dankespende') }}
 
           <label style="margin-bottom: 0;" for="inhaberCraft">Vorname*</label>
@@ -218,33 +219,33 @@
           <p id="copy"> Ich/wir ermächtige(n) Chance e.V. Zahlungen von meinem/unserem Konto mittels Lastschrift einzuziehen. Zugleich weise(n) ich/ wir mein/unser Kreditinstitut an,
             die von Chance e.V. auf mein/unser Konto gezogenen Lastschriften einzulösen. </p>
 
-            <div class="row" style="padding-bottom: 2rem;">
-              <div class="col-3"> Kontoinhaber   </div> <div class="col-9">  <span id="inhaberK"></span>  </div>
+            <div class="row" style="padding-bottom: 2rem;" id="copy">
+              <div class="col-6"> Kontoinhaber   </div> <div class="col-6">  <span id="inhaberK"></span>  </div>
 
-              <div class="col-3"> Straße, Hausnummer   </div> <div class="col-9">  <span id="adresseK"></span>  </div>
+              <div class="col-6"> Straße, Hausnummer   </div> <div class="col-6">  <span id="adresseK"></span>  </div>
 
-              <div class="col-3"> PLZ, Ort   </div> <div class="col-9">  <span id="plzK"></span>  </div>
+              <div class="col-6"> PLZ, Ort   </div> <div class="col-6">  <span id="plzK"></span>  </div>
 
-              <div class="col-3"> Name der Bank   </div> <div class="col-9">  <span id="bankK"></span>  </div>
+              <div class="col-6"> Name der Bank   </div> <div class="col-6">  <span id="bankK"></span>  </div>
 
-              <div class="col-3"> Betrag   </div> <div class="col-9">  <span id="betragK"></span>  </div>
+              <div class="col-6"> Betrag   </div> <div class="col-6">  <span id="betragK"></span>  </div>
 
-              <div class="col-3"> Verwendungszweck   </div> <div class="col-9">  <span id="verwendungszweckK"></span>  </div> <!-- Selektor 1 ist der Verwendungszweck -->
+              <div class="col-6"> Verwendungszweck   </div> <div class="col-6">  <span id="verwendungszweckK"></span>  </div> <!-- Selektor 1 ist der Verwendungszweck -->
 
-              <div class="col-3"> IBAN   </div> <div class="col-9">  <span id="ibanK"></span>  </div>
+              <div class="col-6"> IBAN   </div> <div class="col-6">  <span id="ibanK"></span>  </div>
 
-              <div class="col-3"> BIC   </div> <div class="col-9">  <span id="bicK"></span>  </div>
+              <div class="col-6"> BIC   </div> <div class="col-6">  <span id="bicK"></span>  </div>
 
-              <div class="col-3"> Intervall   </div> <div class="col-9">  <span id="sel1K"></span>  </div>
+              <div class="col-6"> Intervall   </div> <div class="col-6">  <span id="sel1K"></span>  </div>
 
-              <div class="col-3"> E-Mail   </div> <div class="col-9">  <span id="emailK"></span>  </div>
+              <div class="col-6"> E-Mail   </div> <div class="col-6">  <span id="emailK"></span>  </div>
             </div>
 
             <div class="row">
               <div class="col-4">
                 <button type="button" onclick="bearbeiten()" class="btn btn-primary">Bearbeiten</button>
               </div>
-              <div class="col-5">
+.              <div class="col-5">
                 <button type="button" onclick="pdfErstellen()" class="btn btn-primary">Ausdrucken</button>
               </div>
               <div class="col-3">

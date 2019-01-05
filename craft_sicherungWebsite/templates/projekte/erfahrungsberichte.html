@@ -26,33 +26,8 @@
   </div>
 </div>
 
-<script>
-$( document ).ready(function() {
-    erfahrungenAnpassen();
-});
 
-$(window).resize(function(){
-  erfahrungenAnpassen();
-});
-
-function erfahrungenAnpassen () {
-
-  if ($(window).innerWidth() < 900 ) {
-
-    $("#erfahrungenMobil").css("display", "block");
-    $("#erfahrungenDesktop").css("display", "none"); /*Erfahrungsberichte werden angezeigt oder nicht, je nach bildschirmgröße */
-  }
-  else {
-
-      $("#erfahrungenDesktop").css("display", "block");
-      $("#erfahrungenMobil").css("display", "none");
-    }
-  }
-
-</script>
-
-
-<div class="container zwoelferspaltenlayout" id="erfahrungenDesktop" style="padding-bottom: 4rem;">
+<div class="container zwoelferspaltenlayout" style="padding-bottom: 4rem;">
   <div class="card-columns">
   {% set entries = craft.entries.section('erfahrungsberichte').all() %}
   {% if entries | length %}
@@ -64,7 +39,7 @@ function erfahrungenAnpassen () {
         src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
         </a>
       </div>
-        <div class="card-body" style="padding-top: 3rem;">
+        <div class="card-body">
           <p class="card-text">
             <h3> {{ entry.title }} </h3>
             <div id="copy"> <strong> {{ entry.beruf }} </strong> </div>
@@ -79,33 +54,6 @@ function erfahrungenAnpassen () {
     </div>
   </div>
 
-  <div class="container zwoelferspaltenlayout" id="erfahrungenMobil" style="padding-top: 0;">
-
-  <div class="card-columns">
-
-        {% for entry in entries %}
-        <div class="card" style="border:5px solid #f8f5f2; border-radius: 0;">
-              <div class="row">
-                <div class="col-4" style="text-align: center; white-space: nowrap;">
-                   <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                    <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body" style="padding: 0; padding-right: 1rem;">
-                      <p class="card-text">
-                        <h4 style="margin: 0;"> {{ entry.title }} </h4>
-                        <div id="copy">
-                          <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}"> {{ entry.beruf }}</a>
-                        </div>
-                      </p>
-                    </div>
-              </div>
-            </div>
-          </div>
-
-        {% endfor %}
-    </div>
-  </div>
 
   {% include "_layouts/spendenaufrufmitherz" %}
 
@@ -121,5 +69,17 @@ function erfahrungenAnpassen () {
 
 </div> <!-- Weißer Hintergrundcontainer -->
 
+<style media="screen"> /*Sorgt dafür, dass das runde Bild nicht in den Text reinrutscht */
+@media (max-width: 978px) {
+  .card-body {
+    padding-top: 6rem;
+  }
+}
+@media (min-width: 978px) {
+  .card-body {
+    padding-top: 4rem;
+  }
+}
+</style>
 
 {% endblock %}

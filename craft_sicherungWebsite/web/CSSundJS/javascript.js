@@ -74,15 +74,22 @@ function scrollspyPosition () { //Den Scrollspy an die passende Position setzen 
 
 function WelleAnpassen () { //Welle für große und kleine Bildschirme anpassen
 
-  if ($(window).innerWidth() < 800 ) {
+  if ($(window).innerWidth() < 576 ) {
 
     $("#welle").css("width", "100%"); /*Die Welle größer machen auf kleinen Bildschirmen */
-    $("#welle").css("margin-left", "-50%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+    $("#welle").css("margin-left", "-60%"); /*Die Welle größer machen auf kleinen Bildschirmen */
 
     $("#empfehlungenMobil").css("display", "block");
     $("#empfehlungenDesktop").css("display", "none"); /*Die mobilen oder standard-empfehlungen werden angezeigt, je nach bildschirmgröße */
   }
-  else {
+  else if($(window).innerWidth() >= 576 & $(window).innerWidth() < 992) {
+    $("#welle").css("width", "60%"); /*Die Welle größer machen auf kleinen Bildschirmen, hier fuer tabelts angepasst */
+    $("#welle").css("margin-left", "-20%"); /*Die Welle größer machen auf kleinen Bildschirmen */
+
+    $("#empfehlungenMobil").css("display", "block");
+    $("#empfehlungenDesktop").css("display", "none"); /*Die mobilen oder standard-empfehlungen werden angezeigt, je nach bildschirmgröße */
+
+  } else {
       $("#welle").css("width", "40%"); /*Die Welle größer machen auf kleinen Bildschirmen */
       $("#welle").css("margin-left", "0"); /*Die Welle größer machen auf kleinen Bildschirmen */
 

@@ -1,12 +1,12 @@
 {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
-<div class="container-fluid no-padding"  style="padding-top: 0; background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="padding-top: 0; background-image: url({{ entry.bild.one().url }}); background-size: cover;">
 
 <div class="container zwoelferspaltenlayout" style="padding-bottom: 0;">
 
   {% set entry = craft.entries.section('spenden').slug('50-euro').one() %}
   <div class="row" style="padding-top: 1.5rem;">
     <div class="col-sm-5" style="position: relative;">
-      <img id="kind" class="img-fluid w-100" style="padding-bottom: 0; position: absolute; bottom: 0;" src="{{ entry.bild.one().url }}">
+      <img id="kind" class="img-fluid mx-auto d-block" style="padding-bottom: 0; position: absolute; bottom: 0;" src="{{ entry.bild.one().url }}">
     </div>
     <div class="col-sm-7" style="color: white;" id="copy">
       <h3 style="color: white;">Geben Sie Menschen eine Chance!</h3>

@@ -1,6 +1,6 @@
 {% set entry = craft.entries.section('spendenfelderUndSo').slug('paten-dringend-gesucht').one() %}
 
-<div class="container-fluid"  style="background-image: url({{ entry.bild.one().url }}); padding: 3rem 0;">
+<div class="container-fluid"  style="background-image: url({{ entry.bild.one().url }}); background-size: cover; padding: 3rem 0;">
   <div class="container zwoelferspaltenlayout" style="padding-top: 0;">
   <div class="row">
     <div class="col-md-3">   <img class="img-fluid rounded-circle mx-auto d-block" src="{{ entry.bild2.one().url }}" style="max-height: 180px; padding-bottom: 1rem;"> </div>

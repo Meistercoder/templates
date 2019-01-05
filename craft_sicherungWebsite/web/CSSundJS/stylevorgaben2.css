@@ -302,6 +302,10 @@ strong {
     font-size: 14.4px;
     line-height: 22.4px;
   }
+  a {
+    font-size: 14.4px;
+    line-height: 22.4px;
+  }
   #info {
     font-size: 11.2px;
     line-height: 16px;
@@ -435,6 +439,7 @@ body {
 
 .breadcrumb > li > a {
   color: black;
+  font-size: 11.2px;
 }
 
 a { /*Einfärben aller Links */
