@@ -8,15 +8,6 @@
 
 {% block block1 %}
 
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-       <li class="nav-item">   <a class="nav-link active" href="#start"> </a> <span>Kinderpaten</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#saeulen"></a> <span> Die Säulen </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#ziel"></a> <span>Das Ziel</span>  </li>
-       <li class="nav-item">   <a class="nav-link active" href="#ganzheitlich"></a> <span>Ganzheitliche Begleitung</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#warum"></a> <span>Warum ganzheitlich </span>  </li>
-  </ul>
-</nav>
 
 <a class="btn btn-primary wandernderButton" href="https://aufbau-website.de/craft/web/spenden/patewerden.html#kind">Kinderpate werden</a>
 
@@ -41,6 +32,16 @@
     </div>
   </div>
 
+  <nav id="myScrollspy" class="text-center">
+    <ul class="nav nav-pills flex-column" id="copy">
+          <p  class="uebersicht text-left"> Übersicht der Inhalte: </p>
+         <li class="nav-item">   <a class="nav-link active" href="#start"> <div> Kinderpaten</div> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#saeulen"><div> Die Säulen </div> </a>  </li>
+         <li class="nav-item">   <a class="nav-link" href="#ziel"> <div>Das Ziel</div> </a> </li>
+         <li class="nav-item">   <a class="nav-link active" href="#ganzheitlich"> <div>Ganzheitliche Begleitung</div> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#warum"> <div>Warum ganzheitlich </div> </a>  </li>
+    </ul>
+  </nav>
 
     <img class="img-fluid" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-kinderpate.jpg').one().getUrl() }} ">
 

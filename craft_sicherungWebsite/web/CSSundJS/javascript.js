@@ -13,12 +13,14 @@ $( document ).ready(function() {
     scrollspyPosition();
     headerbilderAnpassen();
     activeElementAnpassenNavbar();
+    scrollspyDataTarget();
 });
 
 $(window).resize(function(){
   navlinksAnpassen();
   WelleAnpassen();
   kindAnpassen();
+  scrollspyDataTarget();
 });
 /* document.getElementById ist eine JavaScript-Funktion. Überall, wo das $-Zeichen davor steht, wird JQuery verwendet. Es macht genau das Selbe, ist nur nicht so verbose. Einfach kürzere Syntax, sonst kein Unterschied. */
 function rechteckNavbarVerkleinern () {
@@ -146,6 +148,11 @@ function navlinksAnpassen () {
   }
 }
 
+function scrollspyDataTarget () {
+  $('[data-spy="scroll"]').each(function () {
+    var $spy = $(this).scrollspy('refresh')
+  })
+}
 
 function kindAnpassen () { //Von der Spendenbox
 
@@ -165,7 +172,6 @@ function kindAnpassen () { //Von der Spendenbox
 function activeElementAnpassenNavbar () {
 
 var url = window.location.href
-console.log(url)
 
 if(url.includes("ueberUns") || url.includes("ueber-uns")) {
   $("#ueberUns").addClass("active");

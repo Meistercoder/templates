@@ -10,6 +10,7 @@
   /* Disable grayscale on hover */
   /* Hintergrund der Formulare auf der Kontaktseite */
 }
+
 @font-face {
   font-family: 'source_sans_prosemibold';
   src: url('fonts/source-sans-pro-semibold-webfont.woff2') format('woff2'), url('fonts/source-sans-pro-semibold-webfont.woff') format('woff');
@@ -165,7 +166,7 @@ h4 {
   line-height: 20px;
   font-family: 'source_sans_prosemibold';
 }
-#info {
+#info, .breadcrumb > li > a {
   font-size: 14px;
   line-height: 20px;
   font-family: 'source_sans_prolight';
@@ -209,11 +210,16 @@ strong {
   margin-top: -27%;
 }
 
+#scrollspyMobile {
+  display: none;
+}
+
 /*Tablets: */
 @media all and (max-width: 1200px) and (min-width: 768px) {
-  html {
+html {
     font-size: 80%;
 }
+
 #video {
   max-width: 90vw;
 }
@@ -246,7 +252,7 @@ strong {
     font-size: 16.2px;
     line-height: 25.2px;
   }
-  #info {
+  #info, .breadcrumb > li > a {
     font-size: 12.6px;
     line-height: 18px;
   }
@@ -265,15 +271,13 @@ strong {
 }
 
 @media all and (max-width: 768px) {
-  html {
+html {
     font-size: 60%;
 }
+
 #video {
   max-width: 90vw;
 }
-  #myScrollspy {
-    display: none;
-  }
   h1 {
     font-size: 31.2px;
     line-height: 36px;
@@ -306,7 +310,7 @@ strong {
     font-size: 14.4px;
     line-height: 22.4px;
   }
-  #info {
+  #info, .breadcrumb > li > a {
     font-size: 11.2px;
     line-height: 16px;
   }
@@ -439,7 +443,6 @@ body {
 
 .breadcrumb > li > a {
   color: black;
-  font-size: 11.2px;
 }
 
 a { /*Einfärben aller Links */
@@ -461,16 +464,19 @@ a p { /*Einfärben aller Links in paragraphen*/
   display: inline-block;
 }
 
-#myScrollspy span { /*  */
+#myScrollspy div { /* Anzeigen der Texte neben dem scrollspy */
   display: none;
   position: relative;
   transform: translateY(-25%);
   font-family: source_sans_prolight;
   font-size: 16px;
   color: #0062ae;
+  padding-left: 2rem;
+overflow: hidden;
+white-space: nowrap;
 }
 
-#myScrollspy a:hover + span { /* Einfärben des Scrollspys */
+#myScrollspy a:hover > div { /* Einfärben des Scrollspys */
   display: inline-block;
  }
 
@@ -479,29 +485,30 @@ a p { /*Einfärben aller Links in paragraphen*/
   top: 15rem;
   z-index: 1;
 }
-
-@media all and (min-width: 768px) {
-  #klicker, #myScrollspy span  {
-    display: none;
-  }
+#myScrollspy .uebersicht {
+  display: none;
 }
 
 @media all and (max-width: 768px) {
-  #klicker {
+  #myScrollspy .uebersicht {
     display: block;
   }
-
-  #myScrollspy span {
-  justify-content: center;
-}
-#scroller {
-  max-width: 30vw;
-}
+  #myScrollspy {
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #0062ae;
+    margin: 2rem;
+  }
+  #myScrollspy div {
+    display: block;
+    padding-left: 0;
+  }
   #myScrollspy a {
     all: initial;
-    text-align: center;
   }
-  #myScrollspy {
-    all: initial;
-  }
+  #myScrollspy a:hover > div {
+    display: block;
+}
 }

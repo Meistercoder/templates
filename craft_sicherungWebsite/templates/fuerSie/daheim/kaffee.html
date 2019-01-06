@@ -14,16 +14,6 @@
   }
 </style>
 
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-       <li class="nav-item">   <a class="nav-link active" href="#genuss"> </a> <span>Kaffeegenuss</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#segen"></a> <span> Kaffee - Segen oder Fluch </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#umwelt"></a> <span> Der Kaffee und die Umwelt </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#abfall"></a> <span> Kaffee und Abfall </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#tun"></a> <span> Was wir tun können</span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#fazit"></a> <span> Fazit </span>  </li>
-  </ul>
-</nav>
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
@@ -42,6 +32,17 @@
     <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
     <div id="anleser"> {{ entry.anleser }}</div>
   </div>
+  <nav id="myScrollspy">
+    <ul class="nav nav-pills flex-column" id="copy">
+         <p class="uebersicht text-left"> Übersicht der Inhalte: </p>
+         <li class="nav-item">   <a class="nav-link active" href="#genuss"> <div>Kaffeegenuss</div> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#segen"> <div> Kaffee - Segen oder Fluch </div> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#umwelt"> <div> Der Kaffee und die Umwelt </div> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#abfall"> <div> Kaffee und Abfall </div> </a> </li>
+         <li class="nav-item">   <a class="nav-link" href="#tun"> <div> Was wir tun können</div> </a>  </li>
+         <li class="nav-item">   <a class="nav-link" href="#fazit"> <div> Fazit </div> </a> </li>
+    </ul>
+  </nav>
 </div>
 
 <img class="img-fluid mx-auto d-block" id="headerbild" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}">

@@ -14,15 +14,6 @@
 
 {% block block1 %}
 
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item">   <a class="nav-link active" href="#start"> </a> <span>Chancen für die Schöpfung</span> </li>
-    <li class="nav-item">   <a class="nav-link" href="#bestandteile"></a> <span> Die Bestandteile </span>  </li>
-    <li class="nav-item">   <a class="nav-link" href="#ziel"></a> <span>Das Ziel</span>  </li>
-    <li class="nav-item">   <a class="nav-link active" href="#zahlen"></a> <span>In Zahlen</span> </li>
-    <li class="nav-item">   <a class="nav-link" href="#gelingendesLeben"></a> <span>Gelingendes Leben </span>  </li>
-  </ul>
-</nav>
 
 <a class="btn btn-primary wandernderButton" href="https://aufbau-website.de/craft/web/spenden/patewerden.html#wald">Waldpate werden</a>
 
@@ -45,6 +36,18 @@
     <h1 style="padding-bottom: 2rem;"> {{ entry.anleser }}  </h1>
     <div id="anleser" style="padding-bottom: 0;"> {{ entry.text }} </div>
   </div>
+
+  <nav id="myScrollspy">
+    <ul class="nav nav-pills flex-column" id="copy" >
+      <p class="uebersicht text-left"> Übersicht der Inhalte: </p>
+      <li class="nav-item">   <a class="nav-link active" href="#start"> <div>Chancen für die Schöpfung</div> </a>  </li>
+      <li class="nav-item">   <a class="nav-link" href="#bestandteile"> <div> Die Bestandteile </div>  </a>  </li>
+      <li class="nav-item">   <a class="nav-link" href="#ziel"> <div>Das Ziel</div>  </a>  </li>
+      <li class="nav-item">   <a class="nav-link active" href="#zahlen"> <div>In Zahlen</div>  </a>  </li>
+      <li class="nav-item">   <a class="nav-link" href="#gelingendesLeben"> <div>Gelingendes Leben </div>  </a>  </li>
+    </ul>
+  </nav>
+  
 </div>
 
 <div class="container zwoelferspaltenlayout" style="padding-top: 4rem;">

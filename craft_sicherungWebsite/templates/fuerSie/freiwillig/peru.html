@@ -19,18 +19,6 @@
  }
 </style>
 
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-       <li class="nav-item">   <a class="nav-link active" href="#allgemein"> </a> <span>Allgemeine Infos</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#team"></a> <span> Das Team </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#arbeit"></a> <span>Die Arbeit der Freiwilligen</span>  </li>
-       <li class="nav-item">   <a class="nav-link active" href="#zentrum"></a> <span>Das Projektzentrum</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#einsatzgebiet"></a> <span> Das Einsatzgebiet </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#vielfalt"></a> <span> Vielfalt und Interkulturalität </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#chance"></a> <span> Deine Chance </span>  </li>
-       <li class="nav-item">   <a class="nav-link" href="#arbeitsalltag"></a> <span> Arbeitsalltag </span>  </li>
-  </ul>
-</nav>
 
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
@@ -50,6 +38,19 @@
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
     </div>
+    <nav id="myScrollspy">
+      <ul class="nav nav-pills flex-column" id="copy">
+           <p class="uebersicht text-left"> Übersicht der Inhalte: </p>
+           <li class="nav-item">   <a class="nav-link active" href="#allgemein"> <div>Allgemeine Infos</div> </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#team"> <div> Das Team </div>  </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#arbeit"> <div>Die Arbeit der Freiwilligen</div> </a> </li>
+           <li class="nav-item">   <a class="nav-link active" href="#zentrum"> <div>Das Projektzentrum</div> </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#einsatzgebiet"> <div> Das Einsatzgebiet </div> </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#vielfalt"> <div> Vielfalt und Interkulturalität </div> </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#chance"> <div> Deine Chance </div> </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#arbeitsalltag"> <div> Arbeitsalltag </div> </a> </li>
+      </ul>
+    </nav>
   </div>
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;" id="allgemeineInfos">

@@ -13,17 +13,6 @@
 
 {% block block1 %}
 
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item">   <a class="nav-link active" href="#nachfolge"> </a> <span>Christusnachfolge</span> </li>
-    <li class="nav-item">   <a class="nav-link" href="#verantwortlich"></a> <span> Verantwortlicher Konsum </span>  </li>
-    <li class="nav-item">   <a class="nav-link" href="#konsum"></a> <span> Konsum - Fluch oder Segen </span>  </li>
-    <li class="nav-item">   <a class="nav-link" href="#jesus"></a> <span> Jesus als Vorbild </span>  </li>
-    <li class="nav-item">   <a class="nav-link" href="#mitmachen"></a> <span> Machen Sie mit </span>  </li>
-  </ul>
-</nav>
-
-
 <style>
 hr {
   margin-top: -.5rem;
@@ -49,6 +38,18 @@ hr {
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
   </div>
+
+  <nav id="myScrollspy">
+    <ul class="nav nav-pills flex-column" id="copy">
+      <p class="uebersicht text-left"> Übersicht der Inhalte: </p>
+      <li class="nav-item">   <a class="nav-link active" href="#nachfolge"> <div>Christusnachfolge</div> </a> </li>
+      <li class="nav-item">   <a class="nav-link" href="#verantwortlich"> <div> Verantwortlicher Konsum </div> </a> </li>
+      <li class="nav-item">   <a class="nav-link" href="#konsum"> <div> Konsum - Fluch oder Segen </div> </a> </li>
+      <li class="nav-item">   <a class="nav-link" href="#jesus"> <div> Jesus als Vorbild </div> </a> </li>
+      <li class="nav-item">   <a class="nav-link" href="#mitmachen"> <div> Machen Sie mit </div> </a> </li>
+    </ul>
+  </nav>
+
 </div>
 
 <div class="container-fluid no-padding" style="background-color: #ffffff; padding-top: 5rem;">

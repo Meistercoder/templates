@@ -189,7 +189,11 @@ if (url.includes('#')) {
     url = url.replace("https://aufbau-website.de/craft/web/spenden/patewerden.html#", "");
     url = '.' + url;
     $('.nav-link.tab').removeClass('active');
+    $('.tab-pane.fade').removeClass('active').removeClass('show');
     $(url).addClass('active');
+    var inhaltsfeld = ($(url).attr('href'));
+    console.log(inhaltsfeld);
+    $(inhaltsfeld).addClass('active').addClass('show');
   }
 </script>
 

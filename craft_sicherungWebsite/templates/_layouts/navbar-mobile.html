@@ -4,17 +4,17 @@
 
 <div class="navbarMobilgeraet">
 
-  <div style="background-color: #f8f5f2; position: fixed; top: 0; height: 5rem; width: 100%; z-index: 1;" id="grauerBalken"> </div>
+  <div style="background-color: #f8f5f2; position: fixed; top: 0; height: 4rem; width: 100%; z-index: 5;" id="grauerBalken"> </div>
 
-<div class="nav" style="position: fixed; top: 0; overflow: hidden; z-index: 1; background-color: transparent;">
+<div class="nav" style="position: fixed; top: 0; overflow: hidden; z-index: 5; background-color: transparent;">
   {% set entry = craft.entries.section('spendenfelderUndSo').slug('navbar').one() %}
 
     <a href="https://aufbau-website.de/craft/web/" style="padding-right: 0;">
-    <img style="display: inline; margin-left: 2.5rem; width: 101.5px; height: 90px;" src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logoMobile" alt="Logo">
+    <img style="display: inline; margin-left: 2.5rem; width: 90px; height: 79.6px;" src="{{ craft.assets.filename('chance-logo-rgb.png').one().getUrl() }}" id="logoMobile" alt="Logo">
   </a>
 
   <input type="checkbox" id="menu"/> <!-- Hamburger Menu, das nach unten klappt -->
-  <div id="copy" style="padding: 1rem; font-size: 18px; display: flex; justify-content: center;"> <span style="line-height: 32px;" id="menuSchrift">Menü</span>
+  <div id="copy" style="padding: 1rem; padding-top: 0.3rem; font-size: 18px; display: flex; justify-content: center;"> <span style="line-height: 32px;" id="menuSchrift">Menü</span>
   <label for="menu" id="nav-icon"><img id="hamburgerMobile" src=" {{ entry.bild3.one().url }} "> </label>
   </div>
 

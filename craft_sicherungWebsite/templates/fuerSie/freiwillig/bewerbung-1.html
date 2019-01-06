@@ -8,13 +8,6 @@
 
 {% block block1 %}
 
-<nav id="myScrollspy">
-  <ul class="nav nav-pills flex-column">
-       <li class="nav-item">   <a class="nav-link active" href="#profil"> </a> <span>Dein Profil</span> </li>
-       <li class="nav-item">   <a class="nav-link" href="#bewerbung"></a> <span> Deine Bewerbung </span>  </li>
-  </ul>
-</nav>
-
 <div class="container-fluid text-center" id="ersterContainer" style="padding-top: 7rem; position: relative;">
 
   <nav aria-label="breadcrumb" id="info">
@@ -28,18 +21,26 @@
   <img class="img-fluid" id="welle" src="{{ craft.assets.filename('welle.png').one().getUrl() }}" style="position: absolute; left:0; width: 40%;">
 
 
-  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;" id="profil">
+  <div class="container achterspaltenlayout" style="padding-top:0px; position: relative;">
     {% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
 
       <h1 style="padding-bottom: 2rem;"> {{ entry.title }}  </h1>
       <div id="anleser"> {{ entry.anleser }}</div>
     </div>
+    <nav id="myScrollspy">
+      <ul class="nav nav-pills flex-column" id="copy">
+        <p class="uebersicht text-left"> Übersicht der Inhalte: </p>
+           <li class="nav-item">   <a class="nav-link active" href="#profil"> <div>Dein Profil</div> </a> </li>
+           <li class="nav-item">   <a class="nav-link" href="#bewerbung"> <div> Deine Bewerbung </div> </a> </li>
+      </ul>
+    </nav>
+
   </div>
 
 <div class="container-fluid no-padding" style="background-color: #ffffff;">
 
   <div class="container achterspaltenlayout" style="padding-bottom: 0; padding-top: 3rem;">
-    <h2 class="text-center" style="padding-bottom: .5rem;"> {{ entry.zusatzfeld1 }} </h2>
+    <h2 id="profil" class="text-center" style="padding-bottom: .5rem;"> {{ entry.zusatzfeld1 }} </h2>
     <div id="copy"> {{ entry.text}}</div>
 
   {% set entries = craft.entries.section('fuerSie').slug('1-joh-3-16-ff').one().children().all() %}

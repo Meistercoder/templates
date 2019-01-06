@@ -7,8 +7,10 @@ $(window).scroll ( function() {
 function rechteckSchatten () {
   if ($(document).scrollTop() > 50) {
       $('#grauerBalken').css('box-shadow', '#bfbfbf 0px 3px 15px');
+      $('#logoMobile').css('height', '53.1px').css('width', '60px');
   } else {
     $('#grauerBalken').css('box-shadow', 'grey 0 0 0');
+    $('#logoMobile').css('height', '79.6px').css('width', '90px');
   }
 }
 
