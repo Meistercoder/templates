@@ -63,6 +63,12 @@
   width: 100%;
 }
 
+.fullscreenbild { /*Damit die Bilder nicht oben abgeschnitten werden bei großen BIldschirmen */
+  object-fit: cover;
+  object-position: 50% 0; /* positioned top left of the content box */
+  width: 100%;
+}
+
 .spendenaufruf {
   padding-top: 2rem;
 }
@@ -491,24 +497,9 @@ white-space: nowrap;
 
 @media all and (max-width: 768px) {
   #myScrollspy .uebersicht {
-    display: block;
+    display: none;
   }
   #myScrollspy {
-    position: relative;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    border: 1px solid #0062ae;
-    margin: 2rem;
+    display: none;
   }
-  #myScrollspy div {
-    display: block;
-    padding-left: 0;
-  }
-  #myScrollspy a {
-    all: initial;
-  }
-  #myScrollspy a:hover > div {
-    display: block;
-}
 }

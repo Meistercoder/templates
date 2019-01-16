@@ -56,7 +56,7 @@
 
 
 {% set entry = craft.entries.section('spenden').slug('partnerland').one() %}
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; background-repeat: no-repeat; background-color: white; position: relative;">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); padding-bottom: 2rem; background-repeat: no-repeat;  background-size: cover; position: relative;">
   <div class="container achterspaltenlayout">
 
     <div class="row" id="anleser">
@@ -107,7 +107,7 @@ $(function() { //Link am Anfang schon fertig machen
   $('#spendenlink').attr('href', neuerLink);
 });
 
-$( "#sel1" ).change(function() {
+$( "#sel1" ).change(function() { //Wenn das erste Dropdown verändert wird, wird der Link unten automatisch angepasst
   linkModalAnpasen();
   neuerLink = linkButton + '?spendenart=' + $('#sel1').val();
   $('#spendenlink').attr('href', neuerLink);
@@ -115,7 +115,7 @@ $( "#sel1" ).change(function() {
 
 //Funktion, die das Modal bei anzeigt wenn einmalig spenden ausgewählt wird
 $( "#sel2" ).change(function() {
-  linkModalAnpasen();
+  linkModalAnpasen(); //Der link im Modal, das dann runter klappt, wird angepasst
   if ($('#sel2').val() == "Einmalig Spenden") {
     $('#spendenlink').attr('data-toggle', 'modal').attr('data-target', '#myModal').attr('href', '');
     kinderpatePeru = $('#nichtEinmalig1').detach();     kinderpateKenia = $('#nichtEinmalig2').detach(); //Entfernt die beiden Patenmoglichkeiten wenn einmalig ausgewählt wird
@@ -157,7 +157,7 @@ function linkModalAnpasen () {
         <button type="button" class="close" data-dismiss="modal">&times;</button> <br>
         <h2 style="padding-bottom: 2rem;">Weiterleitung zur KD-Bank</h2>
         <span id="copy">Spenden Sie online und geben Sie Menschen eine Chance - ganz einfach, schnell und sicher über unseren Online-Spendenservice der Bank für Kirche und Diakonie</span>
-        <br> <a id="linkKDBank" style="margin-top: 3rem;" href="https://www.kd-onlinespende.de/projekt/Indianerselbsthilfe/display/link.html" class="btn btn-primary"> Jetzt bei der KD Bank spenden </a>
+        <br> <a id="linkKDBank" target="_blank" style="margin-top: 3rem;" href="https://www.kd-onlinespende.de/projekt/Indianerselbsthilfe/display/link.html" class="btn btn-primary"> Jetzt bei der KD Bank spenden </a>
       </div>
 
     </div>

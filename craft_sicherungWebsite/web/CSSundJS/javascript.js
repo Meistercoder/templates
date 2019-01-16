@@ -27,7 +27,7 @@ function rechteckNavbarVerkleinern () {
   if ($(document).scrollTop() > 50) {
       document.getElementById('rechteck').style.height = '58px';
       document.getElementById('collapsibleNavbar').style.marginTop = '-64px';
-      $('#rechteck').css('box-shadow', '#bfbfbf 0px 3px 15px');
+      $('#rechteck').css('box-shadow', '#595959 0px 3px 15px');
   } else {
     $('#rechteck').css('box-shadow', 'grey 0 0 0');
     document.getElementById('rechteck').style.height = '70px';

@@ -42,7 +42,7 @@
 
     <div class="container achterspaltenlayout" style="padding-bottom: 0; position: relative;">
         <h1> {{ entry.title }} </h1>
-        <div id="info" style="padding-bottom: 8rem;"> Veröffentlicht am {{ entry.postDate | date("M d, Y") }} - in <a
+        <div id="info" style="padding-bottom: 8rem;"> Veröffentlicht am {{ entry.postDate | date("d. M Y") }} - in <a
                 href="{{ entry.blogKategorie.one().url }}">{{ entry.blogKategorie.one().title }}</a></div>
     </div>
 </div>
@@ -97,29 +97,30 @@
         </div> <!-- Achterspaltenlayout - Container -->
 
         <div class="container zwoelferspaltenlayout text-center" id="copy"
-             style="padding-bottom: 3rem; border-bottom: double;">
+             style="margin-bottom: 80px">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="text-align: center;">
                     {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
                     {% set prev = entry.getPrev(criteria) %}
                     {% if prev %}
-                    <a href="{{ prev.url }}" style="text-align: left;"> < Vorheriger Beitrag </a>
+                    <a href="{{ prev.url }}" style="float: left;"> < Vorheriger Beitrag </a>
                     {% endif %}
                 </div>
 
                 <div class="col-sm-4"><a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a></div>
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="text-align: center;">
                     {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
                     {% set next = entry.getNext(criteria) %}
                     {% if next %}
-                    <a href="{{ next.url }}" style="text-align: right;"> Nächster Beitrag > </a>
+                    <a href="{{ next.url }}" style="text-align: center;"> Nächster Beitrag > </a>
                     {% endif %}
                 </div>
             </div>
+            <div style="padding-top: 80px; border-bottom: solid; border-bottom-color:#adadad; padding-bottom: 0px;"></div>
         </div>
 
 
-        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;" style="padding-top: 3rem;">
+        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;">
 
             {# @var commentsWork \twentyfourhoursmedia\commentswork\services\CommentsWorkService #}
             {% set commentsWork = craft.commentsWork.service %}
@@ -130,20 +131,115 @@
         </div>
         {% set comments = commentsWork.fetchComments(entry, 0, 50) %}
         {% for comment in comments %}
+            {% if comment.answerId == 0 %}
+            {% set id = comment.id %}
         {# @var comment \twentyfourhoursmedia\commentswork\models\CommentModel #}
         <div class="container achterspaltenlayout">
-            <p><strong>{{comment.name}}</strong></p>
-            <p>Am {{ comment.dateCreated | date }} um {{ comment.dateCreated | date('H:i') }} </p>
+            <p style="margin-bottom: 0px;"><strong>{{comment.name}}</strong></p>
+            <p style="font-size: 12px;">Am {{ comment.dateCreated | date }} um {{ comment.dateCreated | date('H:i') }} </p>
         </div>
-        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;">
+        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem; border-bottom: solid; border-bottom-color: #adadad;">
             {%- if comment.comment is not empty %}
-            <p>
+            <p style="padding-bottom: 32px; margin-bottom: 0px;">
                 {{ comment | commentAsHtml }}
             </p>
-            {% endif -%}
+        	<button id="answerButton" onclick="showAnswerForm(this)">Antworten <i id="answerButtonArrow"></i></button>
+            <div id="hideShow">
+                <div id="answers"><!-- anchor --></div>
+
+                {# check if the user has just posted a comment and provide feedback #}
+                {% set justPosted = commentsWork.checkJustPosted() %}
+
+                {% if justPosted %}
+                {# show a message not the form #}
+                {% if justPosted.error %}
+                <div class="alert alert-danger">
+                    <p>The comment could not be posted.</p>
+                </div>
+                {% else %}
+                {% if justPosted.status == 'APPROVED' %}
+                <div class="alert alert-success"><p>Your comment has been published.</p></div>
+                {% elseif justPosted.status == 'PENDING' %}
+                <div class="alert alert-warning"><p>Your comment has been posted and is awaiting moderation.</p></div>
+                {% else %}
+                {# the status is either trashed or spam for some reason,, #}
+                <div class="alert alert-danger"><p>Your comment has been posted but has not been not published..</p>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% else %}
+                {# show the form #}
+                {% if not currentUser and not commentsWork.allowAnonymous(entry) %}
+                <p>Anonymous commenting is not allowed. Please login.</p>
+                {% else %}
+                <div class="container achterspaltenlayout" style=" padding-left: 0; padding-top: 80px;">
+                    <h3>Antwort verfassen</h3>
+
+
+
+                    <form method="POST" action="" accep-charset="UTF-8">
+                        <input type="hidden" name="action" value="comments-work/default/post-comment">
+                        {{ csrfInput() }}
+                        {{ signCommentForm(entry) }}
+                        <input name="redirect" value="{{ craft.app.request.url }}#comments" type="hidden"/>
+                        <input name="elementId" value="{{ entry.id }}" type="hidden"/>
+                        <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
+                        <input name="commentFormat" value="text" type="hidden"/>
+                        <input id="answer" name="answerId" value="{{comment.id}}" type="hidden">
+
+                        <div class="row" style="padding-left: 15px; padding-top: 15px; margin-right: 0;">
+                        <textarea  name="comment" rows="5" id="comment-content" class="form-control"
+                                   placeholder="Gib hier deine Antwort ein"></textarea>
+                        </div>
+                        <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+                            <div class="col-md-6">
+                                <input  name="name" id="comment-name" class="form-control" type="text"
+                                        placeholder="Name (erforderlich)"/>
+                            </div>
+                            <div class="col-md-6">
+                                <input  name="mail" id="comment-mail" type="text" class="form-control"
+                                        placeholder="Mail (erforderlich)"/>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <p  style="padding-left: 15px;margin-bottom: 0px;">Beim veröffentlichten Kommentar erscheint Ihr angegebener Name als Absender.</p><br>
+                            <a  style="padding-left: 15px;" href="/craft/web/fuerSie/rechtliches/datenschutz">Weitere Informationen zum Datenschutz finden Sie hier.</a>
+                            <input type="submit" class="btn btn-primary" value="Kommentar senden" align="right" style="margin-left: 546px"/>
+                        </div>
+                    </form>
+                </div>
+                {% endif -%}
+                {% endif -%}
+                {% endif -%}
+            </div>
+ 			{# start comments #}
+       		{# you may want to put this code in an include or embed for reusability #}
+            <div id="answerComments" class="container achterspaltenlayout" style="padding: 0px; margin-left: 60px;">
+                {% set comments2 = commentsWork.fetchComments(entry, 0, 50) %}
+                {% for comment in comments2 %}
+                {% if comment.answerId == id %}
+                <div class="container achterspaltenlayout" style="margin-top: 2rem; padding-top: 1rem; border-top: solid; border-top-color: #d3d3d3;">
+                    <p style="margin-bottom: 0px;"><strong>{{comment.name}}</strong></p>
+                    <p style="font-size: 12px;">Am {{ comment.dateCreated | date }} um {{ comment.dateCreated | date('H:i') }} </p>
+                </div>
+                <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;">
+                    {%- if comment.comment is not empty %}
+                    <p style="padding-bottom: 32px; margin-bottom: 0px;">
+                        {{ comment | commentAsHtml }}
+                    </p>
+                    <button id="answerButton" onclick="">Antworten <i id="answerButtonArrow2"></i></button>
+                </div>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </div>
+
         </div>
 
         <br/>
+            {% endif %}
         {% endfor %}
         {# end comments #}
 
@@ -178,12 +274,13 @@
         {% if not currentUser and not commentsWork.allowAnonymous(entry) %}
         <p>Anonymous commenting is not allowed. Please login.</p>
         {% else %}
-        <div class="container achterspaltenlayout">
-            <h3>Neuen Kommentar schreiben</h3>
+            <div class="container-fluid" style="background-color: #f8f5f2">
+        <div class="container achterspaltenlayout" style="background-color: #f8f5f2; padding-left: 0;">
+            <h3 style="padding-top: 40px;">Kommentar verfassen</h3>
 
 
 
-            <form method="POST" action="" accep-charset="UTF-8">
+            <form method="POST" action="" accep-charset="UTF-8" >
                 <input type="hidden" name="action" value="comments-work/default/post-comment">
                 {{ csrfInput() }}
                 {{ signCommentForm(entry) }}
@@ -191,24 +288,31 @@
                 <input name="elementId" value="{{ entry.id }}" type="hidden"/>
                 <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
                 <input name="commentFormat" value="text" type="hidden"/>
-                <div class="row">
-                        <textarea name="comment" rows="5" id="comment-content" class="form-control"
+                <input id="answer" name="answerId" value="0" type="hidden">
+                <div class="row" style="padding-left: 15px; padding-top: 15px; margin-right: 0;">
+                        <textarea  name="comment" rows="5" id="comment-content" class="form-control"
                                   placeholder="Gib hier deinen Kommentar ein"></textarea>
                 </div>
-                <div class="row">
-                    <input name="name" id="comment-name" class="form-control" type="text"
+                <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+                    <div class="col-md-6">
+                    <input  name="name" id="comment-name" class="form-control" type="text"
                            placeholder="Name (erforderlich)"/>
-
-                    <input name="mail" id="comment-mail" type="text" class="form-control"
+                    </div>
+                        <div class="col-md-6">
+                    <input  name="mail" id="comment-mail" type="text" class="form-control"
                            placeholder="Mail (erforderlich)"/>
+                        </div>
                 </div>
 
 
                 <div class="row">
-                <input type="submit" class="btn btn-primary" value="Post comment" style="float: right;"/>
+                    <p  style="padding-left: 15px; margin-bottom: 0px;">Beim veröffentlichten Kommentar erscheint Ihr angegebener Name als Absender.</p><br>
+                    <a  style="padding-left: 15px;" href="/craft/web/fuerSie/rechtliches/datenschutz">Weitere Informationen zum Datenschutz finden Sie hier.</a>
+                    <input type="submit" class="btn btn-primary" value="Kommentar senden" align="right" style="margin-left: 584px"/>
                 </div>
             </form>
         </div>
+            </div>
 
     </div>
 </div>
@@ -217,13 +321,31 @@
 
 
 </div>
--->
+
 <hr style="border-width:2px; margin-top: 3rem; margin-bottom: 0;">
 
 </div> <!-- Die weiterführenden Links -->
 
 
 </div> <!-- Weißer Hintergrund-container -->
+
+<script>
+
+    function showAnswerForm(item) {
+        if(item.nextElementSibling.style.display!= "block"){
+            document.getElementById("hideShow").style.display="none";
+            item.nextElementSibling.style.display="block";
+            item.innerHTML="Zurück";
+            var commentId = document.getElementById("answer").value;
+            var answerId = parseFloat(commentId);
+            document.getElementById("answer").value =  answerId;
+            console.log(document.getElementById("answer").value);
+        } else {
+            item.nextElementSibling.style.display="none";
+            item.innerHTML="Antworten";
+        }
+    }
+</script>
 
 <style> /* Die Styles für die animierten Bilder */
 .bx-wrapper {
@@ -239,5 +361,45 @@
     line-height: 20px;
 }
 
+/* Styles f. Antwort auf Kommentar*/
+
+#answerButton {
+	border: none;
+	background-color: white;
+	color: blue;
+	padding:0px;
+	margin-top: 5px;
+    cursor: pointer;
+}
+
+
+
+#answerButton:active {
+    color: blue;
+    position: absolute;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+
+#answerButton:hover{
+    text-decoration: underline;
+}
+
+
+#separate:after{
+    content: "";
+    display: block;
+    border-bottom: 1px #adadad;
+}
+
+#hideShow{
+	display:none;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.form-control{
+    background-color: white;
+}
 </style>
 {% endblock %}

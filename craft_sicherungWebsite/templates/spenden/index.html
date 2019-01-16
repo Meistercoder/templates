@@ -134,4 +134,19 @@ h3 p {
   }
 </style>
 
+<script> //Nur zum einfügen des weißen hamburgers in die menü-leiste
+$(document).ready(function() {
+  $("#hamburgerMobile").attr("src", "https://aufbau-website.de/craft/web/bilder/header-bilder/hamburgerweis.png");
+  var counterMenu = 0;
+
+  $("#nav-icon").click(function() { //Nav-icon anklicken -> Logo ausblenden
+    if (counterMenu % 2 != 0) {
+      $("#hamburgerMobile").attr("src", "https://aufbau-website.de/craft/web/bilder/header-bilder/hamburgerweis.png");
+    } else {
+      $("#hamburgerMobile").attr("src", "https://aufbau-website.de/craft/web/bilder/header-bilder/schließen.png");
+    }
+    counterMenu++;
+      });
+  });
+</script>
 {% endblock %}

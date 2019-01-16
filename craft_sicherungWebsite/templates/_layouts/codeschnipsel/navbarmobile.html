@@ -6,7 +6,7 @@ $(window).scroll ( function() {
 
 function rechteckSchatten () {
   if ($(document).scrollTop() > 50) {
-      $('#grauerBalken').css('box-shadow', '#bfbfbf 0px 3px 15px');
+      $('#grauerBalken').css('box-shadow', '#595959 0px 3px 15px');
       $('#logoMobile').css('height', '53.1px').css('width', '60px');
   } else {
     $('#grauerBalken').css('box-shadow', 'grey 0 0 0');
@@ -20,15 +20,15 @@ $(document).ready(function() {
 
   $("#nav-icon").click(function() { //Nav-icon anklicken -> Logo ausblenden
     if (counterMenu % 2 != 0) {
-      $("#grauerBalken").css("height", "6rem");
-      $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/hamburger.svg") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
+      $("#grauerBalken").css("height", "4rem");
+      $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/hamburger.svg");
       $("#logoMobile").show();
       $("#menuSchrift").show();
     } else {
       $("#grauerBalken").css("height", "100%");
       $("#logoMobile").hide();
       $("#menuSchrift").hide();
-      $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/schließen.png") //zurück-pfeil einblenden, wenn in die nächste Ebene gegangen wird
+      $("#hamburgerMobile").attr("src", " https://aufbau-website.de/craft/web/bilder/header-bilder/schließen.png");
     }
     counterMenu++;
   });

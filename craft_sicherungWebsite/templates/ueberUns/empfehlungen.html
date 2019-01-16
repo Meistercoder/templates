@@ -32,24 +32,24 @@
 
   <div class="card-columns">
   {% set entries = craft.entries.section('ueberUns').slug('empfehlungen').one().children().all() %}
-  {# If there are any entries, loop through them #}
   {% if entries | length %}
       {% for entry in entries %}
       <div class="card bg-white" style="border:10px solid #f8f5f2;">
+        {% if entry.bild.one() is not null %}
         <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
           <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}">
         <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
         src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
         </a>
       </div>
-        <div class="card-body" style="padding-top: 3rem;">
+      {% endif %}
+        <div class="card-body" {% if entry.bild.one() is not null %} style="padding-top: 3rem;" {% else %} style="padding-top: 20px;" {% endif %}>
           <p class="card-text">
             <h3> {{ entry.title }} </h3>
             <h4 style="margin-top: -.5rem;"> {{ entry.anleser }} </h4>
             <div id="copy"> {{ entry.text }}
               <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}"> Weiterlesen > </a>
             </div>
-          </p>
           </p>
         </div>
       </div>
@@ -67,13 +67,14 @@
       {% for entry in entries %}
       <div class="card" style="border:5px solid #f8f5f2; border-radius: 0;">
             <div class="row">
+              {% if entry.bild.one() is not null %}
               <div class="col-4" style="text-align: center; white-space: nowrap;">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
                   <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}">
                   <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
                   </a>
                 </div>
-                <div class="col-8">
+                <div class="col-8"> {% else %} <div class="col-4">  </div> <div class="col-8"> {% endif %}
                   <div class="card-body" style="padding: 0; padding-right: 1rem;">
                     <p class="card-text">
                       <h4 style="margin: 0;"> {{ entry.title }} </h4>

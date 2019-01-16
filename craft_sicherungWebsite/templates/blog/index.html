@@ -36,6 +36,7 @@
 </div>
 
 {% set counter = 0 %}
+{% set commentsWork = craft.commentsWork.service %}
 
 <div class="container-fluid no-padding" style="background-color: white; padding-bottom: 5rem;">
 
@@ -47,11 +48,17 @@
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
         <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 2rem;">
         </a>
-        <div id="info" style="padding-bottom: 1rem;"> Veröffentlicht am {{ entry.postDate | date("d M Y") }} - in
+        <div id="info" style="padding-bottom: 1rem;"> Veröffentlicht am {{ entry.postDate | date("d. M Y") }} - in
         {% set kategorien = entry.blogKategorie.all() %} {% set counter = 0 %}
         {% for kategorie in kategorien %} {% set counter = counter + 1 %} {% if counter > 1 %} und {% endif %}
          <a href="{{ kategorie.url }}">{{ kategorie.title }} </a>
         {% endfor %}
+        {% if commentsWork.countComments(entry) > 0 and commentsWork.countComments(entry) < 2 %}
+        - {{ commentsWork.countComments(entry) }} Kommentar
+        {% endif %}
+        {% if commentsWork.countComments(entry) > 1%}
+        - {{ commentsWork.countComments(entry) }} Kommentare
+        {% endif %}
         </div>
         <!-- Mit der oberen Zeile wird die Kategorie des Artikels abgerufen und angezeigt und sofort klickbar -->
         <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
@@ -72,7 +79,7 @@
 
 var eintraege = [];
 {% for entry in entries %} //Alle Zitate werden in ein Feld kopiert aus Craft
-  var eintrag = { slug: "{{entry.slug}}", datum: "{{ entry.postDate | date("d M Y") }}", kategorie: "{{entry.blogKategorie.one().title}}", kategorieUrl: "{{entry.blogKategorie.one().url}}", title: "{{entry.title}}", anleser: "{{entry.anleser}}", bild: "{{entry.bild.one().url}}"};
+  var eintrag = { slug: "{{entry.slug}}", datum: "{{ entry.postDate | date("d. M Y") }}", kommentare: {{ commentsWork.countComments(entry) }}, kategorie: "{{entry.blogKategorie.one().title}}", kategorieUrl: "{{entry.blogKategorie.one().url}}", title: "{{entry.title}}", anleser: "{{entry.anleser}}", bild: "{{entry.bild.one().url}}"};
   eintraege.push(eintrag);
 {% endfor %}
 
@@ -83,9 +90,17 @@ function mehrLadenAjax() {
 
   for (i = 0; i < durchlaeufe; i++) {
     var link = "https://aufbau-website.de/craft/web/blog/" + eintraege[i].slug;
-    $("#div1").append("<a href=" + link + "> <img class=\"img-fluid\" style=\"padding-bottom: 1rem;\" src=" + eintraege[i].bild + "> </img> </a>");
-    $("#div1").append("<div id=\"info\"> Veröffentlicht am " + eintraege[i].datum + " - in <a href=\"" + eintraege[i].kategorieUrl + "\">" + eintraege[i].kategorie + "</a></div>");
-    $("#div1").append("<a href=" + link + "> <h2 style=\"padding-bottom: 0;\">" + eintraege[i].title + "</h2> </a>");
+    var kommentare = eintraege[i].kommentare;
+    if (kommentare < 1) {
+      kommentare = '';
+    } else if (kommentare == 1) {
+      kommentare = ' - 1 Kommentar';
+    } else {
+      kommentare = ' - ' + kommentare + ' Kommentare';
+    }
+    $("#div1").append("<a href=" + link + "> <img class=\"img-fluid\" style=\"padding-bottom: 2rem;\" src=" + eintraege[i].bild + "> </img> </a>");
+    $("#div1").append("<div style=\"padding-bottom: 1rem;\" id=\"info\"> Veröffentlicht am " + eintraege[i].datum + " - in <a href=\"" + eintraege[i].kategorieUrl + "\">" + eintraege[i].kategorie + "</a>" + kommentare + "</div>");
+    $("#div1").append("<a href=" + link + "> <h2 style=\"padding-bottom: 1rem;\">" + eintraege[i].title + "</h2> </a>");
     $("#div1").append("<div style=\"padding-bottom: 5rem;\" id=\"copy\">" + eintraege[i].anleser + "<a href=\"https://aufbau-website.de/craft/web/blog/" + eintraege[i].slug +"\"> Weiterlesen > </a> </div>");
     //$("#div1").html("<img src=" + eintraege[i].bild + "> </img>");
 }

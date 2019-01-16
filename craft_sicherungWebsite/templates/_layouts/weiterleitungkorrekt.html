@@ -3,7 +3,7 @@
 
   <div class="col-md-4" style="padding: 0;">
     <a href="{{ entry.reinertext }}">
-    <img class="img-fluid w-100 h-100" style="padding-bottom: 0px;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
+    <img class="img-fluid w-100 h-100" style="padding-bottom: 0px; object-fit: cover;" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().getUrl() }}  {% endif %}">
     </a>
   </div>
   <div class="col-md-8" style="padding: 3rem; background-color: #f8f5f2;">

@@ -43,7 +43,7 @@
     </ul>
   </nav>
 
-    <img class="img-fluid" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-kinderpate.jpg').one().getUrl() }} ">
+    <img class="img-fluid fullscreenbild" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-kinderpate.jpg').one().getUrl() }} ">
 
     <div class="container achterspaltenlayout" id="video"></div>
 
@@ -92,7 +92,7 @@
 
 {% set entry = craft.entries.section('projekte').slug('kinderpate-werden').one() %}
 
-<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid no-padding"  style="background-image: url({{ entry.bild.one().url }}); background-size: cover;">
   <div class="container zwoelferspaltenlayout" style="padding-top: 1rem;">
     <div class="row">
     <div class="col-md-5" style="position: relative; min-height: 150px;">   <img class="mx-auto d-block" id="kind" style="max-width: 100%; bottom: 0; left: 0; " src="{{ entry.bild.inReverse().one().url }}"> </div>

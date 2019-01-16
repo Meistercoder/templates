@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-0" id="grueneBox">  </div>
     <div class="col-lg-4 col-md-11" style="color: white;">
-      <a href="https://www.mein-regenwald.de" class="btn btn-success"> <span id="copy" style="color: white;">Der Chance-Regenwald </span><br> <strong>www.mein-regenwald.de</strong></a>
+      <a href="https://www.mein-regenwald.de" class="btn btn-success"> <span id="copy" style="color: white;">Der Chance-Regenwald <br> <strong>www.mein-regenwald.de</strong> </span></a>
     </div>
   </div>
 </div>
@@ -25,42 +25,15 @@
     padding: 20px;
   }
 
-  #footerDesktop {
-    input[type="email"]::-webkit-input-placeholder {
-      color: white !important;
-    }
+  #footerDesktop ::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
 
-    input[type="email"]:-moz-placeholder { /* Firefox 18- */
-      color: white !important;
-    }
-
-
-    input[type="email"]::-moz-placeholder {  /* Firefox 19+ */
-      color: white !important;
-    }
-
-    input[type="email"]:-ms-input-placeholder {
-      color: white !important;
-    }
-  }
-
-  #footerHandy {
-    input[type="email"]::-webkit-input-placeholder {
-      color: white !important;
-    }
-
-    input[type="email"]:-moz-placeholder { /* Firefox 18- */
-      color: white !important;
-    }
-
-    input[type="email"]::-moz-placeholder {  /* Firefox 19+ */
-      color: white !important;
-    }
-
-    input[type="email"]:-ms-input-placeholder {
-      color: white !important;
-    }
-  }
+  #footerHandy ::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
   #footerDesktop a { /* Die Links im Footer weiß einfärben */
       color: #d7d7d7;
   }

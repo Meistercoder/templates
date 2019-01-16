@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-dorfentwicklung.jpg').one().getUrl() }} ">
+  <img class="img-fluid fullscreenbild" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-dorfentwicklung.jpg').one().getUrl() }} ">
 
 <div class="container achterspaltenlayout" id="video"></div>
 
@@ -125,11 +125,11 @@
 
     </div>
   </div>
-  <img class="img-fluid mx-auto d-block"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="padding-bottom: 0;">
+  <img class="img-fluid fullscreenbild"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" style="padding-bottom: 0;">
 </div> <!-- Weißer Hintergrundcontainer -->
 
 {% set entry = craft.entries.section('projekte').slug('dorfpate-werden').one() %}
-<div class="container-fluid"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }});">
+<div class="container-fluid"  style="padding-top: 2.5rem; padding-bottom: 2.5rem; background-image: url({{ entry.bild.one().url }}); background-size: cover;">
   <div class="row">
     <div class="col-md-1">  </div>
     <div class="col-md-3">   <img class="img-fluid mx-auto d-block" src="{{ entry.bild.inReverse().one().url }}" style="max-height: 150px; padding-bottom: 10px;"> </div>
@@ -176,7 +176,7 @@
 </div>
 
 {% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
-<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }})">
+<div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }}); background-size: cover;">
   <div class="container achterspaltenlayout text-center">
     {% set entries = entry.children().all() %}
     {% set entry = random(entries) %}

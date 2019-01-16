@@ -66,7 +66,7 @@
   <hr style="background-color: #ed6e2c; margin-top: 1rem;">
 </div> <!-- Empfehlungen in ihrem schönen Kästchen -->
 
-  <img class="img-fluid mx-auto d-block" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-ueber-uns-arbeitsweise_farm.jpg').one().getUrl() }} ">
+  <img class="img-fluid fullscreenbild" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-ueber-uns-arbeitsweise_farm.jpg').one().getUrl() }} ">
 
 {% set entry = craft.entries.section('fuerSie').slug('chancengeber').one() %}
 <div class="container-fluid no-padding" style="background-image: url({{ entry.bild.one().url }})">

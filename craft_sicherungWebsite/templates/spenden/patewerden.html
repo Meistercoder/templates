@@ -70,7 +70,7 @@
                   </div>
                 </div>
                 <div class="row"> <!-- In eine row packen, da so der margin auf -15px gesetzt wird und das Bild bündig abschließt mit dem Container -->
-                <img class="img-fluid" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+                <img class="img-fluid patenbild" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>
             </div>
             <div class="tab-pane fade" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab" style="padding: 0 15px;">
@@ -96,7 +96,7 @@
               </div>
               {% set entry = craft.entries.section('spenden').slug('partnerdorf').one() %}
               <div class="row"> <!-- In eine row packen, da so der margin auf -15px gesetzt wird und das Bild bündig abschließt mit dem Container -->
-              <img class="img-fluid" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+              <img class="img-fluid patenbild" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
             </div>
             </div>
             {% set entry = craft.entries.section('spenden').slug('partnerkind').one() %}
@@ -122,7 +122,7 @@
                   {% set entry = craft.entries.section('spenden').slug('partnerkind').one() %}
               </div>
               <div class="row"> <!-- In eine row packen, da so der margin auf -15px gesetzt wird und das Bild bündig abschließt mit dem Container -->
-              <img class="img-fluid" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+              <img class="img-fluid patenbild" src="{% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
             </div>
             </div>
             {% set entry = craft.entries.section('spenden').slug('partnerwald').one() %}
@@ -145,7 +145,7 @@
                   {% set entry = craft.entries.section('spenden').slug('partnerwald').one() %}
               </div>
               <div class="row"> <!-- In eine row packen, da so der margin auf -15px gesetzt wird und das Bild bündig abschließt mit dem Container -->
-                <img class="img-fluid" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+                <img class="img-fluid patenbild" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>
             </div>
           </div> <!-- Die Tabs mit den verschiedenen Auswirkungen der Spenden, wechselbar durch klicken -->
@@ -157,6 +157,9 @@
 <style media="screen">
 .img-fluid {
   padding-bottom: 0;
+}
+.patenbild {
+  object-fit: cover;
 }
 .nav-link.active.tab {
   font-weight: normal;
@@ -183,7 +186,12 @@
 
 </style>
 
-<script type="text/javascript">
+<script>
+$(function() {
+  aktivenTabSetzen();
+  });
+
+function aktivenTabSetzen () {
 var url = window.location.href;
 if (url.includes('#')) {
     url = url.replace("https://aufbau-website.de/craft/web/spenden/patewerden.html#", "");
@@ -191,10 +199,11 @@ if (url.includes('#')) {
     $('.nav-link.tab').removeClass('active');
     $('.tab-pane.fade').removeClass('active').removeClass('show');
     $(url).addClass('active');
-    var inhaltsfeld = ($(url).attr('href'));
+    var inhaltsfeld = ($(url).attr('href')); //So kriegt man die referenz auf das inhaltsfeld des aktiven tabs
     console.log(inhaltsfeld);
     $(inhaltsfeld).addClass('active').addClass('show');
   }
+}
 </script>
 
 {% endblock %}
