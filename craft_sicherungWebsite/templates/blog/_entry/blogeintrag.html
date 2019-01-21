@@ -103,7 +103,7 @@
                     {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
                     {% set prev = entry.getPrev(criteria) %}
                     {% if prev %}
-                    <a href="{{ prev.url }}" style="float: left;"> < Vorheriger Beitrag </a>
+                    <a href="{{ prev.url }}"> < Vorheriger Beitrag </a>
                     {% endif %}
                 </div>
 
@@ -116,11 +116,12 @@
                     {% endif %}
                 </div>
             </div>
-            <div style="padding-top: 80px; border-bottom: solid; border-bottom-color:#adadad; padding-bottom: 0px;"></div>
+            <div style="padding-top: 80px; padding-bottom: 0px;"></div>
+            <hr class="beforeCommentsHR">
         </div>
 
 
-        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;">
+        <div  class="container achterspaltenlayout" style="padding-bottom: 3rem;">
 
             {# @var commentsWork \twentyfourhoursmedia\commentswork\services\CommentsWorkService #}
             {% set commentsWork = craft.commentsWork.service %}
@@ -134,44 +135,21 @@
             {% if comment.answerId == 0 %}
             {% set id = comment.id %}
         {# @var comment \twentyfourhoursmedia\commentswork\models\CommentModel #}
-        <div class="container achterspaltenlayout">
+        <div  class="container achterspaltenlayout">
             <p style="margin-bottom: 0px;"><strong>{{comment.name}}</strong></p>
             <p style="font-size: 12px;">Am {{ comment.dateCreated | date }} um {{ comment.dateCreated | date('H:i') }} </p>
         </div>
-        <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem; border-bottom: solid; border-bottom-color: #adadad;">
+        <div  class="container achterspaltenlayout"  style=" padding-bottom: 0rem;">
             {%- if comment.comment is not empty %}
             <p style="padding-bottom: 32px; margin-bottom: 0px;">
                 {{ comment | commentAsHtml }}
             </p>
         	<button id="answerButton" onclick="showAnswerForm(this)">Antworten <i id="answerButtonArrow"></i></button>
-            <div id="hideShow">
+
+            <div id="hideShow" style="padding-left: 60px;">
                 <div id="answers"><!-- anchor --></div>
 
-                {# check if the user has just posted a comment and provide feedback #}
-                {% set justPosted = commentsWork.checkJustPosted() %}
 
-                {% if justPosted %}
-                {# show a message not the form #}
-                {% if justPosted.error %}
-                <div class="alert alert-danger">
-                    <p>The comment could not be posted.</p>
-                </div>
-                {% else %}
-                {% if justPosted.status == 'APPROVED' %}
-                <div class="alert alert-success"><p>Your comment has been published.</p></div>
-                {% elseif justPosted.status == 'PENDING' %}
-                <div class="alert alert-warning"><p>Your comment has been posted and is awaiting moderation.</p></div>
-                {% else %}
-                {# the status is either trashed or spam for some reason,, #}
-                <div class="alert alert-danger"><p>Your comment has been posted but has not been not published..</p>
-                </div>
-                {% endif %}
-                {% endif %}
-                {% else %}
-                {# show the form #}
-                {% if not currentUser and not commentsWork.allowAnonymous(entry) %}
-                <p>Anonymous commenting is not allowed. Please login.</p>
-                {% else %}
                 <div class="container achterspaltenlayout" style=" padding-left: 0; padding-top: 80px;">
                     <h3>Antwort verfassen</h3>
 
@@ -181,23 +159,23 @@
                         <input type="hidden" name="action" value="comments-work/default/post-comment">
                         {{ csrfInput() }}
                         {{ signCommentForm(entry) }}
-                        <input name="redirect" value="{{ craft.app.request.url }}#comments" type="hidden"/>
+                        <input name="redirect" value="{{ craft.app.request.url }}?sucess#comments" type="hidden"/>
                         <input name="elementId" value="{{ entry.id }}" type="hidden"/>
                         <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
                         <input name="commentFormat" value="text" type="hidden"/>
                         <input id="answer" name="answerId" value="{{comment.id}}" type="hidden">
 
                         <div class="row" style="padding-left: 15px; padding-top: 15px; margin-right: 0;">
-                        <textarea  name="comment" rows="5" id="comment-content" class="form-control"
+                        <textarea required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="comment" rows="5" id="comment-content" class="form-control"
                                    placeholder="Gib hier deine Antwort ein"></textarea>
                         </div>
                         <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
                             <div class="col-md-6">
-                                <input  name="name" id="comment-name" class="form-control" type="text"
+                                <input required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="name" id="comment-name" class="form-control" type="text"
                                         placeholder="Name (erforderlich)"/>
                             </div>
                             <div class="col-md-6">
-                                <input  name="mail" id="comment-mail" type="text" class="form-control"
+                                <input required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="mail" id="comment-mail" type="text" class="form-control"
                                         placeholder="Mail (erforderlich)"/>
                             </div>
                         </div>
@@ -206,36 +184,87 @@
                         <div class="row">
                             <p  style="padding-left: 15px;margin-bottom: 0px;">Beim veröffentlichten Kommentar erscheint Ihr angegebener Name als Absender.</p><br>
                             <a  style="padding-left: 15px;" href="/craft/web/fuerSie/rechtliches/datenschutz">Weitere Informationen zum Datenschutz finden Sie hier.</a>
-                            <input type="submit" class="btn btn-primary" value="Kommentar senden" align="right" style="margin-left: 546px"/>
+                            <div class="container achterspaltenlayout">
+                                <input type="submit" class="btn btn-primary" value="Kommentar senden"  style="float:right;"/>
+                            </div>
                         </div>
                     </form>
                 </div>
                 {% endif -%}
-                {% endif -%}
-                {% endif -%}
             </div>
  			{# start comments #}
        		{# you may want to put this code in an include or embed for reusability #}
-            <div id="answerComments" class="container achterspaltenlayout" style="padding: 0px; margin-left: 60px;">
+
                 {% set comments2 = commentsWork.fetchComments(entry, 0, 50) %}
                 {% for comment in comments2 %}
                 {% if comment.answerId == id %}
-                <div class="container achterspaltenlayout" style="margin-top: 2rem; padding-top: 1rem; border-top: solid; border-top-color: #d3d3d3;">
+            <div class="container achterspaltenlayout" style="padding-top: 32px; padding-left: 0px; padding-right: 0px;">
+            <hr class="answerHR">
+            </div>
+            <div id="answerComments" class="container achterspaltenlayout" style=" padding-bottom: 0px; padding-left: 60px;">
+                <div  class="container achterspaltenlayout" >
                     <p style="margin-bottom: 0px;"><strong>{{comment.name}}</strong></p>
                     <p style="font-size: 12px;">Am {{ comment.dateCreated | date }} um {{ comment.dateCreated | date('H:i') }} </p>
                 </div>
-                <div class="container achterspaltenlayout" id="copy" style="padding-bottom: 3rem;">
+                <div  class="container achterspaltenlayout">
                     {%- if comment.comment is not empty %}
                     <p style="padding-bottom: 32px; margin-bottom: 0px;">
                         {{ comment | commentAsHtml }}
                     </p>
-                    <button id="answerButton" onclick="">Antworten <i id="answerButtonArrow2"></i></button>
+                    <button id="answerButton" onclick="showAnswerForm(this)">Antworten <i id="answerButtonArrow2"></i></button>
+
+                    <div id="hideShow">
+                        <div id="answers"><!-- anchor --></div>
+
+
+                        <div class="container achterspaltenlayout" style=" padding-left: 0; padding-top: 80px;">
+                            <h3>Antwort verfassen</h3>
+
+
+
+                            <form method="POST" action="" accep-charset="UTF-8">
+                                <input type="hidden" name="action" value="comments-work/default/post-comment">
+                                {{ csrfInput() }}
+                                {{ signCommentForm(entry) }}
+                                <input name="redirect" value="{{ craft.app.request.url }}?sucess#comments" type="hidden"/>
+                                <input name="elementId" value="{{ entry.id }}" type="hidden"/>
+                                <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
+                                <input name="commentFormat" value="text" type="hidden"/>
+                                <input id="answer" name="answerId" value="{{comment.id}}" type="hidden">
+
+                                <div class="row" style="padding-left: 15px; padding-top: 15px; margin-right: 0;">
+                        <textarea required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="comment" rows="5" id="comment-content" class="form-control"
+                                  placeholder="Gib hier deine Antwort ein"></textarea>
+                                </div>
+                                <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
+                                    <div class="col-md-6">
+                                        <input required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="name" id="comment-name" class="form-control" type="text"
+                                               placeholder="Name (erforderlich)"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="mail" id="comment-mail" type="text" class="form-control"
+                                               placeholder="Mail (erforderlich)"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <p  style="padding-left: 15px;margin-bottom: 0px;">Beim veröffentlichten Kommentar erscheint Ihr angegebener Name als Absender.</p><br>
+                                    <a  style="padding-left: 15px;" href="/craft/web/fuerSie/rechtliches/datenschutz">Weitere Informationen zum Datenschutz finden Sie hier.</a>
+                                    <div class="container achterspaltenlayout">
+                                        <input type="submit" class="btn btn-primary" value="Kommentar senden"  style="float:right;"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 {% endif %}
                 {% endif %}
                 {% endfor %}
-            </div>
 
+            </div>
+        <hr class="commentHR">
         </div>
 
         <br/>
@@ -249,57 +278,34 @@
 
         <div id="comments"><!-- anchor --></div>
 
-        {# check if the user has just posted a comment and provide feedback #}
-        {% set justPosted = commentsWork.checkJustPosted() %}
 
-        {% if justPosted %}
-        {# show a message not the form #}
-        {% if justPosted.error %}
-        <div class="alert alert-danger">
-            <p>The comment could not be posted.</p>
-        </div>
-        {% else %}
-        {% if justPosted.status == 'APPROVED' %}
-        <div class="alert alert-success"><p>Your comment has been published.</p></div>
-        {% elseif justPosted.status == 'PENDING' %}
-        <div class="alert alert-warning"><p>Your comment has been posted and is awaiting moderation.</p></div>
-        {% else %}
-        {# the status is either trashed or spam for some reason,, #}
-        <div class="alert alert-danger"><p>Your comment has been posted but has not been not published..</p>
-        </div>
-        {% endif %}
-        {% endif %}
-        {% else %}
-        {# show the form #}
-        {% if not currentUser and not commentsWork.allowAnonymous(entry) %}
-        <p>Anonymous commenting is not allowed. Please login.</p>
-        {% else %}
             <div class="container-fluid" style="background-color: #f8f5f2">
-        <div class="container achterspaltenlayout" style="background-color: #f8f5f2; padding-left: 0;">
+        <div class="container achterspaltenlayout" style="background-color: #f8f5f2;">
+            <div id ="sucess" class="alert-box success">Kommentar gespeichert! Danke, Ihr Kommentar wurde gespeichert und wird in Kürze freigeschaltet</div>
             <h3 style="padding-top: 40px;">Kommentar verfassen</h3>
 
 
 
-            <form method="POST" action="" accep-charset="UTF-8" >
+            <form method="POST" action="" accep-charset="UTF-8" lang="de" >
                 <input type="hidden" name="action" value="comments-work/default/post-comment">
                 {{ csrfInput() }}
                 {{ signCommentForm(entry) }}
-                <input name="redirect" value="{{ craft.app.request.url }}#comments" type="hidden"/>
+                <input name="redirect" value="{{ craft.app.request.url }}?sucess#comments" type="hidden"/>
                 <input name="elementId" value="{{ entry.id }}" type="hidden"/>
                 <input name="siteId" value="{{ entry.siteId }}" type="hidden"/>
                 <input name="commentFormat" value="text" type="hidden"/>
                 <input id="answer" name="answerId" value="0" type="hidden">
                 <div class="row" style="padding-left: 15px; padding-top: 15px; margin-right: 0;">
-                        <textarea  name="comment" rows="5" id="comment-content" class="form-control"
+                        <textarea  required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')"  name="comment" rows="5" id="comment-content" class="form-control"
                                   placeholder="Gib hier deinen Kommentar ein"></textarea>
                 </div>
                 <div class="row" style="padding-top: 15px; padding-bottom: 15px;">
                     <div class="col-md-6">
-                    <input  name="name" id="comment-name" class="form-control" type="text"
+                    <input required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')" name="name" id="comment-name" class="form-control" type="text"
                            placeholder="Name (erforderlich)"/>
                     </div>
                         <div class="col-md-6">
-                    <input  name="mail" id="comment-mail" type="text" class="form-control"
+                    <input  required oninvalid="this.setCustomValidity('Bitte füllen Sie alle Felder aus')" oninput="setCustomValidity('')" name="mail" id="comment-mail" type="text" class="form-control"
                            placeholder="Mail (erforderlich)"/>
                         </div>
                 </div>
@@ -308,7 +314,9 @@
                 <div class="row">
                     <p  style="padding-left: 15px; margin-bottom: 0px;">Beim veröffentlichten Kommentar erscheint Ihr angegebener Name als Absender.</p><br>
                     <a  style="padding-left: 15px;" href="/craft/web/fuerSie/rechtliches/datenschutz">Weitere Informationen zum Datenschutz finden Sie hier.</a>
-                    <input type="submit" class="btn btn-primary" value="Kommentar senden" align="right" style="margin-left: 584px"/>
+                    <div class="container achterspaltenlayout">
+                    <input type="submit" class="btn btn-primary" value="Kommentar senden"  style="float:right;"/>
+                    </div>
                 </div>
             </form>
         </div>
@@ -316,8 +324,7 @@
 
     </div>
 </div>
-{% endif %}
-{% endif %}
+
 
 
 </div>
@@ -330,7 +337,13 @@
 </div> <!-- Weißer Hintergrund-container -->
 
 <script>
-
+    (function() {
+        if(window.location.href.toString().includes("sucess")){
+            var element = document.getElementById("sucess");
+            element.style.display="block";  // initial opacity
+            setTimeout(function(){element.style.display="none";}, 9000);
+        }
+    })();
     function showAnswerForm(item) {
         if(item.nextElementSibling.style.display!= "block"){
             document.getElementById("hideShow").style.display="none";
@@ -345,6 +358,8 @@
             item.innerHTML="Antworten";
         }
     }
+
+
 </script>
 
 <style> /* Die Styles für die animierten Bilder */
@@ -361,6 +376,19 @@
     line-height: 20px;
 }
 
+alert-box {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    display: none;
+}
 /* Styles f. Antwort auf Kommentar*/
 
 #answerButton {
@@ -394,9 +422,10 @@
 
 #hideShow{
 	display:none;
-    margin-left: 60px;
     margin-top: 10px;
+    border-top: #e5e6e8;
 }
+
 
 .form-control{
     background-color: white;

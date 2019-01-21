@@ -173,7 +173,7 @@ function pdfErstellen() { //Automatisches Erstellen eines PDFs mit den gerade ei
 
 
   doc.setFontSize(10)
-  text = 'Hinweis: Ich kann/Wir können innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem/unserem Kreditinstitut vereinbarten Bedingungen.Chance e.V. speichert Ihre Daten sicher und gibt diese nicht an Dritte weiter. Spender erhalten 1mal im Monat per E-Mail und 2-3mal im Jahr per Brief Informationen. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org';
+  text = 'Hinweis: Ich kann/Wir können innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags verlangen. Es gelten dabei die mit meinem/unserem Kreditinstitut vereinbarten Bedingungen. Chance e.V. speichert Ihre Daten sicher und gibt diese nicht an Dritte weiter. Spender erhalten 1mal im Monat per E-Mail und 2-3mal im Jahr per Brief Informationen. Wenn Sie keine Informationen (mehr) bekommen möchten, schreiben Sie uns: info@chance-international.org';
   var strArr = doc.splitTextToSize(text, 170);
   doc.text(strArr, 20, 270);
 

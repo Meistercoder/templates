@@ -70,7 +70,7 @@
                   </div>
                 </div>
                 <div class="row"> <!-- In eine row packen, da so der margin auf -15px gesetzt wird und das Bild bündig abschließt mit dem Container -->
-                <img class="img-fluid patenbild" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
+                <img style="  object-position: 0 0; /* Vom oberen Teil des Bildes nichts wegschneiden */" class="img-fluid patenbild" src="  {% if entry.bild2.one() is not null %}  {{ entry.bild2.one().getUrl() }}  {% endif %}">
               </div>
             </div>
             <div class="tab-pane fade" id="pills-profile1" role="tabpanel" aria-labelledby="pills-profile-tab" style="padding: 0 15px;">
@@ -160,6 +160,8 @@
 }
 .patenbild {
   object-fit: cover;
+  max-height: 500px;
+  width: 100%;
 }
 .nav-link.active.tab {
   font-weight: normal;
