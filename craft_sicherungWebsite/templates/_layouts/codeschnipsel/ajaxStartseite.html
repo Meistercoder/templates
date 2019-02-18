@@ -40,10 +40,10 @@ function mehrLadenAjax() {
 
   for (i = 0; i < durchlaeufe; i++) {
     if(eintraege[i].blogOderProjekt == 'blog') {
-    var link = "https://aufbau-website.de/craft/web/blog/" + eintraege[i].slug;
+    var link = "https://www.chance-international.org/blog/" + eintraege[i].slug;
     button = "Blogeintrag";
   } else {
-    var link = "https://aufbau-website.de/craft/web/projekte/projektberichte/" + eintraege[i].slug;
+    var link = "https://www.chance-international.org/projekte/projektberichte/" + eintraege[i].slug;
     button = "Projektbericht";
   }
     $("#vorschau").append("<div class=\"col-md-4\" style=\"padding: 20px 15px;\"> <div class=\"card border-light h-100\"> <a href=\"" + link  + "\"> <img style=\"border-radius: 0; object-fit: cover\" class=\"card-img-top\" src=" + eintraege[i].bild + "> <button class=\"btn btn-primary reiter\" role=\"button\">" + button + "</button> </a> <div class=\"card-body\" style=\"padding-top: 0;\"> <h3>" + eintraege[i].title + "</h3> <div id=\"copy\">" + eintraege[i].anleser + "<a href=\"" + link  + "\"> Weiterlesen > </a> </div> </div> </div>");

@@ -83,8 +83,14 @@
             <input type="hidden" name="action" value="contact-form/send">
             {{ redirectInput('kontakt/danke') }}
 
+            {% if 'spende.html' in craft.app.request.absoluteUrl %}
+            <input id="from-email" disabled class="form-control" type="email" style="padding-top: 9px; background-color: #333333; margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
+            {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            {% else %}
             <input id="from-email" required class="form-control" type="email" style="padding-top: 9px; background-color: #333333; margin-right: 1rem; padding-right: 3rem;" name="fromEmail" placeholder="Ihre E-Mail-Adresse" value="{{ message.fromEmail ?? '' }}">
             {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+            {% endif %}
+
             <input type="submit" value="Anmelden" class="btn btn-light" style="line-height: 16px;  padding-top: 11px; padding-bottom: 9px;">
 
             <textarea style="display: none;" rows="10" cols="40" id="message" name="message">Die oben genannte E-Mail-Adresse würde sich gerne für den Newsletter anmelden.</textarea>
@@ -93,7 +99,7 @@
           </form>
 
           <p style="padding-top: 40px; margin-bottom: 0; color: #d7d7d7;" id="copy"> Zweimal im Jahr versenden wir einen längeren Freundesbrief per Post.
-          <br> <a href="https://aufbau-website.de/craft/web/kontakt">Diesen können Sie hier bestellen ></a>
+          <br> <a href="https://www.chance-international.org/kontakt">Diesen können Sie hier bestellen ></a>
 
           </div>
 

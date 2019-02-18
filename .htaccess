@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Chance - Aufbau"
+AuthUserFile /mnt/web012/d2/67/51696067/htdocs/craft/.htpasswd
+Require valid-user

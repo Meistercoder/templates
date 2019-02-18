@@ -12,8 +12,8 @@
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte/projektberichte.html">Projektberichte</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte">Projekte</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte/projektberichte.html">Projektberichte</a></li>
       <li class="breadcrumb-item"> {{ entry.title }} </li>
     </ol>
   </nav>
@@ -45,10 +45,10 @@
 
 {% if entry.bild2.one() is not null %} <!--Wenn bilder hinzugefuegt werden, wird ein slider angezeigt -->
 {% block headerZusatz %}
-<link rel="stylesheet" type="text/css" href="https://aufbau-website.de/craft/web/CSSundJS/gallery/css/strip.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.chance-international.org/CSSundJS/gallery/css/strip.css"/>
 {% endblock %}
 
-<script type="text/javascript" src="https://aufbau-website.de/craft/web/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
+<script type="text/javascript" src="https://www.chance-international.org/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
 
 <style media="screen">
 .thumbnail img {
@@ -109,7 +109,7 @@
       <div class="card-body" style="padding: 1rem 2rem; background-color: white;">
         <p class="card-text">
           <h4 style="margin: 0;"> {{ entry.title }} </h4>
-          <a id="copy" href="{{ 'https://aufbau-website.de/craft/web/projekte/projektberichte/' ~ entry.slug }}"> {{ entry.nurDerLink }}</a>
+          <a id="copy" href="{{ 'https://www.chance-international.org/projekte/projektberichte/' ~ entry.slug }}"> {{ entry.nurDerLink }}</a>
         </p>
       </div>
     </div>

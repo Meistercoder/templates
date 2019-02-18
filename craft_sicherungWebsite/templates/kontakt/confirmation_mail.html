@@ -1,4 +1,26 @@
+{% set url = craft.app.request.absoluteUrl %}
+
+{% if 'spende.html' in url %}
+
+Hallo!
+
+Sie haben sich dazu entschlossen, die Arbeit von Chance e.V. per Lastschrift zu unterstützen.
+
+Im Namen unseres Teams sowie im Namen der Menschen in Peru und Kenia danke ich Ihnen von Herzen für Ihr Vertrauen und Ihre großzügige Hilfe.
+
+Alle gemeinsam können wir so die Welt ein klein wenig verändern und Mensch und Schöpfung eine Chance geben.
+
+Herzlich willkommen im deutsch-peruanisch-kenianischen Team von Chance e.V.!
+
+Um die Lastschrift zu widerrufen, schreiben Sie uns einfach kurz.
+
+Ganz herzliche Grüße und vielen Dank
+
+Ihr Jens Bergmann
+
+{% else %}
 
  <h1 style="padding-bottom: 2rem;"> Vielen Dank für ihr Interesse! </h1>
  <div id="anleser"> Vielen Dank für ihr Interesse an Chance e.V. Um sich für den Newsletter anzumelden, schreiben Sie bitte eine Mail mit 'ja' an chance@international.org.. </div>
-  
+
+{% endif %}

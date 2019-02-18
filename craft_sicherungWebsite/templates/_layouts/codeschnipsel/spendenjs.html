@@ -132,36 +132,39 @@ function pdfErstellen() { //Automatisches Erstellen eines PDFs mit den gerade ei
   doc.text(strArr, 20, 117);
 
   doc.setFontSize(15);
-  doc.text(20, 140, 'Kontoinhaber');
-  doc.text(120, 140, $('#inhaberCraft').val());
+  doc.text(20, 135, 'Einzug ab');
+  doc.text(120, 135, $('#einzugCraft').val());
 
-  doc.text(20, 150, 'Straße, Hausnummer');
-  doc.text(120, 150, $('#adresse').val());
+  doc.text(20, 145, 'Kontoinhaber');
+  doc.text(120, 145, $('#inhaberCraft').val());
 
-  doc.text(20, 160, 'PLZ, ORT');
-  doc.text(120, 160, $('#plz').val());
+  doc.text(20, 155, 'Straße, Hausnummer');
+  doc.text(120, 155, $('#adresse').val());
 
-  doc.text(20, 170, 'Betrag');
-  doc.text(120, 170, $('#betrag').val());
+  doc.text(20, 165, 'PLZ, ORT');
+  doc.text(120, 165, $('#plz').val());
 
-  doc.text(20, 180, 'Verwendungszweck');
-  doc.text(120, 180, $('#sel1').val());
+  doc.text(20, 175, 'Betrag');
+  doc.text(120, 175, $('#betrag').val() + " Euro");
 
-  doc.text(20, 190, 'Intervall');
-  doc.text(120, 190, $('.intervall:checked').val());
+  doc.text(20, 185, 'Verwendungszweck');
+  doc.text(120, 185, $('#sel1').val());
 
-  doc.text(20, 200, 'IBAN');
-  doc.text(120, 200, $('#iban').val());
+  doc.text(20, 195, 'Intervall');
+  doc.text(120, 195, $('.intervall:checked').val());
 
-  doc.text(20, 210, 'BIC');
-  doc.text(120, 210, $('#bic').val());
+  doc.text(20, 205, 'IBAN');
+  doc.text(120, 205, $('#iban').val());
 
-  doc.text(20, 220, 'Name der Bank');
-  doc.text(120, 220, $('#bank').val());
+  doc.text(20, 215, 'BIC');
+  doc.text(120, 215, $('#bic').val());
+
+  doc.text(20, 225, 'Name der Bank');
+  doc.text(120, 225, $('#bank').val());
 
   if ($('#email').val().length>1) {
-  doc.text(20, 230, 'E-Mail');
-  doc.text(120, 230, $('#email').val());
+  doc.text(20, 235, 'E-Mail');
+  doc.text(120, 235, $('#email').val());
   }
 
 
@@ -190,11 +193,12 @@ function myFunction() { //Ueberpruefen, ob alle Felder korekkt ausgefüllt sind
   var allesKorrekt = true;
   $(".fehlermeldung").remove(); //Entfernen aller Fehldermeldungen
   //Formvalidierung
+  if ($('#einzug').val().length<1) {    $('#einzug').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#inhaber').val().length<1) {    $('#inhaber').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#adresse').val().length<1) { $('#adresse').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false;}
   if ($('#plz').val().length<1) { $('#plz').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#bank').val().length<1) { $('#bank').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
-  if ($('#betrag').val().length<1) { $('#betrag').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
+  if ($('#betrag').val().length<1 || $('#betrag').val() < 5) { $('#betrag').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden und der Betrag mindestens 5 € sein. </span>'); allesKorrekt = false; }
   if ($('#sel1').val().length<1) { $('#sel1').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#iban').val().length<1) { $('#iban').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false; }
   if ($('#bic').val().length<1) { $('#bic').after('<span id="info" class="fehlermeldung" style="color: red;">Dieses Feld muss ausgefüllt werden. </span>'); allesKorrekt = false;}
@@ -208,6 +212,9 @@ function myFunction() { //Ueberpruefen, ob alle Felder korekkt ausgefüllt sind
     $('#eingabeFelder').css('display', 'none');
     $('#Kontrollansicht').css('display', 'block');
   }
+
+  $('#einzugK').html($('#einzug').val()); //Wert ins Kontrollfeld schreiben
+  $('#einzugCraft').val($('#einzug').val()); //Wert in das Craft-Feld schreiben --> Um dann später abzuschicken, so wird das bei allen Feldern gemacht
 
   $('#inhaberK').html($('#inhaber').val()); //Wert ins Kontrollfeld schreiben
   $('#inhaberCraft').val($('#inhaber').val()); //Wert in das Craft-Feld schreiben --> Um dann später abzuschicken, so wird das bei allen Feldern gemacht

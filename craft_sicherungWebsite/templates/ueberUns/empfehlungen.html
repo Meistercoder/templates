@@ -12,7 +12,7 @@
 
 <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/ueberUns">Über Uns</a></li>
+    <li class="breadcrumb-item"> <a href="https://www.chance-international.org/ueberUns">Über Uns</a></li>
     <li class="breadcrumb-item"> Empfehlungen</li>
   </ol>
 </nav>
@@ -37,7 +37,7 @@
       <div class="card bg-white" style="border:10px solid #f8f5f2;">
         {% if entry.bild.one() is not null %}
         <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
-          <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}">
+          <a href="{{ 'https://www.chance-international.org/ueber-uns/empfehlung/' ~ entry.slug }}">
         <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
         src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
         </a>
@@ -48,7 +48,7 @@
             <h3> {{ entry.title }} </h3>
             <h4 style="margin-top: -.5rem;"> {{ entry.anleser }} </h4>
             <div id="copy"> {{ entry.text }}
-              <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}"> Weiterlesen > </a>
+              <a href="{{ 'https://www.chance-international.org/ueber-uns/empfehlung/' ~ entry.slug }}"> Weiterlesen > </a>
             </div>
           </p>
         </div>
@@ -70,7 +70,7 @@
               {% if entry.bild.one() is not null %}
               <div class="col-4" style="text-align: center; white-space: nowrap;">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                  <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}">
+                  <a href="{{ 'https://www.chance-international.org/ueber-uns/empfehlung/' ~ entry.slug }}">
                   <img class="rounded-circle w-75" style="margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
                   </a>
                 </div>
@@ -79,7 +79,7 @@
                     <p class="card-text">
                       <h4 style="margin: 0;"> {{ entry.title }} </h4>
                       <div id="copy">
-                        <a href="{{ 'https://aufbau-website.de/craft/web/ueber-uns/empfehlung/' ~ entry.slug }}"> Mehr erfahren > </a>
+                        <a href="{{ 'https://www.chance-international.org/ueber-uns/empfehlung/' ~ entry.slug }}"> Mehr erfahren > </a>
                       </div>
                     </p>
                   </div>

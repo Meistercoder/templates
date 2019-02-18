@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block headerZusatz %}
-<link href="https://aufbau-website.de/craft/web/CSSundJS/gallery/css/strip.css" rel="stylesheet" type="text/css"/>
+<link href="https://www.chance-international.org/CSSundJS/gallery/css/strip.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block block1 %}
-<script type="text/javascript" src="https://aufbau-website.de/craft/web/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
+<script type="text/javascript" src="https://www.chance-international.org/CSSundJS/gallery/js/strip.pkgd.min.js"></script>
 
 <style media="screen">
     .thumbnail img {
@@ -32,7 +32,7 @@
 
     <nav aria-label="breadcrumb" id="info">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="https://aufbau-website.de/craft/web/blog">Blog</a></li>
+            <li class="breadcrumb-item"><a href="https://www.chance-international.org/blog">Blog</a></li>
             <li class="breadcrumb-item"> {{entry.title }}</li>
         </ol>
     </nav>
@@ -78,19 +78,19 @@
             <h3>Mit Anderen Teilen </h3>
             {% set bilder = craft.entries.section('spendenfelderUndSo').slug('logosfbtwitteremail').one() %}
             <a class="teilen" style="padding-left: 0;" target="_blank"
-               href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+               href="{{ 'https://www.facebook.com/sharer/sharer.php?u=https%3A//www.chance-international.org/blog/' ~ entry.slug }}">
                 <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild.one().url }}">
                 <div>Facebook</div>
             </a>
 
             <a class="teilen" target="_blank"
-               href="{{ 'https://twitter.com/home?status=https%3A//aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+               href="{{ 'https://twitter.com/home?status=https%3A//www.chance-international.org/blog/' ~ entry.slug }}">
                 <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild2.one().url }}">
                 <div> Twitter</div>
             </a>
 
             <a class="teilen"
-               href="mailto:?subject=Interessanter Artikel&body={{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+               href="mailto:?subject=Interessanter Artikel&body={{ 'https://www.chance-international.org/blog/' ~ entry.slug }}">
                 <img class="img-fluid" style="padding-bottom: 0; height: 20px;" src="{{ bilder.bild3.one().url }}">
                 <div> Email</div>
             </a>
@@ -107,7 +107,7 @@
                     {% endif %}
                 </div>
 
-                <div class="col-sm-4"><a href="https://aufbau-website.de/craft/web/blog"> Zurück zur Übersicht</a></div>
+                <div class="col-sm-4"><a href="https://www.chance-international.org/blog"> Zurück zur Übersicht</a></div>
                 <div class="col-sm-4" style="text-align: center;">
                     {% set criteria = {section: 'blog', orderBy: 'postDate'} %}
                     {% set next = entry.getNext(criteria) %}

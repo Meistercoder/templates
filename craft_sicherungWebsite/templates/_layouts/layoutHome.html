@@ -5,43 +5,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  {% do view.registerCssFile("/CSSundJS/stylevorgaben2.css") %}
+  {% do view.registerCssFile("/CSSundJS/navbarCSS.css") %}
 
-
-  <!-- <link href="https://www.aufbau-website.de/craft/web/CSSundJS/stylevorgaben2.css" rel="stylesheet" /> -->
-  <link href="https://aufbau-website.de/craft/web/CSSundJS/stylevorgaben2.css" rel="stylesheet" />
-
-{% block headerZusatz %} {% endblock %}
-
-  <!-- <link href="https://www.aufbau-website.de/craft/web/CSSundJS/navbarCSS.css" rel="stylesheet" /> -->
-  <link href="https://aufbau-website.de/craft/web/CSSundJS/navbarCSS.css" rel="stylesheet" />
+  {% block headerZusatz %} {% endblock %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <!-- <script src="https://www.maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
-
-  <script src="https://aufbau-website.de/craft/web/CSSundJS/javascript.js"> </script>
-  <!-- <script src="https://www.aufbau-website.de/craft/web/CSSundJS/javascript.js"> </script> -->
+  {% do view.registerJsFile("/CSSundJS/javascript.js") %}
 
 </head>
 
 
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="80">
 
-  {% include "_layouts/navbar" %}
-  {% include "_layouts/navbar-mobile" %}
+{% include "_layouts/navbar" %}
+{% include "_layouts/navbar-mobile" %}
 
 
-  {% block headerbildPosition1 %} {% endblock %}
-
+{% block headerbildPosition1 %} {% endblock %}
 
 
 {% block headerbildPosition2 %} {% endblock %}
 
 
 {% block block1 %} {% endblock %}
-
 
 
 {% include "_layouts/footer" %}

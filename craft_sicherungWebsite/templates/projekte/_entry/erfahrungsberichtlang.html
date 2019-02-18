@@ -12,8 +12,8 @@
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte/erfahrungsberichte.html">Erfahrungsberichte</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte">Projekte</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte/erfahrungsberichte.html">Erfahrungsberichte</a></li>
       <li class="breadcrumb-item"> {{ entry.title }} </li>
     </ol>
   </nav>
@@ -60,7 +60,7 @@
             <div class="row" style="background-color: white;">
               <div class="col-4" style="text-align: center; white-space: nowrap;">
                  <span class="helper" style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                 <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}">
+                 <a href="{{ 'https://www.chance-international.org/projekte/erfahrungsberichte/' ~ entry.slug }}">
                   <img class="rounded-circle" style="width: 85%; margin-left: 12.5%; vertical-align: middle; max-height: 100px;" src=" {% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}">
                 </a>
               </div>
@@ -69,7 +69,7 @@
                     <p class="card-text">
                       <h4 style="margin: 0;"> {{ entry.title }} </h4>
                       <span id="copy">
-                        <a href="{{ 'https://aufbau-website.de/craft/web/projekte/erfahrungsberichte/' ~ entry.slug }}"> {{ entry.beruf }}</a>
+                        <a href="{{ 'https://www.chance-international.org/projekte/erfahrungsberichte/' ~ entry.slug }}"> {{ entry.beruf }}</a>
                       </span>
                     </p>
                   </div>

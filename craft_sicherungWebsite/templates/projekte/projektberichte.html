@@ -12,7 +12,7 @@
 
   <nav aria-label="breadcrumb" id="info">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
+    <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte">Projekte</a></li>
     <li class="breadcrumb-item"> Projektberichte </li>
   </ol>
 </nav>
@@ -36,13 +36,13 @@
         {% for entry in entries %}
         <div class="col-lg-4 col-md-6 col-sm-6" style="padding-bottom: 40px; padding-left: 5px; padding-right: 5px;">
         <div class="card border-light h-100">
-        <a href="{{ 'https://aufbau-website.de/craft/web/projekte/projektberichte/' ~ entry.slug }}">
+        <a href="{{ 'https://www.chance-international.org/projekte/projektberichte/' ~ entry.slug }}">
       <img class="card-img-top"  src="  {% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
         </a>
         <div id="copy" class="card-body">
             <h3>{{ entry.title }}</h3>
             <div> {{ entry.anleser }} </div>
-            <a href="{{ 'https://aufbau-website.de/craft/web/projekte/projektberichte/' ~ entry.slug }}"> {{ entry.nurDerLink }}</a>
+            <a href="{{ 'https://www.chance-international.org/projekte/projektberichte/' ~ entry.slug }}"> {{ entry.nurDerLink }}</a>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/spenden">Spenden</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/spenden">Spenden</a></li>
       <li class="breadcrumb-item"> Pate werden </li>
     </ol>
   </nav>
@@ -60,10 +60,10 @@
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
                     <div class="row">
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Peru" class="btn btn-primary" role="button">Länderpate in Peru</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=Peru" class="btn btn-primary" role="button">Länderpate in Peru</a>
                       </div>
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Kenia" class="btn btn-primary" role="button">Länderpate in Kenia</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=Kenia" class="btn btn-primary" role="button">Länderpate in Kenia</a>
                       </div>
                     </div>
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
@@ -85,10 +85,10 @@
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
                     <div class="row">
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Peru" class="btn btn-primary" role="button">Dorfpate in Peru</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=D%C3%B6rfer%20Peru" class="btn btn-primary" role="button">Dorfpate in Peru</a>
                       </div>
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=D%C3%B6rfer%20Kenia" class="btn btn-primary" role="button">Dorfpate in Kenia</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=D%C3%B6rfer%20Kenia" class="btn btn-primary" role="button">Dorfpate in Kenia</a>
                       </div>
                     </div>
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
@@ -111,10 +111,10 @@
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
                     <div class="row">
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Kinderpate%20Peru*" class="btn btn-primary" role="button">Kinderpate in Peru</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=Kinderpate%20Peru*" class="btn btn-primary" role="button">Kinderpate in Peru</a>
                       </div>
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Kinderpate%20Kenia*" class="btn btn-primary" role="button">Kinderpate in Kenia</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=Kinderpate%20Kenia*" class="btn btn-primary" role="button">Kinderpate in Kenia</a>
                       </div>
                     </div>
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
@@ -137,7 +137,7 @@
                     <span id="copy"> <strong> Werden Sie: </strong> </span>
                     <div class="row">
                       <div class="col-12">
-                        <a style="margin: 4%; margin-left: 0;" href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Naturschutz%20Peru" class="btn btn-primary" role="button">Waldpate in Peru</a>
+                        <a style="margin: 4%; margin-left: 0;" href="https://www.chance-international.org/spenden/spende.html?spendenart=Naturschutz%20Peru" class="btn btn-primary" role="button">Waldpate in Peru</a>
                       </div>
                     </div>
                     <div id="info" style="padding-top: 10%"> {{ entry.zusatzfeld2 }}</div>
@@ -189,14 +189,25 @@
 </style>
 
 <script>
+aktiverTab = null;
+
 $(function() {
   aktivenTabSetzen();
+  aktiverTab = $('.nav-link.active'); //Einmal der aktive Tab wird gespeichert
   });
+
+  $('.nav-link.tab').click(function() {
+  aktiverTab = $(this);
+});
+
+$(window).scroll ( function() {
+    aktiverTab.addClass('active');
+    });
 
 function aktivenTabSetzen () {
 var url = window.location.href;
 if (url.includes('#')) {
-    url = url.replace("https://aufbau-website.de/craft/web/spenden/patewerden.html#", "");
+    url = url.replace("https://www.chance-international.org/spenden/patewerden.html#", "");
     url = '.' + url;
     $('.nav-link.tab').removeClass('active');
     $('.tab-pane.fade').removeClass('active').removeClass('show');

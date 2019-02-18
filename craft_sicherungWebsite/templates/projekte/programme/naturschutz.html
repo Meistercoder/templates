@@ -15,14 +15,14 @@
 {% block block1 %}
 
 
-<a class="btn btn-primary wandernderButton" href="https://aufbau-website.de/craft/web/spenden/patewerden.html#wald">Waldpate werden</a>
+<a class="btn btn-primary wandernderButton" href="https://www.chance-international.org/spenden/patewerden.html#wald">Waldpate werden</a>
 
 <div class="container-fluid text-center" style="padding-top: 7rem; position: relative;" id="start">
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte">Projekte</a></li>
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/projekte/programme.html">Programme</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte">Projekte</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/projekte/programme.html">Programme</a></li>
       <li class="breadcrumb-item"> Naturschutz </li>
     </ol>
   </nav>
@@ -66,8 +66,11 @@
 
 <img class="img-fluid fullscreenbild" style="padding-bottom: 0;" src=" {{ craft.assets.filename('chance-projekte-programme-naturschutz.jpg').one().getUrl() }}">
 
-<div class="container achterspaltenlayout" id="video"></div>
-
+<div class="container achterspaltenlayout" id="video">
+  <div class="embed-responsive embed-responsive-16by9 videoStart">
+    <iframe src="https://www.youtube.com/embed/X9Z9ueESlOE?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
 <div class="container achterspaltenlayout text-center" id="bestandteile" style="padding-top: 5rem; padding-bottom: 0;">
   {% set entry = craft.entries.section('projekte').slug('bestandteile-naturschutzprogramms').one() %}
   <h2 style="padding-bottom: 2rem;"> {{ entry.title }} </h2>
@@ -112,7 +115,7 @@
     <div class="col-md-7" style="padding-left: 30px;">
       <h2 style="color: white; padding-bottom: 1rem;"> {{ entry.title }} </h2>
       <div id="copy" style="color: white;"> {{ entry.text }}</div>
-      <a href="https://aufbau-website.de/craft/web/spenden/spende.html?spendenart=Naturschutz%20Peru" class="btn btn-primary" role="button">Waldpate werden</a>
+      <a href="https://www.chance-international.org/spenden/spende.html?spendenart=Naturschutz%20Peru" class="btn btn-primary" role="button">Waldpate werden</a>
     </div>
   </div>
 </div> <!-- Der orange Berg mit dem Spendenaufruf -->

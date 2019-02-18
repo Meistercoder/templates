@@ -13,8 +13,8 @@
 
   <nav aria-label="breadcrumb" id="info">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie">Für Sie</a></li>
-      <li class="breadcrumb-item"> <a href="https://aufbau-website.de/craft/web/fuerSie/freiwilligendienst.html">Freiwilligendienst</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/fuerSie">Für Sie</a></li>
+      <li class="breadcrumb-item"> <a href="https://www.chance-international.org/fuerSie/freiwilligendienst.html">Freiwilligendienst</a></li>
       <li class="breadcrumb-item"> Erfahrungsberichte </li>
     </ol>
   </nav>
@@ -37,7 +37,7 @@
         {% for entry in entries %}
         <div class="card bg-white" style="border:5px solid #f8f5f2;">
           <div class="wrapper" style="background-color: #f8f5f2; max-height: 95px;">
-            <a href="{{ 'https://aufbau-website.de/craft/web/freiwilligenberichte/' ~ entry.slug }}">
+            <a href="{{ 'https://www.chance-international.org/freiwilligenberichte/' ~ entry.slug }}">
           <img class="card-img-top rounded-circle" style="border:8px solid #f8f5f2; max-height: 160px; max-width: 160px; display: block; margin-left: auto; margin-right: auto;  width: 50;"
           src="{% if entry.bild.one() is not null %}  {{ entry.bild.one().getUrl() }}  {% endif %}" alt="Card image">
             </a>
@@ -46,7 +46,7 @@
             <p class="card-text">
               <h3> {{ entry.title }} </h3>
               <div id="copy"> {{ entry.anleser }}
-              <a href="{{ 'https://aufbau-website.de/craft/web/freiwilligenberichte/' ~ entry.slug }}"> Mehr erfahren > </a>
+              <a href="{{ 'https://www.chance-international.org/freiwilligenberichte/' ~ entry.slug }}"> Mehr erfahren > </a>
               </div>
             </p>
           </div>

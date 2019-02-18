@@ -42,10 +42,10 @@
 
   <div class="container zwoelferspaltenlayout" style="background-color: padding-bottom: 3rem;">
     <div class="row">
-      {% set entries = craft.entries.section('blog').level('1').limit(3) %}
+      {% set entries = craft.entries.section('blog').level('1').limit(3).all() %}
       <div class="col-sm-8">
         {% for entry in entries %}
-        <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+        <a href="{{ 'https://www.chance-international.org/blog/' ~ entry.slug }}">
         <img class="img-fluid" src="{% if entry.bild.one() is not null %} {{ entry.bild.one().url }} {% endif %}" alt="blogbild" style="padding-bottom: 2rem;">
         </a>
         <div id="info" style="padding-bottom: 1rem;"> Veröffentlicht am {{ entry.postDate | date("d. M Y") }} - in
@@ -61,11 +61,11 @@
         {% endif %}
         </div>
         <!-- Mit der oberen Zeile wird die Kategorie des Artikels abgerufen und angezeigt und sofort klickbar -->
-        <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}">
+        <a href="{{ 'https://www.chance-international.org/blog/' ~ entry.slug }}">
         <h2 style="padding-bottom: 1rem;"> {{ entry.title}}</h2>
         </a>
         <div id="copy" style="padding-top: 0; padding-bottom: 5rem;"> {{ entry.anleser }}
-        <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }} "> Weiterlesen > </a>
+        <a href="{{ 'https://www.chance-international.org/blog/' ~ entry.slug }} "> Weiterlesen > </a>
         </div>
         {% set counter = counter + 1 %}
         {% endfor %}
@@ -75,7 +75,7 @@
 
 
 <script>
-{% set entries = craft.entries.section('blog').level('1').offset(3) %}
+{% set entries = craft.entries.section('blog').level('1').offset(3).all() %}
 
 var eintraege = [];
 {% for entry in entries %} //Alle Zitate werden in ein Feld kopiert aus Craft
@@ -89,7 +89,7 @@ function mehrLadenAjax() {
   if (eintraege.length > 3) { durchlaeufe = 3;  } else { durchlaeufe = eintraege.length }
 
   for (i = 0; i < durchlaeufe; i++) {
-    var link = "https://aufbau-website.de/craft/web/blog/" + eintraege[i].slug;
+    var link = "https://www.chance-international.org/blog/" + eintraege[i].slug;
     var kommentare = eintraege[i].kommentare;
     if (kommentare < 1) {
       kommentare = '';
@@ -101,7 +101,7 @@ function mehrLadenAjax() {
     $("#div1").append("<a href=" + link + "> <img class=\"img-fluid\" style=\"padding-bottom: 2rem;\" src=" + eintraege[i].bild + "> </img> </a>");
     $("#div1").append("<div style=\"padding-bottom: 1rem;\" id=\"info\"> Veröffentlicht am " + eintraege[i].datum + " - in <a href=\"" + eintraege[i].kategorieUrl + "\">" + eintraege[i].kategorie + "</a>" + kommentare + "</div>");
     $("#div1").append("<a href=" + link + "> <h2 style=\"padding-bottom: 1rem;\">" + eintraege[i].title + "</h2> </a>");
-    $("#div1").append("<div style=\"padding-bottom: 5rem;\" id=\"copy\">" + eintraege[i].anleser + "<a href=\"https://aufbau-website.de/craft/web/blog/" + eintraege[i].slug +"\"> Weiterlesen > </a> </div>");
+    $("#div1").append("<div style=\"padding-bottom: 5rem;\" id=\"copy\">" + eintraege[i].anleser + "<a href=\"https://www.chance-international.org/blog/" + eintraege[i].slug +"\"> Weiterlesen > </a> </div>");
     //$("#div1").html("<img src=" + eintraege[i].bild + "> </img>");
 }
 for (i = 0; i < durchlaeufe; i++) { //Loeschen der ersten drei angezeigten Elemente
@@ -149,9 +149,9 @@ if (eintraege.length == 0) {
 
         <div id="copy" style="background-color: #f8f5f2; padding: 1.5rem; margin-bottom: 1.5rem;">
           <p> <strong> Letzte Beiträge </strong> </p>
-          {% set entries = craft.entries.section('blog').level('1').limit(5) %}
+          {% set entries = craft.entries.section('blog').level('1').limit(5).all() %}
           {% for entry in entries %}
-          <a href="{{ 'https://aufbau-website.de/craft/web/blog/' ~ entry.slug }}"> {{ entry.title }}</a>
+          <a href="{{ 'https://www.chance-international.org/blog/' ~ entry.slug }}"> {{ entry.title }}</a>
           <hr style="margin-top: .25rem; margin-bottom: .25rem;">
           {% endfor %}
         </div>
